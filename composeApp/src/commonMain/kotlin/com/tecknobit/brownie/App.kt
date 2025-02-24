@@ -8,6 +8,7 @@ import brownie.composeapp.generated.resources.rubik
 import brownie.composeapp.generated.resources.ubuntu_mono
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen
+import com.tecknobit.equinoxcompose.session.EquinoxLocalUser
 import moe.tlaster.precompose.PreComposeApp
 import moe.tlaster.precompose.navigation.NavHost
 import moe.tlaster.precompose.navigation.Navigator
@@ -23,6 +24,14 @@ lateinit var bodyFontFamily: FontFamily
  * `displayFontFamily` the Brownie's font family
  */
 lateinit var displayFontFamily: FontFamily
+
+/**
+ *`localUser` the helper to manage the local sessions stored locally in
+ * the device
+ */
+val localUser = EquinoxLocalUser(
+    localStoragePath = "Brownie"
+)
 
 /**
  * `navigator` the navigator instance is useful to manage the navigation between the screens of the application

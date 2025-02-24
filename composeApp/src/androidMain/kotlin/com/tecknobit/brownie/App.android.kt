@@ -3,7 +3,9 @@ package com.tecknobit.brownie
 import androidx.activity.compose.LocalActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
+import com.tecknobit.equinoxcore.utilities.AppContext
 import moe.tlaster.precompose.navigation.BackHandler
+import java.util.Locale
 
 /**
  * Method to check whether are available any updates for each platform and then launch the application
@@ -35,13 +37,12 @@ actual fun CheckForUpdatesAndLaunch() {
  *
  */
 actual fun setUserLanguage() {
-    // TODO: TO SET
-    /*val locale = Locale(localUser.language)
+    val locale = Locale(localUser.language)
     Locale.setDefault(locale)
     val context = AppContext.get()
     val config = context.resources.configuration
     config.setLocale(locale)
-    context.createConfigurationContext(config)*/
+    context.createConfigurationContext(config)
 }
 
 /**

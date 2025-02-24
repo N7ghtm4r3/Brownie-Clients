@@ -2,6 +2,7 @@ package com.tecknobit.brownie
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
+import java.util.Locale
 
 /**
  * Method to check whether are available any updates for each platform and then launch the application
@@ -32,8 +33,7 @@ actual fun CheckForUpdatesAndLaunch() {
  *
  */
 actual fun setUserLanguage() {
-    // TODO: TO SET
-    // Locale.setDefault(Locale.forLanguageTag(localUser.language))
+    Locale.setDefault(Locale.forLanguageTag(localUser.language))
 }
 
 /**

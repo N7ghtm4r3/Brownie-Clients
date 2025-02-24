@@ -2,6 +2,6 @@
     <string name="app_name">Brownie</string>
     <string name="app_version">1.0.0</string>
     <string name="hosts">Host</string>
-    <string name="add">Aggiungi</string>
+    <string name="register">Registra</string>
     <string name="no_hosts_registered">Nessun host registrato</string>
 </resources>

@@ -2,8 +2,8 @@
 
 package com.tecknobit.brownie.ui.screens.hosts.presenter
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FloatingActionButton
@@ -16,10 +16,13 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import brownie.composeapp.generated.resources.Res
-import brownie.composeapp.generated.resources.add
 import brownie.composeapp.generated.resources.hosts
+import brownie.composeapp.generated.resources.register
 import com.tecknobit.brownie.CloseApplicationOnNavBack
+import com.tecknobit.brownie.ui.icons.AssignmentAdd
 import com.tecknobit.brownie.ui.screens.hosts.components.HostsList
 import com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel
 import com.tecknobit.brownie.ui.theme.BrownieTheme
@@ -42,6 +45,8 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
         CloseApplicationOnNavBack()
         BrownieTheme {
             Scaffold(
+                modifier = Modifier
+                    .navigationBarsPadding(),
                 topBar = {
                     TopAppBar(
                         colors = TopAppBarDefaults.topAppBarColors(
@@ -70,7 +75,7 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
                                 }
                             ) {
                                 Icon(
-                                    imageVector = Icons.Default.Add,
+                                    imageVector = AssignmentAdd,
                                     contentDescription = null
                                 )
                             }
@@ -79,6 +84,10 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
                 }
             ) {
                 HostsList(
+                    modifier = Modifier
+                        .padding(
+                            top = it.calculateTopPadding()
+                        ),
                     viewModel = viewModel
                 )
             }
@@ -97,13 +106,22 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
             }
         ) {
             Text(
-                text = stringResource(Res.string.add)
+                text = stringResource(Res.string.register)
             )
             Icon(
-                imageVector = Icons.Default.Add,
+                modifier = Modifier
+                    .padding(
+                        start = 5.dp
+                    ),
+                imageVector = AssignmentAdd,
                 contentDescription = null
             )
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.refreshHostsList()
     }
 
     /**
