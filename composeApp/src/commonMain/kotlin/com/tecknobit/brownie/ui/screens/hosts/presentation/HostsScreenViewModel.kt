@@ -1,6 +1,7 @@
 package com.tecknobit.brownie.ui.screens.hosts.presentation
 
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.MutableState
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.browniecore.enums.HostStatus
@@ -15,6 +16,8 @@ class HostsScreenViewModel : EquinoxViewModel(
     snackbarHostState = SnackbarHostState()
 ) {
 
+    lateinit var inputSearch: MutableState<String>
+    
     val hostsState = PaginationState<Int, SavedHost>(
         initialPageKey = DEFAULT_PAGE,
         onRequestPage = { page ->
@@ -28,7 +31,7 @@ class HostsScreenViewModel : EquinoxViewModel(
         retrieve(
             currentContext = HostsScreen::class,
             routine = { hostsState.refresh() },
-            refreshDelay = 5000
+            refreshDelay = 10000
         )
     }
 
@@ -58,8 +61,9 @@ class HostsScreenViewModel : EquinoxViewModel(
             )
         )
         // TODO: MAKE THE REQUEST THEN
+        // TODO: TO APPLY THE FILTERS ALSO 
         hostsState.appendPage(
-            items = if (false)
+            items = if (Random.nextBoolean())
                 emptyList()
             else
                 e, // TODO: MAKE THE REQUEST,

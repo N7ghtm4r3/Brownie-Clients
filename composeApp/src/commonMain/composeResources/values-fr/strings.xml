@@ -4,4 +4,5 @@
     <string name="hosts">Hôtes</string>
     <string name="register">Registre</string>
     <string name="no_hosts_registered">Aucun hôte enregistré</string>
+    <string name="enter_name_or_ip">Saisir le nom ou l\'adresse IP</string>
 </resources>

@@ -4,4 +4,5 @@
     <string name="hosts">Anfitriones</string>
     <string name="register">Regístrese en</string>
     <string name="no_hosts_registered">No hay anfitriones registrados</string>
+    <string name="enter_name_or_ip">Introduzca el nombre o la dirección IP</string>
 </resources>

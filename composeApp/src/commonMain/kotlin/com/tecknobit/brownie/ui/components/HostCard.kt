@@ -4,7 +4,6 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -25,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.Companion.asColor
@@ -44,8 +44,6 @@ fun HostCard(
 ) {
     val statusState = remember { mutableStateOf(host.status) }
     Card(
-        modifier = Modifier
-            .fillMaxWidth(),
         onClick = {
             // TODO: NAV TO HOST
         }
@@ -56,18 +54,21 @@ fun HostCard(
             ),
             overlineContent = {
                 StatusBadge(
-                    host = host,
                     statusState = statusState
                 )
             },
             headlineContent = {
                 Text(
-                    text = host.name
+                    text = host.name,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
                 )
             },
             supportingContent = {
                 Text(
-                    text = host.ipAddress
+                    text = host.ipAddress,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
                 )
             },
             trailingContent = {
@@ -84,7 +85,6 @@ fun HostCard(
 @Composable
 @NonRestartableComposable
 private fun StatusBadge(
-    host: SavedHost,
     statusState: MutableState<HostStatus>,
 ) {
     val color = statusState.value.asColor()
@@ -96,7 +96,9 @@ private fun StatusBadge(
                 horizontal = 4.dp
             ),
         text = statusState.value.name,
-        backgroundColor = color
+        backgroundColor = color,
+        maxLines = 1,
+        overflow = TextOverflow.Ellipsis
     )
 }
 
