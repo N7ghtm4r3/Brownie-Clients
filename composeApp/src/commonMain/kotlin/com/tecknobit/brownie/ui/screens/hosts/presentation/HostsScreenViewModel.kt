@@ -2,6 +2,7 @@ package com.tecknobit.brownie.ui.screens.hosts.presentation
 
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateListOf
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.browniecore.enums.HostStatus
@@ -17,6 +18,12 @@ class HostsScreenViewModel : EquinoxViewModel(
 ) {
 
     lateinit var inputSearch: MutableState<String>
+
+    val statusFilters = mutableStateListOf<HostStatus>()
+
+    init {
+        statusFilters.addAll(HostStatus.entries)
+    }
     
     val hostsState = PaginationState<Int, SavedHost>(
         initialPageKey = DEFAULT_PAGE,
@@ -70,6 +77,14 @@ class HostsScreenViewModel : EquinoxViewModel(
             nextPageKey = page + 1, // TODO: MAKE THE REQUEST
             isLastPage = true || Random.nextBoolean() // TODO: MAKE THE REQUEST
         )
+    }
+
+    fun applyStatusFilters(
+        onSuccess: () -> Unit,
+    ) {
+        // TODO: MAKE THE REQUEST THEN
+        onSuccess()
+        hostsState.refresh()
     }
 
     fun handleHostStatus(

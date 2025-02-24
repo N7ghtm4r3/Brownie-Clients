@@ -14,7 +14,6 @@ import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.no_hosts_registered
 import brownie.composeapp.generated.resources.server_down
 import com.tecknobit.brownie.ui.components.FirstPageProgressIndicator
-import com.tecknobit.brownie.ui.components.HostCard
 import com.tecknobit.brownie.ui.components.NewPageProgressIndicator
 import com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel
 import com.tecknobit.brownie.ui.theme.AppTypography

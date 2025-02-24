@@ -1,11 +1,8 @@
-package com.tecknobit.brownie.ui.components
+package com.tecknobit.brownie.ui.screens.hosts.components
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.RestartAlt
@@ -21,20 +18,16 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
+import com.tecknobit.brownie.ui.components.StatusBadge
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
-import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.Companion.asColor
 import com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel
 import com.tecknobit.brownie.ui.theme.green
 import com.tecknobit.brownie.ui.theme.red
 import com.tecknobit.brownie.ui.theme.yellow
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.HostStatus.REBOOTING
-import com.tecknobit.equinoxcompose.components.ChameleonText
 
 @Composable
 @NonRestartableComposable
@@ -54,7 +47,7 @@ fun HostCard(
             ),
             overlineContent = {
                 StatusBadge(
-                    statusState = statusState
+                    status = statusState.value
                 )
             },
             headlineContent = {
@@ -80,26 +73,6 @@ fun HostCard(
             }
         )
     }
-}
-
-@Composable
-@NonRestartableComposable
-private fun StatusBadge(
-    statusState: MutableState<HostStatus>,
-) {
-    val color = statusState.value.asColor()
-    ChameleonText(
-        modifier = Modifier
-            .clip(RoundedCornerShape(4.dp))
-            .background(color)
-            .padding(
-                horizontal = 4.dp
-            ),
-        text = statusState.value.name,
-        backgroundColor = color,
-        maxLines = 1,
-        overflow = TextOverflow.Ellipsis
-    )
 }
 
 @Composable

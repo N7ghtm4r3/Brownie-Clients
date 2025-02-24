@@ -2,17 +2,21 @@
 
 package com.tecknobit.brownie.ui.screens.hosts.presenter
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -33,6 +37,7 @@ import brownie.composeapp.generated.resources.enter_name_or_ip
 import brownie.composeapp.generated.resources.hosts
 import brownie.composeapp.generated.resources.register
 import com.tecknobit.brownie.CloseApplicationOnNavBack
+import com.tecknobit.brownie.ui.components.StatusFilterButton
 import com.tecknobit.brownie.ui.icons.AssignmentAdd
 import com.tecknobit.brownie.ui.screens.hosts.components.HostsList
 import com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel
@@ -151,7 +156,9 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
                 )
                 .padding(
                     horizontal = 16.dp
-                )
+                ),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(10.dp)
         ) {
             EquinoxTextField(
                 shape = CardDefaults.shape,
@@ -165,7 +172,28 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
                 textFieldColors = TextFieldDefaults.colors(
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent
-                )
+                ),
+                trailingIcon = {
+                    IconButton(
+                        onClick = {
+                            viewModel.inputSearch.value = ""
+                            viewModel.hostsState.refresh()
+                        }
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Clear,
+                            contentDescription = null
+                        )
+                    }
+                }
+            )
+            StatusFilterButton(
+                onClick = { menuExpanded ->
+                    viewModel.applyStatusFilters(
+                        onSuccess = { menuExpanded.value = false }
+                    )
+                },
+                statusFilters = viewModel.statusFilters
             )
         }
     }

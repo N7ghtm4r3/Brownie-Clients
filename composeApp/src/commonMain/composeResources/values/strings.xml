@@ -4,5 +4,6 @@
     <string name="hosts">Hosts</string>
     <string name="register">Register</string>
     <string name="no_hosts_registered">No hosts registered</string>
-    <string name="enter_name_or_ip">Enter name or IP address</string>
+    <string name="enter_name_or_ip">Name or IP address</string>
+    <string name="status">Status</string>
 </resources>
