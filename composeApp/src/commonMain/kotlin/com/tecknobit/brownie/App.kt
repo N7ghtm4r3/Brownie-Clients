@@ -1,10 +1,12 @@
 package com.tecknobit.brownie
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.text.font.FontFamily
 import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.rubik
 import brownie.composeapp.generated.resources.ubuntu_mono
+import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen
 import moe.tlaster.precompose.PreComposeApp
 import moe.tlaster.precompose.navigation.NavHost
@@ -29,6 +31,8 @@ lateinit var navigator: Navigator
 
 const val SPLASH_SCREEN = "Splashscreen"
 
+const val HOSTS_SCREEN = "HostsScreen"
+
 @Composable
 fun App() {
     bodyFontFamily = FontFamily(Font(Res.font.rubik))
@@ -44,6 +48,68 @@ fun App() {
             ) {
                 Splashscreen().ShowContent()
             }
+            scene(
+                route = HOSTS_SCREEN
+            ) {
+                HostsScreen().ShowContent()
+            }
         }
     }
 }
+
+/**
+ * Method to check whether are available any updates for each platform and then launch the application
+ * which the correct first screen to display
+ *
+ */
+@Composable
+@NonRestartableComposable
+expect fun CheckForUpdatesAndLaunch()
+
+/**
+ * Method to init the local session and the related instances then start the user session
+ *
+ */
+fun startSession() {
+    // TODO: TO SET
+    /*requester = RefyRequester(
+        host = localUser.hostAddress,
+        userId = localUser.userId,
+        userToken = localUser.userToken
+    )
+    val route =
+        if (!localUser.userId.isNullOrBlank()) { // TODO: TO USE localUser.isAuthenticated INSTEAD
+            MainScope().launch {
+                requester.sendRequest(
+                    request = {
+                        getDynamicAccountData()
+                    },
+                    onSuccess = { response ->
+                        localUser.updateDynamicAccountData(
+                            dynamicData = response.toResponseData()
+                        )
+                    },
+                    onFailure = {}
+                )
+            }
+            HOME_SCREEN
+        } else
+            AUTH_SCREEN*/
+    setUserLanguage()
+    // TODO: MAKE THE REAL NAVIGATION
+    navigator.navigate(HOSTS_SCREEN)
+}
+
+/**
+ * Method to set locale language for the application
+ *
+ */
+expect fun setUserLanguage()
+
+/**
+ * Method to manage correctly the back navigation from the current screen
+ *
+ */
+@Composable
+@NonRestartableComposable
+expect fun CloseApplicationOnNavBack()

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Brownie</string>
     <string name="app_version">1.0.0</string>
+    <string name="hosts">Hosts</string>
+    <string name="add">Add</string>
+    <string name="no_hosts_registered">No hosts registered</string>
 </resources>

@@ -9,18 +9,17 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.app_name
+import com.tecknobit.brownie.CheckForUpdatesAndLaunch
 import com.tecknobit.brownie.bodyFontFamily
 import com.tecknobit.brownie.displayFontFamily
 import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.equinoxcompose.session.screens.EquinoxNoModelScreen
-import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 
 class Splashscreen : EquinoxNoModelScreen() {
@@ -68,10 +67,7 @@ class Splashscreen : EquinoxNoModelScreen() {
                 }
             }
         }
-        LaunchedEffect(Unit) {
-            delay(750)
-
-        }
+        CheckForUpdatesAndLaunch()
     }
 
     /**
