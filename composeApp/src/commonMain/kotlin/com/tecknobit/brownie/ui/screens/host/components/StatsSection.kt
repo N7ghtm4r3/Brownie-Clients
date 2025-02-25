@@ -3,8 +3,10 @@
 package com.tecknobit.brownie.ui.screens.host.components
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -25,7 +27,7 @@ import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
 
 @Composable
 @NonRestartableComposable
-fun StatsSection(
+fun ColumnScope.StatsSection(
     hostOverview: SavedHostOverview,
 ) {
     ResponsiveContent(
@@ -64,6 +66,10 @@ private fun RowStats(
         title = Res.string.stats
     )
     LazyVerticalGrid(
+        modifier = Modifier
+            .heightIn(
+                max = 300.dp
+            ),
         columns = GridCells.Fixed(3),
         contentPadding = PaddingValues(
             all = 16.dp
@@ -99,7 +105,10 @@ private fun ColumnStats(
         content = {
             LazyColumn(
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .heightIn(
+                        max = 700.dp
+                    ),
                 contentPadding = PaddingValues(
                     all = 16.dp
                 ),

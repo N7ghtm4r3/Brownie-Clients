@@ -33,6 +33,7 @@ import com.tecknobit.brownie.ui.theme.green
 import com.tecknobit.brownie.ui.theme.red
 import com.tecknobit.brownie.ui.theme.yellow
 import com.tecknobit.browniecore.enums.HostStatus
+import com.tecknobit.equinoxcompose.components.ChameleonText
 import com.tecknobit.equinoxcompose.utilities.CompactClassComponent
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.EXPANDED_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.MEDIUM_CONTENT
@@ -191,8 +192,9 @@ private fun ActionButtons(
                     )
                 }
             ) {
-                Text(
-                    text = stringResource(Res.string.stop)
+                ChameleonText(
+                    text = stringResource(Res.string.stop),
+                    backgroundColor = red()
                 )
             }
             Button(
@@ -213,8 +215,9 @@ private fun ActionButtons(
                     )
                 }
             ) {
-                Text(
-                    text = stringResource(Res.string.reboot)
+                ChameleonText(
+                    text = stringResource(Res.string.reboot),
+                    backgroundColor = yellow()
                 )
             }
         }
@@ -236,8 +239,9 @@ private fun ActionButtons(
                 )
             }
         ) {
-            Text(
-                text = stringResource(Res.string.start)
+            ChameleonText(
+                text = stringResource(Res.string.start),
+                backgroundColor = green()
             )
         }
     }
