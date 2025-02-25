@@ -3,7 +3,7 @@ package com.tecknobit.brownie.ui.screens.hosts.presentation
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateListOf
-import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
+import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.HostStatus.OFFLINE
@@ -24,8 +24,8 @@ class HostsScreenViewModel : EquinoxViewModel(
     init {
         statusFilters.addAll(HostStatus.entries)
     }
-    
-    val hostsState = PaginationState<Int, SavedHost>(
+
+    val hostsState = PaginationState<Int, SavedHostImpl>(
         initialPageKey = DEFAULT_PAGE,
         onRequestPage = { page ->
             loadHosts(
@@ -46,21 +46,21 @@ class HostsScreenViewModel : EquinoxViewModel(
         page: Int,
     ) {
         val e = listOf(
-            SavedHost(
+            SavedHostImpl(
                 id = Random.nextLong().toString(),
                 name = "aa",
                 ipAddress = "192.168.1.1",
                 status = ONLINE
             ),
 
-            SavedHost(
+            SavedHostImpl(
                 id = Random.nextLong().toString(),
                 name = "aa",
                 ipAddress = "192.168.1.1",
                 status = OFFLINE
             ),
 
-            SavedHost(
+            SavedHostImpl(
                 id = Random.nextLong().toString(),
                 name = "aa",
                 ipAddress = "192.168.1.1",
@@ -70,12 +70,12 @@ class HostsScreenViewModel : EquinoxViewModel(
         // TODO: MAKE THE REQUEST THEN
         // TODO: TO APPLY THE FILTERS ALSO 
         hostsState.appendPage(
-            items = if (Random.nextBoolean())
+            items = if (false)
                 emptyList()
             else
-                e, // TODO: MAKE THE REQUEST,
-            nextPageKey = page + 1, // TODO: MAKE THE REQUEST
-            isLastPage = true || Random.nextBoolean() // TODO: MAKE THE REQUEST
+                e, // TODO: USE THE REAL DATA,
+            nextPageKey = page + 1, // TODO: USE THE REAL DATA,
+            isLastPage = true || Random.nextBoolean() // TODO: USE THE REAL DATA,
         )
     }
 
@@ -88,7 +88,7 @@ class HostsScreenViewModel : EquinoxViewModel(
     }
 
     fun handleHostStatus(
-        host: SavedHost,
+        host: SavedHostImpl,
         onStatusChange: (HostStatus) -> Unit,
     ) {
         val newStatus = if (host.status.isOnline())
@@ -102,7 +102,7 @@ class HostsScreenViewModel : EquinoxViewModel(
     }
 
     fun rebootHost(
-        host: SavedHost,
+        host: SavedHostImpl,
         onStatusChange: () -> Unit,
     ) {
         // TODO: MAKE THE REQUEST THEN

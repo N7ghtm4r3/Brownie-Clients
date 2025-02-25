@@ -1,7 +1,11 @@
+@file:OptIn(ExperimentalFoundationApi::class)
+
 package com.tecknobit.brownie.ui.screens.hosts.components
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PlayArrow
@@ -18,10 +22,13 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
+import com.tecknobit.brownie.HOST_SCREEN
+import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.components.StatusBadge
-import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
+import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl
 import com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel
 import com.tecknobit.brownie.ui.theme.green
 import com.tecknobit.brownie.ui.theme.red
@@ -33,13 +40,17 @@ import com.tecknobit.browniecore.enums.HostStatus.REBOOTING
 @NonRestartableComposable
 fun HostCard(
     viewModel: HostsScreenViewModel,
-    host: SavedHost,
+    host: SavedHostImpl,
 ) {
     val statusState = remember { mutableStateOf(host.status) }
     Card(
-        onClick = {
-            // TODO: NAV TO HOST
-        }
+        modifier = Modifier
+            .combinedClickable(
+                onClick = { navigator.navigate("$HOST_SCREEN/${host.id}") },
+                onLongClick = {
+                    // TODO: NAV TO EDIT
+                }
+            )
     ) {
         ListItem(
             colors = ListItemDefaults.colors(
@@ -79,7 +90,7 @@ fun HostCard(
 @NonRestartableComposable
 private fun StatusToolbar(
     viewModel: HostsScreenViewModel,
-    host: SavedHost,
+    host: SavedHostImpl,
     statusState: MutableState<HostStatus>,
 ) {
     Row {

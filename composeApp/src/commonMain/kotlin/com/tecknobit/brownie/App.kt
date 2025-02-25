@@ -6,12 +6,15 @@ import androidx.compose.ui.text.font.FontFamily
 import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.rubik
 import brownie.composeapp.generated.resources.ubuntu_mono
+import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser
+import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 import moe.tlaster.precompose.PreComposeApp
 import moe.tlaster.precompose.navigation.NavHost
 import moe.tlaster.precompose.navigation.Navigator
+import moe.tlaster.precompose.navigation.path
 import moe.tlaster.precompose.navigation.rememberNavigator
 import org.jetbrains.compose.resources.Font
 
@@ -42,6 +45,8 @@ const val SPLASH_SCREEN = "Splashscreen"
 
 const val HOSTS_SCREEN = "HostsScreen"
 
+const val HOST_SCREEN = "HostScreen"
+
 @Composable
 fun App() {
     bodyFontFamily = FontFamily(Font(Res.font.rubik))
@@ -61,6 +66,14 @@ fun App() {
                 route = HOSTS_SCREEN
             ) {
                 HostsScreen().ShowContent()
+            }
+            scene(
+                route = "$HOST_SCREEN/{$IDENTIFIER_KEY}"
+            ) { backStackEntry ->
+                val hostId = backStackEntry.path<String>(IDENTIFIER_KEY)!!
+                HostScreen(
+                    hostId = hostId
+                ).ShowContent()
             }
         }
     }

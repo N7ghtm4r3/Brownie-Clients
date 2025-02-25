@@ -13,14 +13,16 @@ import com.tecknobit.browniecore.enums.HostStatus.REBOOTING
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-@Serializable
-data class SavedHost(
-    val id: String,
-    val name: String,
+interface SavedHost {
+
+    val id: String
+
+    val name: String
+
     @SerialName(IP_ADDRESS_KEY)
-    val ipAddress: String,
-    var status: HostStatus,
-) {
+    val ipAddress: String
+
+    var status: HostStatus
 
     companion object {
 
@@ -34,5 +36,14 @@ data class SavedHost(
         }
 
     }
+
+    @Serializable
+    data class SavedHostImpl(
+        override val id: String,
+        override val name: String,
+        @SerialName(IP_ADDRESS_KEY)
+        override val ipAddress: String,
+        override var status: HostStatus,
+    ) : SavedHost
 
 }

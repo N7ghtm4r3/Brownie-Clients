@@ -43,6 +43,7 @@ import com.tecknobit.brownie.ui.screens.hosts.components.HostsList
 import com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel
 import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.equinoxcompose.components.EquinoxTextField
+import com.tecknobit.equinoxcompose.session.ManagedContent
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.EXPANDED_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.MEDIUM_CONTENT
@@ -61,61 +62,66 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
     override fun ArrangeScreenContent() {
         CloseApplicationOnNavBack()
         BrownieTheme {
-            Scaffold(
-                modifier = Modifier
-                    .navigationBarsPadding(),
-                topBar = {
-                    TopAppBar(
-                        colors = TopAppBarDefaults.topAppBarColors(
-                            containerColor = MaterialTheme.colorScheme.primaryContainer
-                        ),
-                        title = {
-                            Text(
-                                text = stringResource(Res.string.hosts)
-                            )
-                        }
-                    )
-                },
-                snackbarHost = {
-                    SnackbarHost(
-                        hostState = viewModel.snackbarHostState!!
-                    )
-                },
-                floatingActionButton = {
-                    ResponsiveContent(
-                        onExpandedSizeClass = { ExpandedFAB() },
-                        onMediumSizeClass = { ExpandedFAB() },
-                        onCompactSizeClass = {
-                            FloatingActionButton(
-                                onClick = {
-                                    // TODO: NAV TO CREATE
-                                }
-                            ) {
-                                Icon(
-                                    imageVector = AssignmentAdd,
-                                    contentDescription = null
-                                )
-                            }
-                        }
-                    )
-                }
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize(),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    FiltersBar(
+            ManagedContent(
+                viewModel = viewModel,
+                content = {
+                    Scaffold(
                         modifier = Modifier
-                            .padding(
-                                top = it.calculateTopPadding() + 16.dp
+                            .navigationBarsPadding(),
+                        topBar = {
+                            TopAppBar(
+                                colors = TopAppBarDefaults.topAppBarColors(
+                                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                                ),
+                                title = {
+                                    Text(
+                                        text = stringResource(Res.string.hosts)
+                                    )
+                                }
                             )
-                    )
-                    HostsList(
-                        viewModel = viewModel
-                    )
+                        },
+                        snackbarHost = {
+                            SnackbarHost(
+                                hostState = viewModel.snackbarHostState!!
+                            )
+                        },
+                        floatingActionButton = {
+                            ResponsiveContent(
+                                onExpandedSizeClass = { ExpandedFAB() },
+                                onMediumSizeClass = { ExpandedFAB() },
+                                onCompactSizeClass = {
+                                    FloatingActionButton(
+                                        onClick = {
+                                            // TODO: NAV TO CREATE
+                                        }
+                                    ) {
+                                        Icon(
+                                            imageVector = AssignmentAdd,
+                                            contentDescription = null
+                                        )
+                                    }
+                                }
+                            )
+                        }
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize(),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            FiltersBar(
+                                modifier = Modifier
+                                    .padding(
+                                        top = it.calculateTopPadding() + 16.dp
+                                    )
+                            )
+                            HostsList(
+                                viewModel = viewModel
+                            )
+                        }
+                    }
                 }
-            }
+            )
         }
     }
 
