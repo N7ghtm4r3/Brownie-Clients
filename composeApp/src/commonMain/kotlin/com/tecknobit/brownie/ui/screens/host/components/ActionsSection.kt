@@ -49,19 +49,19 @@ fun ActionsSection(
 ) {
     ResponsiveContent(
         onExpandedSizeClass = {
-            StaticActions(
+            FixedActionsSection(
                 viewModel = viewModel,
                 hostOverview = hostOverview
             )
         },
         onMediumSizeClass = {
-            StaticActions(
+            FixedActionsSection(
                 viewModel = viewModel,
                 hostOverview = hostOverview
             )
         },
         onCompactSizeClass = {
-            ExpandableActions(
+            ExpandableActionsSection(
                 viewModel = viewModel,
                 hostOverview = hostOverview
             )
@@ -74,7 +74,7 @@ fun ActionsSection(
 @ResponsiveClassComponent(
     classes = [EXPANDED_CONTENT, MEDIUM_CONTENT]
 )
-private fun StaticActions(
+private fun FixedActionsSection(
     viewModel: HostScreenViewModel,
     hostOverview: SavedHostOverview,
 ) {
@@ -99,7 +99,7 @@ private fun StaticActions(
 @Composable
 @CompactClassComponent
 @NonRestartableComposable
-private fun ExpandableActions(
+private fun ExpandableActionsSection(
     viewModel: HostScreenViewModel,
     hostOverview: SavedHostOverview,
 ) {

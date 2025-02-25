@@ -18,4 +18,5 @@
     <string name="stop">Arrêter</string>
     <string name="start">Démarrage</string>
     <string name="reboot">Redémarrer</string>
+    <string name="services">Services</string>
 </resources>

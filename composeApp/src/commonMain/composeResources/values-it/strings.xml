@@ -18,4 +18,5 @@
     <string name="stop">Stop</string>
     <string name="start">Avvia</string>
     <string name="reboot">Riavvia</string>
+    <string name="services">Servizi</string>
 </resources>

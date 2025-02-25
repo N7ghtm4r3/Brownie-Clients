@@ -43,6 +43,10 @@ fun HostOverview(
                 viewModel = viewModel,
                 hostOverview = hostOverview
             )
+            ServicesSection(
+                viewModel = viewModel,
+                hostOverview = hostOverview
+            )
         }
     }
 }
