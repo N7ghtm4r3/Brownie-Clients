@@ -12,5 +12,5 @@
     <string name="memory">Memoria</string>
     <string name="memory_tooltip">Actualmente la memoria ocupada es %1$d Gb de %2$d Gb disponibles</string>
     <string name="storage">Almacenamiento</string>
-    <string name="storage_tooltip">El almacenamiento total disponible de los $1$s es %2$d Gb de %3$d Gb disponibles</string>
+    <string name="storage_tooltip">El almacenamiento total disponible de los %1$s es %2$d Gb de %3$d Gb disponibles</string>
 </resources>

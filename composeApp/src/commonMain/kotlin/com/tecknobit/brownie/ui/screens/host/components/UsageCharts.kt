@@ -16,7 +16,6 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.PlainTooltip
 import androidx.compose.material3.RichTooltip
 import androidx.compose.material3.Text
 import androidx.compose.material3.TooltipBox
@@ -42,9 +41,11 @@ import brownie.composeapp.generated.resources.cpu_tooltip
 import brownie.composeapp.generated.resources.memory
 import brownie.composeapp.generated.resources.memory_tooltip
 import brownie.composeapp.generated.resources.storage
+import brownie.composeapp.generated.resources.storage_tooltip
 import com.tecknobit.brownie.ui.screens.host.data.CpuUsage
 import com.tecknobit.brownie.ui.screens.host.data.MemoryUsage
 import com.tecknobit.brownie.ui.screens.host.data.StorageUsage
+import com.tecknobit.brownie.ui.screens.host.data.StorageUsage.Companion.asText
 import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.brownie.ui.theme.green
 import com.tecknobit.brownie.ui.theme.red
@@ -89,7 +90,7 @@ fun MemoryUsageChart(
         usageTitle = Res.string.memory,
         usagePercent = usage.percentValue,
         richToolTipContent = {
-            PlainTooltip {
+            RichTooltip {
                 Text(
                     text = stringResource(
                         resource = Res.string.memory_tooltip,
@@ -111,7 +112,14 @@ fun StorageUsageChart(
         usageTitle = Res.string.storage,
         usagePercent = usage.percentValue,
         richToolTipContent = {
-
+            RichTooltip {
+                Text(
+                    text = stringResource(
+                        resource = Res.string.storage_tooltip,
+                        usage.storageType.asText(), usage.usageValue, usage.totalValue
+                    )
+                )
+            }
         }
     )
 }

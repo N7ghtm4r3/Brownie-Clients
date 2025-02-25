@@ -12,6 +12,7 @@ import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.RestartAlt
 import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
@@ -23,6 +24,7 @@ import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import com.tecknobit.brownie.HOST_SCREEN
@@ -45,6 +47,7 @@ fun HostCard(
     val statusState = remember { mutableStateOf(host.status) }
     Card(
         modifier = Modifier
+            .clip(CardDefaults.shape)
             .combinedClickable(
                 onClick = { navigator.navigate("$HOST_SCREEN/${host.id}") },
                 onLongClick = {

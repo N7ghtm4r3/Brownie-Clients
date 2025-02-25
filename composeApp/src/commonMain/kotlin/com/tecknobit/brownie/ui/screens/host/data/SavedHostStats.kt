@@ -9,6 +9,7 @@ import com.tecknobit.browniecore.enums.HostStatType.CPU_USAGE
 import com.tecknobit.browniecore.enums.HostStatType.MEMORY_USAGE
 import com.tecknobit.browniecore.enums.HostStatType.STORAGE_USAGE
 import com.tecknobit.browniecore.enums.StorageType
+import com.tecknobit.browniecore.enums.StorageType.SSD
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -80,6 +81,18 @@ data class StorageUsage(
 ) : SavedHostStats {
 
     override val type: HostStatType = STORAGE_USAGE
+
+    companion object {
+
+        fun StorageType.asText(): String {
+            if (this == SSD)
+                return SSD.name
+            return this.name
+                .replace("_", " ")
+                .lowercase()
+        }
+
+    }
 
 }
 

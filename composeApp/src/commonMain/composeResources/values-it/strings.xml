@@ -12,5 +12,5 @@
     <string name="memory">Memoria</string>
     <string name="memory_tooltip">Attualmente la memoria occupata è %1$d Gb su %2$d Gb totali</string>
     <string name="storage">Archiviazione</string>
-    <string name="storage_tooltip">Lo spazio di archiviazione totale disponibile del $1$s è di %2$d Gb su %3$d Gb totali</string>
+    <string name="storage_tooltip">Lo spazio di archiviazione disponibile del %1$s è di %2$d Gb su %3$d Gb totali</string>
 </resources>

@@ -12,5 +12,5 @@
     <string name="memory">Mémoire</string>
     <string name="memory_tooltip">Actuellement, la mémoire occupée est de %1$d Gb sur %2$d Gb disponibles.</string>
     <string name="storage">Stockage</string>
-    <string name="storage_tooltip">Le stockage total disponible de $1$s est de %2$d Gb sur %3$d Gb disponibles.</string>
+    <string name="storage_tooltip">Le stockage total disponible de %1$s est de %2$d Gb sur %3$d Gb disponibles.</string>
 </resources>
