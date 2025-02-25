@@ -36,6 +36,10 @@ fun HostOverview(
             StatsSection(
                 hostOverview = hostOverview
             )
+            ActionsSection(
+                viewModel = viewModel,
+                hostOverview = hostOverview
+            )
         }
     }
 }

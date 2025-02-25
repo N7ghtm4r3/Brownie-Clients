@@ -7,9 +7,11 @@ import com.tecknobit.brownie.ui.screens.host.data.MemoryUsage
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.data.StorageUsage
 import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
+import com.tecknobit.brownie.ui.shared.presentation.HostStatusManager
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.StorageType
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -19,7 +21,9 @@ class HostScreenViewModel(
     hostId: String,
 ) : EquinoxViewModel(
     snackbarHostState = SnackbarHostState()
-) {
+), HostStatusManager {
+
+    override var requestsScope: CoroutineScope = viewModelScope
 
     private val _hostOverview = MutableStateFlow<SavedHostOverview?>(
         value = null
@@ -30,13 +34,14 @@ class HostScreenViewModel(
         retrieve(
             currentContext = HostScreen::class,
             routine = {
+                // TODO: REMOVE THIS WORKAROUND WHEN ROUTINE SUSPENDABLE
                 viewModelScope.launch {
                     // TODO: MAKE THE REQUEST THEN
                     _hostOverview.value = SavedHostOverview(
                         id = Random.nextLong().toString(),
                         name = "Debian 11",
                         ipAddress = "192.168.1.1",
-                        status = HostStatus.ONLINE,
+                        status = HostStatus.entries[Random.nextInt(3)],
                         cpuUsage = CpuUsage(
                             Random.nextInt(100).toDouble(),
                             clock = 4.57

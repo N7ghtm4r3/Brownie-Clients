@@ -3,19 +3,22 @@ package com.tecknobit.brownie.ui.screens.hosts.presentation
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateListOf
+import androidx.lifecycle.viewModelScope
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
+import com.tecknobit.brownie.ui.shared.presentation.HostStatusManager
 import com.tecknobit.browniecore.enums.HostStatus
-import com.tecknobit.browniecore.enums.HostStatus.OFFLINE
-import com.tecknobit.browniecore.enums.HostStatus.ONLINE
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.pagination.PaginatedResponse.Companion.DEFAULT_PAGE
 import io.github.ahmad_hamwi.compose.pagination.PaginationState
+import kotlinx.coroutines.CoroutineScope
 import kotlin.random.Random
 
 class HostsScreenViewModel : EquinoxViewModel(
     snackbarHostState = SnackbarHostState()
-) {
+), HostStatusManager {
+
+    override var requestsScope: CoroutineScope = viewModelScope
 
     lateinit var inputSearch: MutableState<String>
 
@@ -50,14 +53,14 @@ class HostsScreenViewModel : EquinoxViewModel(
                 id = Random.nextLong().toString(),
                 name = "aa",
                 ipAddress = "192.168.1.1",
-                status = ONLINE
+                status = HostStatus.entries[Random.nextInt(3)]
             ),
 
             SavedHostImpl(
                 id = Random.nextLong().toString(),
                 name = "aa",
                 ipAddress = "192.168.1.1",
-                status = OFFLINE
+                status = HostStatus.entries[Random.nextInt(3)]
             ),
 
             SavedHostImpl(
@@ -85,29 +88,6 @@ class HostsScreenViewModel : EquinoxViewModel(
         // TODO: MAKE THE REQUEST THEN
         onSuccess()
         hostsState.refresh()
-    }
-
-    fun handleHostStatus(
-        host: SavedHostImpl,
-        onStatusChange: (HostStatus) -> Unit,
-    ) {
-        val newStatus = if (host.status.isOnline())
-            OFFLINE
-        else
-            ONLINE
-        // TODO: MAKE THE REQUEST THEN
-        onStatusChange.invoke(newStatus)
-        host.status = newStatus
-        //hostsState.refresh()
-    }
-
-    fun rebootHost(
-        host: SavedHostImpl,
-        onStatusChange: () -> Unit,
-    ) {
-        // TODO: MAKE THE REQUEST THEN
-        onStatusChange.invoke()
-        //hostsState.refresh()
     }
 
 }

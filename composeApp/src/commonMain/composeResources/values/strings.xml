@@ -13,4 +13,9 @@
     <string name="memory_tooltip">Currently the occupied memory is %1$d Gb out of %2$d Gb total</string>
     <string name="storage">Storage</string>
     <string name="storage_tooltip">The storage occupied of the %1$s is %2$d Gb out of %3$d Gb total</string>
+    <string name="actions">Actions</string>
+    <string name="server_is_currently">Server is currently</string>
+    <string name="stop">Stop</string>
+    <string name="start">Start</string>
+    <string name="reboot">Reboot</string>
 </resources>

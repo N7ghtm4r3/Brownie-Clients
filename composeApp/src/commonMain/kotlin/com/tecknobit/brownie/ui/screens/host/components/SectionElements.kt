@@ -79,7 +79,11 @@ fun ExpandableSection(
                 content()
             }
         }
-        HorizontalDivider()
+        AnimatedVisibility(
+            visible = !expanded
+        ) {
+            HorizontalDivider()
+        }
     }
 }
 

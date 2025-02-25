@@ -13,4 +13,9 @@
     <string name="memory_tooltip">Attualmente la memoria occupata è %1$d Gb su %2$d Gb totali</string>
     <string name="storage">Archiviazione</string>
     <string name="storage_tooltip">Lo spazio di archiviazione disponibile del %1$s è di %2$d Gb su %3$d Gb totali</string>
+    <string name="actions">Azioni</string>
+    <string name="server_is_currently">Il server è attualmente</string>
+    <string name="stop">Stop</string>
+    <string name="start">Avvia</string>
+    <string name="reboot">Riavvia</string>
 </resources>
