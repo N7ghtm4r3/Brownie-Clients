@@ -7,4 +7,10 @@
     <string name="enter_name_or_ip">Nombre o dirección IP</string>
     <string name="status">Estado</string>
     <string name="stats">Estadísticas</string>
+    <string name="cpu">CPU</string>
+    <string name="cpu_tooltip">Actualmente la CPU está funcionando a %1$d GHz</string>
+    <string name="memory">Memoria</string>
+    <string name="memory_tooltip">Actualmente la memoria ocupada es %1$d Gb de %2$d Gb disponibles</string>
+    <string name="storage">Almacenamiento</string>
+    <string name="storage_tooltip">El almacenamiento total disponible de los $1$s es %2$d Gb de %3$d Gb disponibles</string>
 </resources>

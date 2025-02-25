@@ -34,18 +34,18 @@ class HostScreenViewModel(
                 ipAddress = "192.168.1.1",
                 status = HostStatus.ONLINE,
                 cpuUsage = CpuUsage(
-                    45.0,
+                    Random.nextInt(100).toDouble(),
                     clock = 4.57
                 ),
                 memoryUsage = MemoryUsage(
                     usageValue = 15.6,
                     totalValue = 32,
-                    percentValue = 49.0
+                    Random.nextInt(100).toDouble(),
                 ),
                 storageUsage = StorageUsage(
                     usageValue = 444.0,
                     totalValue = 4000,
-                    percentValue = 10.0,
+                    Random.nextInt(100).toDouble(),
                     storageType = StorageType.SSD
                 )
             )

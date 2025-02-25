@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.ArrowDropUp
@@ -22,6 +23,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.equinoxcompose.utilities.CompactClassComponent
 import org.jetbrains.compose.resources.StringResource
@@ -31,12 +33,17 @@ import org.jetbrains.compose.resources.stringResource
 @CompactClassComponent
 @NonRestartableComposable
 fun ExpandableSection(
+    modifier: Modifier = Modifier,
     title: StringResource,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column {
         var expanded by remember { mutableStateOf(true) }
         Row(
+            modifier = modifier
+                .padding(
+                    start = 16.dp
+                ),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(
@@ -70,19 +77,20 @@ fun ExpandableSection(
         ) {
             Column {
                 content()
-                HorizontalDivider()
             }
         }
+        HorizontalDivider()
     }
 }
 
 @Composable
 @NonRestartableComposable
 fun SectionTitle(
+    modifier: Modifier = Modifier,
     title: StringResource,
 ) {
     Text(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth(),
         text = stringResource(title),
         style = AppTypography.bodyLarge

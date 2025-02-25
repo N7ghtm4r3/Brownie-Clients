@@ -21,7 +21,6 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
 import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.screens.host.components.HostOverview
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
@@ -97,7 +96,7 @@ class HostScreen(
                         HostOverview(
                             modifier = Modifier
                                 .padding(
-                                    top = it.calculateTopPadding() + 16.dp
+                                    top = it.calculateTopPadding()
                                 ),
                             viewModel = viewModel,
                             hostOverview = hostOverview.value!!

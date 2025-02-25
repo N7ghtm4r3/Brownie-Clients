@@ -7,4 +7,10 @@
     <string name="enter_name_or_ip">Name or IP address</string>
     <string name="status">Status</string>
     <string name="stats">Stats</string>
+    <string name="cpu">CPU</string>
+    <string name="cpu_tooltip">Currently the CPU is operating at %1$d GHz</string>
+    <string name="memory">Memory</string>
+    <string name="memory_tooltip">Currently the occupied memory is %1$d Gb out of %2$d Gb total</string>
+    <string name="storage">Storage</string>
+    <string name="storage_tooltip">The total storage available of the $1$s is %2$d Gb out of %3$d Gb total</string>
 </resources>

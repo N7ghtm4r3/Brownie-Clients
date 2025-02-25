@@ -23,9 +23,6 @@ fun HostOverview(
         modifier = modifier
             .fillMaxSize()
             .padding(
-                horizontal = 16.dp
-            )
-            .padding(
                 bottom = 16.dp
             ),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -37,7 +34,7 @@ fun HostOverview(
                 )
         ) {
             StatsSection(
-
+                hostOverview = hostOverview
             )
         }
     }
