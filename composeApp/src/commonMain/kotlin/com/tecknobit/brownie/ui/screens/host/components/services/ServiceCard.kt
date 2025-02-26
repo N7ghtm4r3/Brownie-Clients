@@ -72,6 +72,7 @@ fun ServiceCard(
                 )
             },
             supportingContent = {
+
                 Text(
                     text = "PID: ${service.pid}",
                     maxLines = 1,
@@ -151,6 +152,7 @@ private fun StatusToolbar(
         }
         IconButton(
             onClick = {
+                // TODO: NAV TO EDIT SCREEN
             }
         ) {
             Icon(
