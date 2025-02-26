@@ -8,7 +8,7 @@
     <string name="status">Statut</string>
     <string name="stats">Statistiques</string>
     <string name="cpu">UNITÉ CENTRALE</string>
-    <string name="cpu_tooltip">L\'unité centrale fonctionne actuellement à %1$d GHz.</string>
+    <string name="cpu_tooltip">L'unité centrale fonctionne actuellement à %1$d GHz.</string>
     <string name="memory">Mémoire</string>
     <string name="memory_tooltip">Actuellement, la mémoire occupée est de %1$d Gb sur %2$d Gb disponibles.</string>
     <string name="storage">Stockage</string>
@@ -20,8 +20,8 @@
     <string name="reboot">Redémarrer</string>
     <string name="services">Services</string>
     <string name="no_services_available">Aucun service disponible</string>
-    <string name="unregister_host">Désenregistrement de l\'hôte</string>
-    <string name="unregister_host_message">L\'hôte sera désenregistré et vous devrez réinsérer tous les services et toutes les configurations si vous souhaitez le restaurer. Voulez-vous continuer ?</string>
+    <string name="unregister_host">Désenregistrement de l'hôte</string>
+    <string name="unregister_host_message">L'hôte sera désenregistré et vous devrez réinsérer tous les services et toutes les configurations si vous souhaitez le restaurer. Voulez-vous continuer ?</string>
     <string name="delete">Supprimer</string>
     <string name="logout">Déconnexion</string>
     <string name="logout_message">Si vous confirmez, vous serez déconnecté de ce dispositif.</string>
@@ -36,4 +36,16 @@
     </plurals>
     <string name="service_started">Le service a été démarré avec le PID : %1$d</string>
     <string name="service_started_after_rebooting">Le service a été démarré après le redémarrage avec le PID : %1$d</string>
+    <string name="add_service">Ajouter un service</string>
+    <string name="edit_service">Edit service</string>
+    <string name="service_name">Nom du service</string>
+    <string name="service_name_placeholder">par exemple, votre_service.jar</string>
+    <string name="wrong_service_name">Le nom du service n'est pas valide</string>
+    <string name="programs_arguments">Arguments du programme</string>
+    <string name="programs_arguments_placeholder">Les arguments du programme</string>
+    <string name="settings">Paramètres</string>
+    <string name="purge_nohup_out_after_reboot">Purger nohup.out</string>
+    <string name="purge_nohup_out_after_reboot_description">Lorsque le service a été redémarré, purgez le fichier nohup.out généré précédemment.</string>
+    <string name="auto_run_after_host_reboot">Fonctionnement automatique</string>
+    <string name="auto_run_after_host_reboot_description">Lorsque l'hôte propriétaire du service a redémarré, ce service est exécuté automatiquement.</string>
 </resources>

@@ -6,6 +6,7 @@ import com.tecknobit.brownie.ui.theme.green
 import com.tecknobit.brownie.ui.theme.red
 import com.tecknobit.brownie.ui.theme.violet
 import com.tecknobit.brownie.ui.theme.yellow
+import com.tecknobit.browniecore.AUTO_RUN_AFTER_HOST_REBOOT
 import com.tecknobit.browniecore.EVENT_DATE_KEY
 import com.tecknobit.browniecore.PROGRAM_ARGUMENT_KEY
 import com.tecknobit.browniecore.PURGE_NOHUP_OUT_AFTER_REBOOT_KEY
@@ -25,7 +26,7 @@ data class HostService(
     val pid: Long,
     var status: ServiceStatus,
     val configuration: ServiceConfiguration,
-    val events: List<ServiceEvent>,
+    val events: List<ServiceEvent> = emptyList(),
 ) {
 
     companion object {
@@ -57,7 +58,9 @@ data class HostService(
         @SerialName(PROGRAM_ARGUMENT_KEY)
         val programArguments: String = "",
         @SerialName(PURGE_NOHUP_OUT_AFTER_REBOOT_KEY)
-        val purgeNohupOutAfterReboot: Boolean,
+        val purgeNohupOutAfterReboot: Boolean = true,
+        @SerialName(AUTO_RUN_AFTER_HOST_REBOOT)
+        val autoRunAfterHostReboot: Boolean = false,
     )
 
     @Serializable

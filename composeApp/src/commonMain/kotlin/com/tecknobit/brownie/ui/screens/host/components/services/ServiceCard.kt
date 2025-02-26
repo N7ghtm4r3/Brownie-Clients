@@ -26,9 +26,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
+import com.tecknobit.brownie.UPSERT_SERVICE_SCREEN
+import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.components.ServiceStatusBadge
 import com.tecknobit.brownie.ui.icons.RuleSettings
 import com.tecknobit.brownie.ui.screens.host.data.HostService
+import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
 import com.tecknobit.brownie.ui.theme.green
 import com.tecknobit.brownie.ui.theme.red
@@ -41,6 +44,7 @@ import kotlinx.coroutines.launch
 @NonRestartableComposable
 fun ServiceCard(
     viewModel: HostScreenViewModel,
+    savedHostOverview: SavedHostOverview,
     service: HostService,
 ) {
     val statusState = remember { mutableStateOf(service.status) }
@@ -82,6 +86,7 @@ fun ServiceCard(
             trailingContent = {
                 StatusToolbar(
                     viewModel = viewModel,
+                    savedHostOverview = savedHostOverview,
                     service = service,
                     statusState = statusState
                 )
@@ -99,6 +104,7 @@ fun ServiceCard(
 @NonRestartableComposable
 private fun StatusToolbar(
     viewModel: HostScreenViewModel,
+    savedHostOverview: SavedHostOverview,
     service: HostService,
     statusState: MutableState<ServiceStatus>,
 ) {
@@ -150,15 +156,21 @@ private fun StatusToolbar(
                 )
             }
         }
-        IconButton(
-            onClick = {
-                // TODO: NAV TO EDIT SCREEN
-            }
+        AnimatedVisibility(
+            visible = !statusState.value.isRebooting()
         ) {
-            Icon(
-                imageVector = RuleSettings,
-                contentDescription = null
-            )
+            IconButton(
+                onClick = {
+                    navigator.navigate(
+                        route = "$UPSERT_SERVICE_SCREEN/${savedHostOverview.name}/${service.id}"
+                    )
+                }
+            ) {
+                Icon(
+                    imageVector = RuleSettings,
+                    contentDescription = null
+                )
+            }
         }
     }
 }

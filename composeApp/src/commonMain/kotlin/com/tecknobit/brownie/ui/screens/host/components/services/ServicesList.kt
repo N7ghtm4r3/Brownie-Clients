@@ -16,6 +16,7 @@ import brownie.composeapp.generated.resources.no_services_available
 import brownie.composeapp.generated.resources.undraw_server_cluster
 import com.tecknobit.brownie.ui.components.FirstPageProgressIndicator
 import com.tecknobit.brownie.ui.components.NewPageProgressIndicator
+import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
 import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.equinoxcompose.components.EmptyState
@@ -29,6 +30,7 @@ import org.jetbrains.compose.resources.stringResource
 fun ServicesList(
     modifier: Modifier = Modifier,
     viewModel: HostScreenViewModel,
+    savedHostOverview: SavedHostOverview,
 ) {
     PaginatedLazyColumn(
         modifier = modifier
@@ -55,6 +57,7 @@ fun ServicesList(
         ) { service ->
             ServiceCard(
                 viewModel = viewModel,
+                savedHostOverview = savedHostOverview,
                 service = service
             )
         }

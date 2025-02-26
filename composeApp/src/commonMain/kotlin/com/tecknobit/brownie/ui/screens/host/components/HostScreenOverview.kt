@@ -47,7 +47,8 @@ fun HostOverview(
                 hostOverview = hostOverview
             )
             ServicesSection(
-                viewModel = viewModel
+                viewModel = viewModel,
+                savedHostOverview = hostOverview
             )
         }
     }

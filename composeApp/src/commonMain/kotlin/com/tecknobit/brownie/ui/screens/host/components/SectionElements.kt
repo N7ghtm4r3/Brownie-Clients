@@ -23,6 +23,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.equinoxcompose.utilities.CompactClassComponent
@@ -92,11 +93,13 @@ fun ExpandableSection(
 fun SectionTitle(
     modifier: Modifier = Modifier,
     title: StringResource,
+    fontSize: TextUnit = TextUnit.Unspecified,
 ) {
     Text(
         modifier = modifier
             .fillMaxWidth(),
         text = stringResource(title),
-        style = AppTypography.bodyLarge
+        style = AppTypography.bodyLarge,
+        fontSize = fontSize
     )
 }

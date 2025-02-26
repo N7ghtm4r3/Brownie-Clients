@@ -36,4 +36,16 @@
     </plurals>
     <string name="service_started">Il servizio è stato avviato con il PID %1$d</string>
     <string name="service_started_after_rebooting">Il servizio è stato avviato dopo il riavvio con il PID %1$d</string>
+    <string name="add_service">Aggiungi servizio</string>
+    <string name="edit_service">Modifica servizio</string>
+    <string name="service_name">Nome del servizio</string>
+    <string name="service_name_placeholder">per esempio your_service.jar</string>
+    <string name="wrong_service_name">Il nome del servizio non è valido</string>
+    <string name="programs_arguments">Argomenti del programma</string>
+    <string name="programs_arguments_placeholder">Gli argomenti del programma</string>
+    <string name="settings">Impostazioni</string>
+    <string name="purge_nohup_out_after_reboot">Elimina nohup.out</string>
+    <string name="purge_nohup_out_after_reboot_description">Quando il servizio è stato riavviato, il file nohup.out generato in precedenza deve essere eliminato</string>
+    <string name="auto_run_after_host_reboot">Avvio automatico</string>
+    <string name="auto_run_after_host_reboot_description">Quando l'host proprietario del servizio si riavvia, il servizio viene avviato automaticamente</string>
 </resources>

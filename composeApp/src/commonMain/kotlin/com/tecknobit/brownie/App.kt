@@ -9,8 +9,10 @@ import brownie.composeapp.generated.resources.ubuntu_mono
 import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen
+import com.tecknobit.brownie.ui.screens.upsertservice.presenter.UpsertServiceScreen
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
+import com.tecknobit.equinoxcore.helpers.NAME_KEY
 import moe.tlaster.precompose.PreComposeApp
 import moe.tlaster.precompose.navigation.NavHost
 import moe.tlaster.precompose.navigation.Navigator
@@ -47,6 +49,8 @@ const val HOSTS_SCREEN = "HostsScreen"
 
 const val HOST_SCREEN = "HostScreen"
 
+const val UPSERT_SERVICE_SCREEN = "UpsertServiceScreen"
+
 @Composable
 fun App() {
     bodyFontFamily = FontFamily(Font(Res.font.rubik))
@@ -73,6 +77,16 @@ fun App() {
                 val hostId = backStackEntry.path<String>(IDENTIFIER_KEY)!!
                 HostScreen(
                     hostId = hostId
+                ).ShowContent()
+            }
+            scene(
+                route = "$UPSERT_SERVICE_SCREEN/{$NAME_KEY}/{$IDENTIFIER_KEY}?"
+            ) { backStackEntry ->
+                val hostName = backStackEntry.path<String>(NAME_KEY)!!
+                val serviceId = backStackEntry.path<String>(IDENTIFIER_KEY)
+                UpsertServiceScreen(
+                    hostName = hostName,
+                    serviceId = serviceId
                 ).ShowContent()
             }
         }

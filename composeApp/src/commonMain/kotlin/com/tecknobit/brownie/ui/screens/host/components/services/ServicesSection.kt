@@ -11,6 +11,7 @@ import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.services
 import com.tecknobit.brownie.ui.screens.host.components.ExpandableSection
 import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
+import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
 import com.tecknobit.equinoxcompose.utilities.CompactClassComponent
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.EXPANDED_CONTENT
@@ -22,21 +23,25 @@ import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
 @NonRestartableComposable
 fun ServicesSection(
     viewModel: HostScreenViewModel,
+    savedHostOverview: SavedHostOverview,
 ) {
     ResponsiveContent(
         onExpandedSizeClass = {
             FixedServicesSection(
-                viewModel = viewModel
+                viewModel = viewModel,
+                savedHostOverview = savedHostOverview
             )
         },
         onMediumSizeClass = {
             FixedServicesSection(
-                viewModel = viewModel
+                viewModel = viewModel,
+                savedHostOverview = savedHostOverview
             )
         },
         onCompactSizeClass = {
             ExpandableServicesSection(
-                viewModel = viewModel
+                viewModel = viewModel,
+                savedHostOverview = savedHostOverview
             )
         }
     )
@@ -49,6 +54,7 @@ fun ServicesSection(
 )
 private fun FixedServicesSection(
     viewModel: HostScreenViewModel,
+    savedHostOverview: SavedHostOverview,
 ) {
     SectionTitle(
         modifier = Modifier
@@ -63,7 +69,8 @@ private fun FixedServicesSection(
             .padding(
                 top = 12.dp
             ),
-        viewModel = viewModel
+        viewModel = viewModel,
+        savedHostOverview = savedHostOverview
     )
 }
 
@@ -72,12 +79,14 @@ private fun FixedServicesSection(
 @NonRestartableComposable
 private fun ExpandableServicesSection(
     viewModel: HostScreenViewModel,
+    savedHostOverview: SavedHostOverview,
 ) {
     ExpandableSection(
         title = Res.string.services,
         content = {
             ServicesContent(
-                viewModel = viewModel
+                viewModel = viewModel,
+                savedHostOverview = savedHostOverview
             )
         }
     )
@@ -88,9 +97,11 @@ private fun ExpandableServicesSection(
 private fun ServicesContent(
     modifier: Modifier = Modifier,
     viewModel: HostScreenViewModel,
+    savedHostOverview: SavedHostOverview,
 ) {
     ServicesList(
         modifier = modifier,
-        viewModel = viewModel
+        viewModel = viewModel,
+        savedHostOverview = savedHostOverview
     )
 }
