@@ -20,7 +20,7 @@
     <string name="reboot">Riavvia</string>
     <string name="services">Servizi</string>
     <string name="no_services_available">Nessun servizio disponibile</string>
-    <string name="unregister_host">Disregistrazione dell'host</string>
+    <string name="unregister_host">Scollegamento host</string>
     <string name="unregister_host_message">L'host sarà scollegato e sarà necessario reinserire tutti i servizi e le configurazioni se si desidera ripristinarlo. Vuoi procedere?</string>
     <string name="delete">Elimina</string>
     <string name="logout">Logout</string>

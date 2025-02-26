@@ -90,6 +90,7 @@ private fun ServicesContent(
     viewModel: HostScreenViewModel,
 ) {
     ServicesList(
+        modifier = modifier,
         viewModel = viewModel
     )
 }
