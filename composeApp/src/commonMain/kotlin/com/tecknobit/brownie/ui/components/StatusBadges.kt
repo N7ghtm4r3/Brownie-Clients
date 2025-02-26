@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import com.tecknobit.brownie.ui.screens.host.data.HostService.Companion.asColor
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.Companion.asColor
 import com.tecknobit.browniecore.enums.HostStatus
+import com.tecknobit.browniecore.enums.ServiceEventType
 import com.tecknobit.browniecore.enums.ServiceStatus
 import com.tecknobit.equinoxcompose.components.ChameleonText
 
@@ -35,6 +36,17 @@ fun ServiceStatusBadge(
     StatusBadge(
         color = status.asColor(),
         name = status.name
+    )
+}
+
+@Composable
+@NonRestartableComposable
+fun ServiceEventBadge(
+    eventType: ServiceEventType,
+) {
+    StatusBadge(
+        color = eventType.asColor(),
+        name = eventType.name
     )
 }
 

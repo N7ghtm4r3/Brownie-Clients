@@ -80,6 +80,7 @@ kotlin {
             implementation(libs.browniecore)
             implementation(libs.lazy.pagination.compose)
             implementation(libs.kotlinx.serialization.json)
+            implementation(libs.jetlime)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

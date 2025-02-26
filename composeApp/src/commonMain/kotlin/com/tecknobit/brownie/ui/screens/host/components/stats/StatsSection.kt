@@ -3,7 +3,6 @@
 package com.tecknobit.brownie.ui.screens.host.components.stats
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
@@ -29,7 +28,7 @@ import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
 
 @Composable
 @NonRestartableComposable
-fun ColumnScope.StatsSection(
+fun StatsSection(
     hostOverview: SavedHostOverview,
 ) {
     ResponsiveContent(

@@ -26,4 +26,14 @@
     <string name="logout">Logout</string>
     <string name="logout_message">If you confirm you will be disconnected from this device</string>
     <string name="delete_message">If you confirm your account will be permanently deleted and your data will not be more recoverable</string>
+    <plurals name="service_stopped">
+        <item formatted="false" quantity="one">The service has been stopped after %1$d day</item>
+        <item formatted="false" quantity="other">The service has been stopped after %1$d days</item>
+    </plurals>
+    <plurals name="service_rebooted">
+        <item formatted="false" quantity="one">The service has been rebooted after %1$d day</item>
+        <item formatted="false" quantity="other">The service has been rebooted after %1$d days</item>
+    </plurals>
+    <string name="service_started">The service has been started with the PID %1$d</string>
+    <string name="service_started_after_rebooting">The service has been started after rebooting with the PID %1$d</string>
 </resources>

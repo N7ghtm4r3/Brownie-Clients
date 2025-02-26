@@ -26,4 +26,14 @@
     <string name="logout">Cierre de sesión</string>
     <string name="logout_message">Si confirma, se le desconectará de este dispositivo.</string>
     <string name="delete_message">Si confirma, su cuenta se eliminará de forma permanente y sus datos no podrán recuperarse.</string>
+    <plurals name="service_stopped">
+        <item formatted="false" quantity="one">El servicio se ha detenido después de %1$d día</item>
+        <item formatted="false" quantity="other">El servicio se ha detenido después de %1$d días</item>
+    </plurals>
+    <plurals name="service_rebooted">
+        <item formatted="false" quantity="one">El servicio se ha reiniciado después de %1$d día</item>
+        <item formatted="false" quantity="other">El servicio se ha reiniciado después de %1$d días</item>
+    </plurals>
+    <string name="service_started">El servicio se ha iniciado con el PID %1$d</string>
+    <string name="service_started_after_rebooting">El servicio se ha iniciado después de reiniciar con el PID %1$d</string>
 </resources>

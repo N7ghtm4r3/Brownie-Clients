@@ -10,12 +10,14 @@ import com.tecknobit.brownie.ui.screens.host.data.StorageUsage
 import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
 import com.tecknobit.brownie.ui.shared.presentation.HostManager
 import com.tecknobit.browniecore.enums.HostStatus
+import com.tecknobit.browniecore.enums.ServiceEventType
 import com.tecknobit.browniecore.enums.ServiceStatus
 import com.tecknobit.browniecore.enums.ServiceStatus.RUNNING
 import com.tecknobit.browniecore.enums.ServiceStatus.STOPPED
 import com.tecknobit.browniecore.enums.StorageType
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.pagination.PaginatedResponse.Companion.DEFAULT_PAGE
+import com.tecknobit.equinoxcore.time.TimeFormatter
 import io.github.ahmad_hamwi.compose.pagination.PaginationState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -86,16 +88,50 @@ class HostScreenViewModel(
         // TODO: TO APPLY THE FILTERS ALSO
         val e = listOf(
             HostService(
+                id = Random.nextLong().toString(),
                 name = "Ametista-1.0.0.jar",
                 pid = Random.nextLong(1000000),
                 status = ServiceStatus.entries[Random.nextInt(ServiceStatus.entries.size)],
                 configuration = HostService.ServiceConfiguration(
+                    id = Random.nextLong().toString(),
                     purgeNohupOutAfterReboot = false
+                ),
+                events = listOf(
+                    HostService.ServiceEvent(
+                        id = Random.nextLong().toString(),
+                        type = ServiceEventType.RESTARTED,
+                        eventDate = TimeFormatter.currentTimestamp(),
+                        extra = Random.nextLong(100000)
+                    ),
+                    HostService.ServiceEvent(
+                        id = Random.nextLong().toString(),
+                        type = ServiceEventType.REBOOTING,
+                        eventDate = TimeFormatter.currentTimestamp(),
+                        extra = 11
+                    ),
+                    HostService.ServiceEvent(
+                        id = Random.nextLong().toString(),
+                        type = ServiceEventType.RUNNING,
+                        eventDate = TimeFormatter.currentTimestamp(),
+                        extra = Random.nextLong(100000)
+                    ),
+                    HostService.ServiceEvent(
+                        id = Random.nextLong().toString(),
+                        type = ServiceEventType.STOPPED,
+                        eventDate = TimeFormatter.currentTimestamp(),
+                        extra = 11
+                    ),
+                    HostService.ServiceEvent(
+                        id = Random.nextLong().toString(),
+                        type = ServiceEventType.RUNNING,
+                        eventDate = TimeFormatter.currentTimestamp(),
+                        extra = Random.nextLong(100000)
+                    )
                 )
             )
         )
         servicesState.appendPage(
-            items = if (Random.nextBoolean())
+            items = if (false && Random.nextBoolean())
                 emptyList()
             else
                 e, // TODO: USE THE REAL DATA,

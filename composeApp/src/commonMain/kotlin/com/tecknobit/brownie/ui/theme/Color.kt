@@ -80,5 +80,8 @@ val darkYellow = Color(0xFFB89600)
 val lightGreen = Color(4283215696)
 val darkGreen = Color(4281236786)
 
+val lightViolet = Color(4286996904)
+val darkViolet = Color(4284169845)
+
 
 

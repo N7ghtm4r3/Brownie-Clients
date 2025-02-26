@@ -112,6 +112,14 @@ fun yellow(): Color {
 }
 
 @Composable
+fun violet(): Color {
+    return if (isDarkThemeApplied())
+        darkViolet
+    else
+        lightViolet
+}
+
+@Composable
 fun BrownieTheme(
     darkTheme: Boolean = isDarkThemeApplied(),
     content: @Composable () -> Unit,

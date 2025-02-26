@@ -26,4 +26,14 @@
     <string name="logout">Logout</string>
     <string name="logout_message">Se confermi, verrai disconness da questo dispositivo</string>
     <string name="delete_message">Se confermi, il tuo account sarà definitivamente eliminato e i tuoi dati non saranno più recuperabili</string>
+    <plurals name="service_stopped">
+        <item formatted="false" quantity="one">Il servizio è stato interrotto dopo %1$d giorno</item>
+        <item formatted="false" quantity="other">Il servizio è stato interrotto dopo %1$d giorni</item>
+    </plurals>
+    <plurals name="service_rebooted">
+        <item formatted="false" quantity="one">Il servizio è stato riavviato dopo %1$d giorno</item>
+        <item formatted="false" quantity="other">Il servizio è stato riavviato dopo %1$d giorni</item>
+    </plurals>
+    <string name="service_started">Il servizio è stato avviato con il PID %1$d</string>
+    <string name="service_started_after_rebooting">Il servizio è stato avviato dopo il riavvio con il PID %1$d</string>
 </resources>

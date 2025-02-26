@@ -26,4 +26,14 @@
     <string name="logout">Déconnexion</string>
     <string name="logout_message">Si vous confirmez, vous serez déconnecté de ce dispositif.</string>
     <string name="delete_message">Si vous confirmez, votre compte sera définitivement supprimé et vos données ne seront plus récupérables.</string>
+    <plurals name="service_stopped">
+        <item formatted="false" quantity="one">Le service a été arrêté après %1$d jour</item>
+        <item formatted="false" quantity="other">Le service a été arrêté après %1$d jours</item>
+    </plurals>
+    <plurals name="service_rebooted">
+        <item formatted="false" quantity="one">Le service a été redémarré après %1$d day</item>
+        <item formatted="false" quantity="other">Le service a été redémarré après %1$d jours</item>
+    </plurals>
+    <string name="service_started">Le service a été démarré avec le PID : %1$d</string>
+    <string name="service_started_after_rebooting">Le service a été démarré après le redémarrage avec le PID : %1$d</string>
 </resources>
