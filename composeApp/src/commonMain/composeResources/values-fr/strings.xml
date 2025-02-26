@@ -51,4 +51,8 @@
     <string name="save">Économiser</string>
     <string name="edit">Editer</string>
     <string name="remove">Retirer</string>
+    <string name="remove_service">Supprimer le service</string>
+    <string name="remove_service_message">Si vous confirmez que le service sera supprimé, mais qu'il ne sera pas supprimé de l'hôte, continuez ?</string>
+    <string name="delete_service">Supprimer le service</string>
+    <string name="delete_service_message">Si vous confirmez que le service sera également supprimé de la machine hôte, continuez ?</string>
 </resources>

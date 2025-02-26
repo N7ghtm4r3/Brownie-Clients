@@ -51,4 +51,8 @@
     <string name="save">Save</string>
     <string name="edit">Edit</string>
     <string name="remove">Remove</string>
+    <string name="remove_service">Remove service</string>
+    <string name="remove_service_message">If you confirm the service will removed, but it will not deleted from the host, proceed?</string>
+    <string name="delete_service">Delete service</string>
+    <string name="delete_service_message">If you confirm the service will delete also from the host machine, proceed?</string>
 </resources>

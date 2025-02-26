@@ -12,12 +12,15 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import brownie.composeapp.generated.resources.Res.string
 import brownie.composeapp.generated.resources.edit
 import brownie.composeapp.generated.resources.remove
 import brownie.composeapp.generated.resources.save
+import com.tecknobit.brownie.ui.components.RemoveService
 import com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel
 import com.tecknobit.brownie.ui.theme.red
 import com.tecknobit.equinoxcompose.components.ChameleonText
@@ -71,6 +74,7 @@ private fun UpsertButtons(
     viewModel: UpsertServiceScreenViewModel,
 ) {
     if (isEditing) {
+        val removeService = remember { mutableStateOf(false) }
         Button(
             modifier = modifier,
             colors = ButtonDefaults.buttonColors(
@@ -79,13 +83,17 @@ private fun UpsertButtons(
             shape = RoundedCornerShape(
                 size = 10.dp
             ),
-            onClick = { viewModel.removeService() }
+            onClick = { removeService.value = true }
         ) {
             ChameleonText(
                 text = stringResource(string.remove),
                 backgroundColor = red()
             )
         }
+        RemoveService(
+            show = removeService,
+            viewModel = viewModel
+        )
     }
     Button(
         modifier = modifier,

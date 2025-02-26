@@ -12,6 +12,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBackIos
+import androidx.compose.material.icons.filled.DeleteForever
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -35,6 +36,7 @@ import brownie.composeapp.generated.resources.Res.string
 import brownie.composeapp.generated.resources.add_service
 import brownie.composeapp.generated.resources.edit_service
 import com.tecknobit.brownie.navigator
+import com.tecknobit.brownie.ui.components.DeleteService
 import com.tecknobit.brownie.ui.screens.host.data.HostService
 import com.tecknobit.brownie.ui.screens.upsertservice.components.CompactUpsertButtons
 import com.tecknobit.brownie.ui.screens.upsertservice.components.ExpandedUpsertButtons
@@ -44,6 +46,7 @@ import com.tecknobit.brownie.ui.screens.upsertservice.components.ServiceSettings
 import com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel
 import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.brownie.ui.theme.BrownieTheme
+import com.tecknobit.brownie.ui.theme.red
 import com.tecknobit.equinoxcompose.session.ManagedContent
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
 import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
@@ -111,6 +114,24 @@ class UpsertServiceScreen(
                                             style = AppTypography.headlineSmall,
                                             maxLines = 1,
                                             overflow = TextOverflow.Ellipsis
+                                        )
+                                    }
+                                },
+                                actions = {
+                                    if (isEditing) {
+                                        val deleteService = remember { mutableStateOf(false) }
+                                        IconButton(
+                                            onClick = { deleteService.value = true }
+                                        ) {
+                                            Icon(
+                                                imageVector = Icons.Default.DeleteForever,
+                                                contentDescription = null,
+                                                tint = red()
+                                            )
+                                        }
+                                        DeleteService(
+                                            show = deleteService,
+                                            viewModel = viewModel
                                         )
                                     }
                                 }

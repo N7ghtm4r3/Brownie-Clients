@@ -2,7 +2,9 @@ package com.tecknobit.brownie.ui.components
 
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PowerOff
 import androidx.compose.material.icons.filled.RemoveFromQueue
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.NonRestartableComposable
@@ -11,10 +13,15 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import brownie.composeapp.generated.resources.Res
+import brownie.composeapp.generated.resources.delete_service
+import brownie.composeapp.generated.resources.delete_service_message
+import brownie.composeapp.generated.resources.remove_service
+import brownie.composeapp.generated.resources.remove_service_message
 import brownie.composeapp.generated.resources.unregister_host
 import brownie.composeapp.generated.resources.unregister_host_message
 import com.tecknobit.brownie.displayFontFamily
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
+import com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel
 import com.tecknobit.brownie.ui.shared.presentation.HostManager
 import com.tecknobit.equinoxcompose.components.EquinoxAlertDialog
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
@@ -53,6 +60,58 @@ fun UnregisterSavedHost(
                     show.value = false
                     onSuccess()
                 }
+            )
+        }
+    )
+}
+
+@Composable
+@NonRestartableComposable
+fun RemoveService(
+    show: MutableState<Boolean>,
+    viewModel: UpsertServiceScreenViewModel,
+) {
+    EquinoxAlertDialog(
+        icon = Icons.Default.PowerOff,
+        modifier = Modifier
+            .widthIn(
+                max = 400.dp
+            ),
+        viewModel = viewModel,
+        show = show,
+        title = Res.string.remove_service,
+        titleStyle = titleStyle,
+        text = Res.string.remove_service_message,
+        confirmAction = {
+            viewModel.removeService(
+                onSuccess = {
+                    show.value = false
+                }
+            )
+        }
+    )
+}
+
+@Composable
+@NonRestartableComposable
+fun DeleteService(
+    show: MutableState<Boolean>,
+    viewModel: UpsertServiceScreenViewModel,
+) {
+    EquinoxAlertDialog(
+        icon = Icons.Default.Warning,
+        modifier = Modifier
+            .widthIn(
+                max = 400.dp
+            ),
+        viewModel = viewModel,
+        show = show,
+        title = Res.string.delete_service,
+        titleStyle = titleStyle,
+        text = Res.string.delete_service_message,
+        confirmAction = {
+            viewModel.deleteService(
+                onSuccess = { show.value = false }
             )
         }
     )

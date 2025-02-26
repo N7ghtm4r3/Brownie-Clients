@@ -48,9 +48,20 @@ class UpsertServiceScreenViewModel(
         )
     }
 
-    fun removeService() {
+    fun removeService(
+        onSuccess: () -> Unit,
+    ) {
         // TODO: MAKE THE REQUEST THEN
         navigator.goBack()
+        onSuccess()
+    }
+
+    fun deleteService(
+        onSuccess: () -> Unit,
+    ) {
+        // TODO: MAKE THE REQUEST THEN
+        navigator.goBack()
+        onSuccess()
     }
 
     fun upsert() {

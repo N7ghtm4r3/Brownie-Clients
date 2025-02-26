@@ -51,4 +51,8 @@
     <string name="save">Salva</string>
     <string name="edit">Modifica</string>
     <string name="remove">Rimuovi</string>
+    <string name="remove_service">Rimuovere servizio</string>
+    <string name="remove_service_message">Se confermi il servizio verrà rimosso, ma non verrà cancellato dall'host, procedere?</string>
+    <string name="delete_service">Eliminare servizio</string>
+    <string name="delete_service_message">Se confermi il servizio verrà eliminato anche dalla macchina host, procedere?</string>
 </resources>
