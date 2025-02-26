@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBackIos
+import androidx.compose.material.icons.filled.RemoveFromQueue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -19,9 +20,12 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import com.tecknobit.brownie.navigator
+import com.tecknobit.brownie.ui.components.UnregisterSavedHost
 import com.tecknobit.brownie.ui.screens.host.components.HostOverview
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
@@ -84,6 +88,22 @@ class HostScreen(
                                             overflow = TextOverflow.Ellipsis
                                         )
                                     }
+                                },
+                                actions = {
+                                    val unregister = remember { mutableStateOf(false) }
+                                    IconButton(
+                                        onClick = { unregister.value = true }
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Default.RemoveFromQueue,
+                                            contentDescription = null
+                                        )
+                                    }
+                                    UnregisterSavedHost(
+                                        show = unregister,
+                                        viewModel = viewModel,
+                                        savedHostOverview = hostOverview.value!!
+                                    )
                                 }
                             )
                         },

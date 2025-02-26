@@ -2,6 +2,7 @@ package com.tecknobit.brownie.ui.screens.host.presentation
 
 import androidx.compose.material3.SnackbarHostState
 import androidx.lifecycle.viewModelScope
+import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.screens.host.data.CpuUsage
 import com.tecknobit.brownie.ui.screens.host.data.MemoryUsage
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
@@ -62,6 +63,14 @@ class HostScreenViewModel(
             },
             refreshDelay = 3000
         )
+    }
+
+    fun unregisterHost(
+        savedHostOverview: SavedHostOverview,
+    ) {
+        // TODO: MAKE THE REQUEST THEN
+        suspendRetriever()
+        navigator.goBack()
     }
 
 }

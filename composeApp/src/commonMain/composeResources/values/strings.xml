@@ -19,4 +19,10 @@
     <string name="start">Start</string>
     <string name="reboot">Reboot</string>
     <string name="services">Services</string>
+    <string name="unregister_host">Unregister host</string>
+    <string name="unregister_host_message">The host will be unregistered, and you will have to reinsert all services and configurations if you want to restore it. Do you want to proceed?</string>
+    <string name="delete">Delete</string>
+    <string name="logout">Logout</string>
+    <string name="logout_message">If you confirm you will be disconnected from this device</string>
+    <string name="delete_message">If you confirm your account will be permanently deleted and your data will not be more recoverable</string>
 </resources>

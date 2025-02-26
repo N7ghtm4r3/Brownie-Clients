@@ -19,4 +19,10 @@
     <string name="start">Démarrage</string>
     <string name="reboot">Redémarrer</string>
     <string name="services">Services</string>
+    <string name="unregister_host">Désenregistrement de l\'hôte</string>
+    <string name="unregister_host_message">L\'hôte sera désenregistré et vous devrez réinsérer tous les services et toutes les configurations si vous souhaitez le restaurer. Voulez-vous continuer ?</string>
+    <string name="delete">Supprimer</string>
+    <string name="logout">Déconnexion</string>
+    <string name="logout_message">Si vous confirmez, vous serez déconnecté de ce dispositif.</string>
+    <string name="delete_message">Si vous confirmez, votre compte sera définitivement supprimé et vos données ne seront plus récupérables.</string>
 </resources>

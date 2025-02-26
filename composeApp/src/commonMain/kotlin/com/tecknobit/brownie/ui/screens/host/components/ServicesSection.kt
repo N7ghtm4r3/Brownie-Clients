@@ -62,7 +62,7 @@ private fun FixedServicesSection(
             ),
         title = Res.string.services
     )
-    ActionsContent(
+    ServicesContent(
         modifier = Modifier
             .padding(
                 top = 12.dp
@@ -82,7 +82,7 @@ private fun ExpandableServicesSection(
     ExpandableSection(
         title = Res.string.services,
         content = {
-            ActionsContent(
+            ServicesContent(
                 viewModel = viewModel,
                 hostOverview = hostOverview
             )
@@ -92,7 +92,7 @@ private fun ExpandableServicesSection(
 
 @Composable
 @NonRestartableComposable
-private fun ActionsContent(
+private fun ServicesContent(
     modifier: Modifier = Modifier,
     viewModel: HostScreenViewModel,
     hostOverview: SavedHostOverview,

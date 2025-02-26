@@ -19,4 +19,10 @@
     <string name="start">Avvia</string>
     <string name="reboot">Riavvia</string>
     <string name="services">Servizi</string>
+    <string name="unregister_host">Disregistrazione dell'host</string>
+    <string name="unregister_host_message">L'host sarà scollegato e sarà necessario reinserire tutti i servizi e le configurazioni se si desidera ripristinarlo. Vuoi procedere?</string>
+    <string name="delete">Elimina</string>
+    <string name="logout">Logout</string>
+    <string name="logout_message">Se confermi, verrai disconness da questo dispositivo</string>
+    <string name="delete_message">Se confermi, il tuo account sarà definitivamente eliminato e i tuoi dati non saranno più recuperabili</string>
 </resources>
