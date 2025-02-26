@@ -48,4 +48,7 @@
     <string name="purge_nohup_out_after_reboot_description">When the service has been rebooted purge the previous nohup.out file generated</string>
     <string name="auto_run_after_host_reboot">Auto run</string>
     <string name="auto_run_after_host_reboot_description">When the owner host of the service rebooted run automatically this service</string>
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="remove">Remove</string>
 </resources>

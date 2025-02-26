@@ -2,8 +2,10 @@ package com.tecknobit.brownie.ui.screens.upsertservice.presentation
 
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.MutableState
+import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.screens.host.data.HostService
 import com.tecknobit.browniecore.enums.ServiceStatus
+import com.tecknobit.browniecore.helpers.BrownieInputsValidator.isServiceNameValid
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -44,6 +46,26 @@ class UpsertServiceScreenViewModel(
                 purgeNohupOutAfterReboot = false
             )
         )
+    }
+
+    fun removeService() {
+        // TODO: MAKE THE REQUEST THEN
+        navigator.goBack()
+    }
+
+    fun upsert() {
+        if (!validForm())
+            return
+        // TODO: MAKE THE REQUEST THEN
+        navigator.goBack()
+    }
+
+    private fun validForm(): Boolean {
+        if (!isServiceNameValid(serviceName.value)) {
+            serviceNameError.value = true
+            return false
+        }
+        return true
     }
 
 }

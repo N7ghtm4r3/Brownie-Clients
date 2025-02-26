@@ -91,7 +91,7 @@ class HostScreenViewModel(
                 id = Random.nextLong().toString(),
                 name = "Ametista-1.0.0.jar",
                 pid = Random.nextLong(1000000),
-                status = ServiceStatus.entries[Random.nextInt(ServiceStatus.entries.size)],
+                status = ServiceStatus.entries[Random.nextInt(ServiceStatus.entries.size - 1)],
                 configuration = HostService.ServiceConfiguration(
                     id = Random.nextLong().toString(),
                     purgeNohupOutAfterReboot = false

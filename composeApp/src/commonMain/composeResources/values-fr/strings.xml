@@ -48,4 +48,7 @@
     <string name="purge_nohup_out_after_reboot_description">Lorsque le service a été redémarré, purgez le fichier nohup.out généré précédemment.</string>
     <string name="auto_run_after_host_reboot">Fonctionnement automatique</string>
     <string name="auto_run_after_host_reboot_description">Lorsque l'hôte propriétaire du service a redémarré, ce service est exécuté automatiquement.</string>
+    <string name="save">Économiser</string>
+    <string name="edit">Editer</string>
+    <string name="remove">Retirer</string>
 </resources>

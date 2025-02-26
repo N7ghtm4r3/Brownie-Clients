@@ -1,6 +1,9 @@
+@file:OptIn(ExperimentalMultiplatform::class)
+
 package com.tecknobit.brownie.ui.screens.upsertservice.presenter
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -33,6 +36,8 @@ import brownie.composeapp.generated.resources.add_service
 import brownie.composeapp.generated.resources.edit_service
 import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.screens.host.data.HostService
+import com.tecknobit.brownie.ui.screens.upsertservice.components.CompactUpsertButtons
+import com.tecknobit.brownie.ui.screens.upsertservice.components.ExpandedUpsertButtons
 import com.tecknobit.brownie.ui.screens.upsertservice.components.ProgramArgumentsSection
 import com.tecknobit.brownie.ui.screens.upsertservice.components.ServiceNameSection
 import com.tecknobit.brownie.ui.screens.upsertservice.components.ServiceSettings
@@ -41,6 +46,7 @@ import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.equinoxcompose.session.ManagedContent
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
+import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
 import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -125,10 +131,19 @@ class UpsertServiceScreen(
                                 .padding(
                                     horizontal = 16.dp
                                 )
-                                .fillMaxSize(),
+                                .fillMaxSize()
+                                .verticalScroll(rememberScrollState()),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            Form()
+                            Column(
+                                modifier = Modifier
+                                    .widthIn(
+                                        max = 1000.dp
+                                    )
+                            ) {
+                                Form()
+                                ButtonsSection()
+                            }
                         }
                     }
                 }
@@ -139,21 +154,44 @@ class UpsertServiceScreen(
     @Composable
     @NonRestartableComposable
     private fun Form() {
+        ServiceNameSection(
+            viewModel = viewModel
+        )
+        ProgramArgumentsSection(
+            viewModel = viewModel
+        )
+        ServiceSettings(
+            viewModel = viewModel
+        )
+    }
+
+    @Composable
+    @NonRestartableComposable
+    private fun ColumnScope.ButtonsSection() {
         Column(
             modifier = Modifier
-                .widthIn(
-                    max = 1000.dp
-                )
-                .verticalScroll(rememberScrollState())
+                .align(Alignment.End),
+            horizontalAlignment = Alignment.End
         ) {
-            ServiceNameSection(
-                viewModel = viewModel
-            )
-            ProgramArgumentsSection(
-                viewModel = viewModel
-            )
-            ServiceSettings(
-                viewModel = viewModel
+            ResponsiveContent(
+                onExpandedSizeClass = {
+                    ExpandedUpsertButtons(
+                        isEditing = isEditing,
+                        viewModel = viewModel
+                    )
+                },
+                onMediumSizeClass = {
+                    ExpandedUpsertButtons(
+                        isEditing = isEditing,
+                        viewModel = viewModel
+                    )
+                },
+                onCompactSizeClass = {
+                    CompactUpsertButtons(
+                        isEditing = isEditing,
+                        viewModel = viewModel
+                    )
+                }
             )
         }
     }
