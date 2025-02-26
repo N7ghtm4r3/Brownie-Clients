@@ -75,7 +75,12 @@ class UpsertServiceScreen(
             ManagedContent(
                 viewModel = viewModel,
                 initialDelay = 500,
-                loadingRoutine = { service.value != null },
+                loadingRoutine = if (isEditing) {
+                    {
+                        service.value != null
+                    }
+                } else
+                    null,
                 content = {
                     CollectStatesAfterLoading()
                     Scaffold(
@@ -262,7 +267,7 @@ class UpsertServiceScreen(
                 if (isEditing)
                     service.value!!.configuration.autoRunAfterHostReboot
                 else
-                    true
+                    false
             )
         }
     }

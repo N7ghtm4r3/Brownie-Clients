@@ -9,6 +9,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBackIos
 import androidx.compose.material.icons.filled.RemoveFromQueue
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -18,14 +20,20 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
+import brownie.composeapp.generated.resources.Res
+import brownie.composeapp.generated.resources.add_service
+import com.tecknobit.brownie.UPSERT_SERVICE_SCREEN
 import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.components.UnregisterSavedHost
+import com.tecknobit.brownie.ui.icons.ServerSpark
 import com.tecknobit.brownie.ui.screens.host.components.HostOverview
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
@@ -33,6 +41,8 @@ import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.equinoxcompose.session.ManagedContent
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
+import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
+import org.jetbrains.compose.resources.stringResource
 
 class HostScreen(
     hostId: String,
@@ -115,7 +125,8 @@ class HostScreen(
                             SnackbarHost(
                                 hostState = viewModel.snackbarHostState!!
                             )
-                        }
+                        },
+                        floatingActionButton = { FAB() }
                     ) {
                         HostOverview(
                             modifier = Modifier
@@ -127,6 +138,53 @@ class HostScreen(
                         )
                     }
                 }
+            )
+        }
+    }
+
+    @Composable
+    @NonRestartableComposable
+    private fun FAB() {
+        ResponsiveContent(
+            onExpandedSizeClass = { ExpandedFab() },
+            onMediumSizeClass = { ExpandedFab() },
+            onCompactSizeClass = {
+                FloatingActionButton(
+                    onClick = {
+                        navigator.navigate(
+                            route = "$UPSERT_SERVICE_SCREEN/${hostOverview.value!!.name}"
+                        )
+                    }
+                ) {
+                    Icon(
+                        imageVector = ServerSpark,
+                        contentDescription = null
+                    )
+                }
+            }
+        )
+    }
+
+    @Composable
+    @NonRestartableComposable
+    private fun ExpandedFab() {
+        ExtendedFloatingActionButton(
+            onClick = {
+                navigator.navigate(
+                    route = "$UPSERT_SERVICE_SCREEN/${hostOverview.value!!.name}"
+                )
+            }
+        ) {
+            Text(
+                text = stringResource(Res.string.add_service)
+            )
+            Icon(
+                modifier = Modifier
+                    .padding(
+                        start = 5.dp
+                    ),
+                imageVector = ServerSpark,
+                contentDescription = null
             )
         }
     }
