@@ -14,9 +14,10 @@ import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.unregister_host
 import brownie.composeapp.generated.resources.unregister_host_message
 import com.tecknobit.brownie.displayFontFamily
-import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
-import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
+import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
+import com.tecknobit.brownie.ui.shared.presentation.HostManager
 import com.tecknobit.equinoxcompose.components.EquinoxAlertDialog
+import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 
 /**
  * `titleStyle` the style to apply to the title of the [EquinoxAlertDialog]
@@ -30,8 +31,9 @@ val titleStyle = TextStyle(
 @NonRestartableComposable
 fun UnregisterSavedHost(
     show: MutableState<Boolean>,
-    viewModel: HostScreenViewModel,
-    savedHostOverview: SavedHostOverview,
+    hostManager: HostManager,
+    host: SavedHost,
+    onSuccess: () -> Unit,
 ) {
     EquinoxAlertDialog(
         icon = Icons.Default.RemoveFromQueue,
@@ -39,14 +41,18 @@ fun UnregisterSavedHost(
             .widthIn(
                 max = 400.dp
             ),
-        viewModel = viewModel,
+        viewModel = (hostManager) as EquinoxViewModel,
         show = show,
         title = Res.string.unregister_host,
         titleStyle = titleStyle,
         text = Res.string.unregister_host_message,
         confirmAction = {
-            viewModel.unregisterHost(
-                savedHostOverview = savedHostOverview
+            hostManager.unregisterHost(
+                savedHost = host,
+                onSuccess = {
+                    show.value = false
+                    onSuccess()
+                }
             )
         }
     )

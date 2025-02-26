@@ -11,6 +11,9 @@ import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.tecknobit.brownie.ui.screens.host.components.actions.ActionsSection
+import com.tecknobit.brownie.ui.screens.host.components.services.ServicesSection
+import com.tecknobit.brownie.ui.screens.host.components.stats.StatsSection
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
 
@@ -44,8 +47,7 @@ fun HostOverview(
                 hostOverview = hostOverview
             )
             ServicesSection(
-                viewModel = viewModel,
-                hostOverview = hostOverview
+                viewModel = viewModel
             )
         }
     }

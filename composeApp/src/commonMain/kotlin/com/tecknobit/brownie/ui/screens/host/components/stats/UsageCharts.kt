@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.tecknobit.brownie.ui.screens.host.components
+package com.tecknobit.brownie.ui.screens.host.components.stats
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable

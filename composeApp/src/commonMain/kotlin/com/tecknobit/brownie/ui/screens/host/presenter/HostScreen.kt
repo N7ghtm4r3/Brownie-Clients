@@ -101,8 +101,12 @@ class HostScreen(
                                     }
                                     UnregisterSavedHost(
                                         show = unregister,
-                                        viewModel = viewModel,
-                                        savedHostOverview = hostOverview.value!!
+                                        hostManager = viewModel,
+                                        host = hostOverview.value!!,
+                                        onSuccess = {
+                                            viewModel.suspendRetriever()
+                                            navigator.goBack()
+                                        }
                                     )
                                 }
                             )

@@ -155,7 +155,7 @@ private fun StatusesMenu(
                                 )
                             }
                         )
-                        StatusBadge(
+                        HostStatusBadge(
                             status = status
                         )
                     }

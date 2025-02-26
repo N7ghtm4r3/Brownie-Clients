@@ -6,7 +6,7 @@ import com.tecknobit.browniecore.enums.HostStatus.OFFLINE
 import com.tecknobit.browniecore.enums.HostStatus.ONLINE
 import kotlinx.coroutines.CoroutineScope
 
-interface HostStatusManager {
+interface HostManager {
 
     var requestsScope: CoroutineScope
 
@@ -29,6 +29,14 @@ interface HostStatusManager {
     ) {
         // TODO: MAKE THE REQUEST THEN
         onStatusChange.invoke()
+    }
+
+    fun unregisterHost(
+        savedHost: SavedHost,
+        onSuccess: () -> Unit,
+    ) {
+        // TODO: MAKE THE REQUEST THEN
+        onSuccess()
     }
 
 }

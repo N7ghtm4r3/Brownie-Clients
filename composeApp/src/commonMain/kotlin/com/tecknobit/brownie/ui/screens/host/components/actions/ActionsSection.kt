@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMultiplatform::class)
 
-package com.tecknobit.brownie.ui.screens.host.components
+package com.tecknobit.brownie.ui.screens.host.components.actions
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
@@ -26,7 +26,9 @@ import brownie.composeapp.generated.resources.reboot
 import brownie.composeapp.generated.resources.server_is_currently
 import brownie.composeapp.generated.resources.start
 import brownie.composeapp.generated.resources.stop
-import com.tecknobit.brownie.ui.components.StatusBadge
+import com.tecknobit.brownie.ui.components.HostStatusBadge
+import com.tecknobit.brownie.ui.screens.host.components.ExpandableSection
+import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
 import com.tecknobit.brownie.ui.theme.green
@@ -140,7 +142,7 @@ private fun ActionsContent(
             Text(
                 text = stringResource(Res.string.server_is_currently)
             )
-            StatusBadge(
+            HostStatusBadge(
                 status = statusState.value
             )
         }

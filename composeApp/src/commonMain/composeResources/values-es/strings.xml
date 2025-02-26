@@ -19,6 +19,7 @@
     <string name="start">Inicio</string>
     <string name="reboot">Reiniciar</string>
     <string name="services">Servicios</string>
+    <string name="no_services_available">No hay servicios disponibles</string>
     <string name="unregister_host">Anular el registro del host</string>
     <string name="unregister_host_message">El host quedará sin registrar, y tendrás que reinsertar todos los servicios y configuraciones si quieres restaurarlo. ¿Desea continuar\?</string>
     <string name="delete">Borrar</string>

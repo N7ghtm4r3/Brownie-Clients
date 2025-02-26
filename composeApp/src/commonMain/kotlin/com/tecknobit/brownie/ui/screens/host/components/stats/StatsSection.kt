@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMultiplatform::class)
 
-package com.tecknobit.brownie.ui.screens.host.components
+package com.tecknobit.brownie.ui.screens.host.components.stats
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.ColumnScope
@@ -18,6 +18,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.stats
+import com.tecknobit.brownie.ui.screens.host.components.ExpandableSection
+import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.equinoxcompose.utilities.CompactClassComponent
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.EXPANDED_CONTENT
