@@ -7,6 +7,7 @@ import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.rubik
 import brownie.composeapp.generated.resources.ubuntu_mono
 import com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen
+import com.tecknobit.brownie.ui.screens.connect.ConnectScreen
 import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen
@@ -47,6 +48,8 @@ lateinit var navigator: Navigator
 
 const val SPLASHSCREEN = "Splashscreen"
 
+const val CONNECT_SCREEN = "ConnectScreen"
+
 const val ADMIN_CONTROL_PANEL_SCREEN = "AdminControlPanelScreen"
 
 const val HOSTS_SCREEN = "HostsScreen"
@@ -73,14 +76,19 @@ fun App() {
                 Splashscreen().ShowContent()
             }
             scene(
-                route = ADMIN_CONTROL_PANEL_SCREEN
+                route = CONNECT_SCREEN
             ) {
-                AdminPanelScreen().ShowContent()
+                ConnectScreen().ShowContent()
             }
             scene(
                 route = HOSTS_SCREEN
             ) {
                 HostsScreen().ShowContent()
+            }
+            scene(
+                route = ADMIN_CONTROL_PANEL_SCREEN
+            ) {
+                AdminPanelScreen().ShowContent()
             }
             scene(
                 route = "$UPSERT_HOST_SCREEN/{$IDENTIFIER_KEY}?"
@@ -152,7 +160,7 @@ fun startSession() {
             AUTH_SCREEN*/
     setUserLanguage()
     // TODO: MAKE THE REAL NAVIGATION
-    navigator.navigate(HOSTS_SCREEN)
+    navigator.navigate(CONNECT_SCREEN)
 }
 
 /**

@@ -92,4 +92,8 @@
     <string name="admin_panel">Panneau d'administration</string>
     <string name="delete_session">Supprimer la session</string>
     <string name="local_settings">Paramètres locaux</string>
+    <string name="host_address_not_valid">L\'adresse de l\'hôte n\'est pas valide</string>
+    <string name="server_secret_not_valid">Le secret du serveur n\'est pas valide</string>
+    <string name="server_secret">Secret du serveur</string>
+    <string name="connect">Connecter</string>
 </resources>

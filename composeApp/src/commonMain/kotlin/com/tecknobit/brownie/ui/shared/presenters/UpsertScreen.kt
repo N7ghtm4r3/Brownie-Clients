@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
@@ -252,9 +253,12 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
     private fun CompactUpsertButtons(
         isEditing: Boolean,
     ) {
-        Column {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
             UpsertButtons(
                 modifier = Modifier
+                    .height(45.dp)
                     .fillMaxWidth(),
                 isEditing = isEditing
             )

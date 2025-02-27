@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
@@ -53,7 +54,7 @@ import com.tecknobit.brownie.localUser
 import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.components.DeleteSession
 import com.tecknobit.brownie.ui.components.Logout
-import com.tecknobit.brownie.ui.screens.adminpanel.presenters.AdminPanelScreenViewModel
+import com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel
 import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.brownie.ui.theme.red
@@ -286,9 +287,12 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
     @CompactClassComponent
     @NonRestartableComposable
     private fun CompactButtons() {
-        Column {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
             ControlButtons(
                 modifier = Modifier
+                    .height(45.dp)
                     .fillMaxWidth()
             )
         }

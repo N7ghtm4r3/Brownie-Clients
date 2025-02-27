@@ -111,7 +111,10 @@ class UpsertServiceScreen(
     @Composable
     @RequiresSuperCall
     @NonRestartableComposable
-    override fun UpsertButtons(modifier: Modifier, isEditing: Boolean) {
+    override fun UpsertButtons(
+        modifier: Modifier,
+        isEditing: Boolean,
+    ) {
         if (isEditing) {
             val removeService = remember { mutableStateOf(false) }
             Button(

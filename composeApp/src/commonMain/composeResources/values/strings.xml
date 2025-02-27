@@ -92,4 +92,8 @@
     <string name="admin_panel">Admin panel</string>
     <string name="delete_session">Delete session</string>
     <string name="local_settings">Local settings</string>
+    <string name="host_address_not_valid">Host address not valid</string>
+    <string name="server_secret_not_valid">Server secret not valid</string>
+    <string name="server_secret">Server secret</string>
+    <string name="connect">Connect</string>
 </resources>

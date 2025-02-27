@@ -1,4 +1,4 @@
-package com.tecknobit.brownie.ui.screens.adminpanel.presenters
+package com.tecknobit.brownie.ui.screens.adminpanel.presentation
 
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.MutableState

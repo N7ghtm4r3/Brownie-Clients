@@ -92,4 +92,8 @@
     <string name="admin_panel">Pannello di controllo</string>
     <string name="delete_session">Elimina sessione</string>
     <string name="local_settings">Impostazioni locali</string>
+    <string name="host_address_not_valid">Indirizzo host non valido</string>
+    <string name="server_secret_not_valid">Segreto del server non valido</string>
+    <string name="server_secret">Segreto del server</string>
+    <string name="connect">Connettimi</string>
 </resources>

@@ -28,7 +28,7 @@ import brownie.composeapp.generated.resources.unregister_host_message
 import com.tecknobit.brownie.SPLASHSCREEN
 import com.tecknobit.brownie.displayFontFamily
 import com.tecknobit.brownie.navigator
-import com.tecknobit.brownie.ui.screens.adminpanel.presenters.AdminPanelScreenViewModel
+import com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel
 import com.tecknobit.brownie.ui.shared.presentations.HostManager
