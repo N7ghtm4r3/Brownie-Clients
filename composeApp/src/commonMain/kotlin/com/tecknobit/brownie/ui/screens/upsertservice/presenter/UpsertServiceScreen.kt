@@ -1,11 +1,11 @@
-@file:OptIn(ExperimentalMultiplatform::class)
-
 package com.tecknobit.brownie.ui.screens.upsertservice.presenter
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DeleteForever
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -13,27 +13,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
 import brownie.composeapp.generated.resources.Res.string
 import brownie.composeapp.generated.resources.add_service
 import brownie.composeapp.generated.resources.edit_service
+import brownie.composeapp.generated.resources.remove
 import brownie.composeapp.generated.resources.service_name
 import brownie.composeapp.generated.resources.service_name_placeholder
 import brownie.composeapp.generated.resources.wrong_service_name
 import com.tecknobit.brownie.ui.components.DeleteService
-import com.tecknobit.brownie.ui.components.ItemNameSection
+import com.tecknobit.brownie.ui.components.RemoveService
 import com.tecknobit.brownie.ui.screens.host.data.HostService
-import com.tecknobit.brownie.ui.screens.upsertservice.components.CompactUpsertButtons
-import com.tecknobit.brownie.ui.screens.upsertservice.components.ExpandedUpsertButtons
 import com.tecknobit.brownie.ui.screens.upsertservice.components.ProgramArgumentsSection
 import com.tecknobit.brownie.ui.screens.upsertservice.components.ServiceSettings
 import com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel
 import com.tecknobit.brownie.ui.shared.presenters.UpsertScreen
 import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.brownie.ui.theme.red
-import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
+import com.tecknobit.equinoxcompose.components.ChameleonText
+import com.tecknobit.equinoxcore.annotations.RequiresSuperCall
 import org.jetbrains.compose.resources.stringResource
 
 class UpsertServiceScreen(
@@ -109,34 +109,35 @@ class UpsertServiceScreen(
     }
 
     @Composable
+    @RequiresSuperCall
     @NonRestartableComposable
-    override fun ColumnScope.ButtonsSection() {
-        Column(
-            modifier = Modifier
-                .align(Alignment.End),
-            horizontalAlignment = Alignment.End
-        ) {
-            ResponsiveContent(
-                onExpandedSizeClass = {
-                    ExpandedUpsertButtons(
-                        isEditing = isEditing,
-                        viewModel = viewModel
-                    )
-                },
-                onMediumSizeClass = {
-                    ExpandedUpsertButtons(
-                        isEditing = isEditing,
-                        viewModel = viewModel
-                    )
-                },
-                onCompactSizeClass = {
-                    CompactUpsertButtons(
-                        isEditing = isEditing,
-                        viewModel = viewModel
-                    )
-                }
+    override fun UpsertButtons(modifier: Modifier, isEditing: Boolean) {
+        if (isEditing) {
+            val removeService = remember { mutableStateOf(false) }
+            Button(
+                modifier = modifier,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = red()
+                ),
+                shape = RoundedCornerShape(
+                    size = 10.dp
+                ),
+                onClick = { removeService.value = true }
+            ) {
+                ChameleonText(
+                    text = stringResource(string.remove),
+                    backgroundColor = red()
+                )
+            }
+            RemoveService(
+                show = removeService,
+                viewModel = viewModel
             )
         }
+        super.UpsertButtons(
+            modifier = modifier,
+            isEditing = isEditing
+        )
     }
 
     @Composable

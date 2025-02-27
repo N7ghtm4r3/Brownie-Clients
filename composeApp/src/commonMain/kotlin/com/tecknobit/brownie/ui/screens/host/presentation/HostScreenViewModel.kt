@@ -77,7 +77,7 @@ class HostScreenViewModel(
                             Random.nextInt(100).toDouble(),
                             storageType = StorageType.entries[Random.nextInt(2)]
                         ),
-                        history = if (false && Random.nextBoolean()) {
+                        history = if (Random.nextBoolean()) {
                             listOf(
                                 SavedHostOverview.HostHistoryEvent(
                                     id = Random.nextLong().toString(),

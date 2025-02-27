@@ -1,6 +1,5 @@
 package com.tecknobit.brownie.ui.screens.upserthost.presenter
 
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
@@ -13,7 +12,6 @@ import brownie.composeapp.generated.resources.host_name
 import brownie.composeapp.generated.resources.host_name_placeholder
 import brownie.composeapp.generated.resources.register_host
 import brownie.composeapp.generated.resources.wrong_host_name
-import com.tecknobit.brownie.ui.components.ItemNameSection
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.brownie.ui.screens.upserthost.components.HostAddressSection
 import com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel
@@ -59,12 +57,6 @@ class UpsertHostScreen(
         HostAddressSection(
             viewModel = viewModel
         )
-    }
-
-    @Composable
-    @NonRestartableComposable
-    override fun ColumnScope.ButtonsSection() {
-
     }
 
     @Composable
