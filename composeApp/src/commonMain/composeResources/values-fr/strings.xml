@@ -80,4 +80,11 @@
     <string name="host_address">Adresse de l\'hôte</string>
     <string name="host_address_placeholder">L\'adresse de l\'hôte</string>
     <string name="wrong_host_address">L\'adresse de l\'hôte n\'est pas valide</string>
+    <string name="ssh_authentication">Authentification SSH</string>
+    <string name="ssh_authentication_description">Remplissez le formulaire ci-dessous pour insérer l\'identifiant permettant de se connecter à un hôte distant via SSH.</string>
+    <string name="ssh_user_placeholder">Utilisateur SSH</string>
+    <string name="wrong_ssh_user">L\'utilisateur SSH n\'est pas valide</string>
+    <string name="ssh_password_placeholder">Mot de passe SSH</string>
+    <string name="wrong_ssh_password">Le mot de passe SSH n\'est pas valide</string>
+    <string name="ssh_field_edit_placeholder">Remplir ce champ pour modifier la valeur sauvegardée actuelle</string>
 </resources>

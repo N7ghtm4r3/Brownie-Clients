@@ -17,6 +17,14 @@ class UpsertHostScreenViewModel(
 
     lateinit var addressError: MutableState<Boolean>
 
+    lateinit var sshUser: MutableState<String>
+
+    lateinit var sshUserError: MutableState<Boolean>
+
+    lateinit var sshPassword: MutableState<String>
+
+    lateinit var sshPasswordError: MutableState<Boolean>
+
     override fun retrieveItem() {
         if (itemId == null)
             return

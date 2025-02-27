@@ -80,4 +80,11 @@
     <string name="host_address">Indirizzo dell'host</string>
     <string name="host_address_placeholder">L'indirizzo dell'host</string>
     <string name="wrong_host_address">L'indirizzo dell'host non è valido</string>
+    <string name="ssh_authentication">Autenticazione SSH</string>
+    <string name="ssh_authentication_description">Compila il modulo sottostante per inserire le credenziali di connessione a un host remoto via SSH</string>
+    <string name="ssh_user_placeholder">Utente SSH</string>
+    <string name="wrong_ssh_user">L'utente SSH non è valido</string>
+    <string name="ssh_password_placeholder">Password SSH</string>
+    <string name="wrong_ssh_password">La password SSH non è valida</string>
+    <string name="ssh_field_edit_placeholder">Compila questo campo per modificare il valore corrente</string>
 </resources>

@@ -14,6 +14,7 @@ import brownie.composeapp.generated.resources.register_host
 import brownie.composeapp.generated.resources.wrong_host_name
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.brownie.ui.screens.upserthost.components.HostAddressSection
+import com.tecknobit.brownie.ui.screens.upserthost.components.SSHAuthentication
 import com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel
 import com.tecknobit.brownie.ui.shared.presenters.UpsertScreen
 import com.tecknobit.brownie.ui.theme.AppTypography
@@ -57,6 +58,10 @@ class UpsertHostScreen(
         HostAddressSection(
             viewModel = viewModel
         )
+        SSHAuthentication(
+            viewModel = viewModel,
+            isEditing = isEditing
+        )
     }
 
     @Composable
@@ -65,6 +70,10 @@ class UpsertHostScreen(
     override fun CollectStates() {
         super.CollectStates()
         viewModel.addressError = remember { mutableStateOf(false) }
+        viewModel.sshUser = remember { mutableStateOf("") }
+        viewModel.sshUserError = remember { mutableStateOf(false) }
+        viewModel.sshPassword = remember { mutableStateOf("") }
+        viewModel.sshPasswordError = remember { mutableStateOf(false) }
     }
 
     @Composable
