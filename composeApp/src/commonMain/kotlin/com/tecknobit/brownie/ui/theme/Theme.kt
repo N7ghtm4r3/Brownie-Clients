@@ -120,6 +120,30 @@ fun violet(): Color {
 }
 
 @Composable
+fun serviceAddedColor(): Color {
+    return if (isDarkThemeApplied())
+        serviceAddedDark
+    else
+        serviceAddedLight
+}
+
+@Composable
+fun serviceRemovedColor(): Color {
+    return if (isDarkThemeApplied())
+        serviceRemovedDark
+    else
+        serviceRemovedLight
+}
+
+@Composable
+fun serviceDeletedColor(): Color {
+    return if (isDarkThemeApplied())
+        serviceDeletedDark
+    else
+        serviceDeletedLight
+}
+
+@Composable
 fun BrownieTheme(
     darkTheme: Boolean = isDarkThemeApplied(),
     content: @Composable () -> Unit,

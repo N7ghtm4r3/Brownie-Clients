@@ -11,40 +11,58 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.tecknobit.brownie.ui.screens.host.data.HostService.Companion.asColor
+import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.Companion.asColor
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.Companion.asColor
+import com.tecknobit.browniecore.enums.HostEventType
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.ServiceEventType
 import com.tecknobit.browniecore.enums.ServiceStatus
 import com.tecknobit.equinoxcompose.components.ChameleonText
+import com.tecknobit.equinoxcore.annotations.Wrapper
 
+@Wrapper
 @Composable
 @NonRestartableComposable
 fun HostStatusBadge(
     status: HostStatus,
 ) {
-    StatusBadge(
+    EnumBadge(
         color = status.asColor(),
         name = status.name
     )
 }
 
+@Wrapper
 @Composable
 @NonRestartableComposable
 fun ServiceStatusBadge(
     status: ServiceStatus,
 ) {
-    StatusBadge(
+    EnumBadge(
         color = status.asColor(),
         name = status.name
     )
 }
 
+@Wrapper
 @Composable
 @NonRestartableComposable
 fun ServiceEventBadge(
     eventType: ServiceEventType,
 ) {
-    StatusBadge(
+    EnumBadge(
+        color = eventType.asColor(),
+        name = eventType.name
+    )
+}
+
+@Wrapper
+@Composable
+@NonRestartableComposable
+fun HistoryEventBadge(
+    eventType: HostEventType,
+) {
+    EnumBadge(
         color = eventType.asColor(),
         name = eventType.name
     )
@@ -52,7 +70,7 @@ fun ServiceEventBadge(
 
 @Composable
 @NonRestartableComposable
-private fun StatusBadge(
+private fun EnumBadge(
     color: Color,
     name: String,
 ) {

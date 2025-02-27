@@ -83,5 +83,15 @@ val darkGreen = Color(4281236786)
 val lightViolet = Color(4286996904)
 val darkViolet = Color(4284169845)
 
+val serviceAddedLight = Color(0xFF6E9275)
+val serviceAddedDark = Color(0xFF4E7056)
+
+val serviceRemovedLight = Color(0xFF5F7C8A)
+val serviceRemovedDark = Color(0xFF3F5A67)
+
+val serviceDeletedLight = Color(0xFF7A3D4B)
+val serviceDeletedDark = Color(0xFF5A2A36)
+
+
 
 

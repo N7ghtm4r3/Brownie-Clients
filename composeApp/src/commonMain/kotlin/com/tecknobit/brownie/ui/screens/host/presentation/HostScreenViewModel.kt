@@ -11,6 +11,7 @@ import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.data.StorageUsage
 import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
 import com.tecknobit.brownie.ui.shared.presentation.HostManager
+import com.tecknobit.browniecore.enums.HostEventType
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.ServiceEventType
 import com.tecknobit.browniecore.enums.ServiceStatus
@@ -75,7 +76,57 @@ class HostScreenViewModel(
                             totalValue = 4000,
                             Random.nextInt(100).toDouble(),
                             storageType = StorageType.entries[Random.nextInt(2)]
-                        )
+                        ),
+                        history = if (Random.nextBoolean()) {
+                            listOf(
+                                SavedHostOverview.HostHistoryEvent(
+                                    id = Random.nextLong().toString(),
+                                    type = HostEventType.SERVICE_DELETED,
+                                    eventDate = TimeFormatter.currentTimestamp()
+                                ),
+                                SavedHostOverview.HostHistoryEvent(
+                                    id = Random.nextLong().toString(),
+                                    type = HostEventType.SERVICE_ADDED,
+                                    eventDate = TimeFormatter.currentTimestamp()
+                                ),
+                                SavedHostOverview.HostHistoryEvent(
+                                    id = Random.nextLong().toString(),
+                                    type = HostEventType.SERVICE_REMOVED,
+                                    eventDate = TimeFormatter.currentTimestamp()
+                                ),
+                                SavedHostOverview.HostHistoryEvent(
+                                    id = Random.nextLong().toString(),
+                                    type = HostEventType.SERVICE_ADDED,
+                                    eventDate = TimeFormatter.currentTimestamp()
+                                ),
+                                SavedHostOverview.HostHistoryEvent(
+                                    id = Random.nextLong().toString(),
+                                    type = HostEventType.ONLINE,
+                                    eventDate = TimeFormatter.currentTimestamp()
+                                ),
+                                SavedHostOverview.HostHistoryEvent(
+                                    id = Random.nextLong().toString(),
+                                    type = HostEventType.OFFLINE,
+                                    eventDate = TimeFormatter.currentTimestamp()
+                                ),
+                                SavedHostOverview.HostHistoryEvent(
+                                    id = Random.nextLong().toString(),
+                                    type = HostEventType.RESTARTED,
+                                    eventDate = TimeFormatter.currentTimestamp()
+                                ),
+                                SavedHostOverview.HostHistoryEvent(
+                                    id = Random.nextLong().toString(),
+                                    type = HostEventType.REBOOTING,
+                                    eventDate = TimeFormatter.currentTimestamp()
+                                ),
+                                SavedHostOverview.HostHistoryEvent(
+                                    id = Random.nextLong().toString(),
+                                    type = HostEventType.ONLINE,
+                                    eventDate = TimeFormatter.currentTimestamp()
+                                )
+                            )
+                        } else
+                            emptyList()
                     )
                 }
             },
@@ -107,7 +158,97 @@ class HostScreenViewModel(
                     id = Random.nextLong().toString(),
                     purgeNohupOutAfterReboot = false
                 ),
+                events = if (Random.nextBoolean()) {
+                    listOf(
+                        HostService.ServiceEvent(
+                            id = Random.nextLong().toString(),
+                            type = ServiceEventType.RESTARTED,
+                            eventDate = TimeFormatter.currentTimestamp(),
+                            extra = Random.nextLong(100000)
+                        ),
+                        HostService.ServiceEvent(
+                            id = Random.nextLong().toString(),
+                            type = ServiceEventType.REBOOTING,
+                            eventDate = TimeFormatter.currentTimestamp(),
+                            extra = 11
+                        ),
+                        HostService.ServiceEvent(
+                            id = Random.nextLong().toString(),
+                            type = ServiceEventType.RUNNING,
+                            eventDate = TimeFormatter.currentTimestamp(),
+                            extra = Random.nextLong(100000)
+                        ),
+                        HostService.ServiceEvent(
+                            id = Random.nextLong().toString(),
+                            type = ServiceEventType.STOPPED,
+                            eventDate = TimeFormatter.currentTimestamp(),
+                            extra = 11
+                        ),
+                        HostService.ServiceEvent(
+                            id = Random.nextLong().toString(),
+                            type = ServiceEventType.RUNNING,
+                            eventDate = TimeFormatter.currentTimestamp(),
+                            extra = Random.nextLong(100000)
+                        )
+                    )
+                } else
+                    emptyList()
+            ),
+            HostService(
+                id = Random.nextLong().toString(),
+                name = "Ametista-1.0.0.jar",
+                pid = Random.nextLong(1000000),
+                status = ServiceStatus.entries[Random.nextInt(ServiceStatus.entries.size - 1)],
+                configuration = HostService.ServiceConfiguration(
+                    id = Random.nextLong().toString(),
+                    purgeNohupOutAfterReboot = false
+                ),
                 events = if (false && Random.nextBoolean()) {
+                    listOf(
+                        HostService.ServiceEvent(
+                            id = Random.nextLong().toString(),
+                            type = ServiceEventType.RESTARTED,
+                            eventDate = TimeFormatter.currentTimestamp(),
+                            extra = Random.nextLong(100000)
+                        ),
+                        HostService.ServiceEvent(
+                            id = Random.nextLong().toString(),
+                            type = ServiceEventType.REBOOTING,
+                            eventDate = TimeFormatter.currentTimestamp(),
+                            extra = 11
+                        ),
+                        HostService.ServiceEvent(
+                            id = Random.nextLong().toString(),
+                            type = ServiceEventType.RUNNING,
+                            eventDate = TimeFormatter.currentTimestamp(),
+                            extra = Random.nextLong(100000)
+                        ),
+                        HostService.ServiceEvent(
+                            id = Random.nextLong().toString(),
+                            type = ServiceEventType.STOPPED,
+                            eventDate = TimeFormatter.currentTimestamp(),
+                            extra = 11
+                        ),
+                        HostService.ServiceEvent(
+                            id = Random.nextLong().toString(),
+                            type = ServiceEventType.RUNNING,
+                            eventDate = TimeFormatter.currentTimestamp(),
+                            extra = Random.nextLong(100000)
+                        )
+                    )
+                } else
+                    emptyList()
+            ),
+            HostService(
+                id = Random.nextLong().toString(),
+                name = "Ametista-1.0.0.jar",
+                pid = Random.nextLong(1000000),
+                status = ServiceStatus.entries[Random.nextInt(ServiceStatus.entries.size - 1)],
+                configuration = HostService.ServiceConfiguration(
+                    id = Random.nextLong().toString(),
+                    purgeNohupOutAfterReboot = false
+                ),
+                events = if (Random.nextBoolean()) {
                     listOf(
                         HostService.ServiceEvent(
                             id = Random.nextLong().toString(),

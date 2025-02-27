@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.tecknobit.brownie.ui.screens.host.components.actions.ActionsSection
+import com.tecknobit.brownie.ui.screens.host.components.history.HistorySection
 import com.tecknobit.brownie.ui.screens.host.components.services.ServicesSection
 import com.tecknobit.brownie.ui.screens.host.components.stats.StatsSection
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
@@ -47,6 +48,10 @@ fun HostOverview(
                 hostOverview = hostOverview
             )
             ServicesSection(
+                viewModel = viewModel,
+                savedHostOverview = hostOverview
+            )
+            HistorySection(
                 viewModel = viewModel,
                 savedHostOverview = hostOverview
             )

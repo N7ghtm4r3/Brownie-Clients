@@ -58,4 +58,5 @@
     <string name="no_events_available">No events available</string>
     <string name="filter_services">Filters services</string>
     <string name="enter_name_or_pid">Name or PID</string>
+    <string name="history">History</string>
 </resources>
