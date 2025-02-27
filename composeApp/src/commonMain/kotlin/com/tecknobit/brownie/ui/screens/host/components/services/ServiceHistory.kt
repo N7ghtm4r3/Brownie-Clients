@@ -4,6 +4,7 @@ package com.tecknobit.brownie.ui.screens.host.components.services
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -13,6 +14,7 @@ import androidx.compose.material3.SheetState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.unit.dp
@@ -28,6 +30,7 @@ import com.pushpal.jetlime.JetLimeDefaults
 import com.pushpal.jetlime.JetLimeEvent
 import com.pushpal.jetlime.JetLimeEventDefaults
 import com.tecknobit.brownie.displayFontFamily
+import com.tecknobit.brownie.ui.components.NoEventsAvailable
 import com.tecknobit.brownie.ui.components.ServiceEventBadge
 import com.tecknobit.brownie.ui.screens.host.data.HostService
 import com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceEvent
@@ -66,44 +69,66 @@ fun ServiceHistory(
                 fontSize = 20.sp
             )
             HorizontalDivider()
-            JetLimeColumn(
-                itemsList = ItemsList(
-                    items = service.events
-                ),
-                contentPadding = PaddingValues(
-                    all = 16.dp
-                ),
-                style = JetLimeDefaults.columnStyle(
-                    pathEffect = PathEffect.dashPathEffect(
-                        intervals = floatArrayOf(30f, 30f),
-                        phase = 0f,
-                    )
-                ),
-                key = { _, event -> event.id }
-            ) { _, event, position ->
-                JetLimeEvent(
-                    style = JetLimeEventDefaults.eventStyle(
-                        position = position
-                    )
-                ) {
-                    Card {
-                        ListItem(
-                            overlineContent = {
-                                ServiceEventBadge(
-                                    eventType = event.type
-                                )
-                            },
-                            headlineContent = {
-                                event.eventText()
-                            },
-                            supportingContent = {
-                                Text(
-                                    text = event.eventDate.toDateString()
-                                )
-                            }
+            val events = service.events
+            if (events.isEmpty()) {
+                NoEventsAvailable(
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .sizeIn(
+                            maxWidth = 400.dp,
+                            maxHeight = 400.dp
+                        )
+                )
+            } else {
+                ServiceEvents(
+                    events = events
+                )
+            }
+        }
+    }
+}
+
+@Composable
+@NonRestartableComposable
+private fun ServiceEvents(
+    events: List<ServiceEvent>,
+) {
+    JetLimeColumn(
+        itemsList = ItemsList(
+            items = events
+        ),
+        contentPadding = PaddingValues(
+            all = 16.dp
+        ),
+        style = JetLimeDefaults.columnStyle(
+            pathEffect = PathEffect.dashPathEffect(
+                intervals = floatArrayOf(30f, 30f),
+                phase = 0f,
+            )
+        ),
+        key = { _, event -> event.id }
+    ) { _, event, position ->
+        JetLimeEvent(
+            style = JetLimeEventDefaults.eventStyle(
+                position = position
+            )
+        ) {
+            Card {
+                ListItem(
+                    overlineContent = {
+                        ServiceEventBadge(
+                            eventType = event.type
+                        )
+                    },
+                    headlineContent = {
+                        event.eventText()
+                    },
+                    supportingContent = {
+                        Text(
+                            text = event.eventDate.toDateString()
                         )
                     }
-                }
+                )
             }
         }
     }

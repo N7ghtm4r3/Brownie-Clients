@@ -3,6 +3,7 @@
 package com.tecknobit.brownie.ui.screens.host.components
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
@@ -36,6 +37,7 @@ import org.jetbrains.compose.resources.stringResource
 fun ExpandableSection(
     modifier: Modifier = Modifier,
     title: StringResource,
+    filtersContent: (@Composable () -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column {
@@ -52,7 +54,17 @@ fun ExpandableSection(
                     .weight(1f)
             ) {
                 SectionTitle(
-                    title = title
+                    title = title,
+                    filtersContent = if (filtersContent != null) {
+                        {
+                            AnimatedVisibility(
+                                visible = expanded
+                            ) {
+                                filtersContent()
+                            }
+                        }
+                    } else
+                        null
                 )
             }
             Column(
@@ -94,12 +106,19 @@ fun SectionTitle(
     modifier: Modifier = Modifier,
     title: StringResource,
     fontSize: TextUnit = TextUnit.Unspecified,
+    filtersContent: (@Composable () -> Unit)? = null,
 ) {
-    Text(
+    Row(
         modifier = modifier
             .fillMaxWidth(),
-        text = stringResource(title),
-        style = AppTypography.bodyLarge,
-        fontSize = fontSize
-    )
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(5.dp)
+    ) {
+        Text(
+            text = stringResource(title),
+            style = AppTypography.bodyLarge,
+            fontSize = fontSize
+        )
+        filtersContent?.invoke()
+    }
 }

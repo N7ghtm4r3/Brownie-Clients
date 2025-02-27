@@ -27,9 +27,9 @@ import com.tecknobit.equinoxcompose.components.EquinoxAlertDialog
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 
 /**
- * `titleStyle` the style to apply to the title of the [EquinoxAlertDialog]
+ * `alertTitleStyle` the style to apply to the title of the [EquinoxAlertDialog]
  */
-val titleStyle = TextStyle(
+val alertTitleStyle = TextStyle(
     fontFamily = displayFontFamily,
     fontSize = 20.sp
 )
@@ -51,7 +51,7 @@ fun UnregisterSavedHost(
         viewModel = (hostManager) as EquinoxViewModel,
         show = show,
         title = Res.string.unregister_host,
-        titleStyle = titleStyle,
+        titleStyle = alertTitleStyle,
         text = Res.string.unregister_host_message,
         confirmAction = {
             hostManager.unregisterHost(
@@ -80,7 +80,7 @@ fun RemoveService(
         viewModel = viewModel,
         show = show,
         title = Res.string.remove_service,
-        titleStyle = titleStyle,
+        titleStyle = alertTitleStyle,
         text = Res.string.remove_service_message,
         confirmAction = {
             viewModel.removeService(
@@ -107,7 +107,7 @@ fun DeleteService(
         viewModel = viewModel,
         show = show,
         title = Res.string.delete_service,
-        titleStyle = titleStyle,
+        titleStyle = alertTitleStyle,
         text = Res.string.delete_service_message,
         confirmAction = {
             viewModel.deleteService(
@@ -138,7 +138,7 @@ fun Logout(
         viewModel = viewModel,
         show = show,
         title = Res.string.logout,
-        titleStyle = titleStyle,
+        alertTitleStyle = alertTitleStyle,
         text = Res.string.logout_message,
         confirmAction = {
             viewModel.clearSession {
@@ -170,7 +170,7 @@ fun DeleteAccount(
         viewModel = viewModel,
         show = show,
         title = Res.string.account_deletion,
-        titleStyle = titleStyle,
+        alertTitleStyle = alertTitleStyle,
         text = Res.string.delete_message,
         confirmAction = {
             viewModel.deleteAccount(

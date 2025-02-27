@@ -1,6 +1,8 @@
 package com.tecknobit.brownie.ui.screens.host.presentation
 
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.viewModelScope
 import com.tecknobit.brownie.ui.screens.host.data.CpuUsage
 import com.tecknobit.brownie.ui.screens.host.data.HostService
@@ -16,6 +18,7 @@ import com.tecknobit.browniecore.enums.ServiceStatus.RUNNING
 import com.tecknobit.browniecore.enums.ServiceStatus.STOPPED
 import com.tecknobit.browniecore.enums.StorageType
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
+import com.tecknobit.equinoxcore.mergeIfNotContained
 import com.tecknobit.equinoxcore.pagination.PaginatedResponse.Companion.DEFAULT_PAGE
 import com.tecknobit.equinoxcore.time.TimeFormatter
 import io.github.ahmad_hamwi.compose.pagination.PaginationState
@@ -37,6 +40,14 @@ class HostScreenViewModel(
         value = null
     )
     val hostOverview = _hostOverview.asStateFlow()
+
+    lateinit var servicesQuery: MutableState<String>
+
+    val statusFilters = mutableStateListOf<ServiceStatus>()
+
+    init {
+        statusFilters.addAll(ServiceStatus.entries)
+    }
 
     fun retrieveHostOverview() {
         retrieve(
@@ -96,38 +107,41 @@ class HostScreenViewModel(
                     id = Random.nextLong().toString(),
                     purgeNohupOutAfterReboot = false
                 ),
-                events = listOf(
-                    HostService.ServiceEvent(
-                        id = Random.nextLong().toString(),
-                        type = ServiceEventType.RESTARTED,
-                        eventDate = TimeFormatter.currentTimestamp(),
-                        extra = Random.nextLong(100000)
-                    ),
-                    HostService.ServiceEvent(
-                        id = Random.nextLong().toString(),
-                        type = ServiceEventType.REBOOTING,
-                        eventDate = TimeFormatter.currentTimestamp(),
-                        extra = 11
-                    ),
-                    HostService.ServiceEvent(
-                        id = Random.nextLong().toString(),
-                        type = ServiceEventType.RUNNING,
-                        eventDate = TimeFormatter.currentTimestamp(),
-                        extra = Random.nextLong(100000)
-                    ),
-                    HostService.ServiceEvent(
-                        id = Random.nextLong().toString(),
-                        type = ServiceEventType.STOPPED,
-                        eventDate = TimeFormatter.currentTimestamp(),
-                        extra = 11
-                    ),
-                    HostService.ServiceEvent(
-                        id = Random.nextLong().toString(),
-                        type = ServiceEventType.RUNNING,
-                        eventDate = TimeFormatter.currentTimestamp(),
-                        extra = Random.nextLong(100000)
+                events = if (false && Random.nextBoolean()) {
+                    listOf(
+                        HostService.ServiceEvent(
+                            id = Random.nextLong().toString(),
+                            type = ServiceEventType.RESTARTED,
+                            eventDate = TimeFormatter.currentTimestamp(),
+                            extra = Random.nextLong(100000)
+                        ),
+                        HostService.ServiceEvent(
+                            id = Random.nextLong().toString(),
+                            type = ServiceEventType.REBOOTING,
+                            eventDate = TimeFormatter.currentTimestamp(),
+                            extra = 11
+                        ),
+                        HostService.ServiceEvent(
+                            id = Random.nextLong().toString(),
+                            type = ServiceEventType.RUNNING,
+                            eventDate = TimeFormatter.currentTimestamp(),
+                            extra = Random.nextLong(100000)
+                        ),
+                        HostService.ServiceEvent(
+                            id = Random.nextLong().toString(),
+                            type = ServiceEventType.STOPPED,
+                            eventDate = TimeFormatter.currentTimestamp(),
+                            extra = 11
+                        ),
+                        HostService.ServiceEvent(
+                            id = Random.nextLong().toString(),
+                            type = ServiceEventType.RUNNING,
+                            eventDate = TimeFormatter.currentTimestamp(),
+                            extra = Random.nextLong(100000)
+                        )
                     )
-                )
+                } else
+                    emptyList()
             )
         )
         servicesState.appendPage(
@@ -138,6 +152,25 @@ class HostScreenViewModel(
             nextPageKey = page + 1, // TODO: USE THE REAL DATA,
             isLastPage = true || Random.nextBoolean() // TODO: USE THE REAL DATA,
         )
+    }
+
+    fun clearFilters(
+        onClear: () -> Unit,
+    ) {
+        servicesQuery.value = ""
+        statusFilters.mergeIfNotContained(
+            collectionToMerge = ServiceStatus.entries
+        )
+        restartRetriever()
+        onClear()
+    }
+
+    fun applyFilters(
+        onApply: () -> Unit,
+    ) {
+        onApply()
+        restartRetriever()
+        servicesState.refresh()
     }
 
     fun handleServiceStatus(

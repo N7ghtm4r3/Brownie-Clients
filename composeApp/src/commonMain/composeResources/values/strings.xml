@@ -55,4 +55,7 @@
     <string name="remove_service_message">If you confirm the service will removed, but it will not deleted from the host, proceed?</string>
     <string name="delete_service">Delete service</string>
     <string name="delete_service_message">If you confirm the service will delete also from the host machine, proceed?</string>
+    <string name="no_events_available">No events available</string>
+    <string name="filter_services">Filters services</string>
+    <string name="enter_name_or_pid">Name or PID</string>
 </resources>

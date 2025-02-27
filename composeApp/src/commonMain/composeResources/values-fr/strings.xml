@@ -55,4 +55,7 @@
     <string name="remove_service_message">Si vous confirmez que le service sera supprimé, mais qu'il ne sera pas supprimé de l'hôte, continuez ?</string>
     <string name="delete_service">Supprimer le service</string>
     <string name="delete_service_message">Si vous confirmez que le service sera également supprimé de la machine hôte, continuez ?</string>
+    <string name="no_events_available">Aucun événement disponible</string>
+    <string name="filter_services">Services de filtration</string>
+    <string name="enter_name_or_pid">Nom ou PID</string>
 </resources>
