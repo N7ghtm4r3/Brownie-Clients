@@ -25,7 +25,7 @@
     <string name="delete">Supprimer</string>
     <string name="logout">Déconnexion</string>
     <string name="logout_message">Si vous confirmez, vous serez déconnecté de ce dispositif.</string>
-    <string name="delete_message">Si vous confirmez, votre compte sera définitivement supprimé et vos données ne seront plus récupérables.</string>
+    <string name="delete_message">Si vous confirmez, la session sera définitivement supprimée et ses données ne seront plus récupérables</string>
     <plurals name="service_stopped">
         <item formatted="false" quantity="one">Le service a été arrêté après %1$d jour</item>
         <item formatted="false" quantity="other">Le service a été arrêté après %1$d jours</item>
@@ -72,19 +72,24 @@
     <string name="service_added">Le service %1$s a été ajouté</string>
     <string name="service_removed">Le service %1$s a été supprimé</string>
     <string name="service_deleted">Le service %1$s a été supprimé</string>
-    <string name="register_host">Registre de l\'hôte</string>
+    <string name="register_host">Registre de l'hôte</string>
     <string name="edit_host">Editer l'hôte</string>
-    <string name="host_name">Nom d\'hôte</string>
+    <string name="host_name">Nom d'hôte</string>
     <string name="host_name_placeholder">par exemple debian 11, ubuntu 22...</string>
-    <string name="wrong_host_name">Le nom de l\'hôte n\'est pas valide</string>
-    <string name="host_address">Adresse de l\'hôte</string>
-    <string name="host_address_placeholder">L\'adresse de l\'hôte</string>
-    <string name="wrong_host_address">L\'adresse de l\'hôte n\'est pas valide</string>
+    <string name="wrong_host_name">Le nom de l'hôte n'est pas valide</string>
+    <string name="host_address">Adresse de l'hôte</string>
+    <string name="host_address_placeholder">L'adresse de l'hôte</string>
+    <string name="wrong_host_address">L'adresse de l'hôte n'est pas valide</string>
     <string name="ssh_authentication">Authentification SSH</string>
-    <string name="ssh_authentication_description">Remplissez le formulaire ci-dessous pour insérer l\'identifiant permettant de se connecter à un hôte distant via SSH.</string>
+    <string name="ssh_authentication_description">Remplissez le formulaire ci-dessous pour insérer l'identifiant permettant de se connecter à un hôte distant via SSH.</string>
     <string name="ssh_user_placeholder">Utilisateur SSH</string>
-    <string name="wrong_ssh_user">L\'utilisateur SSH n\'est pas valide</string>
+    <string name="wrong_ssh_user">L'utilisateur SSH n'est pas valide</string>
     <string name="ssh_password_placeholder">Mot de passe SSH</string>
-    <string name="wrong_ssh_password">Le mot de passe SSH n\'est pas valide</string>
+    <string name="wrong_ssh_password">Le mot de passe SSH n'est pas valide</string>
     <string name="ssh_field_edit_placeholder">Remplir ce champ pour modifier la valeur sauvegardée actuelle</string>
+    <string name="change_language">Changer de langue</string>
+    <string name="change_theme">Changer de thème</string>
+    <string name="admin_panel">Panneau d'administration</string>
+    <string name="delete_session">Supprimer la session</string>
+    <string name="local_settings">Paramètres locaux</string>
 </resources>

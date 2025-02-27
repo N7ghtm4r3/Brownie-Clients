@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AdminPanelSettings
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -38,6 +39,7 @@ import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.enter_name_or_ip
 import brownie.composeapp.generated.resources.hosts
 import brownie.composeapp.generated.resources.register
+import com.tecknobit.brownie.ADMIN_CONTROL_PANEL_SCREEN
 import com.tecknobit.brownie.CloseApplicationOnNavBack
 import com.tecknobit.brownie.UPSERT_HOST_SCREEN
 import com.tecknobit.brownie.navigator
@@ -81,6 +83,16 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
                                     Text(
                                         text = stringResource(Res.string.hosts)
                                     )
+                                },
+                                actions = {
+                                    IconButton(
+                                        onClick = { navigator.navigate(ADMIN_CONTROL_PANEL_SCREEN) }
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Default.AdminPanelSettings,
+                                            contentDescription = null
+                                        )
+                                    }
                                 }
                             )
                         },

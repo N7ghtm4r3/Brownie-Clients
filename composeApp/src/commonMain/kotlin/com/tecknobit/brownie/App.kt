@@ -6,6 +6,7 @@ import androidx.compose.ui.text.font.FontFamily
 import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.rubik
 import brownie.composeapp.generated.resources.ubuntu_mono
+import com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen
 import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen
@@ -44,7 +45,9 @@ val localUser = EquinoxLocalUser(
  */
 lateinit var navigator: Navigator
 
-const val SPLASH_SCREEN = "Splashscreen"
+const val SPLASHSCREEN = "Splashscreen"
+
+const val ADMIN_CONTROL_PANEL_SCREEN = "AdminControlPanelScreen"
 
 const val HOSTS_SCREEN = "HostsScreen"
 
@@ -62,12 +65,17 @@ fun App() {
         navigator = rememberNavigator()
         NavHost(
             navigator = navigator,
-            initialRoute = SPLASH_SCREEN
+            initialRoute = SPLASHSCREEN
         ) {
             scene(
-                route = SPLASH_SCREEN
+                route = SPLASHSCREEN
             ) {
                 Splashscreen().ShowContent()
+            }
+            scene(
+                route = ADMIN_CONTROL_PANEL_SCREEN
+            ) {
+                AdminPanelScreen().ShowContent()
             }
             scene(
                 route = HOSTS_SCREEN

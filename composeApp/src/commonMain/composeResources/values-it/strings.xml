@@ -25,7 +25,7 @@
     <string name="delete">Elimina</string>
     <string name="logout">Logout</string>
     <string name="logout_message">Se confermi, verrai disconness da questo dispositivo</string>
-    <string name="delete_message">Se confermi, il tuo account sarà definitivamente eliminato e i tuoi dati non saranno più recuperabili</string>
+    <string name="delete_message">Se confermi, la sessione verrà eliminata definitivamente e i suoi dati non saranno più recuperabili</string>
     <plurals name="service_stopped">
         <item formatted="false" quantity="one">Il servizio è stato interrotto dopo %1$d giorno</item>
         <item formatted="false" quantity="other">Il servizio è stato interrotto dopo %1$d giorni</item>
@@ -87,4 +87,9 @@
     <string name="ssh_password_placeholder">Password SSH</string>
     <string name="wrong_ssh_password">La password SSH non è valida</string>
     <string name="ssh_field_edit_placeholder">Compila questo campo per modificare il valore corrente</string>
+    <string name="change_language">Cambia lingua</string>
+    <string name="change_theme">Cambia tema</string>
+    <string name="admin_panel">Pannello di controllo</string>
+    <string name="delete_session">Elimina sessione</string>
+    <string name="local_settings">Impostazioni locali</string>
 </resources>
