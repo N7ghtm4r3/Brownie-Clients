@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.viewModelScope
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
-import com.tecknobit.brownie.ui.shared.presentation.HostManager
+import com.tecknobit.brownie.ui.shared.presentations.HostManager
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.pagination.PaginatedResponse.Companion.DEFAULT_PAGE

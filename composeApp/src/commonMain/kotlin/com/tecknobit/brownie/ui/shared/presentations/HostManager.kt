@@ -1,4 +1,4 @@
-package com.tecknobit.brownie.ui.shared.presentation
+package com.tecknobit.brownie.ui.shared.presentations
 
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.browniecore.enums.HostStatus

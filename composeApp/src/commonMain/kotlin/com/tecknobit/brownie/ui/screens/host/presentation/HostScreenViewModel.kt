@@ -10,7 +10,7 @@ import com.tecknobit.brownie.ui.screens.host.data.MemoryUsage
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.data.StorageUsage
 import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
-import com.tecknobit.brownie.ui.shared.presentation.HostManager
+import com.tecknobit.brownie.ui.shared.presentations.HostManager
 import com.tecknobit.browniecore.enums.HostEventType
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.ServiceEventType
@@ -77,7 +77,7 @@ class HostScreenViewModel(
                             Random.nextInt(100).toDouble(),
                             storageType = StorageType.entries[Random.nextInt(2)]
                         ),
-                        history = if (Random.nextBoolean()) {
+                        history = if (false && Random.nextBoolean()) {
                             listOf(
                                 SavedHostOverview.HostHistoryEvent(
                                     id = Random.nextLong().toString(),

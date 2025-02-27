@@ -29,6 +29,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import com.tecknobit.brownie.HOST_SCREEN
+import com.tecknobit.brownie.UPSERT_HOST_SCREEN
 import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.components.HostStatusBadge
 import com.tecknobit.brownie.ui.components.UnregisterSavedHost
@@ -52,9 +53,7 @@ fun HostCard(
             .clip(CardDefaults.shape)
             .combinedClickable(
                 onClick = { navigator.navigate("$HOST_SCREEN/${host.id}") },
-                onLongClick = {
-                    // TODO: NAV TO EDIT
-                }
+                onLongClick = { navigator.navigate("$UPSERT_HOST_SCREEN/${host.id}") }
             )
     ) {
         ListItem(

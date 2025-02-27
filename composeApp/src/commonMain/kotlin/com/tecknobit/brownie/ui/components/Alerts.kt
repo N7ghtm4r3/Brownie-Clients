@@ -22,7 +22,7 @@ import brownie.composeapp.generated.resources.unregister_host_message
 import com.tecknobit.brownie.displayFontFamily
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel
-import com.tecknobit.brownie.ui.shared.presentation.HostManager
+import com.tecknobit.brownie.ui.shared.presentations.HostManager
 import com.tecknobit.equinoxcompose.components.EquinoxAlertDialog
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 

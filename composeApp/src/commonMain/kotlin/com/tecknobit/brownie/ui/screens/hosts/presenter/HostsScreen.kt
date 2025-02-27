@@ -39,6 +39,8 @@ import brownie.composeapp.generated.resources.enter_name_or_ip
 import brownie.composeapp.generated.resources.hosts
 import brownie.composeapp.generated.resources.register
 import com.tecknobit.brownie.CloseApplicationOnNavBack
+import com.tecknobit.brownie.UPSERT_HOST_SCREEN
+import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.components.StatusFilterButton
 import com.tecknobit.brownie.ui.icons.AssignmentAdd
 import com.tecknobit.brownie.ui.screens.hosts.components.HostsList
@@ -93,9 +95,7 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
                                 onMediumSizeClass = { ExpandedFAB() },
                                 onCompactSizeClass = {
                                     FloatingActionButton(
-                                        onClick = {
-                                            // TODO: NAV TO CREATE
-                                        }
+                                        onClick = { navigator.navigate(UPSERT_HOST_SCREEN) }
                                     ) {
                                         Icon(
                                             imageVector = AssignmentAdd,
@@ -134,9 +134,7 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
     )
     private fun ExpandedFAB() {
         ExtendedFloatingActionButton(
-            onClick = {
-                // TODO: NAV TO CREATE
-            }
+            onClick = { navigator.navigate(UPSERT_HOST_SCREEN) }
         ) {
             Text(
                 text = stringResource(Res.string.register)

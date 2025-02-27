@@ -72,4 +72,12 @@
     <string name="service_added">The %1$s service has been added</string>
     <string name="service_removed">The %1$s service has been removed</string>
     <string name="service_deleted">The %1$s service has been deleted</string>
+    <string name="register_host">Register host</string>
+    <string name="edit_host">Edit host</string>
+    <string name="host_name">Host name</string>
+    <string name="host_name_placeholder">e.g. debian 11, ubuntu 22...</string>
+    <string name="wrong_host_name">The name of the host is not valid</string>
+    <string name="host_address">Host address</string>
+    <string name="host_address_placeholder">The address of the host</string>
+    <string name="wrong_host_address">The address of the host is not valid</string>
 </resources>

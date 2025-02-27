@@ -1,4 +1,4 @@
-package com.tecknobit.brownie.ui.screens.upsertservice.components
+package com.tecknobit.brownie.ui.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,19 +14,19 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import brownie.composeapp.generated.resources.Res
-import brownie.composeapp.generated.resources.service_name
-import brownie.composeapp.generated.resources.service_name_placeholder
-import brownie.composeapp.generated.resources.wrong_service_name
 import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
-import com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel
+import com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel
 import com.tecknobit.browniecore.helpers.BrownieInputsValidator
 import com.tecknobit.equinoxcompose.components.EquinoxOutlinedTextField
+import org.jetbrains.compose.resources.StringResource
 
 @Composable
 @NonRestartableComposable
-fun ServiceNameSection(
-    viewModel: UpsertServiceScreenViewModel,
+fun ItemNameSection(
+    viewModel: UpsertScreenViewModel<*>,
+    header: StringResource,
+    placeholder: StringResource,
+    errorText: StringResource,
 ) {
     val focusRequester = remember { FocusRequester() }
     LaunchedEffect(Unit) {
@@ -37,7 +37,7 @@ fun ServiceNameSection(
             .padding(
                 bottom = 10.dp
             ),
-        title = Res.string.service_name,
+        title = header,
         fontSize = 18.sp
     )
     EquinoxOutlinedTextField(
@@ -47,11 +47,11 @@ fun ServiceNameSection(
         shape = RoundedCornerShape(
             size = 10.dp
         ),
-        value = viewModel.serviceName,
-        isError = viewModel.serviceNameError,
-        validator = { BrownieInputsValidator.isServiceNameValid(it) },
-        placeholder = Res.string.service_name_placeholder,
-        errorText = Res.string.wrong_service_name,
+        value = viewModel.name,
+        isError = viewModel.nameError,
+        validator = { BrownieInputsValidator.isItemNameValid(it) },
+        placeholder = placeholder,
+        errorText = errorText,
         keyboardOptions = KeyboardOptions(
             imeAction = ImeAction.Next
         )

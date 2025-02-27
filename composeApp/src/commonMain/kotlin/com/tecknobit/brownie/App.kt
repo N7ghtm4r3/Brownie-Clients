@@ -9,6 +9,7 @@ import brownie.composeapp.generated.resources.ubuntu_mono
 import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen
+import com.tecknobit.brownie.ui.screens.upserthost.presenter.UpsertHostScreen
 import com.tecknobit.brownie.ui.screens.upsertservice.presenter.UpsertServiceScreen
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
@@ -47,6 +48,8 @@ const val SPLASH_SCREEN = "Splashscreen"
 
 const val HOSTS_SCREEN = "HostsScreen"
 
+const val UPSERT_HOST_SCREEN = "UpsertHostScreen"
+
 const val HOST_SCREEN = "HostScreen"
 
 const val UPSERT_SERVICE_SCREEN = "UpsertServiceScreen"
@@ -70,6 +73,14 @@ fun App() {
                 route = HOSTS_SCREEN
             ) {
                 HostsScreen().ShowContent()
+            }
+            scene(
+                route = "$UPSERT_HOST_SCREEN/{$IDENTIFIER_KEY}?"
+            ) { backStackEntry ->
+                val hostId = backStackEntry.path<String>(IDENTIFIER_KEY)
+                UpsertHostScreen(
+                    hostId = hostId
+                ).ShowContent()
             }
             scene(
                 route = "$HOST_SCREEN/{$IDENTIFIER_KEY}"

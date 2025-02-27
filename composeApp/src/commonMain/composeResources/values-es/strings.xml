@@ -59,4 +59,25 @@
     <string name="filter_services">Servicios de filtros</string>
     <string name="enter_name_or_pid">Nombre o PID</string>
     <string name="history">Historia</string>
+    <plurals name="host_stopped">
+        <item formatted="false" quantity="one">El host se ha detenido después de %1$d día</item>
+        <item formatted="false" quantity="other">El host se ha detenido después de %1$d días</item>
+    </plurals>
+    <plurals name="host_rebooted">
+        <item formatted="false" quantity="one">El host se ha reiniciado después de %1$d día</item>
+        <item formatted="false" quantity="other">El host se ha reiniciado después de %1$d días</item>
+    </plurals>
+    <string name="host_started">Se ha iniciado el host</string>
+    <string name="host_started_after_rebooting">El host se ha iniciado después de reiniciar</string>
+    <string name="service_added">Se ha añadido el servicio %1$s</string>
+    <string name="service_removed">El servicio %1$s ha sido eliminado</string>
+    <string name="service_deleted">El servicio %1$s ha sido eliminado</string>
+    <string name="register_host">Registro de host</string>
+    <string name="edit_host">Editar anfitrión</string>
+    <string name="host_name">Nombre del host</string>
+    <string name="host_name_placeholder">por ejemplo, debian 11, ubuntu 22...</string>
+    <string name="wrong_host_name">El nombre del host no es válido</string>
+    <string name="host_address">Dirección del host</string>
+    <string name="host_address_placeholder">La dirección del host</string>
+    <string name="wrong_host_address">La dirección del host no es válida</string>
 </resources>
