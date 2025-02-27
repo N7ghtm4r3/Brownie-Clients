@@ -59,4 +59,17 @@
     <string name="filter_services">Filtra servizi</string>
     <string name="enter_name_or_pid">Nome o PID</string>
     <string name="history">Cronologia</string>
+    <plurals name="host_stopped">
+        <item formatted="false" quantity="one">L'host è stato interrotto dopo %1$d giorno</item>
+        <item formatted="false" quantity="other">L'host è stato interrotto dopo %1$d giorni</item>
+    </plurals>
+    <plurals name="host_rebooted">
+        <item formatted="false" quantity="one">L'host è stato riavviato dopo %1$d giorno</item>
+        <item formatted="false" quantity="other">L'host è stato riavviato dopo %1$d giorni</item>
+    </plurals>
+    <string name="host_started">L'host è stato avviato</string>
+    <string name="host_started_after_rebooting">L'host è stato avviato dopo il riavvio</string>
+    <string name="service_added">Il servizio %1$s è stato aggiunto</string>
+    <string name="service_removed">Il servizio %1$s è stato rimosso</string>
+    <string name="service_deleted">Il servizio %1$s è stato eliminato</string>
 </resources>

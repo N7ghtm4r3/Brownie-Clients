@@ -59,4 +59,17 @@
     <string name="filter_services">Filters services</string>
     <string name="enter_name_or_pid">Name or PID</string>
     <string name="history">History</string>
+    <plurals name="host_stopped">
+        <item formatted="false" quantity="one">The host has been stopped after %1$d day</item>
+        <item formatted="false" quantity="other">The host has been stopped after %1$d days</item>
+    </plurals>
+    <plurals name="host_rebooted">
+        <item formatted="false" quantity="one">The host has been rebooted after %1$d day</item>
+        <item formatted="false" quantity="other">The host has been rebooted after %1$d days</item>
+    </plurals>
+    <string name="host_started">The host has been started</string>
+    <string name="host_started_after_rebooting">The host has been started after rebooting</string>
+    <string name="service_added">The %1$s service has been added</string>
+    <string name="service_removed">The %1$s service has been removed</string>
+    <string name="service_deleted">The %1$s service has been deleted</string>
 </resources>

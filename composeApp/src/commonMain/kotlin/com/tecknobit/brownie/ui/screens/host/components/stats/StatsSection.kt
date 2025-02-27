@@ -2,6 +2,7 @@
 
 package com.tecknobit.brownie.ui.screens.host.components.stats
 
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -109,7 +110,8 @@ private fun ColumnStats(
                     .fillMaxWidth()
                     .heightIn(
                         max = 700.dp
-                    ),
+                    )
+                    .animateContentSize(),
                 contentPadding = PaddingValues(
                     all = 16.dp
                 ),

@@ -82,32 +82,38 @@ class HostScreenViewModel(
                                 SavedHostOverview.HostHistoryEvent(
                                     id = Random.nextLong().toString(),
                                     type = HostEventType.SERVICE_DELETED,
-                                    eventDate = TimeFormatter.currentTimestamp()
+                                    eventDate = TimeFormatter.currentTimestamp(),
+                                    extra = "Ametista-1.0.0.jar"
                                 ),
                                 SavedHostOverview.HostHistoryEvent(
                                     id = Random.nextLong().toString(),
                                     type = HostEventType.SERVICE_ADDED,
-                                    eventDate = TimeFormatter.currentTimestamp()
+                                    eventDate = TimeFormatter.currentTimestamp(),
+                                    extra = "Ametista-1.0.0.jar"
                                 ),
                                 SavedHostOverview.HostHistoryEvent(
                                     id = Random.nextLong().toString(),
                                     type = HostEventType.SERVICE_REMOVED,
-                                    eventDate = TimeFormatter.currentTimestamp()
+                                    eventDate = TimeFormatter.currentTimestamp(),
+                                    extra = "Ametista-1.0.0.jar"
                                 ),
                                 SavedHostOverview.HostHistoryEvent(
                                     id = Random.nextLong().toString(),
                                     type = HostEventType.SERVICE_ADDED,
-                                    eventDate = TimeFormatter.currentTimestamp()
+                                    eventDate = TimeFormatter.currentTimestamp(),
+                                    extra = "Ametista-1.0.0.jar"
                                 ),
                                 SavedHostOverview.HostHistoryEvent(
                                     id = Random.nextLong().toString(),
                                     type = HostEventType.ONLINE,
-                                    eventDate = TimeFormatter.currentTimestamp()
+                                    eventDate = TimeFormatter.currentTimestamp(),
+                                    extra = Random.nextInt(30)
                                 ),
                                 SavedHostOverview.HostHistoryEvent(
                                     id = Random.nextLong().toString(),
                                     type = HostEventType.OFFLINE,
-                                    eventDate = TimeFormatter.currentTimestamp()
+                                    eventDate = TimeFormatter.currentTimestamp(),
+                                    extra = Random.nextInt(30)
                                 ),
                                 SavedHostOverview.HostHistoryEvent(
                                     id = Random.nextLong().toString(),
@@ -117,7 +123,8 @@ class HostScreenViewModel(
                                 SavedHostOverview.HostHistoryEvent(
                                     id = Random.nextLong().toString(),
                                     type = HostEventType.REBOOTING,
-                                    eventDate = TimeFormatter.currentTimestamp()
+                                    eventDate = TimeFormatter.currentTimestamp(),
+                                    extra = Random.nextInt(30)
                                 ),
                                 SavedHostOverview.HostHistoryEvent(
                                     id = Random.nextLong().toString(),

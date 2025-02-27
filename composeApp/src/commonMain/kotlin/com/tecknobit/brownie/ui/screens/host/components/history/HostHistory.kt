@@ -1,5 +1,6 @@
 package com.tecknobit.brownie.ui.screens.host.components.history
 
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,15 +17,31 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.unit.dp
+import brownie.composeapp.generated.resources.Res
+import brownie.composeapp.generated.resources.host_rebooted
+import brownie.composeapp.generated.resources.host_started
+import brownie.composeapp.generated.resources.host_started_after_rebooting
+import brownie.composeapp.generated.resources.host_stopped
+import brownie.composeapp.generated.resources.service_added
+import brownie.composeapp.generated.resources.service_deleted
+import brownie.composeapp.generated.resources.service_removed
 import com.pushpal.jetlime.ItemsList
 import com.pushpal.jetlime.JetLimeColumn
 import com.pushpal.jetlime.JetLimeDefaults
 import com.pushpal.jetlime.JetLimeEvent
 import com.pushpal.jetlime.JetLimeEventDefaults
+import com.tecknobit.brownie.ui.components.EventText
 import com.tecknobit.brownie.ui.components.HistoryEventBadge
 import com.tecknobit.brownie.ui.components.NoEventsAvailable
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.HostHistoryEvent
+import com.tecknobit.browniecore.enums.HostEventType.OFFLINE
+import com.tecknobit.browniecore.enums.HostEventType.ONLINE
+import com.tecknobit.browniecore.enums.HostEventType.REBOOTING
+import com.tecknobit.browniecore.enums.HostEventType.RESTARTED
+import com.tecknobit.browniecore.enums.HostEventType.SERVICE_ADDED
+import com.tecknobit.browniecore.enums.HostEventType.SERVICE_DELETED
+import com.tecknobit.browniecore.enums.HostEventType.SERVICE_REMOVED
 import com.tecknobit.equinoxcore.time.TimeFormatter.toDateString
 
 @Composable
@@ -63,12 +80,16 @@ private fun HistoryEvents(
         modifier = Modifier
             .heightIn(
                 max = 700.dp
-            ),
+            )
+            .animateContentSize(),
         itemsList = ItemsList(
             items = events
         ),
         contentPadding = PaddingValues(
-            all = 16.dp
+            top = 12.dp,
+            start = 16.dp,
+            end = 16.dp,
+            bottom = 16.dp
         ),
         style = JetLimeDefaults.columnStyle(
             pathEffect = PathEffect.dashPathEffect(
@@ -94,7 +115,7 @@ private fun HistoryEvents(
                         )
                     },
                     headlineContent = {
-                        //event.eventText()
+                        event.eventText()
                     },
                     supportingContent = {
                         Text(
@@ -107,31 +128,19 @@ private fun HistoryEvents(
     }
 }
 
-/*@Composable
+@Composable
 @NonRestartableComposable
 private fun HostHistoryEvent.eventText() {
-    val text = when (this.type) {
-        ServiceEventType.RUNNING -> Res.string.service_started
-        ServiceEventType.STOPPED -> Res.plurals.service_stopped
-        ServiceEventType.REBOOTING -> Res.plurals.service_rebooted
-        ServiceEventType.RESTARTED -> Res.string.service_started_after_rebooting
-    }
-    Text(
-        text = if (text is PluralStringResource) {
-            val extra = extra as Int
-            pluralStringResource(
-                resource = text,
-                quantity = extra,
-                extra
-            )
-        } else {
-            if (extra != null) {
-                stringResource(
-                    resource = text as StringResource,
-                    extra
-                )
-            } else
-                stringResource(text as StringResource)
-        }
+    EventText(
+        text = when (type) {
+            ONLINE -> Res.string.host_started
+            OFFLINE -> Res.plurals.host_stopped
+            REBOOTING -> Res.plurals.host_rebooted
+            RESTARTED -> Res.string.host_started_after_rebooting
+            SERVICE_ADDED -> Res.string.service_added
+            SERVICE_REMOVED -> Res.string.service_removed
+            SERVICE_DELETED -> Res.string.service_deleted
+        },
+        eventExtra = extra
     )
-}*/
+}

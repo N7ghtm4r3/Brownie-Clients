@@ -2,6 +2,7 @@
 
 package com.tecknobit.brownie.ui.screens.hosts.components
 
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.widthIn
@@ -33,7 +34,8 @@ fun HostsList(
         modifier = modifier
             .widthIn(
                 max = 1000.dp
-            ),
+            )
+            .animateContentSize(),
         paginationState = viewModel.hostsState,
         contentPadding = PaddingValues(
             all = 16.dp

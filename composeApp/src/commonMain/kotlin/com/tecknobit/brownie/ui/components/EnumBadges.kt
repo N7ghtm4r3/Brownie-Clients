@@ -64,7 +64,7 @@ fun HistoryEventBadge(
 ) {
     EnumBadge(
         color = eventType.asColor(),
-        name = eventType.name
+        name = eventType.name.replace("_", " ")
     )
 }
 

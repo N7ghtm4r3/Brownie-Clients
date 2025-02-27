@@ -58,5 +58,18 @@
     <string name="no_events_available">Aucun événement disponible</string>
     <string name="filter_services">Services de filtration</string>
     <string name="enter_name_or_pid">Nom ou PID</string>
-    <string name="history">L\'histoire</string>
+    <string name="history">L'histoire</string>
+    <plurals name="host_stopped">
+        <item formatted="false" quantity="one">L'hôte a été arrêté après %1$d day</item>
+        <item formatted="false" quantity="other">L'hôte a été arrêté après %1$d jours</item>
+    </plurals>
+    <plurals name="host_rebooted">
+        <item formatted="false" quantity="one">L'hôte a été redémarré après %1$d day</item>
+        <item formatted="false" quantity="other">L'hôte a été redémarré après %1$d jours</item>
+    </plurals>
+    <string name="host_started">L'hôte a été démarré</string>
+    <string name="host_started_after_rebooting">L'hôte a été démarré après un redémarrage</string>
+    <string name="service_added">Le service %1$s a été ajouté</string>
+    <string name="service_removed">Le service %1$s a été supprimé</string>
+    <string name="service_deleted">Le service %1$s a été supprimé</string>
 </resources>

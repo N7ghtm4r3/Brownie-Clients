@@ -2,6 +2,7 @@
 
 package com.tecknobit.brownie.ui.screens.host.components.services
 
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.heightIn
@@ -39,7 +40,8 @@ fun ServicesList(
             )
             .heightIn(
                 max = 700.dp
-            ),
+            )
+            .animateContentSize(),
         paginationState = viewModel.servicesState,
         contentPadding = PaddingValues(
             start = 16.dp,
