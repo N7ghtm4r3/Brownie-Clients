@@ -5,7 +5,7 @@ import androidx.compose.ui.graphics.Color
 import com.tecknobit.brownie.ui.theme.green
 import com.tecknobit.brownie.ui.theme.red
 import com.tecknobit.brownie.ui.theme.yellow
-import com.tecknobit.browniecore.IP_ADDRESS_KEY
+import com.tecknobit.browniecore.HOST_ADDRESS_KEY
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.HostStatus.OFFLINE
 import com.tecknobit.browniecore.enums.HostStatus.ONLINE
@@ -19,8 +19,8 @@ interface SavedHost {
 
     val name: String
 
-    @SerialName(IP_ADDRESS_KEY)
-    val ipAddress: String
+    @SerialName(HOST_ADDRESS_KEY)
+    val hostAddress: String
 
     var status: HostStatus
 
@@ -41,8 +41,8 @@ interface SavedHost {
     data class SavedHostImpl(
         override val id: String,
         override val name: String,
-        @SerialName(IP_ADDRESS_KEY)
-        override val ipAddress: String,
+        @SerialName(HOST_ADDRESS_KEY)
+        override val hostAddress: String,
         override var status: HostStatus,
     ) : SavedHost
 

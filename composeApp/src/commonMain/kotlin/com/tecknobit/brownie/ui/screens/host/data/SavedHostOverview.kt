@@ -12,7 +12,7 @@ import com.tecknobit.brownie.ui.theme.violet
 import com.tecknobit.brownie.ui.theme.yellow
 import com.tecknobit.browniecore.CPU_USAGE_KEY
 import com.tecknobit.browniecore.EVENT_DATE_KEY
-import com.tecknobit.browniecore.IP_ADDRESS_KEY
+import com.tecknobit.browniecore.HOST_ADDRESS_KEY
 import com.tecknobit.browniecore.MEMORY_USAGE_KEY
 import com.tecknobit.browniecore.STORAGE_USAGE_KEY
 import com.tecknobit.browniecore.enums.HostEventType
@@ -32,8 +32,8 @@ import kotlinx.serialization.Serializable
 data class SavedHostOverview(
     override val id: String,
     override val name: String,
-    @SerialName(IP_ADDRESS_KEY)
-    override val ipAddress: String,
+    @SerialName(HOST_ADDRESS_KEY)
+    override val hostAddress: String,
     override var status: HostStatus,
     @SerialName(CPU_USAGE_KEY)
     val cpuUsage: CpuUsage,

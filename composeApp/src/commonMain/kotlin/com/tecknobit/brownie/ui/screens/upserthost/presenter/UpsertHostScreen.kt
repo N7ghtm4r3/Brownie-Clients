@@ -90,7 +90,7 @@ class UpsertHostScreen(
         viewModel.address = remember {
             mutableStateOf(
                 if (isEditing)
-                    item.value!!.ipAddress
+                    item.value!!.hostAddress
                 else
                     ""
             )

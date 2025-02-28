@@ -32,7 +32,7 @@ class UpsertHostScreenViewModel(
         _item.value = SavedHost.SavedHostImpl(
             id = itemId,
             name = "Prova",
-            ipAddress = "122.11.11.1",
+            hostAddress = "122.11.11.1",
             status = HostStatus.ONLINE
         )
     }

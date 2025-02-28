@@ -86,7 +86,7 @@ class HostScreen(
                                 title = {
                                     Column {
                                         Text(
-                                            text = hostOverview.value!!.ipAddress,
+                                            text = hostOverview.value!!.hostAddress,
                                             style = AppTypography.labelMedium,
                                             maxLines = 1,
                                             overflow = TextOverflow.Ellipsis

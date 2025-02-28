@@ -52,21 +52,21 @@ class HostsScreenViewModel : EquinoxViewModel(
             SavedHostImpl(
                 id = Random.nextLong().toString(),
                 name = "aa",
-                ipAddress = "192.168.1.1",
+                hostAddress = "192.168.1.1",
                 status = HostStatus.entries[Random.nextInt(3)]
             ),
 
             SavedHostImpl(
                 id = Random.nextLong().toString(),
                 name = "aa",
-                ipAddress = "192.168.1.1",
+                hostAddress = "192.168.1.1",
                 status = HostStatus.entries[Random.nextInt(3)]
             ),
 
             SavedHostImpl(
                 id = Random.nextLong().toString(),
                 name = "aa",
-                ipAddress = "192.168.1.1",
+                hostAddress = "192.168.1.1",
                 status = HostStatus.entries[Random.nextInt(3)]
             )
         )

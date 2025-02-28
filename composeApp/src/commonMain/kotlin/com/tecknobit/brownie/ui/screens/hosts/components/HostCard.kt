@@ -74,7 +74,7 @@ fun HostCard(
             },
             supportingContent = {
                 Text(
-                    text = host.ipAddress,
+                    text = host.hostAddress,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )

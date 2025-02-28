@@ -60,7 +60,7 @@ class HostScreenViewModel(
                     _hostOverview.value = SavedHostOverview(
                         id = Random.nextLong().toString(),
                         name = "Debian 11",
-                        ipAddress = "192.168.1.1",
+                        hostAddress = "192.168.1.1",
                         status = HostStatus.entries[Random.nextInt(3)],
                         cpuUsage = CpuUsage(
                             Random.nextInt(100).toDouble(),
