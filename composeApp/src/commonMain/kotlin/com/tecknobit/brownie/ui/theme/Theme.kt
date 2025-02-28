@@ -7,7 +7,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.graphics.Color
-import com.tecknobit.brownie.localUser
+import com.tecknobit.brownie.localSession
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme.Dark
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme.Light
 
@@ -163,7 +163,7 @@ fun BrownieTheme(
 @Composable
 @NonRestartableComposable
 private fun isDarkThemeApplied(): Boolean {
-    return when (localUser.theme) {
+    return when (localSession.theme) {
         Light -> false
         Dark -> true
         else -> isSystemInDarkTheme()

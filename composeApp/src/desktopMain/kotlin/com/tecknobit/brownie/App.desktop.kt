@@ -33,7 +33,7 @@ actual fun CheckForUpdatesAndLaunch() {
  *
  */
 actual fun setUserLanguage() {
-    Locale.setDefault(Locale.forLanguageTag(localUser.language))
+    Locale.setDefault(Locale.forLanguageTag(localSession.language))
 }
 
 /**

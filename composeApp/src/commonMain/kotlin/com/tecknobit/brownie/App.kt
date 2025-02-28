@@ -6,6 +6,7 @@ import androidx.compose.ui.text.font.FontFamily
 import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.rubik
 import brownie.composeapp.generated.resources.ubuntu_mono
+import com.tecknobit.brownie.helpers.BrownieLocalSession
 import com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen
 import com.tecknobit.brownie.ui.screens.connect.ConnectScreen
 import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
@@ -13,7 +14,6 @@ import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen
 import com.tecknobit.brownie.ui.screens.upserthost.presenter.UpsertHostScreen
 import com.tecknobit.brownie.ui.screens.upsertservice.presenter.UpsertServiceScreen
-import com.tecknobit.equinoxcompose.session.EquinoxLocalUser
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 import com.tecknobit.equinoxcore.helpers.NAME_KEY
 import moe.tlaster.precompose.PreComposeApp
@@ -34,12 +34,10 @@ lateinit var bodyFontFamily: FontFamily
 lateinit var displayFontFamily: FontFamily
 
 /**
- *`localUser` the helper to manage the local sessions stored locally in
+ *`localSession` the helper to manage the local session stored locally in
  * the device
  */
-val localUser = EquinoxLocalUser(
-    localStoragePath = "Brownie"
-)
+val localSession = BrownieLocalSession()
 
 /**
  * `navigator` the navigator instance is useful to manage the navigation between the screens of the application
@@ -136,19 +134,19 @@ expect fun CheckForUpdatesAndLaunch()
 fun startSession() {
     // TODO: TO SET
     /*requester = RefyRequester(
-        host = localUser.hostAddress,
-        userId = localUser.userId,
-        userToken = localUser.userToken
+        host = localSession.hostAddress,
+        userId = localSession.userId,
+        userToken = localSession.userToken
     )
     val route =
-        if (!localUser.userId.isNullOrBlank()) { // TODO: TO USE localUser.isAuthenticated INSTEAD
+        if (!localSession.userId.isNullOrBlank()) {
             MainScope().launch {
                 requester.sendRequest(
                     request = {
                         getDynamicAccountData()
                     },
                     onSuccess = { response ->
-                        localUser.updateDynamicAccountData(
+                        localSession.updateDynamicAccountData(
                             dynamicData = response.toResponseData()
                         )
                     },

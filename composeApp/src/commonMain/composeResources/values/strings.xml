@@ -96,4 +96,6 @@
     <string name="server_secret_not_valid">Server secret not valid</string>
     <string name="server_secret">Server secret</string>
     <string name="connect">Connect</string>
+    <string name="join_code">Join code</string>
+    <string name="join_code_copied">Join code copied!</string>
 </resources>

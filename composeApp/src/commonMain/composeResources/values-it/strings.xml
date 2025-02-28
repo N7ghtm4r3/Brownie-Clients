@@ -96,4 +96,6 @@
     <string name="server_secret_not_valid">Segreto del server non valido</string>
     <string name="server_secret">Segreto del server</string>
     <string name="connect">Connettimi</string>
+    <string name="join_code">Codice di adesione</string>
+    <string name="join_code_copied">Codice di adesione copiato!</string>
 </resources>

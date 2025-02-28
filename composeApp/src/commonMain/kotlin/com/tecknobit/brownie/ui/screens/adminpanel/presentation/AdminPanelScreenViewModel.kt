@@ -2,7 +2,7 @@ package com.tecknobit.brownie.ui.screens.adminpanel.presentation
 
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.MutableState
-import com.tecknobit.brownie.localUser
+import com.tecknobit.brownie.localSession
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 
@@ -28,7 +28,7 @@ class AdminPanelScreenViewModel : EquinoxViewModel(
     fun changeLanguage(
         onSuccess: (() -> Unit)? = null,
     ) {
-        localUser.language = language.value
+        localSession.language = language.value
         onSuccess?.invoke()
     }
 
@@ -40,19 +40,19 @@ class AdminPanelScreenViewModel : EquinoxViewModel(
     fun changeTheme(
         onChange: (() -> Unit)? = null,
     ) {
-        localUser.theme = theme.value
+        localSession.theme = theme.value
         onChange?.invoke()
     }
 
     /**
-     * Method to clear the current [localUser] session
+     * Method to clear the current [localSession] session
      *
      * @param onClear The action to execute when the session has been cleaned
      */
     fun clearSession(
         onClear: (() -> Unit)? = null,
     ) {
-        localUser.clear()
+        localSession.clear()
         // TODO: TO SET
         /*requester.setUserCredentials(
             userId = null,

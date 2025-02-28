@@ -37,7 +37,7 @@ actual fun CheckForUpdatesAndLaunch() {
  *
  */
 actual fun setUserLanguage() {
-    val locale = Locale(localUser.language)
+    val locale = Locale(localSession.language)
     Locale.setDefault(locale)
     val context = AppContext.get()
     val config = context.resources.configuration

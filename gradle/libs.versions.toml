@@ -9,6 +9,7 @@ compose-multiplatform = "1.7.3"
 equinoxCore = "1.0.8"
 equinoxCompose = "1.0.8"
 jetlime = "3.0.1"
+kmprefs = "1.0.1"
 kotlin = "2.1.0"
 kotlinx-coroutines = "1.10.1"
 kotlinxSerializationJson = "1.8.0"
@@ -23,6 +24,7 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 jetlime = { module = "io.github.pushpalroy:jetlime", version.ref = "jetlime" }
+kmprefs = { module = "io.github.n7ghtm4r3:KMPrefs", version.ref = "kmprefs" }
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 lazy-pagination-compose = { module = "io.github.ahmad-hamwi:lazy-pagination-compose", version.ref = "lazyPaginationCompose" }

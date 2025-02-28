@@ -26,7 +26,7 @@ actual fun CheckForUpdatesAndLaunch() {
 actual fun setUserLanguage() {
     // TODO: TO SET
     /*val locale = NSLocale(
-        localeIdentifier = localUser.language
+        localeIdentifier = localSession.language
     )
     NSUserDefaults.standardUserDefaults.setObject(
         value = locale,

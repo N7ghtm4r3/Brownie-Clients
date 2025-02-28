@@ -3,10 +3,8 @@ package com.tecknobit.brownie.ui.screens.connect
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.MutableState
 import com.tecknobit.brownie.HOSTS_SCREEN
-import com.tecknobit.brownie.localUser
 import com.tecknobit.brownie.navigator
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
-import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 
 class ConnectScreenViewModel : EquinoxViewModel(
     snackbarHostState = SnackbarHostState()
@@ -43,7 +41,6 @@ class ConnectScreenViewModel : EquinoxViewModel(
             return
         }*/
         // TODO: MAKE THE REQUEST THEN
-        localUser.userId = IDENTIFIER_KEY
         navigator.navigate(HOSTS_SCREEN)
     }
 

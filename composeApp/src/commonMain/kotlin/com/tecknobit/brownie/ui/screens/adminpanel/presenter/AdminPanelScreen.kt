@@ -5,6 +5,7 @@
 
 package com.tecknobit.brownie.ui.screens.adminpanel.presenter
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -16,10 +17,12 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBackIos
 import androidx.compose.material.icons.filled.Language
 import androidx.compose.material.icons.filled.Palette
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
@@ -40,6 +43,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import brownie.composeapp.generated.resources.Res
@@ -47,15 +51,18 @@ import brownie.composeapp.generated.resources.admin_panel
 import brownie.composeapp.generated.resources.change_language
 import brownie.composeapp.generated.resources.change_theme
 import brownie.composeapp.generated.resources.delete_session
+import brownie.composeapp.generated.resources.join_code
 import brownie.composeapp.generated.resources.local_settings
 import brownie.composeapp.generated.resources.logout
 import com.tecknobit.brownie.SPLASHSCREEN
-import com.tecknobit.brownie.localUser
+import com.tecknobit.brownie.helpers.shareJoinCode
+import com.tecknobit.brownie.localSession
 import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.components.DeleteSession
 import com.tecknobit.brownie.ui.components.Logout
 import com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel
 import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
+import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.brownie.ui.theme.red
 import com.tecknobit.equinoxcompose.components.ChameleonText
@@ -133,6 +140,7 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
                             ),
                         verticalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
+                        JoinCodeSection()
                         Settings()
                         ButtonsSection()
                     }
@@ -141,8 +149,40 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
         }
     }
 
+    @Composable
+    @NonRestartableComposable
+    private fun JoinCodeSection() {
+        Column {
+            SectionTitle(
+                title = Res.string.join_code
+            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(5.dp)
+            ) {
+                Text(
+                    text = localSession.joinCode,
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 1,
+                    style = AppTypography.labelLarge
+                )
+                Icon(
+                    modifier = Modifier
+                        .clip(CircleShape)
+                        .clickable {
+                            shareJoinCode(
+                                viewModel = viewModel
+                            )
+                        },
+                    imageVector = Icons.Default.Share,
+                    contentDescription = null
+                )
+            }
+        }
+    }
+
     /**
-     * The settings section to customize the [localUser] experience
+     * The settings section to customize the [localSession] experience
      */
     @Composable
     @NonRestartableComposable
@@ -158,7 +198,7 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
                     content = { ChangeLanguage() },
                     dismissAction = { visible ->
                         visible.value = false
-                        viewModel.language.value = localUser.language
+                        viewModel.language.value = localSession.language
                     },
                     confirmAction = { visible ->
                         viewModel.changeLanguage(
@@ -175,7 +215,7 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
                     content = { ChangeTheme() },
                     dismissAction = { visible ->
                         visible.value = false
-                        viewModel.theme.value = localUser.theme
+                        viewModel.theme.value = localSession.theme
                     },
                     confirmAction = { visible ->
                         viewModel.changeTheme(
@@ -194,7 +234,7 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
     }
 
     /**
-     * Section to change the [localUser]'s language
+     * Section to change the [localSession]'s language
      */
     @StepContent(
         number = 1
@@ -223,7 +263,7 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
     }
 
     /**
-     * Section to change the [localUser]'s theme
+     * Section to change the [localSession]'s theme
      */
     @StepContent(
         number = 2
@@ -342,8 +382,8 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
      */
     @Composable
     override fun CollectStates() {
-        viewModel.language = remember { mutableStateOf(localUser.language) }
-        viewModel.theme = remember { mutableStateOf(localUser.theme) }
+        viewModel.language = remember { mutableStateOf(localSession.language) }
+        viewModel.theme = remember { mutableStateOf(localSession.theme) }
     }
 
 }
