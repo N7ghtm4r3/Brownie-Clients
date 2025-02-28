@@ -21,6 +21,6 @@ actual fun shareJoinCode(
     val intent = Intent()
     intent.type = INTENT_TYPE
     intent.action = Intent.ACTION_SEND
-    intent.putExtra(Intent.EXTRA_TEXT, localSession.language)
+    intent.putExtra(Intent.EXTRA_TEXT, localSession.joinCode)
     ContextActivityProvider.getCurrentActivity()?.startActivity(Intent.createChooser(intent, null))
 }

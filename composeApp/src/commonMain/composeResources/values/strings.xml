@@ -98,4 +98,10 @@
     <string name="connect">Connect</string>
     <string name="join_code">Join code</string>
     <string name="join_code_copied">Join code copied!</string>
+    <string name="wrong_join_code">Wrong join code</string>
+    <string name="password">Password</string>
+    <string name="wrong_password">Wrong password</string>
+    <string name="create">Create</string>
+    <string name="create_session">Create session</string>
+    <string name="connect_to_session">Connect to session</string>
 </resources>

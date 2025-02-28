@@ -98,4 +98,10 @@
     <string name="connect">Connecter</string>
     <string name="join_code">Code d\'adhésion</string>
     <string name="join_code_copied">Join code copied!</string>
+    <string name="wrong_join_code">Code de jointure erroné</string>
+    <string name="password">Mot de passe</string>
+    <string name="wrong_password">Mot de passe erroné</string>
+    <string name="create">Créer</string>
+    <string name="create_session">Créer une session</string>
+    <string name="connect_to_session">Connexion à la session</string>
 </resources>

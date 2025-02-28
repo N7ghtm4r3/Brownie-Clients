@@ -10,6 +10,8 @@ class ConnectScreenViewModel : EquinoxViewModel(
     snackbarHostState = SnackbarHostState()
 ) {
 
+    lateinit var connecting: MutableState<Boolean>
+
     /**
      * `host` the value of the host to reach
      */
@@ -30,6 +32,26 @@ class ConnectScreenViewModel : EquinoxViewModel(
      */
     lateinit var serverSecretError: MutableState<Boolean>
 
+    /**
+     * `joinCode` the value of the join code
+     */
+    lateinit var joinCode: MutableState<String>
+
+    /**
+     * `joinCodeError` whether the [joinCode] field is not valid
+     */
+    lateinit var joinCodeError: MutableState<Boolean>
+
+    /**
+     * `password` the value of the password
+     */
+    lateinit var password: MutableState<String>
+
+    /**
+     * `passwordError` whether the [password] field is not valid
+     */
+    lateinit var passwordError: MutableState<Boolean>
+
     fun connect() {
         // TODO: TO ENABLE VALIDATION
         /*if(!isHostValid(host.value)) {
@@ -39,7 +61,16 @@ class ConnectScreenViewModel : EquinoxViewModel(
         if(!isServerSecretValid(serverSecret.value)) {
             serverSecretError.value = true
             return
-        }*/
+        }
+        if(joinCode.value.isEmpty()) {
+            joinCodeError.value = true
+            return
+        }
+        if(!isPasswordValid(password.value)) {
+            passwordError.value = true
+            return
+        }
+        */
         // TODO: MAKE THE REQUEST THEN
         navigator.navigate(HOSTS_SCREEN)
     }

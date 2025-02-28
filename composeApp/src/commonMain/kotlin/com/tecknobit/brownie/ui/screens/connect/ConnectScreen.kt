@@ -2,6 +2,7 @@
 
 package com.tecknobit.brownie.ui.screens.connect
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,6 +26,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.mutableStateOf
@@ -40,12 +42,19 @@ import androidx.compose.ui.unit.sp
 import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.app_version
 import brownie.composeapp.generated.resources.connect
+import brownie.composeapp.generated.resources.connect_to_session
+import brownie.composeapp.generated.resources.create
+import brownie.composeapp.generated.resources.create_session
 import brownie.composeapp.generated.resources.github
 import brownie.composeapp.generated.resources.host_address
 import brownie.composeapp.generated.resources.host_address_not_valid
+import brownie.composeapp.generated.resources.join_code
+import brownie.composeapp.generated.resources.password
 import brownie.composeapp.generated.resources.server_secret
 import brownie.composeapp.generated.resources.server_secret_not_valid
 import brownie.composeapp.generated.resources.undraw_enter
+import brownie.composeapp.generated.resources.wrong_join_code
+import brownie.composeapp.generated.resources.wrong_password
 import com.tecknobit.brownie.CloseApplicationOnNavBack
 import com.tecknobit.brownie.displayFontFamily
 import com.tecknobit.brownie.ui.theme.BrownieTheme
@@ -134,37 +143,41 @@ class ConnectScreen : EquinoxScreen<ConnectScreenViewModel>(
     private fun FormSection() {
         Column(
             modifier = Modifier
+                .padding(
+                    vertical = 16.dp
+                )
                 .fillMaxSize()
                 .imePadding()
-                .navigationBarsPadding(),
+                .navigationBarsPadding()
+                .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
             EmptyState(
                 containerModifier = Modifier
                     .sizeIn(
-                        maxWidth = 215.dp,
-                        maxHeight = 215.dp
+                        maxWidth = 190.dp,
+                        maxHeight = 190.dp
                     ),
+                resourceSize = 175.dp,
                 resource = painterResource(Res.drawable.undraw_enter),
                 contentDescription = "Connect to Brownie",
                 title = ""
             )
             Column(
-                modifier = Modifier
-                    .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
+                val keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Next
+                )
                 EquinoxOutlinedTextField(
                     value = viewModel.host,
                     shape = RoundedCornerShape(
                         size = 10.dp
                     ),
                     label = stringResource(Res.string.host_address),
-                    keyboardOptions = KeyboardOptions(
-                        imeAction = ImeAction.Next
-                    ),
+                    keyboardOptions = keyboardOptions,
                     errorText = stringResource(Res.string.host_address_not_valid),
                     isError = viewModel.hostError,
                     validator = { InputsValidator.isHostValid(it) }
@@ -175,12 +188,38 @@ class ConnectScreen : EquinoxScreen<ConnectScreenViewModel>(
                         size = 10.dp
                     ),
                     label = stringResource(Res.string.server_secret),
-                    keyboardOptions = KeyboardOptions(
-                        imeAction = ImeAction.Done
-                    ),
+                    keyboardOptions = keyboardOptions,
                     errorText = stringResource(Res.string.server_secret_not_valid),
                     isError = viewModel.serverSecretError,
                     validator = { isServerSecretValid(it) },
+                )
+                AnimatedVisibility(
+                    visible = viewModel.connecting.value
+                ) {
+                    EquinoxOutlinedTextField(
+                        value = viewModel.joinCode,
+                        shape = RoundedCornerShape(
+                            size = 10.dp
+                        ),
+                        label = stringResource(Res.string.join_code),
+                        keyboardOptions = keyboardOptions,
+                        errorText = stringResource(Res.string.wrong_join_code),
+                        isError = viewModel.joinCodeError,
+                        validator = { it.isNotEmpty() },
+                    )
+                }
+                EquinoxOutlinedTextField(
+                    value = viewModel.password,
+                    shape = RoundedCornerShape(
+                        size = 10.dp
+                    ),
+                    label = stringResource(Res.string.password),
+                    keyboardOptions = KeyboardOptions(
+                        imeAction = ImeAction.Done
+                    ),
+                    errorText = stringResource(Res.string.wrong_password),
+                    isError = viewModel.passwordError,
+                    validator = { InputsValidator.isPasswordValid(it) },
                 )
                 val softwareKeyboardController = LocalSoftwareKeyboardController.current
                 Button(
@@ -197,7 +236,24 @@ class ConnectScreen : EquinoxScreen<ConnectScreenViewModel>(
                     }
                 ) {
                     Text(
-                        text = stringResource(Res.string.connect)
+                        text = stringResource(
+                            if (viewModel.connecting.value)
+                                Res.string.connect
+                            else
+                                Res.string.create
+                        )
+                    )
+                }
+                TextButton(
+                    onClick = { viewModel.connecting.value = !viewModel.connecting.value }
+                ) {
+                    Text(
+                        text = stringResource(
+                            if (viewModel.connecting.value)
+                                Res.string.create_session
+                            else
+                                Res.string.connect_to_session
+                        )
                     )
                 }
             }
@@ -209,10 +265,15 @@ class ConnectScreen : EquinoxScreen<ConnectScreenViewModel>(
      */
     @Composable
     override fun CollectStates() {
+        viewModel.connecting = remember { mutableStateOf(true) }
         viewModel.host = remember { mutableStateOf("") }
         viewModel.hostError = remember { mutableStateOf(false) }
         viewModel.serverSecret = remember { mutableStateOf("") }
         viewModel.serverSecretError = remember { mutableStateOf(false) }
+        viewModel.joinCode = remember { mutableStateOf("") }
+        viewModel.joinCodeError = remember { mutableStateOf(false) }
+        viewModel.password = remember { mutableStateOf("") }
+        viewModel.passwordError = remember { mutableStateOf(false) }
     }
 
 }
