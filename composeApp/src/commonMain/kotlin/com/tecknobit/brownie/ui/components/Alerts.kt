@@ -1,17 +1,36 @@
 package com.tecknobit.brownie.ui.components
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Logout
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.PowerOff
 import androidx.compose.material.icons.filled.RemoveFromQueue
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import brownie.composeapp.generated.resources.Res
@@ -21,10 +40,12 @@ import brownie.composeapp.generated.resources.delete_service_message
 import brownie.composeapp.generated.resources.delete_session
 import brownie.composeapp.generated.resources.logout
 import brownie.composeapp.generated.resources.logout_message
+import brownie.composeapp.generated.resources.password
 import brownie.composeapp.generated.resources.remove_service
 import brownie.composeapp.generated.resources.remove_service_message
 import brownie.composeapp.generated.resources.unregister_host
 import brownie.composeapp.generated.resources.unregister_host_message
+import brownie.composeapp.generated.resources.wrong_password
 import com.tecknobit.brownie.SPLASHSCREEN
 import com.tecknobit.brownie.displayFontFamily
 import com.tecknobit.brownie.navigator
@@ -33,7 +54,10 @@ import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel
 import com.tecknobit.brownie.ui.shared.presentations.HostManager
 import com.tecknobit.equinoxcompose.components.EquinoxAlertDialog
+import com.tecknobit.equinoxcompose.components.EquinoxOutlinedTextField
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
+import com.tecknobit.equinoxcore.helpers.InputsValidator
+import org.jetbrains.compose.resources.stringResource
 
 /**
  * `alertTitleStyle` the style to apply to the title of the [EquinoxAlertDialog]
@@ -182,7 +206,53 @@ fun DeleteSession(
         show = show,
         title = Res.string.delete_session,
         titleStyle = alertTitleStyle,
-        text = Res.string.delete_message,
+        text = {
+            viewModel.password = remember { mutableStateOf("") }
+            viewModel.passwordError = remember { mutableStateOf(false) }
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                Text(
+                    text = stringResource(Res.string.delete_message),
+                    textAlign = TextAlign.Justify
+                )
+                var hiddenPassword by remember { mutableStateOf(true) }
+                EquinoxOutlinedTextField(
+                    value = viewModel.password,
+                    shape = RoundedCornerShape(
+                        size = 10.dp
+                    ),
+                    label = stringResource(Res.string.password),
+                    keyboardOptions = KeyboardOptions(
+                        imeAction = ImeAction.Done
+                    ),
+                    allowsBlankSpaces = false,
+                    trailingIcon = {
+                        IconButton(
+                            onClick = { hiddenPassword = !hiddenPassword }
+                        ) {
+                            Icon(
+                                imageVector = if (hiddenPassword)
+                                    Icons.Default.Visibility
+                                else
+                                    Icons.Default.VisibilityOff,
+                                contentDescription = null
+                            )
+                        }
+                    },
+                    visualTransformation = if (hiddenPassword)
+                        PasswordVisualTransformation()
+                    else
+                        VisualTransformation.None,
+                    errorText = stringResource(Res.string.wrong_password),
+                    isError = viewModel.passwordError,
+                    validator = { InputsValidator.isPasswordValid(it) },
+                )
+            }
+        },
         confirmAction = {
             viewModel.deleteSession(
                 onClear = {

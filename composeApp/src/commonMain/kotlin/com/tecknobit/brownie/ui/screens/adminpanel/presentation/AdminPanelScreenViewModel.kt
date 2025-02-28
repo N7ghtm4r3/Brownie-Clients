@@ -5,6 +5,7 @@ import androidx.compose.runtime.MutableState
 import com.tecknobit.brownie.localSession
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
+import com.tecknobit.equinoxcore.helpers.InputsValidator.Companion.isPasswordValid
 
 class AdminPanelScreenViewModel : EquinoxViewModel(
     snackbarHostState = SnackbarHostState()
@@ -19,6 +20,16 @@ class AdminPanelScreenViewModel : EquinoxViewModel(
      * `theme` the theme of the user
      */
     lateinit var theme: MutableState<ApplicationTheme>
+
+    /**
+     * `password` the value of the password
+     */
+    lateinit var password: MutableState<String>
+
+    /**
+     * `passwordError` whether the [password] field is not valid
+     */
+    lateinit var passwordError: MutableState<Boolean>
 
     /**
      * Method to execute the language change
@@ -64,6 +75,10 @@ class AdminPanelScreenViewModel : EquinoxViewModel(
     fun deleteSession(
         onClear: (() -> Unit)? = null,
     ) {
+        if (!isPasswordValid(password.value)) {
+            passwordError.value = true
+            return
+        }
         // TODO: TO MAKE THE REQUEST THEN
         clearSession(
             onClear = onClear

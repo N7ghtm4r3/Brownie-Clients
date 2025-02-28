@@ -18,6 +18,9 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -29,14 +32,18 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import brownie.composeapp.generated.resources.Res
@@ -208,6 +215,7 @@ class ConnectScreen : EquinoxScreen<ConnectScreenViewModel>(
                         validator = { it.isNotEmpty() },
                     )
                 }
+                var hiddenPassword by remember { mutableStateOf(true) }
                 EquinoxOutlinedTextField(
                     value = viewModel.password,
                     shape = RoundedCornerShape(
@@ -217,6 +225,24 @@ class ConnectScreen : EquinoxScreen<ConnectScreenViewModel>(
                     keyboardOptions = KeyboardOptions(
                         imeAction = ImeAction.Done
                     ),
+                    allowsBlankSpaces = false,
+                    trailingIcon = {
+                        IconButton(
+                            onClick = { hiddenPassword = !hiddenPassword }
+                        ) {
+                            Icon(
+                                imageVector = if (hiddenPassword)
+                                    Icons.Default.Visibility
+                                else
+                                    Icons.Default.VisibilityOff,
+                                contentDescription = null
+                            )
+                        }
+                    },
+                    visualTransformation = if (hiddenPassword)
+                        PasswordVisualTransformation()
+                    else
+                        VisualTransformation.None,
                     errorText = stringResource(Res.string.wrong_password),
                     isError = viewModel.passwordError,
                     validator = { InputsValidator.isPasswordValid(it) },

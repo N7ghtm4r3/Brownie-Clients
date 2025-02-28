@@ -328,6 +328,10 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
     @NonRestartableComposable
     private fun CompactButtons() {
         Column(
+            modifier = Modifier
+                .padding(
+                    top = 16.dp
+                ),
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
             ControlButtons(
