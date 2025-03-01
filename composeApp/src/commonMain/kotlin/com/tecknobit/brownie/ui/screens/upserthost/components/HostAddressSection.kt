@@ -16,8 +16,8 @@ import brownie.composeapp.generated.resources.host_address_placeholder
 import brownie.composeapp.generated.resources.wrong_host_address
 import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel
+import com.tecknobit.browniecore.helpers.BrownieInputsValidator.isHostAddressValid
 import com.tecknobit.equinoxcompose.components.EquinoxOutlinedTextField
-import com.tecknobit.equinoxcore.helpers.InputsValidator
 
 @Composable
 @NonRestartableComposable
@@ -43,7 +43,7 @@ fun HostAddressSection(
         placeholder = Res.string.host_address_placeholder,
         errorText = Res.string.wrong_host_address,
         allowsBlankSpaces = false,
-        validator = { InputsValidator.isHostValid(it) },
+        validator = { isHostAddressValid(it) },
         keyboardOptions = KeyboardOptions(
             imeAction = ImeAction.Done
         )

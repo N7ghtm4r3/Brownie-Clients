@@ -5,7 +5,7 @@ import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel
 import com.tecknobit.browniecore.enums.HostStatus
-import com.tecknobit.equinoxcore.helpers.InputsValidator.Companion.isHostValid
+import com.tecknobit.browniecore.helpers.BrownieInputsValidator.isHostAddressValid
 
 class UpsertHostScreenViewModel(
     hostId: String?,
@@ -51,7 +51,7 @@ class UpsertHostScreenViewModel(
         val validity = super.validForm()
         if (!validity)
             return false
-        if (!isHostValid(address.value)) {
+        if (!isHostAddressValid(address.value)) {
             addressError.value = true
             return false
         }
