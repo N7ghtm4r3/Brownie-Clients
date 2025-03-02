@@ -8,7 +8,7 @@ import com.tecknobit.brownie.ui.theme.violet
 import com.tecknobit.brownie.ui.theme.yellow
 import com.tecknobit.browniecore.AUTO_RUN_AFTER_HOST_REBOOT
 import com.tecknobit.browniecore.EVENT_DATE_KEY
-import com.tecknobit.browniecore.PROGRAM_ARGUMENT_KEY
+import com.tecknobit.browniecore.PROGRAM_ARGUMENTS_KEY
 import com.tecknobit.browniecore.PURGE_NOHUP_OUT_AFTER_REBOOT_KEY
 import com.tecknobit.browniecore.enums.ServiceEventType
 import com.tecknobit.browniecore.enums.ServiceStatus
@@ -55,7 +55,7 @@ data class HostService(
     @Serializable
     data class ServiceConfiguration(
         val id: String,
-        @SerialName(PROGRAM_ARGUMENT_KEY)
+        @SerialName(PROGRAM_ARGUMENTS_KEY)
         val programArguments: String = "",
         @SerialName(PURGE_NOHUP_OUT_AFTER_REBOOT_KEY)
         val purgeNohupOutAfterReboot: Boolean = true,
