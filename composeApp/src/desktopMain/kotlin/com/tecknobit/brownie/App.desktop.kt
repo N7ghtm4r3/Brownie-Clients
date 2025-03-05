@@ -1,7 +1,18 @@
 package com.tecknobit.brownie
 
+import OctocatKDUConfig
+import UpdaterDialog
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import brownie.composeapp.generated.resources.Res
+import brownie.composeapp.generated.resources.app_name
+import brownie.composeapp.generated.resources.app_version
+import com.tecknobit.brownie.ui.theme.BrownieTheme
+import org.jetbrains.compose.resources.stringResource
 import java.util.Locale
 
 /**
@@ -12,7 +23,7 @@ import java.util.Locale
 @Composable
 @NonRestartableComposable
 actual fun CheckForUpdatesAndLaunch() {
-    /*var launchApp by remember { mutableStateOf(true) }
+    var launchApp by remember { mutableStateOf(true) }
     BrownieTheme {
         UpdaterDialog(
             config = OctocatKDUConfig(
@@ -23,9 +34,9 @@ actual fun CheckForUpdatesAndLaunch() {
                 dismissAction = { launchApp = true }
             )
         )
-    }*/ // TODO: TO SET
-    //if (launchApp)
-    startSession()
+    }
+    if (launchApp)
+        startSession()
 }
 
 /**

@@ -16,7 +16,7 @@ plugins {
 kotlin {
     androidTarget {
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_18)
+            jvmTarget.set(JvmTarget.JVM_22)
         }
     }
     
@@ -33,7 +33,7 @@ kotlin {
     
     jvm("desktop") {
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_18)
+            jvmTarget.set(JvmTarget.JVM_22)
         }
     }
     
@@ -86,6 +86,7 @@ kotlin {
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
+            implementation(libs.octocatkdu)
         }
     }
 }
@@ -112,8 +113,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_18
-        targetCompatibility = JavaVersion.VERSION_18
+        sourceCompatibility = JavaVersion.VERSION_22
+        targetCompatibility = JavaVersion.VERSION_22
     }
 }
 

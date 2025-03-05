@@ -7,6 +7,7 @@ import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.rubik
 import brownie.composeapp.generated.resources.ubuntu_mono
 import com.tecknobit.brownie.helpers.BrownieLocalSession
+import com.tecknobit.brownie.helpers.BrownieRequester
 import com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen
 import com.tecknobit.brownie.ui.screens.connect.ConnectScreen
 import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
@@ -32,6 +33,8 @@ lateinit var bodyFontFamily: FontFamily
  * `displayFontFamily` the Brownie's font family
  */
 lateinit var displayFontFamily: FontFamily
+
+lateinit var requester: BrownieRequester
 
 /**
  *`localSession` the helper to manage the local session stored locally in
@@ -132,33 +135,16 @@ expect fun CheckForUpdatesAndLaunch()
  *
  */
 fun startSession() {
-    // TODO: TO SET
-    /*requester = RefyRequester(
+    requester = BrownieRequester(
         host = localSession.hostAddress,
-        userId = localSession.userId,
-        userToken = localSession.userToken
+        sessionId = localSession.sessionId
     )
-    val route =
-        if (!localSession.userId.isNullOrBlank()) {
-            MainScope().launch {
-                requester.sendRequest(
-                    request = {
-                        getDynamicAccountData()
-                    },
-                    onSuccess = { response ->
-                        localSession.updateDynamicAccountData(
-                            dynamicData = response.toResponseData()
-                        )
-                    },
-                    onFailure = {}
-                )
-            }
-            HOME_SCREEN
-        } else
-            AUTH_SCREEN*/
+    val route = if (localSession.sessionId != null)
+        HOSTS_SCREEN
+    else
+        CONNECT_SCREEN
     setUserLanguage()
-    // TODO: MAKE THE REAL NAVIGATION
-    navigator.navigate(CONNECT_SCREEN)
+    navigator.navigate(route)
 }
 
 /**
