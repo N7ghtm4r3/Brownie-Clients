@@ -1,10 +1,13 @@
 package com.tecknobit.brownie.ui.shared.presentations
 
+import com.tecknobit.brownie.requester
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.HostStatus.OFFLINE
 import com.tecknobit.browniecore.enums.HostStatus.ONLINE
+import com.tecknobit.equinoxcore.network.Requester.Companion.sendRequest
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 interface HostManager {
 
@@ -35,8 +38,17 @@ interface HostManager {
         savedHost: SavedHost,
         onSuccess: () -> Unit,
     ) {
-        // TODO: MAKE THE REQUEST THEN
-        onSuccess()
+        requestsScope.launch {
+            requester.sendRequest(
+                request = {
+                    unregisterHost(
+                        host = savedHost
+                    )
+                },
+                onSuccess = { onSuccess() },
+                onFailure = {}
+            )
+        }
     }
 
 }

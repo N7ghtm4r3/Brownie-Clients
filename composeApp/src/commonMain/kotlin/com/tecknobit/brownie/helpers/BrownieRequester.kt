@@ -1,16 +1,24 @@
 package com.tecknobit.brownie.helpers
 
+import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
+import com.tecknobit.browniecore.HOSTS_KEY
 import com.tecknobit.browniecore.JOIN_CODE_KEY
+import com.tecknobit.browniecore.KEYWORDS_KEY
 import com.tecknobit.browniecore.SESSIONS_KEY
+import com.tecknobit.browniecore.STATUSES_KEY
+import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.helpers.BrownieEndpoints.CONNECT_ENDPOINT
 import com.tecknobit.equinoxcore.annotations.Assembler
 import com.tecknobit.equinoxcore.helpers.PASSWORD_KEY
 import com.tecknobit.equinoxcore.helpers.SERVER_SECRET_KEY
 import com.tecknobit.equinoxcore.network.EquinoxBaseEndpointsSet.Companion.BASE_EQUINOX_ENDPOINT
 import com.tecknobit.equinoxcore.network.Requester
+import com.tecknobit.equinoxcore.pagination.PaginatedResponse.Companion.PAGE_KEY
 import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.add
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.put
+import kotlinx.serialization.json.putJsonArray
 
 class BrownieRequester(
     host: String,
@@ -79,6 +87,50 @@ class BrownieRequester(
             endpoint = assembleSessionEndpoint(),
             payload = payload
         )
+    }
+
+    suspend fun getHosts(
+        page: Int,
+        keywords: String,
+        statuses: List<HostStatus>,
+    ): JsonObject {
+        val query = buildJsonObject {
+            put(PAGE_KEY, page)
+            if (keywords.isNotEmpty())
+                put(KEYWORDS_KEY, keywords)
+            putJsonArray(STATUSES_KEY) {
+                statuses.forEach { status ->
+                    add(status.name)
+                }
+            }
+        }
+        return execGet(
+            endpoint = assembleHostEndpoint(),
+            query = query
+        )
+    }
+
+    suspend fun unregisterHost(
+        host: SavedHost,
+    ): JsonObject {
+        return execDelete(
+            endpoint = assembleHostEndpoint(
+                hostId = host.id
+            )
+        )
+    }
+
+    @Assembler
+    private fun assembleHostEndpoint(
+        hostId: String = "",
+        subEndpoint: String = "",
+    ): String {
+        var hostEndpoint = assembleSessionEndpoint(
+            subEndpoint = "/$HOSTS_KEY"
+        )
+        if (hostId.isNotEmpty())
+            hostEndpoint += "/$hostId"
+        return hostEndpoint + subEndpoint
     }
 
     @Assembler
