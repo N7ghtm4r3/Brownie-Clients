@@ -12,7 +12,7 @@ import brownie.composeapp.generated.resources.host_name
 import brownie.composeapp.generated.resources.host_name_placeholder
 import brownie.composeapp.generated.resources.register_host
 import brownie.composeapp.generated.resources.wrong_host_name
-import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
+import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl
 import com.tecknobit.brownie.ui.screens.upserthost.components.HostAddressSection
 import com.tecknobit.brownie.ui.screens.upserthost.components.SSHAuthentication
 import com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel
@@ -23,7 +23,7 @@ import org.jetbrains.compose.resources.stringResource
 
 class UpsertHostScreen(
     hostId: String?,
-) : UpsertScreen<SavedHost, UpsertHostScreenViewModel>(
+) : UpsertScreen<SavedHostImpl, UpsertHostScreenViewModel>(
     itemId = hostId,
     viewModel = UpsertHostScreenViewModel(
         hostId = hostId

@@ -2,13 +2,18 @@ package com.tecknobit.brownie.helpers
 
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.browniecore.HOSTS_KEY
+import com.tecknobit.browniecore.HOST_ADDRESS_KEY
 import com.tecknobit.browniecore.JOIN_CODE_KEY
 import com.tecknobit.browniecore.KEYWORDS_KEY
 import com.tecknobit.browniecore.SESSIONS_KEY
+import com.tecknobit.browniecore.SSH_PASSWORD_KEY
+import com.tecknobit.browniecore.SSH_USER_KEY
 import com.tecknobit.browniecore.STATUSES_KEY
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.helpers.BrownieEndpoints.CONNECT_ENDPOINT
 import com.tecknobit.equinoxcore.annotations.Assembler
+import com.tecknobit.equinoxcore.helpers.LANGUAGE_KEY
+import com.tecknobit.equinoxcore.helpers.NAME_KEY
 import com.tecknobit.equinoxcore.helpers.PASSWORD_KEY
 import com.tecknobit.equinoxcore.helpers.SERVER_SECRET_KEY
 import com.tecknobit.equinoxcore.network.EquinoxBaseEndpointsSet.Companion.BASE_EQUINOX_ENDPOINT
@@ -23,6 +28,7 @@ import kotlinx.serialization.json.putJsonArray
 class BrownieRequester(
     host: String,
     private val sessionId: String?,
+    private val language: String,
     debugMode: Boolean = false,
 ) : Requester(
     host = host,
@@ -103,11 +109,79 @@ class BrownieRequester(
                     add(status.name)
                 }
             }
+            put(LANGUAGE_KEY, language)
         }
         return execGet(
             endpoint = assembleHostEndpoint(),
             query = query
         )
+    }
+
+    suspend fun getHost(
+        hostId: String,
+    ): JsonObject {
+        return execGet(
+            endpoint = assembleHostEndpoint(
+                hostId = hostId,
+            ),
+            query = createLanguageQuery()
+        )
+    }
+
+    suspend fun registerHost(
+        hostName: String,
+        hostAddress: String,
+        sshUser: String,
+        sshPassword: String,
+    ): JsonObject {
+        val payload = createUpsertHostPayload(
+            hostName = hostName,
+            hostAddress = hostAddress,
+            sshUser = sshUser,
+            sshPassword = sshPassword
+        )
+        return execPost(
+            endpoint = assembleHostEndpoint(),
+            payload = payload
+        )
+    }
+
+    suspend fun editHost(
+        hostId: String,
+        hostName: String,
+        hostAddress: String,
+        sshUser: String,
+        sshPassword: String,
+    ): JsonObject {
+        val payload = createUpsertHostPayload(
+            hostName = hostName,
+            hostAddress = hostAddress,
+            sshUser = sshUser,
+            sshPassword = sshPassword
+        )
+        return execPatch(
+            endpoint = assembleHostEndpoint(
+                hostId = hostId
+            ),
+            payload = payload
+        )
+    }
+
+    @Assembler
+    private fun createUpsertHostPayload(
+        hostName: String,
+        hostAddress: String,
+        sshUser: String,
+        sshPassword: String,
+    ): JsonObject {
+        return buildJsonObject {
+            put(NAME_KEY, hostName)
+            put(HOST_ADDRESS_KEY, hostAddress)
+            if (sshUser.isNotBlank()) {
+                put(SSH_USER_KEY, sshUser)
+                put(SSH_PASSWORD_KEY, sshPassword)
+            }
+        }
     }
 
     suspend fun unregisterHost(
@@ -116,7 +190,8 @@ class BrownieRequester(
         return execDelete(
             endpoint = assembleHostEndpoint(
                 hostId = host.id
-            )
+            ),
+            query = createLanguageQuery()
         )
     }
 
@@ -141,6 +216,12 @@ class BrownieRequester(
             "$SESSIONS_KEY/$sessionId$subEndpoint"
         else
             SESSIONS_KEY + subEndpoint
+    }
+
+    private fun createLanguageQuery(): JsonObject {
+        return buildJsonObject {
+            put(LANGUAGE_KEY, language)
+        }
     }
 
 }

@@ -138,6 +138,7 @@ fun startSession() {
     requester = BrownieRequester(
         host = localSession.hostAddress,
         sessionId = localSession.sessionId,
+        language = localSession.language,
         debugMode = true // TODO: TO REMOVE
     )
     val route = if (localSession.sessionId != null)

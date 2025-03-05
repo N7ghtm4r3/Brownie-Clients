@@ -4,11 +4,22 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import brownie.composeapp.generated.resources.Res
@@ -93,6 +104,7 @@ private fun SSHPassword(
         text = stringResource(Res.string.ssh_password_placeholder),
         style = AppTypography.titleMedium
     )
+    var hiddenPassword by remember { mutableStateOf(true) }
     EquinoxOutlinedTextField(
         modifier = Modifier
             .fillMaxWidth(),
@@ -107,6 +119,23 @@ private fun SSHPassword(
             Res.string.ssh_password_placeholder,
         errorText = Res.string.wrong_ssh_password,
         allowsBlankSpaces = false,
+        trailingIcon = {
+            IconButton(
+                onClick = { hiddenPassword = !hiddenPassword }
+            ) {
+                Icon(
+                    imageVector = if (hiddenPassword)
+                        Icons.Default.Visibility
+                    else
+                        Icons.Default.VisibilityOff,
+                    contentDescription = null
+                )
+            }
+        },
+        visualTransformation = if (hiddenPassword)
+            PasswordVisualTransformation()
+        else
+            VisualTransformation.None,
         keyboardOptions = KeyboardOptions(
             imeAction = ImeAction.Done
         )
