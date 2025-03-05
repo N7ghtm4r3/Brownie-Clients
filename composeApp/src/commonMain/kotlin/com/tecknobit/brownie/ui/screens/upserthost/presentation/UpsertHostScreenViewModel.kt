@@ -1,6 +1,7 @@
 package com.tecknobit.brownie.ui.screens.upserthost.presentation
 
 import androidx.compose.runtime.MutableState
+import com.tecknobit.brownie.helpers.KReviewer
 import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel
@@ -39,12 +40,18 @@ class UpsertHostScreenViewModel(
 
     override fun insert() {
         // TODO: MAKE THE REQUEST THEN
-        navigator.goBack()
+        val kReviewer = KReviewer()
+        kReviewer.reviewInApp {
+            navigator.goBack()
+        }
     }
 
     override fun update() {
         // TODO: MAKE THE REQUEST THEN
-        navigator.goBack()
+        val kReviewer = KReviewer()
+        kReviewer.reviewInApp {
+            navigator.goBack()
+        }
     }
 
     override fun validForm(): Boolean {

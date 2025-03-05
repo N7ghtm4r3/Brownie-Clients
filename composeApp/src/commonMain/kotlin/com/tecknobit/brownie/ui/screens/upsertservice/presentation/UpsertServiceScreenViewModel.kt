@@ -1,6 +1,7 @@
 package com.tecknobit.brownie.ui.screens.upsertservice.presentation
 
 import androidx.compose.runtime.MutableState
+import com.tecknobit.brownie.helpers.KReviewer
 import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.screens.host.data.HostService
 import com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel
@@ -53,12 +54,18 @@ class UpsertServiceScreenViewModel(
 
     override fun insert() {
         // TODO: MAKE THE REQUEST THEN
-        navigator.goBack()
+        val kReviewer = KReviewer()
+        kReviewer.reviewInApp {
+            navigator.goBack()
+        }
     }
 
     override fun update() {
         // TODO: MAKE THE REQUEST THEN
-        navigator.goBack()
+        val kReviewer = KReviewer()
+        kReviewer.reviewInApp {
+            navigator.goBack()
+        }
     }
 
 }

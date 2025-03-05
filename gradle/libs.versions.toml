@@ -17,6 +17,8 @@ lazyPaginationCompose = "1.4.0"
 octocatkdu = "1.0.5"
 precompose = "1.7.0-alpha03"
 browniecore = "1.0.0"
+appUpdate = "2.1.0"
+review = "2.0.2"
 
 [libraries]
 equinox-compose = { module = "io.github.n7ghtm4r3:equinox-compose", version.ref = "equinoxCompose" }
@@ -32,6 +34,10 @@ lazy-pagination-compose = { module = "io.github.ahmad-hamwi:lazy-pagination-comp
 octocatkdu = { module = "io.github.n7ghtm4r3:octocatkdu", version.ref = "octocatkdu" }
 precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
 browniecore = { module = "com.tecknobit.browniecore:browniecore", version.ref = "browniecore" }
+review = { module = "com.google.android.play:review", version.ref = "review" }
+review-ktx = { module = "com.google.android.play:review-ktx", version.ref = "review" }
+app-update = { module = "com.google.android.play:app-update", version.ref = "appUpdate" }
+app-update-ktx = { module = "com.google.android.play:app-update-ktx", version.ref = "appUpdate" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
