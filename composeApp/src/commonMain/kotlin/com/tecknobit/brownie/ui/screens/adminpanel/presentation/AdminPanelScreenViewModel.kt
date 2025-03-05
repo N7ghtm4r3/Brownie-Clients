@@ -2,10 +2,14 @@ package com.tecknobit.brownie.ui.screens.adminpanel.presentation
 
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.MutableState
+import androidx.lifecycle.viewModelScope
 import com.tecknobit.brownie.localSession
+import com.tecknobit.brownie.requester
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.helpers.InputsValidator.Companion.isPasswordValid
+import com.tecknobit.equinoxcore.network.Requester.Companion.sendRequest
+import kotlinx.coroutines.launch
 
 class AdminPanelScreenViewModel : EquinoxViewModel(
     snackbarHostState = SnackbarHostState()
@@ -64,11 +68,6 @@ class AdminPanelScreenViewModel : EquinoxViewModel(
         onClear: (() -> Unit)? = null,
     ) {
         localSession.clear()
-        // TODO: TO SET
-        /*requester.setUserCredentials(
-            userId = null,
-            userToken = null
-        )*/
         onClear?.invoke()
     }
 
@@ -79,10 +78,21 @@ class AdminPanelScreenViewModel : EquinoxViewModel(
             passwordError.value = true
             return
         }
-        // TODO: TO MAKE THE REQUEST THEN
-        clearSession(
-            onClear = onClear
-        )
+        viewModelScope.launch {
+            requester.sendRequest(
+                request = {
+                    deleteSession(
+                        password = password.value
+                    )
+                },
+                onSuccess = {
+                    clearSession(
+                        onClear = onClear
+                    )
+                },
+                onFailure = { showSnackbarMessage(it) }
+            )
+        }
     }
 
 }

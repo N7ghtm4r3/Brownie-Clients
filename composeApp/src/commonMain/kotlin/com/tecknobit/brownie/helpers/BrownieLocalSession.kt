@@ -4,12 +4,11 @@ import com.tecknobit.browniecore.JOIN_CODE_KEY
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme.Auto
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
+import com.tecknobit.equinoxcore.helpers.InputsValidator.Companion.DEFAULT_LANGUAGE
 import com.tecknobit.equinoxcore.helpers.InputsValidator.Companion.HOST_ADDRESS_KEY
 import com.tecknobit.equinoxcore.helpers.LANGUAGE_KEY
 import com.tecknobit.equinoxcore.helpers.THEME_KEY
 import com.tecknobit.kmprefs.KMPrefs
-import kotlin.uuid.ExperimentalUuidApi
-import kotlin.uuid.Uuid
 
 class BrownieLocalSession {
 
@@ -76,19 +75,31 @@ class BrownieLocalSession {
         initLocalSession()
     }
 
-    @OptIn(ExperimentalUuidApi::class) // TODO: TO REMOVE
+    fun insertNewSession(
+        hostAddress: String,
+        sessionId: String,
+        joinCode: String,
+    ) {
+        this.hostAddress = hostAddress
+        this.sessionId = sessionId
+        this.joinCode = joinCode
+    }
+
     private fun initLocalSession() {
         hostAddress = kmpPrefs.retrieveString(
             key = HOST_ADDRESS_KEY,
             defValue = ""
         )!!
+        sessionId = kmpPrefs.retrieveString(
+            key = IDENTIFIER_KEY
+        )
         joinCode = kmpPrefs.retrieveString(
             key = JOIN_CODE_KEY,
-            defValue = Uuid.random().toHexString() // TODO: TO USE "" INSTEAD 
+            defValue = ""
         )!!
         language = kmpPrefs.retrieveString(
             key = LANGUAGE_KEY,
-            defValue = ""
+            defValue = DEFAULT_LANGUAGE
         )!!
         theme = ApplicationTheme.getInstance(
             kmpPrefs.retrieveString(

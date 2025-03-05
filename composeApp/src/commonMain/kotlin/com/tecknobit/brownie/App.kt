@@ -137,7 +137,8 @@ expect fun CheckForUpdatesAndLaunch()
 fun startSession() {
     requester = BrownieRequester(
         host = localSession.hostAddress,
-        sessionId = localSession.sessionId
+        sessionId = localSession.sessionId,
+        debugMode = true // TODO: TO REMOVE
     )
     val route = if (localSession.sessionId != null)
         HOSTS_SCREEN
