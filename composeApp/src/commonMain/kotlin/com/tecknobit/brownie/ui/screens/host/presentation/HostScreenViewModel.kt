@@ -4,22 +4,21 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.viewModelScope
-import com.tecknobit.brownie.ui.screens.host.data.CpuUsage
+import com.tecknobit.brownie.requester
 import com.tecknobit.brownie.ui.screens.host.data.HostService
-import com.tecknobit.brownie.ui.screens.host.data.MemoryUsage
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
-import com.tecknobit.brownie.ui.screens.host.data.StorageUsage
 import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
 import com.tecknobit.brownie.ui.shared.presentations.HostManager
-import com.tecknobit.browniecore.enums.HostEventType
-import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.ServiceEventType
 import com.tecknobit.browniecore.enums.ServiceStatus
 import com.tecknobit.browniecore.enums.ServiceStatus.RUNNING
 import com.tecknobit.browniecore.enums.ServiceStatus.STOPPED
-import com.tecknobit.browniecore.enums.StorageType
+import com.tecknobit.equinoxcompose.session.setHasBeenDisconnectedValue
+import com.tecknobit.equinoxcompose.session.setServerOfflineValue
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.mergeIfNotContained
+import com.tecknobit.equinoxcore.network.Requester.Companion.sendRequest
+import com.tecknobit.equinoxcore.network.Requester.Companion.toResponseData
 import com.tecknobit.equinoxcore.pagination.PaginatedResponse.Companion.DEFAULT_PAGE
 import com.tecknobit.equinoxcore.time.TimeFormatter
 import io.github.ahmad_hamwi.compose.pagination.PaginationState
@@ -27,10 +26,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.decodeFromJsonElement
 import kotlin.random.Random
 
 class HostScreenViewModel(
-    hostId: String,
+    private val hostId: String,
 ) : EquinoxViewModel(
     snackbarHostState = SnackbarHostState()
 ), HostManager {
@@ -50,90 +51,28 @@ class HostScreenViewModel(
         statusFilters.addAll(ServiceStatus.entries)
     }
 
+    private val json = Json {
+        ignoreUnknownKeys = true
+    }
+
     fun retrieveHostOverview() {
         retrieve(
             currentContext = HostScreen::class,
             routine = {
                 // TODO: REMOVE THIS WORKAROUND WHEN ROUTINE SUSPENDABLE
                 viewModelScope.launch {
-                    // TODO: MAKE THE REQUEST THEN
-                    _hostOverview.value = SavedHostOverview(
-                        id = Random.nextLong().toString(),
-                        name = "Debian 11",
-                        hostAddress = "192.168.1.1",
-                        status = HostStatus.entries[Random.nextInt(3)],
-                        cpuUsage = CpuUsage(
-                            Random.nextInt(100).toDouble(),
-                            clock = 4.57
-                        ),
-                        memoryUsage = MemoryUsage(
-                            usageValue = 15.6,
-                            totalValue = 32,
-                            Random.nextInt(100).toDouble(),
-                        ),
-                        storageUsage = StorageUsage(
-                            usageValue = 444.0,
-                            totalValue = 4000,
-                            Random.nextInt(100).toDouble(),
-                            storageType = StorageType.entries[Random.nextInt(2)]
-                        ),
-                        history = if (Random.nextBoolean()) {
-                            listOf(
-                                SavedHostOverview.HostHistoryEvent(
-                                    id = Random.nextLong().toString(),
-                                    type = HostEventType.SERVICE_DELETED,
-                                    eventDate = TimeFormatter.currentTimestamp(),
-                                    extra = "Ametista-1.0.0.jar"
-                                ),
-                                SavedHostOverview.HostHistoryEvent(
-                                    id = Random.nextLong().toString(),
-                                    type = HostEventType.SERVICE_ADDED,
-                                    eventDate = TimeFormatter.currentTimestamp(),
-                                    extra = "Ametista-1.0.0.jar"
-                                ),
-                                SavedHostOverview.HostHistoryEvent(
-                                    id = Random.nextLong().toString(),
-                                    type = HostEventType.SERVICE_REMOVED,
-                                    eventDate = TimeFormatter.currentTimestamp(),
-                                    extra = "Ametista-1.0.0.jar"
-                                ),
-                                SavedHostOverview.HostHistoryEvent(
-                                    id = Random.nextLong().toString(),
-                                    type = HostEventType.SERVICE_ADDED,
-                                    eventDate = TimeFormatter.currentTimestamp(),
-                                    extra = "Ametista-1.0.0.jar"
-                                ),
-                                SavedHostOverview.HostHistoryEvent(
-                                    id = Random.nextLong().toString(),
-                                    type = HostEventType.ONLINE,
-                                    eventDate = TimeFormatter.currentTimestamp(),
-                                    extra = Random.nextInt(30)
-                                ),
-                                SavedHostOverview.HostHistoryEvent(
-                                    id = Random.nextLong().toString(),
-                                    type = HostEventType.OFFLINE,
-                                    eventDate = TimeFormatter.currentTimestamp(),
-                                    extra = Random.nextInt(30)
-                                ),
-                                SavedHostOverview.HostHistoryEvent(
-                                    id = Random.nextLong().toString(),
-                                    type = HostEventType.RESTARTED,
-                                    eventDate = TimeFormatter.currentTimestamp()
-                                ),
-                                SavedHostOverview.HostHistoryEvent(
-                                    id = Random.nextLong().toString(),
-                                    type = HostEventType.REBOOTING,
-                                    eventDate = TimeFormatter.currentTimestamp(),
-                                    extra = Random.nextInt(30)
-                                ),
-                                SavedHostOverview.HostHistoryEvent(
-                                    id = Random.nextLong().toString(),
-                                    type = HostEventType.ONLINE,
-                                    eventDate = TimeFormatter.currentTimestamp()
-                                )
+                    requester.sendRequest(
+                        request = {
+                            getHostOverview(
+                                hostId = hostId
                             )
-                        } else
-                            emptyList()
+                        },
+                        onSuccess = {
+                            setServerOfflineValue(false)
+                            _hostOverview.value = json.decodeFromJsonElement(it.toResponseData())
+                        },
+                        onFailure = { setHasBeenDisconnectedValue(true) },
+                        onConnectionError = { setServerOfflineValue(true) }
                     )
                 }
             },

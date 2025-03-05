@@ -11,6 +11,7 @@ import com.tecknobit.browniecore.SSH_USER_KEY
 import com.tecknobit.browniecore.STATUSES_KEY
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.helpers.BrownieEndpoints.CONNECT_ENDPOINT
+import com.tecknobit.browniecore.helpers.BrownieEndpoints.OVERVIEW_ENDPOINT
 import com.tecknobit.equinoxcore.annotations.Assembler
 import com.tecknobit.equinoxcore.helpers.LANGUAGE_KEY
 import com.tecknobit.equinoxcore.helpers.NAME_KEY
@@ -182,6 +183,18 @@ class BrownieRequester(
                 put(SSH_PASSWORD_KEY, sshPassword)
             }
         }
+    }
+
+    suspend fun getHostOverview(
+        hostId: String,
+    ): JsonObject {
+        return execGet(
+            endpoint = assembleHostEndpoint(
+                hostId = hostId,
+                subEndpoint = OVERVIEW_ENDPOINT
+            ),
+            query = createLanguageQuery()
+        )
     }
 
     suspend fun unregisterHost(

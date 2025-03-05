@@ -62,7 +62,7 @@ class HostScreen(
         BrownieTheme {
             ManagedContent(
                 viewModel = viewModel,
-                initialDelay = 500,
+                initialDelay = 1500,
                 loadingRoutine = { hostOverview.value != null },
                 content = {
                     Scaffold(

@@ -116,7 +116,7 @@ fun StorageUsageChart(
                 Text(
                     text = stringResource(
                         resource = Res.string.storage_tooltip,
-                        usage.storageType.asText(), usage.usageValue, usage.totalValue
+                        usage.type.asText(), usage.usageValue, usage.totalValue
                     )
                 )
             }
