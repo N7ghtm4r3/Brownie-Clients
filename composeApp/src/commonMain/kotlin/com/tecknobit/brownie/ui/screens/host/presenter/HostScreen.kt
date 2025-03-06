@@ -152,7 +152,8 @@ class HostScreen(
                 FloatingActionButton(
                     onClick = {
                         navigator.navigate(
-                            route = "$UPSERT_SERVICE_SCREEN/${hostOverview.value!!.name}"
+                            route = "$UPSERT_SERVICE_SCREEN/${hostOverview.value!!.id}" +
+                                    "/${hostOverview.value!!.name}"
                         )
                     }
                 ) {
@@ -171,7 +172,8 @@ class HostScreen(
         ExtendedFloatingActionButton(
             onClick = {
                 navigator.navigate(
-                    route = "$UPSERT_SERVICE_SCREEN/${hostOverview.value!!.name}"
+                    route = "$UPSERT_SERVICE_SCREEN/${hostOverview.value!!.id}" +
+                            "/${hostOverview.value!!.name}"
                 )
             }
         ) {

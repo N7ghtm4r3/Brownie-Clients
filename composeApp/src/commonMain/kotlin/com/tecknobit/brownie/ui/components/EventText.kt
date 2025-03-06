@@ -3,6 +3,9 @@ package com.tecknobit.brownie.ui.components
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
+import com.tecknobit.equinoxcore.json.treatsAsInt
+import com.tecknobit.equinoxcore.json.treatsAsString
+import kotlinx.serialization.json.JsonElement
 import org.jetbrains.compose.resources.PluralStringResource
 import org.jetbrains.compose.resources.Resource
 import org.jetbrains.compose.resources.StringResource
@@ -13,11 +16,11 @@ import org.jetbrains.compose.resources.stringResource
 @NonRestartableComposable
 fun EventText(
     text: Resource,
-    eventExtra: Any?,
+    eventExtra: JsonElement?,
 ) {
     Text(
         text = if (text is PluralStringResource) {
-            val extra = eventExtra as Int
+            val extra = eventExtra.treatsAsInt()
             pluralStringResource(
                 resource = text,
                 quantity = extra,
@@ -27,7 +30,7 @@ fun EventText(
             if (eventExtra != null) {
                 stringResource(
                     resource = text as StringResource,
-                    eventExtra
+                    eventExtra.treatsAsString()
                 )
             } else
                 stringResource(text as StringResource)

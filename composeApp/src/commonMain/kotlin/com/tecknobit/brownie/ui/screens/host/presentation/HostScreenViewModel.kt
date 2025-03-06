@@ -9,26 +9,24 @@ import com.tecknobit.brownie.ui.screens.host.data.HostService
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
 import com.tecknobit.brownie.ui.shared.presentations.HostManager
-import com.tecknobit.browniecore.enums.ServiceEventType
 import com.tecknobit.browniecore.enums.ServiceStatus
 import com.tecknobit.browniecore.enums.ServiceStatus.RUNNING
 import com.tecknobit.browniecore.enums.ServiceStatus.STOPPED
-import com.tecknobit.equinoxcompose.session.setHasBeenDisconnectedValue
 import com.tecknobit.equinoxcompose.session.setServerOfflineValue
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.mergeIfNotContained
+import com.tecknobit.equinoxcore.network.Requester.Companion.sendPaginatedRequest
 import com.tecknobit.equinoxcore.network.Requester.Companion.sendRequest
 import com.tecknobit.equinoxcore.network.Requester.Companion.toResponseData
 import com.tecknobit.equinoxcore.pagination.PaginatedResponse.Companion.DEFAULT_PAGE
-import com.tecknobit.equinoxcore.time.TimeFormatter
 import io.github.ahmad_hamwi.compose.pagination.PaginationState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.decodeFromJsonElement
-import kotlin.random.Random
 
 class HostScreenViewModel(
     private val hostId: String,
@@ -71,7 +69,7 @@ class HostScreenViewModel(
                             setServerOfflineValue(false)
                             _hostOverview.value = json.decodeFromJsonElement(it.toResponseData())
                         },
-                        onFailure = { setHasBeenDisconnectedValue(true) },
+                        onFailure = { showSnackbarMessage(it) },
                         onConnectionError = { setServerOfflineValue(true) }
                     )
                 }
@@ -92,153 +90,31 @@ class HostScreenViewModel(
     private fun loadServices(
         page: Int,
     ) {
-        // TODO: MAKE THE REQUEST THEN
-        // TODO: TO APPLY THE FILTERS ALSO
-        val e = listOf(
-            HostService(
-                id = Random.nextLong().toString(),
-                name = "Ametista-1.0.0.jar",
-                pid = Random.nextLong(1000000),
-                status = ServiceStatus.entries[Random.nextInt(ServiceStatus.entries.size - 1)],
-                configuration = HostService.ServiceConfiguration(
-                    id = Random.nextLong().toString(),
-                    purgeNohupOutAfterReboot = false
-                ),
-                events = if (Random.nextBoolean()) {
-                    listOf(
-                        HostService.ServiceEvent(
-                            id = Random.nextLong().toString(),
-                            type = ServiceEventType.RESTARTED,
-                            eventDate = TimeFormatter.currentTimestamp(),
-                            extra = Random.nextLong(100000)
-                        ),
-                        HostService.ServiceEvent(
-                            id = Random.nextLong().toString(),
-                            type = ServiceEventType.REBOOTING,
-                            eventDate = TimeFormatter.currentTimestamp(),
-                            extra = 11
-                        ),
-                        HostService.ServiceEvent(
-                            id = Random.nextLong().toString(),
-                            type = ServiceEventType.RUNNING,
-                            eventDate = TimeFormatter.currentTimestamp(),
-                            extra = Random.nextLong(100000)
-                        ),
-                        HostService.ServiceEvent(
-                            id = Random.nextLong().toString(),
-                            type = ServiceEventType.STOPPED,
-                            eventDate = TimeFormatter.currentTimestamp(),
-                            extra = 11
-                        ),
-                        HostService.ServiceEvent(
-                            id = Random.nextLong().toString(),
-                            type = ServiceEventType.RUNNING,
-                            eventDate = TimeFormatter.currentTimestamp(),
-                            extra = Random.nextLong(100000)
-                        )
+        viewModelScope.launch {
+            requester.sendPaginatedRequest(
+                request = {
+                    getServices(
+                        hostId = hostId,
+                        page = page,
+                        keywords = servicesQuery.value,
+                        statuses = statusFilters
                     )
-                } else
-                    emptyList()
-            ),
-            HostService(
-                id = Random.nextLong().toString(),
-                name = "Ametista-1.0.0.jar",
-                pid = Random.nextLong(1000000),
-                status = ServiceStatus.entries[Random.nextInt(ServiceStatus.entries.size - 1)],
-                configuration = HostService.ServiceConfiguration(
-                    id = Random.nextLong().toString(),
-                    purgeNohupOutAfterReboot = false
-                ),
-                events = if (false && Random.nextBoolean()) {
-                    listOf(
-                        HostService.ServiceEvent(
-                            id = Random.nextLong().toString(),
-                            type = ServiceEventType.RESTARTED,
-                            eventDate = TimeFormatter.currentTimestamp(),
-                            extra = Random.nextLong(100000)
-                        ),
-                        HostService.ServiceEvent(
-                            id = Random.nextLong().toString(),
-                            type = ServiceEventType.REBOOTING,
-                            eventDate = TimeFormatter.currentTimestamp(),
-                            extra = 11
-                        ),
-                        HostService.ServiceEvent(
-                            id = Random.nextLong().toString(),
-                            type = ServiceEventType.RUNNING,
-                            eventDate = TimeFormatter.currentTimestamp(),
-                            extra = Random.nextLong(100000)
-                        ),
-                        HostService.ServiceEvent(
-                            id = Random.nextLong().toString(),
-                            type = ServiceEventType.STOPPED,
-                            eventDate = TimeFormatter.currentTimestamp(),
-                            extra = 11
-                        ),
-                        HostService.ServiceEvent(
-                            id = Random.nextLong().toString(),
-                            type = ServiceEventType.RUNNING,
-                            eventDate = TimeFormatter.currentTimestamp(),
-                            extra = Random.nextLong(100000)
-                        )
+                },
+                serializer = HostService.serializer(),
+                onSuccess = { paginatedResponse ->
+                    setServerOfflineValue(false)
+                    servicesState.appendPage(
+                        items = paginatedResponse.data,
+                        nextPageKey = paginatedResponse.nextPage,
+                        isLastPage = paginatedResponse.isLastPage
                     )
-                } else
-                    emptyList()
-            ),
-            HostService(
-                id = Random.nextLong().toString(),
-                name = "Ametista-1.0.0.jar",
-                pid = Random.nextLong(1000000),
-                status = ServiceStatus.entries[Random.nextInt(ServiceStatus.entries.size - 1)],
-                configuration = HostService.ServiceConfiguration(
-                    id = Random.nextLong().toString(),
-                    purgeNohupOutAfterReboot = false
-                ),
-                events = if (Random.nextBoolean()) {
-                    listOf(
-                        HostService.ServiceEvent(
-                            id = Random.nextLong().toString(),
-                            type = ServiceEventType.RESTARTED,
-                            eventDate = TimeFormatter.currentTimestamp(),
-                            extra = Random.nextLong(100000)
-                        ),
-                        HostService.ServiceEvent(
-                            id = Random.nextLong().toString(),
-                            type = ServiceEventType.REBOOTING,
-                            eventDate = TimeFormatter.currentTimestamp(),
-                            extra = 11
-                        ),
-                        HostService.ServiceEvent(
-                            id = Random.nextLong().toString(),
-                            type = ServiceEventType.RUNNING,
-                            eventDate = TimeFormatter.currentTimestamp(),
-                            extra = Random.nextLong(100000)
-                        ),
-                        HostService.ServiceEvent(
-                            id = Random.nextLong().toString(),
-                            type = ServiceEventType.STOPPED,
-                            eventDate = TimeFormatter.currentTimestamp(),
-                            extra = 11
-                        ),
-                        HostService.ServiceEvent(
-                            id = Random.nextLong().toString(),
-                            type = ServiceEventType.RUNNING,
-                            eventDate = TimeFormatter.currentTimestamp(),
-                            extra = Random.nextLong(100000)
-                        )
-                    )
-                } else
-                    emptyList()
+                },
+                onFailure = {
+                    showSnackbarMessage(it)
+                },
+                onConnectionError = { setServerOfflineValue(true) }
             )
-        )
-        servicesState.appendPage(
-            items = if (false && Random.nextBoolean())
-                emptyList()
-            else
-                e, // TODO: USE THE REAL DATA,
-            nextPageKey = page + 1, // TODO: USE THE REAL DATA,
-            isLastPage = true || Random.nextBoolean() // TODO: USE THE REAL DATA,
-        )
+        }
     }
 
     fun clearFilters(
@@ -268,17 +144,48 @@ class HostScreenViewModel(
             STOPPED
         else
             RUNNING
-        // TODO: MAKE THE REQUEST THEN
-        onStatusChange.invoke(newStatus)
-        service.status = newStatus
+        viewModelScope.launch {
+            requester.sendRequest(
+                request = {
+                    handleServiceStatus(
+                        hostId = hostId,
+                        service = service,
+                        newStatus = newStatus
+                    )
+                },
+                onSuccess = {
+                    onStatusChange.invoke(newStatus)
+                    service.status = newStatus
+                },
+                onFailure = { showSnackbarMessage(it) }
+            )
+        }
     }
 
     fun rebootService(
         service: HostService,
         onStatusChange: () -> Unit,
     ) {
-        // TODO: MAKE THE REQUEST THEN
-        onStatusChange.invoke()
+        viewModelScope.launch {
+            requester.sendRequest(
+                request = {
+                    rebootService(
+                        hostId = hostId,
+                        service = service,
+                    )
+                },
+                onSuccess = { onStatusChange.invoke() },
+                onFailure = { showSnackbarMessage(it) }
+            )
+        }
+    }
+
+    override fun showFailure(
+        error: JsonObject,
+    ) {
+        showSnackbarMessage(
+            response = error
+        )
     }
 
 }

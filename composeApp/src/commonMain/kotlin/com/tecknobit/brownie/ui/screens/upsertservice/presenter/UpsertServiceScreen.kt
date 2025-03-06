@@ -37,11 +37,13 @@ import com.tecknobit.equinoxcore.annotations.RequiresSuperCall
 import org.jetbrains.compose.resources.stringResource
 
 class UpsertServiceScreen(
+    hostId: String,
     private val hostName: String,
     serviceId: String?,
 ) : UpsertScreen<HostService, UpsertServiceScreenViewModel>(
     itemId = serviceId,
     viewModel = UpsertServiceScreenViewModel(
+        hostId = hostId,
         serviceId = serviceId
     )
 ) {

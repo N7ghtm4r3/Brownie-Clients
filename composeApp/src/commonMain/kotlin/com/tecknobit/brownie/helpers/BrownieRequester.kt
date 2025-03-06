@@ -1,18 +1,31 @@
 package com.tecknobit.brownie.helpers
 
+import com.tecknobit.brownie.ui.screens.host.data.HostService
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
+import com.tecknobit.browniecore.AUTO_RUN_AFTER_HOST_REBOOT_KEY
 import com.tecknobit.browniecore.HOSTS_KEY
 import com.tecknobit.browniecore.HOST_ADDRESS_KEY
 import com.tecknobit.browniecore.JOIN_CODE_KEY
 import com.tecknobit.browniecore.KEYWORDS_KEY
+import com.tecknobit.browniecore.PROGRAM_ARGUMENTS_KEY
+import com.tecknobit.browniecore.PURGE_NOHUP_OUT_AFTER_REBOOT_KEY
+import com.tecknobit.browniecore.REMOVE_FROM_THE_HOST_KEY
+import com.tecknobit.browniecore.SERVICES_KEY
 import com.tecknobit.browniecore.SESSIONS_KEY
 import com.tecknobit.browniecore.SSH_PASSWORD_KEY
 import com.tecknobit.browniecore.SSH_USER_KEY
 import com.tecknobit.browniecore.STATUSES_KEY
 import com.tecknobit.browniecore.enums.HostStatus
+import com.tecknobit.browniecore.enums.HostStatus.ONLINE
+import com.tecknobit.browniecore.enums.ServiceStatus
+import com.tecknobit.browniecore.enums.ServiceStatus.RUNNING
 import com.tecknobit.browniecore.helpers.BrownieEndpoints.CONNECT_ENDPOINT
 import com.tecknobit.browniecore.helpers.BrownieEndpoints.OVERVIEW_ENDPOINT
+import com.tecknobit.browniecore.helpers.BrownieEndpoints.REBOOT_ENDPOINT
+import com.tecknobit.browniecore.helpers.BrownieEndpoints.START_ENDPOINT
+import com.tecknobit.browniecore.helpers.BrownieEndpoints.STOP_ENDPOINT
 import com.tecknobit.equinoxcore.annotations.Assembler
+import com.tecknobit.equinoxcore.annotations.Wrapper
 import com.tecknobit.equinoxcore.helpers.LANGUAGE_KEY
 import com.tecknobit.equinoxcore.helpers.NAME_KEY
 import com.tecknobit.equinoxcore.helpers.PASSWORD_KEY
@@ -28,7 +41,7 @@ import kotlinx.serialization.json.putJsonArray
 
 class BrownieRequester(
     host: String,
-    private val sessionId: String?,
+    var sessionId: String?,
     private val language: String,
     debugMode: Boolean = false,
 ) : Requester(
@@ -94,6 +107,16 @@ class BrownieRequester(
             endpoint = assembleSessionEndpoint(),
             payload = payload
         )
+    }
+
+    @Assembler
+    private fun assembleSessionEndpoint(
+        subEndpoint: String = "",
+    ): String {
+        return if (sessionId != null)
+            "$SESSIONS_KEY/$sessionId$subEndpoint"
+        else
+            SESSIONS_KEY + subEndpoint
     }
 
     suspend fun getHosts(
@@ -185,6 +208,34 @@ class BrownieRequester(
         }
     }
 
+    suspend fun handleHostStatus(
+        host: SavedHost,
+        newStatus: HostStatus,
+    ): JsonObject {
+        return execPatch(
+            endpoint = assembleHostEndpoint(
+                hostId = host.id,
+                subEndpoint = if (newStatus == ONLINE)
+                    START_ENDPOINT
+                else
+                    STOP_ENDPOINT
+            ),
+            query = createLanguageQuery()
+        )
+    }
+
+    suspend fun rebootHost(
+        host: SavedHost,
+    ): JsonObject {
+        return execPatch(
+            endpoint = assembleHostEndpoint(
+                hostId = host.id,
+                subEndpoint = REBOOT_ENDPOINT
+            ),
+            query = createLanguageQuery()
+        )
+    }
+
     suspend fun getHostOverview(
         hostId: String,
     ): JsonObject {
@@ -221,14 +272,180 @@ class BrownieRequester(
         return hostEndpoint + subEndpoint
     }
 
+    suspend fun addService(
+        hostId: String,
+        serviceName: String,
+        programArguments: String,
+        purgeNohupOutAfterReboot: Boolean,
+        autoRunAfterHostReboot: Boolean,
+    ): JsonObject {
+        val payload = createServicePayload(
+            serviceName = serviceName,
+            programArguments = programArguments,
+            purgeNohupOutAfterReboot = purgeNohupOutAfterReboot,
+            autoRunAfterHostReboot = autoRunAfterHostReboot
+        )
+        return execPut(
+            endpoint = assembleServicesEndpoint(
+                hostId = hostId
+            ),
+            query = createLanguageQuery(),
+            payload = payload
+        )
+    }
+
+    suspend fun getService(
+        hostId: String,
+        serviceId: String,
+    ): JsonObject {
+        return execGet(
+            endpoint = assembleServicesEndpoint(
+                hostId = hostId,
+                serviceId = serviceId,
+            ),
+            query = createLanguageQuery(),
+        )
+    }
+
+    suspend fun editService(
+        hostId: String,
+        serviceId: String,
+        serviceName: String,
+        programArguments: String,
+        purgeNohupOutAfterReboot: Boolean,
+        autoRunAfterHostReboot: Boolean,
+    ): JsonObject {
+        val payload = createServicePayload(
+            serviceName = serviceName,
+            programArguments = programArguments,
+            purgeNohupOutAfterReboot = purgeNohupOutAfterReboot,
+            autoRunAfterHostReboot = autoRunAfterHostReboot
+        )
+        return execPatch(
+            endpoint = assembleServicesEndpoint(
+                hostId = hostId,
+                serviceId = serviceId,
+            ),
+            query = createLanguageQuery(),
+            payload = payload
+        )
+    }
+
+    suspend fun handleServiceStatus(
+        hostId: String,
+        service: HostService,
+        newStatus: ServiceStatus,
+    ): JsonObject {
+        return execPatch(
+            endpoint = assembleServicesEndpoint(
+                hostId = hostId,
+                serviceId = service.id,
+                subEndpoint = if (newStatus == RUNNING)
+                    START_ENDPOINT
+                else
+                    STOP_ENDPOINT
+            ),
+            query = createLanguageQuery()
+        )
+    }
+
+    suspend fun rebootService(
+        hostId: String,
+        service: HostService,
+    ): JsonObject {
+        return execPatch(
+            endpoint = assembleServicesEndpoint(
+                hostId = hostId,
+                serviceId = service.id,
+                subEndpoint = REBOOT_ENDPOINT
+            ),
+            query = createLanguageQuery()
+        )
+    }
+
     @Assembler
-    private fun assembleSessionEndpoint(
+    private fun createServicePayload(
+        serviceName: String,
+        programArguments: String,
+        purgeNohupOutAfterReboot: Boolean,
+        autoRunAfterHostReboot: Boolean,
+    ): JsonObject {
+        return buildJsonObject {
+            put(NAME_KEY, serviceName)
+            put(PROGRAM_ARGUMENTS_KEY, programArguments)
+            put(PURGE_NOHUP_OUT_AFTER_REBOOT_KEY, purgeNohupOutAfterReboot)
+            put(AUTO_RUN_AFTER_HOST_REBOOT_KEY, autoRunAfterHostReboot)
+        }
+    }
+
+    suspend fun getServices(
+        hostId: String,
+        page: Int,
+        keywords: String,
+        statuses: List<ServiceStatus>,
+    ): JsonObject {
+        val query = buildJsonObject {
+            put(PAGE_KEY, page)
+            if (keywords.isNotEmpty())
+                put(KEYWORDS_KEY, keywords)
+            putJsonArray(STATUSES_KEY) {
+                statuses.forEach { status ->
+                    add(status.name)
+                }
+            }
+            put(LANGUAGE_KEY, language)
+        }
+        return execGet(
+            endpoint = assembleServicesEndpoint(
+                hostId = hostId
+            ),
+            query = query
+        )
+    }
+
+    @Wrapper
+    suspend fun deleteService(
+        hostId: String,
+        serviceId: String,
+    ): JsonObject {
+        return removeService(
+            hostId = hostId,
+            serviceId = serviceId,
+            removeFromTheHost = true
+        )
+    }
+
+    suspend fun removeService(
+        hostId: String,
+        serviceId: String,
+        removeFromTheHost: Boolean = false,
+    ): JsonObject {
+        val query = buildJsonObject {
+            put(LANGUAGE_KEY, language)
+            put(REMOVE_FROM_THE_HOST_KEY, removeFromTheHost)
+        }
+        return execDelete(
+            endpoint = assembleServicesEndpoint(
+                hostId = hostId,
+                serviceId = serviceId
+            ),
+            query = query
+        )
+    }
+
+    @Assembler
+    private fun assembleServicesEndpoint(
+        hostId: String,
+        serviceId: String = "",
         subEndpoint: String = "",
     ): String {
-        return if (sessionId != null)
-            "$SESSIONS_KEY/$sessionId$subEndpoint"
-        else
-            SESSIONS_KEY + subEndpoint
+        var serviceEndpoint = assembleHostEndpoint(
+            hostId = hostId,
+            subEndpoint = "/$SERVICES_KEY"
+        )
+        if (serviceId.isNotEmpty())
+            serviceEndpoint += "/$serviceId"
+        return serviceEndpoint + subEndpoint
     }
 
     private fun createLanguageQuery(): JsonObject {

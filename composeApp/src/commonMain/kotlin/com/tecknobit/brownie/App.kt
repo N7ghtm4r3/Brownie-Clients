@@ -15,6 +15,7 @@ import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen
 import com.tecknobit.brownie.ui.screens.upserthost.presenter.UpsertHostScreen
 import com.tecknobit.brownie.ui.screens.upsertservice.presenter.UpsertServiceScreen
+import com.tecknobit.browniecore.HOST_IDENTIFIER_KEY
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 import com.tecknobit.equinoxcore.helpers.NAME_KEY
 import moe.tlaster.precompose.PreComposeApp
@@ -108,11 +109,13 @@ fun App() {
                 ).ShowContent()
             }
             scene(
-                route = "$UPSERT_SERVICE_SCREEN/{$NAME_KEY}/{$IDENTIFIER_KEY}?"
+                route = "$UPSERT_SERVICE_SCREEN/{$HOST_IDENTIFIER_KEY}/{$NAME_KEY}/{$IDENTIFIER_KEY}?"
             ) { backStackEntry ->
+                val hostId = backStackEntry.path<String>(HOST_IDENTIFIER_KEY)!!
                 val hostName = backStackEntry.path<String>(NAME_KEY)!!
                 val serviceId = backStackEntry.path<String>(IDENTIFIER_KEY)
                 UpsertServiceScreen(
+                    hostId = hostId,
                     hostName = hostName,
                     serviceId = serviceId
                 ).ShowContent()

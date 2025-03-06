@@ -162,7 +162,8 @@ private fun StatusToolbar(
             IconButton(
                 onClick = {
                     navigator.navigate(
-                        route = "$UPSERT_SERVICE_SCREEN/${savedHostOverview.name}/${service.id}"
+                        route = "$UPSERT_SERVICE_SCREEN/${savedHostOverview.id}/" +
+                                "${savedHostOverview.name}/${service.id}"
                     )
                 }
             ) {

@@ -16,6 +16,7 @@ import com.tecknobit.equinoxcore.pagination.PaginatedResponse.Companion.DEFAULT_
 import io.github.ahmad_hamwi.compose.pagination.PaginationState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import kotlinx.serialization.json.JsonObject
 
 class HostsScreenViewModel : EquinoxViewModel(
     snackbarHostState = SnackbarHostState()
@@ -72,6 +73,14 @@ class HostsScreenViewModel : EquinoxViewModel(
     ) {
         onSuccess()
         hostsState.refresh()
+    }
+
+    override fun showFailure(
+        error: JsonObject,
+    ) {
+        showSnackbarMessage(
+            response = error
+        )
     }
 
 }

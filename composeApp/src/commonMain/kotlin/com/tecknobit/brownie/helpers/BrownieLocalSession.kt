@@ -1,5 +1,6 @@
 package com.tecknobit.brownie.helpers
 
+import com.tecknobit.brownie.requester
 import com.tecknobit.browniecore.JOIN_CODE_KEY
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme.Auto
@@ -82,6 +83,7 @@ class BrownieLocalSession {
     ) {
         this.hostAddress = hostAddress
         this.sessionId = sessionId
+        requester.sessionId = sessionId
         this.joinCode = joinCode
     }
 

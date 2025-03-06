@@ -13,6 +13,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.mutableStateOf
@@ -124,6 +125,9 @@ private fun ActionsContent(
     hostOverview: SavedHostOverview,
 ) {
     val statusState = remember { mutableStateOf(hostOverview.status) }
+    LaunchedEffect(hostOverview) {
+        statusState.value = hostOverview.status
+    }
     Card(
         modifier = modifier
             .fillMaxWidth()
