@@ -11,6 +11,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     kotlin("plugin.serialization") version "2.1.0"
+    id("com.github.gmazzo.buildconfig") version "5.5.1"
 }
 
 kotlin {
@@ -88,6 +89,7 @@ kotlin {
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.jetlime)
                 implementation(libs.kmprefs)
+                implementation(libs.ametista.engine)
             }
         }
 
