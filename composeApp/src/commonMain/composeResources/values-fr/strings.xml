@@ -92,11 +92,11 @@
     <string name="admin_panel">Panneau d'administration</string>
     <string name="delete_session">Supprimer la session</string>
     <string name="local_settings">Paramètres locaux</string>
-    <string name="host_address_not_valid">L\'adresse de l\'hôte n\'est pas valide</string>
-    <string name="server_secret_not_valid">Le secret du serveur n\'est pas valide</string>
+    <string name="host_address_not_valid">L'adresse de l'hôte n'est pas valide</string>
+    <string name="server_secret_not_valid">Le secret du serveur n'est pas valide</string>
     <string name="server_secret">Secret du serveur</string>
     <string name="connect">Connecter</string>
-    <string name="join_code">Code d\'adhésion</string>
+    <string name="join_code">Code d'adhésion</string>
     <string name="join_code_copied">Join code copied!</string>
     <string name="wrong_join_code">Code de jointure erroné</string>
     <string name="password">Mot de passe</string>
