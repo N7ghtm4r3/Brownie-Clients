@@ -24,6 +24,7 @@ import com.tecknobit.equinoxcore.pagination.PaginatedResponse.Companion.DEFAULT_
 import io.github.ahmad_hamwi.compose.pagination.ExperimentalPaginationApi
 import io.github.ahmad_hamwi.compose.pagination.PaginationState
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -35,7 +36,7 @@ class HostsScreenViewModel : EquinoxViewModel(
     snackbarHostState = SnackbarHostState()
 ), HostManager {
 
-    override var requestsScope: CoroutineScope = viewModelScope
+    override var requestsScope: CoroutineScope = MainScope()
 
     lateinit var inputSearch: MutableState<String>
 
@@ -147,6 +148,13 @@ class HostsScreenViewModel : EquinoxViewModel(
         showSnackbarMessage(
             response = error
         )
+    }
+
+    override fun suspendRetriever() {
+        try {
+            super.suspendRetriever()
+        } catch (_: Exception) {
+        }
     }
 
 }

@@ -27,6 +27,7 @@ import com.tecknobit.equinoxcore.network.Requester.Companion.toResponseData
 import com.tecknobit.equinoxcore.pagination.PaginatedResponse.Companion.DEFAULT_PAGE
 import io.github.ahmad_hamwi.compose.pagination.PaginationState
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -44,7 +45,7 @@ class HostScreenViewModel(
     snackbarHostState = SnackbarHostState()
 ), HostManager {
 
-    override var requestsScope: CoroutineScope = viewModelScope
+    override var requestsScope: CoroutineScope = MainScope()
 
     private val _hostOverview = MutableStateFlow<SavedHostOverview?>(
         value = null
