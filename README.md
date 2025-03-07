@@ -3,11 +3,17 @@
 **v1.0.0**
 
 This project is based on the **Compose Multiplatform** and **Spring Boot** technologies and is a
-self-hosted
-`vps` manager.
+self-hosted VPS manager.
 
 **Brownie** allows you to manage the remote hosts or local ones thanks to the flexibility of
-the backend instance which can manage both type of hosts with the same instance.
+the backend instance which can manage both type of hosts with the same instance. For each hosts you
+can add the related services and handle their status such start, reboot and stop them and you can
+properly setup each service with different settings.
+
+### Service settings available
+
+- Purge `nohup.out` file when service started or restarted
+- Auto run the service when the host started or rebooted
 
 This repository contains the clients version of Brownie, so if you want to customize you can fork it
 and work on it, if there are any errors, fixes to do or some idea to enhance this project, please
@@ -18,12 +24,11 @@ contact us to talk about, thanks and good use!
 
 ### Clients
 
-- Mobile
-  - [Android](https://play.google.com/store/apps/details?id=com.tecknobit.brownie)
-  - [Brownie desktop version](https://github.com/N7ghtm4r3/Brownie-Clients/releases/tag/1.0.0)
-  - iOS -> source code available, but cannot distribute due
-    missing [Apple Developer Program license](https://developer.apple.com/programs/)
-  - [Brownie webapp version](https://github.com/N7ghtm4r3/Brownie-WebApp)
+- [Android](https://play.google.com/store/apps/details?id=com.tecknobit.brownie)
+- [Brownie desktop version](https://github.com/N7ghtm4r3/Brownie-Clients/releases/tag/1.0.0)
+- iOS -> source code available, but cannot distribute due
+  missing [Apple Developer Program license](https://developer.apple.com/programs/)
+- [Brownie webapp version](https://github.com/N7ghtm4r3/Brownie-WebApp)
 
 ### Backend
 
