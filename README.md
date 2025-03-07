@@ -83,7 +83,7 @@ dependencies {
 
 <details>
   <summary>Desktop UI</summary>
-  <img src="https://github.com/N7ghtm4r3/Brownie-Clients/blob/main/images/hosts_desktop.png" alt="hosts"/>
+  <img src="https://github.com/N7ghtm4r3/Brownie-Clients/blob/main/images/hosts.png" alt="hosts"/>
   <img src="https://github.com/N7ghtm4r3/Brownie-Clients/blob/main/images/register_host.png" alt="register_host"/>
   <img src="https://github.com/N7ghtm4r3/Brownie-Clients/blob/main/images/manage_host.png" alt="manage_host"/>
   <img src="https://github.com/N7ghtm4r3/Brownie-Clients/blob/main/images/add_service.png" alt="add_service"/>
