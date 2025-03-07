@@ -2,6 +2,7 @@ package com.tecknobit.brownie.helpers
 
 import com.tecknobit.brownie.ui.screens.host.data.HostService
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
+import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl
 import com.tecknobit.browniecore.AUTO_RUN_AFTER_HOST_REBOOT_KEY
 import com.tecknobit.browniecore.HOSTS_KEY
 import com.tecknobit.browniecore.HOST_ADDRESS_KEY
@@ -15,6 +16,7 @@ import com.tecknobit.browniecore.SESSIONS_KEY
 import com.tecknobit.browniecore.SSH_PASSWORD_KEY
 import com.tecknobit.browniecore.SSH_USER_KEY
 import com.tecknobit.browniecore.STATUSES_KEY
+import com.tecknobit.browniecore.STATUS_KEY
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.HostStatus.ONLINE
 import com.tecknobit.browniecore.enums.ServiceStatus
@@ -137,6 +139,24 @@ class BrownieRequester(
         }
         return execGet(
             endpoint = assembleHostEndpoint(),
+            query = query
+        )
+    }
+
+    suspend fun getHostsStatus(
+        currentHosts: List<SavedHostImpl>?,
+    ): JsonObject {
+        val query = buildJsonObject {
+            putJsonArray(HOSTS_KEY) {
+                currentHosts?.forEach { host ->
+                    add(host.id)
+                }
+            }
+        }
+        return execGet(
+            endpoint = assembleHostEndpoint(
+                subEndpoint = "/$STATUS_KEY"
+            ),
             query = query
         )
     }

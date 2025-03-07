@@ -11,6 +11,7 @@ import com.tecknobit.browniecore.EVENT_DATE_KEY
 import com.tecknobit.browniecore.INSERTION_DATE_KEY
 import com.tecknobit.browniecore.PROGRAM_ARGUMENTS_KEY
 import com.tecknobit.browniecore.PURGE_NOHUP_OUT_AFTER_REBOOT_KEY
+import com.tecknobit.browniecore.SERVICE_EVENTS_KEY
 import com.tecknobit.browniecore.enums.ServiceEventType
 import com.tecknobit.browniecore.enums.ServiceStatus
 import com.tecknobit.browniecore.enums.ServiceStatus.REBOOTING
@@ -27,6 +28,7 @@ data class HostService(
     val pid: Long,
     var status: ServiceStatus,
     val configuration: ServiceConfiguration,
+    @SerialName(SERVICE_EVENTS_KEY)
     val events: List<ServiceEvent> = emptyList(),
     @SerialName(INSERTION_DATE_KEY)
     val insertionDate: Long,

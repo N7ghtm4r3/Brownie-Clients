@@ -219,6 +219,11 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        viewModel.retrieveCurrentHostsStatus()
+    }
+
     /**
      * Method to collect or instantiate the states of the screen
      */

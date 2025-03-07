@@ -68,30 +68,52 @@ kotlin {
             implementation(libs.review)
             implementation(libs.review.ktx)
         }
-        commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            implementation(compose.materialIconsExtended)
-            implementation(compose.ui)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtime.compose)
-            implementation(libs.equinox.compose)
-            implementation(libs.equinox.core)
-            implementation(libs.precompose)
-            implementation(libs.browniecore)
-            implementation(libs.lazy.pagination.compose)
-            implementation(libs.kotlinx.serialization.json)
-            implementation(libs.jetlime)
-            implementation(libs.kmprefs)
+
+        val commonMain by getting {
+            dependencies {
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material3)
+                implementation(compose.materialIconsExtended)
+                implementation(compose.ui)
+                implementation(compose.components.resources)
+                implementation(compose.components.uiToolingPreview)
+                implementation(libs.androidx.lifecycle.viewmodel)
+                implementation(libs.androidx.lifecycle.runtime.compose)
+                implementation(libs.equinox.compose)
+                implementation(libs.equinox.core)
+                implementation(libs.precompose)
+                implementation(libs.browniecore)
+                implementation(libs.lazy.pagination.compose)
+                implementation(libs.kotlinx.serialization.json)
+                implementation(libs.jetlime)
+                implementation(libs.kmprefs)
+            }
         }
+
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
             implementation(libs.octocatkdu)
         }
+
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by creating {
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
+            dependencies {
+            }
+        }
+
+        val wasmJsMain by getting {
+            dependencies {
+            }
+        }
+
     }
 }
 

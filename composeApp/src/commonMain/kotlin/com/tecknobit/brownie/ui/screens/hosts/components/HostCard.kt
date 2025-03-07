@@ -20,8 +20,11 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -48,6 +51,12 @@ fun HostCard(
     host: SavedHostImpl,
 ) {
     val statusState = remember { mutableStateOf(host.status) }
+    val refreshingHosts by viewModel.refreshingHosts.collectAsState(
+        initial = false
+    )
+    LaunchedEffect(refreshingHosts) {
+        statusState.value = host.status
+    }
     Card(
         modifier = Modifier
             .clip(CardDefaults.shape)
