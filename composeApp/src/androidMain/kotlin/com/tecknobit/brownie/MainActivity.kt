@@ -9,6 +9,7 @@ import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts.StartIntentSenderForResult
 import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.tecknobit.ametistaengine.AmetistaEngine
 import com.tecknobit.equinoxcompose.session.setUpSession
 import com.tecknobit.equinoxcore.utilities.ContextActivityProvider
 
@@ -39,6 +40,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         ContextActivityProvider.setCurrentActivity(this)
         appUpdateManager = AppUpdateManagerFactory.create(applicationContext)
+        AmetistaEngine.intake()
         setContent {
             enableEdgeToEdge()
             setUpSession {

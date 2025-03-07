@@ -1,5 +1,6 @@
 package com.tecknobit.brownie.helpers
 
+import com.tecknobit.ametistaengine.AmetistaEngine.Companion.ametistaEngine
 import com.tecknobit.brownie.ui.screens.host.data.HostService
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl
@@ -52,6 +53,13 @@ class BrownieRequester(
     debugMode = debugMode,
     byPassSSLValidation = true
 ) {
+
+    init {
+        attachInterceptorOnRequest {
+            ametistaEngine.notifyNetworkRequest()
+        }
+    }
+
 
     /**
      * Method to change, during the runtime for example when the session changed, the host address to make the

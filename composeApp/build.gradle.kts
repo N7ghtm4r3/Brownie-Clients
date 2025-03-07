@@ -68,6 +68,9 @@ kotlin {
             implementation(libs.app.update.ktx)
             implementation(libs.review)
             implementation(libs.review.ktx)
+
+            // TODO: TO REMOVE 
+            implementation(libs.androidx.startup.runtime)
         }
 
         val commonMain by getting {
@@ -189,4 +192,25 @@ compose.desktop {
             }
         }
     }
+}
+
+buildConfig {
+    className("AmetistaConfig")
+    packageName("com.tecknobit.brownie")
+    buildConfigField<String>(
+        name = "HOST",
+        value = project.findProperty("host").toString()
+    )
+    buildConfigField<String?>(
+        name = "SERVER_SECRET",
+        value = project.findProperty("server_secret").toString()
+    )
+    buildConfigField<String?>(
+        name = "APPLICATION_IDENTIFIER",
+        value = project.findProperty("application_id").toString()
+    )
+    buildConfigField<Boolean>(
+        name = "BYPASS_SSL_VALIDATION",
+        value = project.findProperty("bypass_ssl_validation").toString().toBoolean()
+    )
 }

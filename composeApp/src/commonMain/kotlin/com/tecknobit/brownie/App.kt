@@ -1,11 +1,16 @@
+@file:OptIn(ExperimentalResourceApi::class)
+
 package com.tecknobit.brownie
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.text.font.FontFamily
 import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.rubik
 import brownie.composeapp.generated.resources.ubuntu_mono
+import com.tecknobit.ametistaengine.AmetistaEngine
+import com.tecknobit.ametistaengine.AmetistaEngine.Companion.FILES_AMETISTA_CONFIG_PATHNAME
 import com.tecknobit.brownie.helpers.BrownieLocalSession
 import com.tecknobit.brownie.helpers.BrownieRequester
 import com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen
@@ -23,6 +28,7 @@ import moe.tlaster.precompose.navigation.NavHost
 import moe.tlaster.precompose.navigation.Navigator
 import moe.tlaster.precompose.navigation.path
 import moe.tlaster.precompose.navigation.rememberNavigator
+import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.Font
 
 /**
@@ -66,6 +72,7 @@ const val UPSERT_SERVICE_SCREEN = "UpsertServiceScreen"
 fun App() {
     bodyFontFamily = FontFamily(Font(Res.font.rubik))
     displayFontFamily = FontFamily(Font(Res.font.ubuntu_mono))
+    InitAmetista()
     PreComposeApp {
         navigator = rememberNavigator()
         NavHost(
@@ -121,6 +128,21 @@ fun App() {
                 ).ShowContent()
             }
         }
+    }
+}
+
+@Composable
+private fun InitAmetista() {
+    LaunchedEffect(Unit) {
+        val ametistaEngine = AmetistaEngine.ametistaEngine
+        ametistaEngine.fireUp(
+            configData = Res.readBytes(FILES_AMETISTA_CONFIG_PATHNAME),
+            host = AmetistaConfig.HOST,
+            serverSecret = AmetistaConfig.SERVER_SECRET!!,
+            applicationId = AmetistaConfig.APPLICATION_IDENTIFIER!!,
+            bypassSslValidation = AmetistaConfig.BYPASS_SSL_VALIDATION,
+            debugMode = true // TODO: TO SET ON FALSE
+        )
     }
 }
 

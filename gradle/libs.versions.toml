@@ -21,6 +21,9 @@ appUpdate = "2.1.0"
 review = "2.0.2"
 ametista-engine = "1.0.2"
 
+#TODO: TO REMOVE
+startupRuntime = "1.2.0"
+
 [libraries]
 equinox-compose = { module = "io.github.n7ghtm4r3:equinox-compose", version.ref = "equinoxCompose" }
 equinox-core = { module = "io.github.n7ghtm4r3:equinox-core", version.ref = "equinoxCore" }
@@ -40,6 +43,9 @@ review-ktx = { module = "com.google.android.play:review-ktx", version.ref = "rev
 app-update = { module = "com.google.android.play:app-update", version.ref = "appUpdate" }
 app-update-ktx = { module = "com.google.android.play:app-update-ktx", version.ref = "appUpdate" }
 ametista-engine = { module = "io.github.n7ghtm4r3:Ametista-Engine", version.ref = "ametista-engine" }
+
+#TODO: TO REMOVE
+androidx-startup-runtime = { module = "androidx.startup:startup-runtime", version.ref = "startupRuntime" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

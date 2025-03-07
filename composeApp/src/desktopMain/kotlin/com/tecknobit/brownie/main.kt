@@ -7,23 +7,27 @@ import androidx.compose.ui.window.application
 import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.app_name
 import brownie.composeapp.generated.resources.logo
+import com.tecknobit.ametistaengine.AmetistaEngine
 import com.tecknobit.equinoxcompose.session.setUpSession
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
-fun main() = application {
-    Window(
-        onCloseRequest = ::exitApplication,
-        title = stringResource(Res.string.app_name),
-        state = WindowState(
-            placement = WindowPlacement.Maximized
-        ),
-        icon = painterResource(Res.drawable.logo)
-    ) {
-        setUpSession {
-            localSession.clear()
-            navigator.navigate(SPLASHSCREEN)
+fun main() {
+    AmetistaEngine.intake()
+    application {
+        Window(
+            onCloseRequest = ::exitApplication,
+            title = stringResource(Res.string.app_name),
+            state = WindowState(
+                placement = WindowPlacement.Maximized
+            ),
+            icon = painterResource(Res.drawable.logo)
+        ) {
+            setUpSession {
+                localSession.clear()
+                navigator.navigate(SPLASHSCREEN)
+            }
+            App()
         }
-        App()
     }
 }
