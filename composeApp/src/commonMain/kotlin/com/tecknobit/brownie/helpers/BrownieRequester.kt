@@ -423,6 +423,26 @@ class BrownieRequester(
         )
     }
 
+    suspend fun getServicesStatus(
+        hostId: String,
+        currentServices: List<HostService>?,
+    ): JsonObject {
+        val query = buildJsonObject {
+            putJsonArray(SERVICES_KEY) {
+                currentServices?.forEach { host ->
+                    add(host.id)
+                }
+            }
+        }
+        return execGet(
+            endpoint = assembleServicesEndpoint(
+                hostId = hostId,
+                subEndpoint = "/$STATUS_KEY"
+            ),
+            query = query
+        )
+    }
+
     @Wrapper
     suspend fun deleteService(
         hostId: String,

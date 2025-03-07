@@ -104,16 +104,9 @@ class HostsScreenViewModel : EquinoxViewModel(
                                 _refreshingHosts.emit(true)
                                 val statuses = it.toResponseArrayData()
                                 statuses.forEach { statusEntry ->
-                                    val statusInfo = statusEntry.jsonObject
-                                    val hostId = statusInfo[IDENTIFIER_KEY].treatsAsString()
-                                    val status = HostStatus.valueOf(
-                                        value = statusInfo[STATUS_KEY].treatsAsString()
+                                    updateHostStatus(
+                                        statusInfo = statusEntry.jsonObject
                                     )
-                                    val host =
-                                        hostsState.allItems?.find { host -> host.id == hostId }
-                                    host?.let {
-                                        host.status = status
-                                    }
                                 }
                                 delay(100)
                                 _refreshingHosts.emit(false)
@@ -126,6 +119,19 @@ class HostsScreenViewModel : EquinoxViewModel(
             },
             refreshDelay = 10_000
         )
+    }
+
+    private fun updateHostStatus(
+        statusInfo: JsonObject,
+    ) {
+        val hostId = statusInfo[IDENTIFIER_KEY].treatsAsString()
+        val status = HostStatus.valueOf(
+            value = statusInfo[STATUS_KEY].treatsAsString()
+        )
+        val host = hostsState.allItems?.find { host -> host.id == hostId }
+        host?.let {
+            host.status = status
+        }
     }
 
     fun applyStatusFilters(

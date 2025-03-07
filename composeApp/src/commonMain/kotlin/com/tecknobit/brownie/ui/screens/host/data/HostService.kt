@@ -25,7 +25,7 @@ import kotlinx.serialization.json.JsonElement
 data class HostService(
     val id: String,
     val name: String,
-    val pid: Long,
+    var pid: Long,
     var status: ServiceStatus,
     val configuration: ServiceConfiguration,
     @SerialName(SERVICE_EVENTS_KEY)

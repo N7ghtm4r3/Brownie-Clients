@@ -1,10 +1,9 @@
-@file:OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
+@file:OptIn(ExperimentalMaterial3Api::class)
 
 package com.tecknobit.brownie.ui.screens.host.components.services
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PlayArrow
@@ -19,8 +18,11 @@ import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -48,10 +50,18 @@ fun ServiceCard(
     service: HostService,
 ) {
     val statusState = remember { mutableStateOf(service.status) }
+    val pidState = remember { mutableStateOf(service.pid) }
     val state = rememberModalBottomSheetState(
         skipPartiallyExpanded = true
     )
     val scope = rememberCoroutineScope()
+    val refreshingServices by viewModel.refreshingServices.collectAsState(
+        initial = false
+    )
+    LaunchedEffect(refreshingServices) {
+        statusState.value = service.status
+        pidState.value = service.pid
+    }
     Card(
         onClick = {
             scope.launch {
@@ -78,7 +88,7 @@ fun ServiceCard(
             supportingContent = {
 
                 Text(
-                    text = "PID: ${service.pid}",
+                    text = "PID: ${pidState.value}",
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
