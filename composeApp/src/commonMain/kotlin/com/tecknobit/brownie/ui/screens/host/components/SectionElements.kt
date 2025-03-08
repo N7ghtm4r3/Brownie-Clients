@@ -31,6 +31,14 @@ import com.tecknobit.equinoxcompose.utilities.CompactClassComponent
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * Custom section displayed on compact size classes can be expanded to show its content
+ *
+ * @param modifier The modifier to apply to the component
+ * @param title The title of the section
+ * @param filtersContent The content where the user can insert the filter to apply to the results
+ * @param content The content of the section
+ */
 @Composable
 @CompactClassComponent
 @NonRestartableComposable
@@ -100,6 +108,14 @@ fun ExpandableSection(
     }
 }
 
+/**
+ * Custom section displayed on large size classes
+ *
+ * @param modifier The modifier to apply to the component
+ * @param title The title of the section
+ * @param fontSize The font size of the title
+ * @param filtersContent The content where the user can insert the filter to apply to the results
+ */
 @Composable
 @NonRestartableComposable
 fun SectionTitle(

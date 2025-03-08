@@ -27,10 +27,15 @@ import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.MEDIUM_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClassComponent
 import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
 
+/**
+ * The section used to display the stats related to a host
+ *
+ * @param hostOverview The overview data of the host
+ */
 @Composable
 @NonRestartableComposable
 fun StatsSection(
-    hostOverview: SavedHostOverview,
+    hostOverview: SavedHostOverview
 ) {
     ResponsiveContent(
         onExpandedSizeClass = {
@@ -51,13 +56,18 @@ fun StatsSection(
     )
 }
 
+/**
+ * Custom [StatsSection] displayed in large screen size classes
+ *
+ * @param hostOverview The overview data of the host
+ */
 @Composable
 @NonRestartableComposable
 @ResponsiveClassComponent(
     classes = [EXPANDED_CONTENT, MEDIUM_CONTENT]
 )
 private fun RowStats(
-    hostOverview: SavedHostOverview,
+    hostOverview: SavedHostOverview
 ) {
     SectionTitle(
         modifier = Modifier
@@ -96,11 +106,16 @@ private fun RowStats(
     }
 }
 
+/**
+ * Custom [StatsSection] displayed in compact screen size classes
+ *
+ * @param hostOverview The overview data of the host
+ */
 @Composable
 @CompactClassComponent
 @NonRestartableComposable
 private fun ColumnStats(
-    hostOverview: SavedHostOverview,
+    hostOverview: SavedHostOverview
 ) {
     ExpandableSection(
         title = Res.string.stats,

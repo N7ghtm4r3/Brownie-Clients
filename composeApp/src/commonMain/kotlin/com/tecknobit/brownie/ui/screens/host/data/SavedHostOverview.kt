@@ -29,6 +29,22 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 
+/**
+ * The `SavedHostOverview` class represent the statistic of a host overview
+ *
+ * @property id The identifier of the host
+ * @property name The name of the host
+ * @property hostAddress The address of the host
+ * @property status The status of the host
+ * @property cpuUsage The current usage of the CPU
+ * @property memoryUsage The current usage of the RAM memory
+ * @property storageUsage The current usage of the storage
+ * @property history The history of the host lifecycle
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ *
+ * @see SavedHost
+ */
 @Serializable
 data class SavedHostOverview(
     override val id: String,
@@ -48,6 +64,11 @@ data class SavedHostOverview(
 
     companion object {
 
+        /**
+         * Scoped function used to get a specific color for an [HostEventType] value
+         *
+         * @return the specific color for an [HostEventType] as [Color]
+         */
         @Composable
         fun HostEventType.asColor(): Color {
             return when (this) {
@@ -63,6 +84,16 @@ data class SavedHostOverview(
 
     }
 
+    /**
+     * The `HostHistoryEvent` class represent the information related to a host event
+     *
+     * @property id The identifier of the event
+     * @property type The type of the event
+     * @property eventDate The date when the event occurred
+     * @property extra The extra information related to an event to display
+     *
+     * @author N7ghtm4r3 - Tecknobit
+     */
     @Serializable
     data class HostHistoryEvent(
         val id: String,

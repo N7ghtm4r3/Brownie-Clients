@@ -39,31 +39,60 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.jsonObject
 
+/**
+ * The `HostScreenViewModel` class is the support class used by the
+ * [com.tecknobit.brownie.ui.screens.host.presenter.HostScreen] screen
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ * @see androidx.lifecycle.ViewModel
+ * @see com.tecknobit.equinoxcompose.session.Retriever
+ * @see EquinoxViewModel
+ * @see HostManager
+ *
+ */
 class HostScreenViewModel(
     private val hostId: String,
 ) : EquinoxViewModel(
     snackbarHostState = SnackbarHostState()
 ), HostManager {
 
+    /**
+     *`requestsScope` the [CoroutineScope] used to make the requests to the backend
+     */
     override var requestsScope: CoroutineScope = MainScope()
 
+    /**
+     *`_hostOverview` the host overview data
+     */
     private val _hostOverview = MutableStateFlow<SavedHostOverview?>(
         value = null
     )
     val hostOverview = _hostOverview.asStateFlow()
 
+    /**
+     *`servicesQuery` the query used to filter the services
+     */
     lateinit var servicesQuery: MutableState<String>
 
+    /**
+     *`statusFilters` the list of the statuses used to filter the hosts result
+     */
     val statusFilters = mutableStateListOf<ServiceStatus>()
 
     init {
         statusFilters.addAll(ServiceStatus.entries)
     }
 
+    /**
+     * `json` the json instance used to ignore the unknown keys during the serialization
+     */
     private val json = Json {
         ignoreUnknownKeys = true
     }
 
+    /**
+     *`servicesState` the state used to handle the pagination of the services
+     */
     val servicesState = PaginationState<Int, HostService>(
         initialPageKey = DEFAULT_PAGE,
         onRequestPage = { page ->
@@ -73,11 +102,51 @@ class HostScreenViewModel(
         }
     )
 
+    /**
+     * Method used to load and retrieve the services of the host
+     * @param page The page to request
+     */
+    private fun loadServices(
+        page: Int,
+    ) {
+        viewModelScope.launch {
+            requester.sendPaginatedRequest(
+                request = {
+                    getServices(
+                        hostId = hostId,
+                        page = page,
+                        keywords = servicesQuery.value,
+                        statuses = statusFilters
+                    )
+                },
+                serializer = HostService.serializer(),
+                onSuccess = { paginatedResponse ->
+                    setServerOfflineValue(false)
+                    servicesState.appendPage(
+                        items = paginatedResponse.data,
+                        nextPageKey = paginatedResponse.nextPage,
+                        isLastPage = paginatedResponse.isLastPage
+                    )
+                },
+                onFailure = {
+                    showSnackbarMessage(it)
+                },
+                onConnectionError = { setServerOfflineValue(true) }
+            )
+        }
+    }
+
+    /**
+     *`_refreshingServices` shared state used to refresh the services statuses
+     */
     private val _refreshingServices = MutableSharedFlow<Boolean>(
         replay = 1
     )
     val refreshingServices = _refreshingServices.asSharedFlow()
 
+    /**
+     * Method used to retrieve the current host overview data
+     */
     fun retrieveHostOverview() {
         retrieve(
             currentContext = HostScreen::class,
@@ -127,6 +196,11 @@ class HostScreenViewModel(
         )
     }
 
+    /**
+     * Method used to update the status of a service
+     *
+     * @param serviceInfo The updated information of the service
+     */
     private fun updateServiceStatus(
         serviceInfo: JsonObject,
     ) {
@@ -144,36 +218,11 @@ class HostScreenViewModel(
         }
     }
 
-    private fun loadServices(
-        page: Int,
-    ) {
-        viewModelScope.launch {
-            requester.sendPaginatedRequest(
-                request = {
-                    getServices(
-                        hostId = hostId,
-                        page = page,
-                        keywords = servicesQuery.value,
-                        statuses = statusFilters
-                    )
-                },
-                serializer = HostService.serializer(),
-                onSuccess = { paginatedResponse ->
-                    setServerOfflineValue(false)
-                    servicesState.appendPage(
-                        items = paginatedResponse.data,
-                        nextPageKey = paginatedResponse.nextPage,
-                        isLastPage = paginatedResponse.isLastPage
-                    )
-                },
-                onFailure = {
-                    showSnackbarMessage(it)
-                },
-                onConnectionError = { setServerOfflineValue(true) }
-            )
-        }
-    }
-
+    /**
+     * Method to clear the current set filters
+     *
+     * @param onClear The callback to invoke after the filters cleared
+     */
     fun clearFilters(
         onClear: () -> Unit,
     ) {
@@ -185,6 +234,11 @@ class HostScreenViewModel(
         onClear()
     }
 
+    /**
+     * Method used to apply the selected statuses and refresh the current [servicesState] list
+     *
+     * @param onApply The callback invoked when the statuses have been applied
+     */
     fun applyFilters(
         onApply: () -> Unit,
     ) {
@@ -193,6 +247,12 @@ class HostScreenViewModel(
         servicesState.refresh()
     }
 
+    /**
+     * Method used to handle the status of the service such running or stopped
+     *
+     * @param service The host to handle its status
+     * @param onStatusChange The callback to execute when the status of the service changed
+     */
     fun handleServiceStatus(
         service: HostService,
         onStatusChange: (ServiceStatus) -> Unit,
@@ -219,6 +279,12 @@ class HostScreenViewModel(
         }
     }
 
+    /**
+     * Method used to reboot a service
+     *
+     * @param service The service to reboot
+     * @param onStatusChange The callback to execute when the status of the service changed
+     */
     fun rebootService(
         service: HostService,
         onStatusChange: () -> Unit,
@@ -237,6 +303,10 @@ class HostScreenViewModel(
         }
     }
 
+    /**
+     * Method used to display an eventual occurred error
+     * @param error The error to display
+     */
     override fun showFailure(
         error: JsonObject,
     ) {

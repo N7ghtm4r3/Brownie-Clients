@@ -37,6 +37,7 @@ import com.tecknobit.brownie.ui.icons.ServerSpark
 import com.tecknobit.brownie.ui.screens.host.components.HostOverview
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
+import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.equinoxcompose.session.ManagedContent
@@ -44,6 +45,15 @@ import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
 import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * The [HostsScreen] class is used to display and to handle a host data from monitoring its current
+ * stats, handle its status and to handle its services
+ *
+ * @param hostId The identifier of the host
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ * @see EquinoxScreen
+ */
 class HostScreen(
     hostId: String,
 ) : EquinoxScreen<HostScreenViewModel>(
@@ -52,6 +62,9 @@ class HostScreen(
     )
 ) {
 
+    /**
+     *`hostOverview` the current host overview data
+     */
     private lateinit var hostOverview: State<SavedHostOverview?>
 
     /**
@@ -142,6 +155,9 @@ class HostScreen(
         }
     }
 
+    /**
+     * Section dedicated to display the [FloatingActionButton] based on the current screen class size
+     */
     @Composable
     @NonRestartableComposable
     private fun FAB() {
@@ -166,6 +182,9 @@ class HostScreen(
         )
     }
 
+    /**
+     * Custom [ExtendedFloatingActionButton] to allow the user to add a new service
+     */
     @Composable
     @NonRestartableComposable
     private fun ExpandedFab() {
@@ -191,6 +210,9 @@ class HostScreen(
         }
     }
 
+    /**
+     * Method invoked when the [ShowContent] composable has been started
+     */
     override fun onStart() {
         super.onStart()
         viewModel.retrieveHostOverview()

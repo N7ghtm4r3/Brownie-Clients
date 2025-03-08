@@ -58,11 +58,16 @@ import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
 
+/**
+ * Component used to display the [CpuUsage] stats
+ *
+ * @param usage The stats related to the CPU of the host
+ */
 @Wrapper
 @Composable
 @NonRestartableComposable
 fun CpuUsageChart(
-    usage: CpuUsage,
+    usage: CpuUsage
 ) {
     GaugeChart(
         usageTitle = Res.string.cpu,
@@ -80,11 +85,16 @@ fun CpuUsageChart(
     )
 }
 
+/**
+ * Component used to display the [MemoryUsage] stats
+ *
+ * @param usage The stats related to the RAM memory of the host
+ */
 @Wrapper
 @Composable
 @NonRestartableComposable
 fun MemoryUsageChart(
-    usage: MemoryUsage,
+    usage: MemoryUsage
 ) {
     GaugeChart(
         usageTitle = Res.string.memory,
@@ -102,11 +112,16 @@ fun MemoryUsageChart(
     )
 }
 
+/**
+ * Component used to display the [StorageUsage] stats
+ *
+ * @param usage The stats related to the storage unit of the host
+ */
 @Wrapper
 @Composable
 @NonRestartableComposable
 fun StorageUsageChart(
-    usage: StorageUsage,
+    usage: StorageUsage
 ) {
     GaugeChart(
         usageTitle = Res.string.storage,
@@ -124,7 +139,17 @@ fun StorageUsageChart(
     )
 }
 
-// TODO: CREDITS TO https://proandroiddev.com/creating-a-custom-gauge-speedometer-in-jetpack-compose-bd3c3d72074b
+/**
+ * Custom chart component used to display the stats related to a host
+ *
+ * @param modifier The modifier to apply to the component
+ * @param usageTitle The representative title of the usage info
+ * @param usagePercent The percent value of the usage stat
+ * @param richToolTipContent The representative tooltip displayed to show additional info about the
+ * statistic
+ *
+ * [Credits](https://proandroiddev.com/creating-a-custom-gauge-speedometer-in-jetpack-compose-bd3c3d72074b)
+ */
 @Composable
 @NonRestartableComposable
 fun GaugeChart(
@@ -260,6 +285,13 @@ fun GaugeChart(
     }
 }
 
+/**
+ * Method used to get the value pointed by the [GaugeChart] indicator
+ *
+ * @param usagePercent The percent value of the usage stat
+ *
+ * @return the value of the indicator as [Double]
+ */
 private fun getMeterValue(
     usagePercent: Double,
 ): Double {
@@ -271,4 +303,9 @@ private fun getMeterValue(
         usagePercent
 }
 
+/**
+ * Method used to convert a [Double] value to the corresponding radians value
+ *
+ * @return the value converted to the corresponding radians as [Double]
+ */
 fun Double.toRadians(): Float = (this * (PI.toFloat() / 180f)).toFloat()

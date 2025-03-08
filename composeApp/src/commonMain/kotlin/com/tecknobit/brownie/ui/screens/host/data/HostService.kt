@@ -21,6 +21,19 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 
+/**
+ * The `HostService` class represent the information about a service
+ *
+ * @property id The identifier of the service
+ * @property name The name of the service
+ * @property pid The pid of the service
+ * @property status The status of the service
+ * @property configuration The configuration data of the service
+ * @property events The events related to the service lifecycle
+ * @property insertionDate The date when the service has been registered
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ */
 @Serializable
 data class HostService(
     val id: String,
@@ -36,6 +49,11 @@ data class HostService(
 
     companion object {
 
+        /**
+         * Scoped function used to get a specific color for an [ServiceStatus] value
+         *
+         * @return the specific color for an [ServiceStatus] as [Color]
+         */
         @Composable
         fun ServiceStatus.asColor(): Color {
             return when (this) {
@@ -45,6 +63,11 @@ data class HostService(
             }
         }
 
+        /**
+         * Scoped function used to get a specific color for an [ServiceEventType] value
+         *
+         * @return the specific color for an [ServiceEventType] as [Color]
+         */
         @Composable
         fun ServiceEventType.asColor(): Color {
             return when (this) {
@@ -57,6 +80,18 @@ data class HostService(
 
     }
 
+    /**
+     * The `ServiceConfiguration` class represent the configuration of a service
+     *
+     * @property id The identifier of the configuration
+     * @property programArguments The arguments of the program
+     * @property purgeNohupOutAfterReboot Whether the {@code nohup.out} file related to the service
+     * must be deleted at each service start
+     * @property autoRunAfterHostReboot Whether the service must be automatically restarted after the
+     * host start or the host restart
+     *
+     * @author N7ghtm4r3 - Tecknobit
+     */
     @Serializable
     data class ServiceConfiguration(
         val id: String,
@@ -68,6 +103,16 @@ data class HostService(
         val autoRunAfterHostReboot: Boolean = false,
     )
 
+    /**
+     * The `ServiceEvent` class represent the information related to a service event
+     *
+     * @property id The identifier of the event
+     * @property type The type of the event
+     * @property eventDate The date when the event occurred
+     * @property extra The extra information related to an event to display
+     *
+     * @author N7ghtm4r3 - Tecknobit
+     */
     @Serializable
     data class ServiceEvent(
         val id: String,

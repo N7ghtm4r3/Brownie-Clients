@@ -18,12 +18,20 @@ import com.tecknobit.brownie.ui.screens.host.components.stats.StatsSection
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
 
+/**
+ * Custom component used to display the overview data related to a host
+ *
+ * @param modifier The modifier to apply to the component
+ * @param viewModel The support viewmodel for the screen
+ * @param hostOverview The overview data of the host
+ *
+ */
 @Composable
 @NonRestartableComposable
 fun HostOverview(
     modifier: Modifier,
     viewModel: HostScreenViewModel,
-    hostOverview: SavedHostOverview,
+    hostOverview: SavedHostOverview
 ) {
     Column(
         modifier = modifier
