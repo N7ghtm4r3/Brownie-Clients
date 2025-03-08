@@ -14,6 +14,11 @@ import com.tecknobit.equinoxcompose.components.EmptyState
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * Custom [EmptyState] component used to display the no availability of events
+ *
+ * @param modifier The modifier to apply to the component
+ */
 @Composable
 @NonRestartableComposable
 fun NoEventsAvailable(

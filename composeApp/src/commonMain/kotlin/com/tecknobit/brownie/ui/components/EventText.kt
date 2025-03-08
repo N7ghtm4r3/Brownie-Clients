@@ -12,6 +12,12 @@ import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * Custom [Text] used to represent the extra information related to an event
+ *
+ * @param text The resource text
+ * @param eventExtra The extra information related to an event to display
+ */
 @Composable
 @NonRestartableComposable
 fun EventText(

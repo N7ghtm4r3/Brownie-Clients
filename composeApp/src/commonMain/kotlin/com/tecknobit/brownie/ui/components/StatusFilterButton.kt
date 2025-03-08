@@ -38,6 +38,13 @@ import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
 import com.tecknobit.equinoxcore.toggle
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * Component used to filter the statuses
+ *
+ * @param modifier The modifier to apply to the component
+ * @param onClick The action to execute when the button clicked
+ * @param statusFilters The current statuses used as filters
+ */
 @Composable
 @NonRestartableComposable
 fun StatusFilterButton(
@@ -74,6 +81,12 @@ fun StatusFilterButton(
     }
 }
 
+/**
+ * Custom [FilterChip] used to filter the statuses
+ *
+ * @param modifier The modifier to apply to the component
+ * @param expanded Whether the chip has been expanded
+ */
 @Composable
 @NonRestartableComposable
 @ResponsiveClassComponent(
@@ -109,6 +122,11 @@ private fun StatusFilterChip(
     )
 }
 
+/**
+ * Custom [IconButton] used to filter the statuses
+ *
+ * @param expanded Whether the chip has been expanded
+ */
 @Composable
 @CompactClassComponent
 @NonRestartableComposable
@@ -125,6 +143,13 @@ private fun StatusFilterIconButton(
     }
 }
 
+/**
+ * Custom [DropdownMenu] used to select the status to use as filters
+ *
+ * @param expanded Whether the menu has been expanded
+ * @param onClick The action to execute when the option selected
+ * @param statusFilters The current statuses used as filters
+ */
 @Composable
 @NonRestartableComposable
 private fun StatusesMenu(

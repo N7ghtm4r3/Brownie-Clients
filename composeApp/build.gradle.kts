@@ -166,7 +166,7 @@ compose.desktop {
             packageName = "Brownie"
             packageVersion = "1.0.0"
             version = "1.0.0"
-            description = "" // TODO: TO SET
+            description = "Self-hosted VPS manager"
             copyright = "© 2025 Tecknobit"
             vendor = "Tecknobit"
             licenseFile.set(project.file("src/desktopMain/resources/LICENSE"))

@@ -67,6 +67,14 @@ val alertTitleStyle = TextStyle(
     fontSize = 20.sp
 )
 
+/**
+ * Alert to warn about the un-registration of a host
+ *
+ * @param show Whether the alert is shown
+ * @param hostManager The host manager support instance
+ * @param host The host to unregister
+ * @param onSuccess The success callback to invoke
+ */
 @Composable
 @NonRestartableComposable
 fun UnregisterSavedHost(
@@ -98,6 +106,12 @@ fun UnregisterSavedHost(
     )
 }
 
+/**
+ * Alert to warn about the removing of a service
+ *
+ * @param show Whether the alert is shown
+ * @param viewModel The support viewmodel for the screen
+ */
 @Composable
 @NonRestartableComposable
 fun RemoveService(
@@ -125,6 +139,12 @@ fun RemoveService(
     )
 }
 
+/**
+ * Alert to warn about the deletion of a service
+ *
+ * @param show Whether the alert is shown
+ * @param viewModel The support viewmodel for the screen
+ */
 @Composable
 @NonRestartableComposable
 fun DeleteService(

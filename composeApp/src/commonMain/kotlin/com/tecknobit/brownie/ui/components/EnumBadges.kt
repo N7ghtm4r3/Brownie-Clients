@@ -20,6 +20,11 @@ import com.tecknobit.browniecore.enums.ServiceStatus
 import com.tecknobit.equinoxcompose.components.ChameleonText
 import com.tecknobit.equinoxcore.annotations.Wrapper
 
+/**
+ * Custom component used to represent the [HostStatus] as badge
+ *
+ * @param status The status to represent
+ */
 @Wrapper
 @Composable
 @NonRestartableComposable
@@ -32,6 +37,11 @@ fun HostStatusBadge(
     )
 }
 
+/**
+ * Custom component used to represent the [ServiceStatus] as badge
+ *
+ * @param status The status to represent
+ */
 @Wrapper
 @Composable
 @NonRestartableComposable
@@ -44,6 +54,11 @@ fun ServiceStatusBadge(
     )
 }
 
+/**
+ * Custom component used to represent the [ServiceEventType] as badge
+ *
+ * @param eventType The event type to represent
+ */
 @Wrapper
 @Composable
 @NonRestartableComposable
@@ -56,6 +71,11 @@ fun ServiceEventBadge(
     )
 }
 
+/**
+ * Custom component used to represent the [HostEventType] as badge
+ *
+ * @param eventType The event type to represent
+ */
 @Wrapper
 @Composable
 @NonRestartableComposable
@@ -68,6 +88,12 @@ fun HistoryEventBadge(
     )
 }
 
+/**
+ * Custom component used to represent an [Enum] value as badge
+ *
+ * @param color The color of the badge
+ * @param name The name to display in the badge
+ */
 @Composable
 @NonRestartableComposable
 private fun EnumBadge(
