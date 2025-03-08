@@ -12,6 +12,9 @@ import com.tecknobit.equinoxcompose.session.setUpSession
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * Method to start the of `Brownie` desktop app
+ */
 fun main() {
     AmetistaEngine.intake()
     application {

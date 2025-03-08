@@ -11,6 +11,9 @@ import com.tecknobit.brownie.localSession
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme.Dark
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme.Light
 
+/**
+ * **lightScheme** default light colors scheme
+ */
 private val lightScheme = lightColorScheme(
     primary = primaryLight,
     onPrimary = onPrimaryLight,
@@ -49,6 +52,9 @@ private val lightScheme = lightColorScheme(
     surfaceContainerHighest = surfaceContainerHighestLight,
 )
 
+/**
+ * **darkScheme** default dark colors scheme
+ */
 private val darkScheme = darkColorScheme(
     primary = primaryDark,
     onPrimary = onPrimaryDark,
@@ -87,6 +93,11 @@ private val darkScheme = darkColorScheme(
     surfaceContainerHighest = surfaceContainerHighestDark,
 )
 
+/**
+ * Method used to retrieve the correct green tone for the theme
+ *
+ * @return the correct green tone as [Color]
+ */
 @Composable
 fun green(): Color {
     return if (isDarkThemeApplied())
@@ -95,6 +106,11 @@ fun green(): Color {
         lightGreen
 }
 
+/**
+ * Method used to retrieve the correct red tone for the theme
+ *
+ * @return the correct red tone as [Color]
+ */
 @Composable
 fun red(): Color {
     return if (isDarkThemeApplied())
@@ -103,6 +119,11 @@ fun red(): Color {
         errorLight
 }
 
+/**
+ * Method used to retrieve the correct yellow tone for the theme
+ *
+ * @return the correct yellow tone as [Color]
+ */
 @Composable
 fun yellow(): Color {
     return if (isDarkThemeApplied())
@@ -111,6 +132,11 @@ fun yellow(): Color {
         lightYellow
 }
 
+/**
+ * Method used to retrieve the correct violet tone for the theme
+ *
+ * @return the correct violet tone as [Color]
+ */
 @Composable
 fun violet(): Color {
     return if (isDarkThemeApplied())
@@ -119,6 +145,11 @@ fun violet(): Color {
         lightViolet
 }
 
+/**
+ * Method used to retrieve the correct light green tone for the theme
+ *
+ * @return the light green tone as [Color]
+ */
 @Composable
 fun serviceAddedColor(): Color {
     return if (isDarkThemeApplied())
@@ -127,6 +158,11 @@ fun serviceAddedColor(): Color {
         serviceAddedLight
 }
 
+/**
+ * Method used to retrieve the correct blue for the theme
+ *
+ * @return the correct blue tone as [Color]
+ */
 @Composable
 fun serviceRemovedColor(): Color {
     return if (isDarkThemeApplied())
@@ -135,6 +171,11 @@ fun serviceRemovedColor(): Color {
         serviceRemovedLight
 }
 
+/**
+ * Method used to retrieve the correct red for the theme
+ *
+ * @return the correct red tone as [Color]
+ */
 @Composable
 fun serviceDeletedColor(): Color {
     return if (isDarkThemeApplied())
@@ -143,6 +184,12 @@ fun serviceDeletedColor(): Color {
         serviceDeletedLight
 }
 
+/**
+ * Function to set the Refy theme to the content
+ *
+ * @param darkTheme Whether to use the dark or light theme
+ * @param content The content to display
+ */
 @Composable
 fun BrownieTheme(
     darkTheme: Boolean = isDarkThemeApplied(),
@@ -160,6 +207,11 @@ fun BrownieTheme(
     )
 }
 
+/**
+ * Method used to determine whether to apply the dark theme
+ *
+ * @return whether to apply the dark theme as [Boolean]
+ */
 @Composable
 @NonRestartableComposable
 private fun isDarkThemeApplied(): Boolean {

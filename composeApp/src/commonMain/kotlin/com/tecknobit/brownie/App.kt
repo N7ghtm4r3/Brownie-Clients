@@ -41,6 +41,9 @@ lateinit var bodyFontFamily: FontFamily
  */
 lateinit var displayFontFamily: FontFamily
 
+/**
+ *`requester` the instance to manage the requests with the backend
+ */
 lateinit var requester: BrownieRequester
 
 /**
@@ -54,20 +57,44 @@ val localSession = BrownieLocalSession()
  */
 lateinit var navigator: Navigator
 
+/**
+ * `SPLASHSCREEN` route to navigate to the [com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen]
+ */
 const val SPLASHSCREEN = "Splashscreen"
 
+/**
+ * `CONNECT_SCREEN` route to navigate to the [com.tecknobit.brownie.ui.screens.connect.ConnectScreen]
+ */
 const val CONNECT_SCREEN = "ConnectScreen"
 
+/**
+ * `ADMIN_CONTROL_PANEL_SCREEN` route to navigate to the [com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen]
+ */
 const val ADMIN_CONTROL_PANEL_SCREEN = "AdminControlPanelScreen"
 
+/**
+ * `HostsScreen` route to navigate to the [com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen]
+ */
 const val HOSTS_SCREEN = "HostsScreen"
 
+/**
+ * `UPSERT_HOST_SCREEN` route to navigate to the [com.tecknobit.brownie.ui.screens.upserthost.presenter.UpsertHostScreen]
+ */
 const val UPSERT_HOST_SCREEN = "UpsertHostScreen"
 
+/**
+ * `HOST_SCREEN` route to navigate to the [com.tecknobit.brownie.ui.screens.host.presenter.HostScreen]
+ */
 const val HOST_SCREEN = "HostScreen"
 
+/**
+ * `UPSERT_SERVICE_SCREEN` route to navigate to the [com.tecknobit.brownie.ui.screens.upsertservice.presenter.UpsertServiceScreen]
+ */
 const val UPSERT_SERVICE_SCREEN = "UpsertServiceScreen"
 
+/**
+ * Method to start the `Brownie`'s application
+ */
 @Composable
 fun App() {
     bodyFontFamily = FontFamily(Font(Res.font.rubik))
@@ -131,6 +158,9 @@ fun App() {
     }
 }
 
+/**
+ * Method to initialize the Ametista system
+ */
 @Composable
 private fun InitAmetista() {
     LaunchedEffect(Unit) {

@@ -4,8 +4,14 @@ import androidx.compose.material3.Typography
 import com.tecknobit.brownie.bodyFontFamily
 import com.tecknobit.brownie.displayFontFamily
 
+/**
+ * `baseline` -> the Brownie's baseline
+ */
 val baseline = Typography()
 
+/**
+ * `AppTypography` -> the Brownie's Typography
+ */
 val AppTypography = Typography(
     displayLarge = baseline.displayLarge.copy(fontFamily = displayFontFamily),
     displayMedium = baseline.displayMedium.copy(fontFamily = displayFontFamily),

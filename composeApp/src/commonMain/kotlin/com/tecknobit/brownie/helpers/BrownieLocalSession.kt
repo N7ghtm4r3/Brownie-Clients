@@ -11,12 +11,23 @@ import com.tecknobit.equinoxcore.helpers.LANGUAGE_KEY
 import com.tecknobit.equinoxcore.helpers.THEME_KEY
 import com.tecknobit.kmprefs.KMPrefs
 
+/**
+ * The `BrownieLocalSession` class is useful to manage the local session data
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ */
 class BrownieLocalSession {
 
+    /**
+     * `kmpPrefs` the local preferences manager
+     */
     private val kmpPrefs = KMPrefs(
         path = "Brownie"
     )
 
+    /**
+     * `hostAddress` the host address which the user communicate
+     */
     var hostAddress: String = ""
         set(value) {
             if (field != value) {
@@ -28,6 +39,9 @@ class BrownieLocalSession {
             }
         }
 
+    /**
+     * `sessionId` the current identifier of the session
+     */
     var sessionId: String? = null
         set(value) {
             if (field != value) {
@@ -39,6 +53,9 @@ class BrownieLocalSession {
             }
         }
 
+    /**
+     * `joinCode` the join code of the session
+     */
     var joinCode: String = ""
         set(value) {
             if (field != value) {
@@ -50,6 +67,9 @@ class BrownieLocalSession {
             }
         }
 
+    /**
+     * `language` the language of the current device
+     */
     var language: String = ""
         set(value) {
             if (field != value) {
@@ -61,6 +81,9 @@ class BrownieLocalSession {
             }
         }
 
+    /**
+     * `theme` the theme of the current device
+     */
     var theme: ApplicationTheme = Auto
         set(value) {
             if (field != value) {
@@ -76,6 +99,13 @@ class BrownieLocalSession {
         initLocalSession()
     }
 
+    /**
+     * Method used to insert and store a new local session
+     *
+     * @param hostAddress The host address which the user communicate
+     * @param sessionId The current identifier of the session
+     * @param joinCode The join code of the session
+     */
     fun insertNewSession(
         hostAddress: String,
         sessionId: String,
@@ -87,6 +117,9 @@ class BrownieLocalSession {
         this.joinCode = joinCode
     }
 
+    /**
+     * Method used to initialize the local session
+     */
     private fun initLocalSession() {
         hostAddress = kmpPrefs.retrieveString(
             key = HOST_ADDRESS_KEY,

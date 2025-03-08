@@ -2,6 +2,9 @@ package com.tecknobit.brownie.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+/**
+ * Set of default light theme colors
+ */
 val primaryLight = Color(0xFF6F4F3A)
 val onPrimaryLight = Color(0xFFFFFFFF)
 val primaryContainerLight = Color(0xFFD2B49C)
@@ -38,6 +41,9 @@ val surfaceContainerLight = Color(0xFFEADCD3)
 val surfaceContainerHighLight = Color(0xFFE2D1C7)
 val surfaceContainerHighestLight = Color(0xFFD8C5B8)
 
+/**
+ * Set of default dark theme colors
+ */
 val primaryDark = Color(0xFFC39A7A)
 val onPrimaryDark = Color(0xFF3E2717)
 val primaryContainerDark = Color(0xFF5F402A)
@@ -74,21 +80,39 @@ val surfaceContainerDark = Color(0xFF3B2D24)
 val surfaceContainerHighDark = Color(0xFF45372D)
 val surfaceContainerHighestDark = Color(0xFF504037)
 
+/**
+ * The yellow tones adapted to the application theme
+ */
 val lightYellow = Color(0xFFBF8F00)
 val darkYellow = Color(0xFFB89600)
 
+/**
+ * The green tones adapted to the application theme
+ */
 val lightGreen = Color(4283215696)
 val darkGreen = Color(4281236786)
 
+/**
+ * The violet tones adapted to the application theme
+ */
 val lightViolet = Color(4286996904)
 val darkViolet = Color(4284169845)
 
+/**
+ * The light green tones adapted to the application theme
+ */
 val serviceAddedLight = Color(0xFF6E9275)
 val serviceAddedDark = Color(0xFF4E7056)
 
+/**
+ * The blue tones adapted to the application theme
+ */
 val serviceRemovedLight = Color(0xFF5F7C8A)
 val serviceRemovedDark = Color(0xFF3F5A67)
 
+/**
+ * The red tones adapted to the application theme
+ */
 val serviceDeletedLight = Color(0xFF7A3D4B)
 val serviceDeletedDark = Color(0xFF5A2A36)
 
