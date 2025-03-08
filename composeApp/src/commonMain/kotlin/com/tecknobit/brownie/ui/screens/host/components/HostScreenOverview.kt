@@ -52,7 +52,6 @@ fun HostOverview(
                 savedHostOverview = hostOverview
             )
             HistorySection(
-                viewModel = viewModel,
                 savedHostOverview = hostOverview
             )
         }

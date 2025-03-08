@@ -26,12 +26,20 @@ import io.github.ahmad_hamwi.compose.pagination.PaginatedLazyColumn
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
+
+/**
+ * Custom [PaginatedLazyColumn] component used to display the services
+ *
+ * @param modifier The modifier to apply to the component
+ * @param viewModel The support viewmodel for the screen
+ * @param savedHostOverview The host overview data
+ */
 @Composable
 @NonRestartableComposable
 fun ServicesList(
     modifier: Modifier = Modifier,
     viewModel: HostScreenViewModel,
-    savedHostOverview: SavedHostOverview,
+    savedHostOverview: SavedHostOverview
 ) {
     PaginatedLazyColumn(
         modifier = modifier
@@ -65,6 +73,9 @@ fun ServicesList(
     }
 }
 
+/**
+ * Custom [EmptyState] component used to display the no availability of services to display
+ */
 @Composable
 @NonRestartableComposable
 private fun NoServicesRegistered() {

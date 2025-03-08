@@ -51,6 +51,12 @@ import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
 import com.tecknobit.equinoxcore.toggle
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * The section used to display the services related to a host
+ *
+ * @param viewModel The support viewmodel for the screen
+ * @param savedHostOverview The overview data of the host
+ */
 @Composable
 @NonRestartableComposable
 fun ServicesSection(
@@ -79,6 +85,12 @@ fun ServicesSection(
     )
 }
 
+/**
+ * The section used to display the services related to a host on the large screen size classes
+ *
+ * @param viewModel The support viewmodel for the screen
+ * @param savedHostOverview The overview data of the host
+ */
 @Composable
 @NonRestartableComposable
 @ResponsiveClassComponent(
@@ -86,7 +98,7 @@ fun ServicesSection(
 )
 private fun FixedServicesSection(
     viewModel: HostScreenViewModel,
-    savedHostOverview: SavedHostOverview,
+    savedHostOverview: SavedHostOverview
 ) {
     SectionTitle(
         modifier = Modifier
@@ -111,12 +123,18 @@ private fun FixedServicesSection(
     )
 }
 
+/**
+ * The section used to display the services related to a host on the compact screen size classes
+ *
+ * @param viewModel The support viewmodel for the screen
+ * @param savedHostOverview The overview data of the host
+ */
 @Composable
 @CompactClassComponent
 @NonRestartableComposable
 private fun ExpandableServicesSection(
     viewModel: HostScreenViewModel,
-    savedHostOverview: SavedHostOverview,
+    savedHostOverview: SavedHostOverview
 ) {
     ExpandableSection(
         title = Res.string.services,
@@ -134,10 +152,15 @@ private fun ExpandableServicesSection(
     )
 }
 
+/**
+ * The section used to allow the user to filter the the services to display
+ *
+ * @param viewModel The support viewmodel for the screen
+ */
 @Composable
 @NonRestartableComposable
 private fun FiltersSection(
-    viewModel: HostScreenViewModel,
+    viewModel: HostScreenViewModel
 ) {
     val show = remember { mutableStateOf(false) }
     Icon(
@@ -153,11 +176,17 @@ private fun FiltersSection(
     )
 }
 
+/**
+ * Custom [EquinoxAlertDialog] used to insert the filters to apply to the services list
+ *
+ * @param show Whether the alert is shown
+ * @param viewModel The support viewmodel for the screen
+ */
 @Composable
 @NonRestartableComposable
 private fun FiltersDialog(
     show: MutableState<Boolean>,
-    viewModel: HostScreenViewModel,
+    viewModel: HostScreenViewModel
 ) {
     viewModel.servicesQuery = remember { mutableStateOf("") }
     EquinoxAlertDialog(
@@ -236,6 +265,13 @@ private fun FiltersDialog(
     )
 }
 
+/**
+ * The content of the services section
+ *
+ * @param modifier The modifier to apply to the content
+ * @param viewModel The support viewmodel for the screen
+ * @param savedHostOverview The overview data of the host
+ */
 @Composable
 @NonRestartableComposable
 private fun ServicesContent(

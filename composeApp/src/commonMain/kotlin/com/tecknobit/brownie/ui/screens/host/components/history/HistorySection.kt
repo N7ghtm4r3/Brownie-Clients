@@ -12,18 +12,21 @@ import brownie.composeapp.generated.resources.history
 import com.tecknobit.brownie.ui.screens.host.components.ExpandableSection
 import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
-import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
 import com.tecknobit.equinoxcompose.utilities.CompactClassComponent
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.EXPANDED_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.MEDIUM_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClassComponent
 import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
 
+/**
+ * The section used to display the events related to the host lifecycle
+ *
+ * @param savedHostOverview The host overview data
+ */
 @Composable
 @NonRestartableComposable
 fun HistorySection(
-    viewModel: HostScreenViewModel,
-    savedHostOverview: SavedHostOverview,
+    savedHostOverview: SavedHostOverview
 ) {
     ResponsiveContent(
         onExpandedSizeClass = {
@@ -44,13 +47,18 @@ fun HistorySection(
     )
 }
 
+/**
+ * The custom [HistorySection] displayed on large screen size classes
+ *
+ * @param savedHostOverview The host overview data
+ */
 @Composable
 @NonRestartableComposable
 @ResponsiveClassComponent(
     classes = [EXPANDED_CONTENT, MEDIUM_CONTENT]
 )
 private fun FixedHistorySection(
-    savedHostOverview: SavedHostOverview,
+    savedHostOverview: SavedHostOverview
 ) {
     SectionTitle(
         modifier = Modifier
@@ -65,11 +73,16 @@ private fun FixedHistorySection(
     )
 }
 
+/**
+ * The custom [HistorySection] displayed on compact screen size classes
+ *
+ * @param savedHostOverview The host overview data
+ */
 @Composable
 @CompactClassComponent
 @NonRestartableComposable
 private fun ExpandableHistorySection(
-    savedHostOverview: SavedHostOverview,
+    savedHostOverview: SavedHostOverview
 ) {
     ExpandableSection(
         title = Res.string.history,
@@ -81,10 +94,15 @@ private fun ExpandableHistorySection(
     )
 }
 
+/**
+ * The [HostHistory] component used to display the [savedHostOverview] related events data
+ *
+ * @param savedHostOverview The host overview data
+ */
 @Composable
 @NonRestartableComposable
 private fun HistoryContent(
-    savedHostOverview: SavedHostOverview,
+    savedHostOverview: SavedHostOverview
 ) {
     HostHistory(
         hostOverview = savedHostOverview

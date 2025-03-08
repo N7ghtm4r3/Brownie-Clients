@@ -42,12 +42,19 @@ import com.tecknobit.browniecore.enums.ServiceStatus
 import com.tecknobit.browniecore.enums.ServiceStatus.REBOOTING
 import kotlinx.coroutines.launch
 
+/**
+ * Custom [Card] used to display the service information
+ *
+ * @param viewModel The support viewmodel for the screen
+ * @param savedHostOverview The host overview data
+ * @param service The service to display
+ */
 @Composable
 @NonRestartableComposable
 fun ServiceCard(
     viewModel: HostScreenViewModel,
     savedHostOverview: SavedHostOverview,
-    service: HostService,
+    service: HostService
 ) {
     val statusState = remember { mutableStateOf(service.status) }
     val pidState = remember { mutableStateOf(service.pid) }
@@ -110,6 +117,14 @@ fun ServiceCard(
     )
 }
 
+/**
+ * The toolbar of the [ServiceCard] component used to handle the service status
+ *
+ * @param viewModel The support viewmodel for the screen
+ * @param savedHostOverview The host overview data
+ * @param service The service to display
+ * @param statusState The state container used to trigger the UI when the status changed
+ */
 @Composable
 @NonRestartableComposable
 private fun StatusToolbar(

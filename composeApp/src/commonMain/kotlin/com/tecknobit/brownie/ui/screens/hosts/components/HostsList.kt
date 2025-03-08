@@ -64,7 +64,7 @@ fun HostsList(
 }
 
 /**
- * Custom [EmptyState] component used to display the no avaibility of hosts to display
+ * Custom [EmptyState] component used to display the no availability of hosts to display
  */
 @Composable
 @NonRestartableComposable

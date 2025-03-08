@@ -44,6 +44,11 @@ import com.tecknobit.browniecore.enums.HostEventType.SERVICE_DELETED
 import com.tecknobit.browniecore.enums.HostEventType.SERVICE_REMOVED
 import com.tecknobit.equinoxcore.time.TimeFormatter.toDateString
 
+/**
+ * Custom component used to display the events related to the host lifecycle
+ *
+ * @param hostOverview The host overview data
+ */
 @Composable
 @NonRestartableComposable
 fun HostHistory(
@@ -71,6 +76,11 @@ fun HostHistory(
     }
 }
 
+/**
+ * Component used to display the events timeline
+ *
+ * @param events The events related to the host lifecycle
+ */
 @Composable
 @NonRestartableComposable
 private fun HistoryEvents(
@@ -128,6 +138,9 @@ private fun HistoryEvents(
     }
 }
 
+/**
+ * Custom component used to display a [HostHistoryEvent] information
+ */
 @Composable
 @NonRestartableComposable
 private fun HostHistoryEvent.eventText() {

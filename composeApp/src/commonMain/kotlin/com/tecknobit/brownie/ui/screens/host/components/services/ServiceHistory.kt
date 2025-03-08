@@ -41,6 +41,13 @@ import com.tecknobit.equinoxcore.time.TimeFormatter.toDateString
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
+/**
+ * Custom component used to display the events related to the service lifecycle
+ *
+ * @param state The state useful to manage the visibility of the [ModalBottomSheet]
+ * @param scope The coroutine useful to manage the visibility of the [ModalBottomSheet]
+ * @param service The service to display the related events
+ */
 @Composable
 @NonRestartableComposable
 fun ServiceHistory(
@@ -86,10 +93,15 @@ fun ServiceHistory(
     }
 }
 
+/**
+ * Component used to display the events timeline
+ *
+ * @param events The events related to the service lifecycle
+ */
 @Composable
 @NonRestartableComposable
 private fun ServiceEvents(
-    events: List<ServiceEvent>,
+    events: List<ServiceEvent>
 ) {
     JetLimeColumn(
         modifier = Modifier
@@ -134,6 +146,9 @@ private fun ServiceEvents(
     }
 }
 
+/**
+ * Custom component used to display a [ServiceEvent] information
+ */
 @Composable
 @NonRestartableComposable
 private fun ServiceEvent.eventText() {

@@ -44,11 +44,17 @@ import com.tecknobit.equinoxcompose.utilities.ResponsiveClassComponent
 import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * The control section to handle the host status
+ *
+ * @param viewModel The support viewmodel for the screen
+ * @param hostOverview The overview data of the host
+ */
 @Composable
 @NonRestartableComposable
 fun ActionsSection(
     viewModel: HostScreenViewModel,
-    hostOverview: SavedHostOverview,
+    hostOverview: SavedHostOverview
 ) {
     ResponsiveContent(
         onExpandedSizeClass = {
@@ -72,6 +78,12 @@ fun ActionsSection(
     )
 }
 
+/**
+ * The control section to handle the host status displayed on the large screen size classes
+ *
+ * @param viewModel The support viewmodel for the screen
+ * @param hostOverview The overview data of the host
+ */
 @Composable
 @NonRestartableComposable
 @ResponsiveClassComponent(
@@ -79,7 +91,7 @@ fun ActionsSection(
 )
 private fun FixedActionsSection(
     viewModel: HostScreenViewModel,
-    hostOverview: SavedHostOverview,
+    hostOverview: SavedHostOverview
 ) {
     SectionTitle(
         modifier = Modifier
@@ -99,12 +111,18 @@ private fun FixedActionsSection(
     )
 }
 
+/**
+ * The control section to handle the host status displayed on the compact screen size classes
+ *
+ * @param viewModel The support viewmodel for the screen
+ * @param hostOverview The overview data of the host
+ */
 @Composable
 @CompactClassComponent
 @NonRestartableComposable
 private fun ExpandableActionsSection(
     viewModel: HostScreenViewModel,
-    hostOverview: SavedHostOverview,
+    hostOverview: SavedHostOverview
 ) {
     ExpandableSection(
         title = Res.string.actions,
@@ -117,12 +135,19 @@ private fun ExpandableActionsSection(
     )
 }
 
+/**
+ * The content of the control section to handle the host status
+ *
+ * @param modifier The modifier to apply to the content
+ * @param viewModel The support viewmodel for the screen
+ * @param hostOverview The overview data of the host
+ */
 @Composable
 @NonRestartableComposable
 private fun ActionsContent(
     modifier: Modifier = Modifier,
     viewModel: HostScreenViewModel,
-    hostOverview: SavedHostOverview,
+    hostOverview: SavedHostOverview
 ) {
     val statusState = remember { mutableStateOf(hostOverview.status) }
     LaunchedEffect(hostOverview) {
@@ -172,6 +197,14 @@ private fun ActionsContent(
     }
 }
 
+/**
+ * The buttons used to handle the host status
+ *
+ * @param buttonModifier The modifier to apply to the button
+ * @param viewModel The support viewmodel for the screen
+ * @param hostOverview The overview data of the host
+ * @param statusState The state container used to trigger the UI when the status changed
+ */
 @Composable
 @NonRestartableComposable
 private fun ActionButtons(
