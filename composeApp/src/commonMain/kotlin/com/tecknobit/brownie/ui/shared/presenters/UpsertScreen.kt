@@ -63,6 +63,18 @@ import com.tecknobit.equinoxcore.annotations.Structure
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * The [UpsertScreen] class is useful to handle the insertion or editing of an item
+ *
+ * @param itemId The identifier of the item to update
+ * @param viewModel The support viewmodel for the screen
+ *
+ * @param T The type of the item displayed
+ * @param V The type of the viewmodel of the screen
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ * @see EquinoxScreen
+ */
 @Structure
 abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
     itemId: String?,
@@ -71,8 +83,14 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
     viewModel = viewModel
 ) {
 
+    /**
+     *`isEditing` whether the action is an edit action
+     */
     protected val isEditing = itemId != null
 
+    /**
+     *`item` the existing item to update
+     */
     protected lateinit var item: State<T?>
 
     /**
@@ -150,23 +168,38 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
         }
     }
 
+    /**
+     * Custom section used to display the title of the item
+     */
     @Composable
     @NonRestartableComposable
     protected abstract fun Title()
 
+    /**
+     * Custom section used to provide extra actions available to handle the item
+     */
     @Composable
     @NonRestartableComposable
     protected open fun Actions() {
     }
 
+    /**
+     * The form used to insert or edit the item details
+     */
     @Composable
     @NonRestartableComposable
     protected abstract fun Form()
 
+    /**
+     * The section used to allow the user insert the name of the item
+     *
+     * @param header The representative header of the section
+     * @param placeholder The placeholder of the [EquinoxOutlinedTextField]
+     * @param errorText The error text to display when the input is not valid
+     */
     @Composable
     @NonRestartableComposable
     protected fun ItemNameSection(
-        viewModel: UpsertScreenViewModel<*>,
         header: StringResource,
         placeholder: StringResource,
         errorText: StringResource,
@@ -201,6 +234,9 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
         )
     }
 
+    /**
+     * Section containing the buttons to save the data inserted [Form] component
+     */
     @Composable
     @NonRestartableComposable
     protected fun ColumnScope.ButtonsSection() {
@@ -211,66 +247,64 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
         ) {
             ResponsiveContent(
                 onExpandedSizeClass = {
-                    ExpandedUpsertButtons(
-                        isEditing = isEditing
-                    )
+                    ExpandedUpsertButtons()
                 },
                 onMediumSizeClass = {
-                    ExpandedUpsertButtons(
-                        isEditing = isEditing
-                    )
+                    ExpandedUpsertButtons()
                 },
                 onCompactSizeClass = {
-                    CompactUpsertButtons(
-                        isEditing = isEditing
-                    )
+                    CompactUpsertButtons()
                 }
             )
         }
     }
 
+    /**
+     * Custom [ButtonsSection] displayed on large screen size classes
+     */
     @Composable
     @NonRestartableComposable
     @ResponsiveClassComponent(
         classes = [EXPANDED_CONTENT, MEDIUM_CONTENT]
     )
-    private fun ExpandedUpsertButtons(
-        isEditing: Boolean,
-    ) {
+    private fun ExpandedUpsertButtons() {
         Row(
             horizontalArrangement = Arrangement.spacedBy(10.dp)
         ) {
             UpsertButtons(
-                modifier = Modifier,
-                isEditing = isEditing
+                modifier = Modifier
             )
         }
     }
 
+    /**
+     * Custom [ButtonsSection] displayed on compact screen size classes
+     */
     @Composable
     @CompactClassComponent
     @NonRestartableComposable
-    private fun CompactUpsertButtons(
-        isEditing: Boolean,
-    ) {
+    private fun CompactUpsertButtons() {
         Column(
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
             UpsertButtons(
                 modifier = Modifier
                     .height(45.dp)
-                    .fillMaxWidth(),
-                isEditing = isEditing
+                    .fillMaxWidth()
             )
         }
     }
 
+    /**
+     * Custom [Button] used to upsert the data of the [Form] component
+     *
+     * @param modifier The modifier to apply to the component
+     */
     @Composable
     @RequiresSuperCall
     @NonRestartableComposable
     protected open fun UpsertButtons(
         modifier: Modifier,
-        isEditing: Boolean,
     ) {
         Button(
             modifier = modifier,
@@ -290,6 +324,9 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
         }
     }
 
+    /**
+     * Method invoked when the [ShowContent] composable has been started
+     */
     override fun onStart() {
         super.onStart()
         viewModel.retrieveItem()

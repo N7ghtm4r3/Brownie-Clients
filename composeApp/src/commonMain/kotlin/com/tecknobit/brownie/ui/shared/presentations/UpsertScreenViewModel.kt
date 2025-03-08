@@ -9,6 +9,20 @@ import com.tecknobit.equinoxcore.annotations.Structure
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
+/**
+ * The `UpsertScreenViewModel` class is the support class used by the screens which insert new items
+ * or edit the existing ones
+ *
+ * @param itemId The identifier of the item to update
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ * @see androidx.lifecycle.ViewModel
+ * @see com.tecknobit.equinoxcompose.session.Retriever
+ * @see EquinoxViewModel
+ *
+ * @param T The type of the item updated
+ *
+ */
 @Structure
 abstract class UpsertScreenViewModel<T>(
     protected val itemId: String?,
@@ -16,17 +30,32 @@ abstract class UpsertScreenViewModel<T>(
     snackbarHostState = SnackbarHostState()
 ) {
 
+    /**
+     *`_item` the item to update
+     */
     protected val _item = MutableStateFlow<T?>(
         value = null
     )
     val item = _item.asStateFlow()
 
+    /**
+     * `name` the name of the item
+     */
     lateinit var name: MutableState<String>
 
+    /**
+     * `nameError` whether the [name] field is not valid
+     */
     lateinit var nameError: MutableState<Boolean>
 
+    /**
+     * Method used to retrieve the information of the item to display
+     */
     abstract fun retrieveItem()
 
+    /**
+     * Method used to insert or update an item
+     */
     fun upsert() {
         if (!validForm())
             return
@@ -36,10 +65,21 @@ abstract class UpsertScreenViewModel<T>(
             update()
     }
 
+    /**
+     * Method to insert a new item
+     */
     protected abstract fun insert()
 
+    /**
+     * Method to edit an existing item
+     */
     protected abstract fun update()
 
+    /**
+     * Method to check the validity of the form data to insert or update an item
+     *
+     * @return the validity of the form as [Boolean]
+     */
     @RequiresSuperCall
     protected open fun validForm(): Boolean {
         if (!isItemNameValid(name.value)) {

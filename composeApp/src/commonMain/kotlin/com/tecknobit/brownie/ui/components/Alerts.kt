@@ -96,7 +96,7 @@ fun UnregisterSavedHost(
         text = Res.string.unregister_host_message,
         confirmAction = {
             hostManager.unregisterHost(
-                savedHost = host,
+                host = host,
                 onSuccess = {
                     show.value = false
                     onSuccess()

@@ -97,7 +97,6 @@ class UpsertServiceScreen(
     @NonRestartableComposable
     override fun Form() {
         ItemNameSection(
-            viewModel = viewModel,
             header = string.service_name,
             placeholder = string.service_name_placeholder,
             errorText = string.wrong_service_name
@@ -115,7 +114,6 @@ class UpsertServiceScreen(
     @NonRestartableComposable
     override fun UpsertButtons(
         modifier: Modifier,
-        isEditing: Boolean,
     ) {
         if (isEditing) {
             val removeService = remember { mutableStateOf(false) }
@@ -140,8 +138,7 @@ class UpsertServiceScreen(
             )
         }
         super.UpsertButtons(
-            modifier = modifier,
-            isEditing = isEditing
+            modifier = modifier
         )
     }
 

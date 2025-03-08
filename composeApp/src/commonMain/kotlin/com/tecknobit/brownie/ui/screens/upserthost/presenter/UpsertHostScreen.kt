@@ -50,7 +50,6 @@ class UpsertHostScreen(
     @NonRestartableComposable
     override fun Form() {
         ItemNameSection(
-            viewModel = viewModel,
             header = string.host_name,
             placeholder = string.host_name_placeholder,
             errorText = string.wrong_host_name
