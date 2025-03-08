@@ -17,10 +17,15 @@ import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel
 import com.tecknobit.equinoxcompose.components.EquinoxOutlinedTextField
 
+/**
+ * Section where the user can insert the program arguments of the service
+ *
+ * @param viewModel The support viewmodel for the screen
+ */
 @Composable
 @NonRestartableComposable
 fun ProgramArgumentsSection(
-    viewModel: UpsertServiceScreenViewModel,
+    viewModel: UpsertServiceScreenViewModel
 ) {
     SectionTitle(
         modifier = Modifier

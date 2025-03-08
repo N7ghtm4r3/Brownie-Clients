@@ -23,10 +23,15 @@ import com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertService
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * Section where the user can customize the settings related to a service
+ *
+ * @param viewModel The support viewmodel for the screen
+ */
 @Composable
 @NonRestartableComposable
 fun ServiceSettings(
-    viewModel: UpsertServiceScreenViewModel,
+    viewModel: UpsertServiceScreenViewModel
 ) {
     SectionTitle(
         modifier = Modifier
@@ -48,12 +53,19 @@ fun ServiceSettings(
     )
 }
 
+/**
+ * Custom [Checkbox] used to enable or disable an option for the service configuration
+ *
+ * @param settingState The state of the option status (enabled or disabled)
+ * @param settingTitle The title of the setting
+ * @param settingDescription The description of the setting
+ */
 @Composable
 @NonRestartableComposable
 private fun SettingCheckBox(
     settingState: MutableState<Boolean>,
     settingTitle: StringResource,
-    settingDescription: StringResource,
+    settingDescription: StringResource
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically

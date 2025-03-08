@@ -33,9 +33,21 @@ import com.tecknobit.brownie.ui.shared.presenters.UpsertScreen
 import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.brownie.ui.theme.red
 import com.tecknobit.equinoxcompose.components.ChameleonText
+import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
 import com.tecknobit.equinoxcore.annotations.RequiresSuperCall
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * The [UpsertServiceScreen] class is useful to handle the insertion or editing of a service
+ *
+ * @param hostId The identifier of the host owner of the service
+ * @param hostName The name of the host
+ * @param serviceId The identifier of the service
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ * @see EquinoxScreen
+ * @see UpsertScreen
+ */
 class UpsertServiceScreen(
     hostId: String,
     private val hostName: String,
@@ -48,6 +60,9 @@ class UpsertServiceScreen(
     )
 ) {
 
+    /**
+     * Custom section used to display the title of the item
+     */
     @Composable
     @NonRestartableComposable
     override fun Title() {
@@ -72,6 +87,9 @@ class UpsertServiceScreen(
         }
     }
 
+    /**
+     * Custom section used to provide extra actions available to handle the item
+     */
     @Composable
     @NonRestartableComposable
     override fun Actions() {
@@ -93,6 +111,9 @@ class UpsertServiceScreen(
         }
     }
 
+    /**
+     * The form used to insert or edit the item details
+     */
     @Composable
     @NonRestartableComposable
     override fun Form() {
@@ -109,6 +130,11 @@ class UpsertServiceScreen(
         )
     }
 
+    /**
+     * Custom [Button] used to upsert the data of the [Form] component
+     *
+     * @param modifier The modifier to apply to the component
+     */
     @Composable
     @RequiresSuperCall
     @NonRestartableComposable
@@ -142,6 +168,10 @@ class UpsertServiceScreen(
         )
     }
 
+    /**
+     * Method to collect or instantiate the states of the screen after a loading required to correctly assign an
+     * initial value to the states
+     */
     @Composable
     override fun CollectStatesAfterLoading() {
         viewModel.name = remember {
