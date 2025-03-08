@@ -36,11 +36,17 @@ import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.equinoxcompose.components.EquinoxOutlinedTextField
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * Section used to allow the user to insert SSH credentials to register a remote host
+ *
+ * @param viewModel The support viewmodel for the screen
+ * @param isEditing Whether the operation is an edit or a new registration
+ */
 @Composable
 @NonRestartableComposable
 fun SSHAuthentication(
     viewModel: UpsertHostScreenViewModel,
-    isEditing: Boolean,
+    isEditing: Boolean
 ) {
     SectionTitle(
         modifier = Modifier
@@ -64,11 +70,17 @@ fun SSHAuthentication(
     )
 }
 
+/**
+ * Section used to allow the user to insert SSH user
+ *
+ * @param viewModel The support viewmodel for the screen
+ * @param isEditing Whether the operation is an edit or a new registration
+ */
 @Composable
 @NonRestartableComposable
 private fun SSHUser(
     viewModel: UpsertHostScreenViewModel,
-    isEditing: Boolean,
+    isEditing: Boolean
 ) {
     Text(
         text = stringResource(Res.string.ssh_user_placeholder),
@@ -94,11 +106,17 @@ private fun SSHUser(
     )
 }
 
+/**
+ * Section used to allow the user to insert SSH password
+ *
+ * @param viewModel The support viewmodel for the screen
+ * @param isEditing Whether the operation is an edit or a new registration
+ */
 @Composable
 @NonRestartableComposable
 private fun SSHPassword(
     viewModel: UpsertHostScreenViewModel,
-    isEditing: Boolean,
+    isEditing: Boolean
 ) {
     Text(
         text = stringResource(Res.string.ssh_password_placeholder),

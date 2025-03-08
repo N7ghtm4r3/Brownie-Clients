@@ -19,10 +19,15 @@ import com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreen
 import com.tecknobit.browniecore.helpers.BrownieInputsValidator.isHostAddressValid
 import com.tecknobit.equinoxcompose.components.EquinoxOutlinedTextField
 
+/**
+ * Section to allow the user to insert the address of the host to register
+ *
+ * @param viewModel The support viewmodel for the screen
+ */
 @Composable
 @NonRestartableComposable
 fun HostAddressSection(
-    viewModel: UpsertHostScreenViewModel,
+    viewModel: UpsertHostScreenViewModel
 ) {
     SectionTitle(
         modifier = Modifier

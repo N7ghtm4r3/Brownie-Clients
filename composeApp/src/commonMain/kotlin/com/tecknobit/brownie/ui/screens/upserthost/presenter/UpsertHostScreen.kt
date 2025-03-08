@@ -18,9 +18,19 @@ import com.tecknobit.brownie.ui.screens.upserthost.components.SSHAuthentication
 import com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel
 import com.tecknobit.brownie.ui.shared.presenters.UpsertScreen
 import com.tecknobit.brownie.ui.theme.AppTypography
+import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
 import com.tecknobit.equinoxcore.annotations.RequiresSuperCall
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * The [UpsertHostScreen] class is useful to handle the insertion or editing of a host
+ *
+ * @param hostId The identifier of the host to update
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ * @see EquinoxScreen
+ * @see UpsertScreen
+ */
 class UpsertHostScreen(
     hostId: String?,
 ) : UpsertScreen<SavedHostImpl, UpsertHostScreenViewModel>(
@@ -30,6 +40,9 @@ class UpsertHostScreen(
     )
 ) {
 
+    /**
+     * Custom section used to display the title of the item
+     */
     @Composable
     @NonRestartableComposable
     override fun Title() {
@@ -46,6 +59,9 @@ class UpsertHostScreen(
         )
     }
 
+    /**
+     * The form used to insert or edit the item details
+     */
     @Composable
     @NonRestartableComposable
     override fun Form() {
@@ -63,6 +79,9 @@ class UpsertHostScreen(
         )
     }
 
+    /**
+     * Method used to collect or instantiate the states of the screen
+     */
     @Composable
     @RequiresSuperCall
     @NonRestartableComposable
@@ -75,6 +94,10 @@ class UpsertHostScreen(
         viewModel.sshPasswordError = remember { mutableStateOf(false) }
     }
 
+    /**
+     * Method to collect or instantiate the states of the screen after a loading required to correctly assign an
+     * initial value to the states
+     */
     @Composable
     @NonRestartableComposable
     override fun CollectStatesAfterLoading() {
