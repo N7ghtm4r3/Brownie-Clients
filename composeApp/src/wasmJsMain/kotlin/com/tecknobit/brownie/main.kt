@@ -7,7 +7,7 @@ import com.tecknobit.equinoxcompose.session.setUpSession
 import kotlinx.browser.document
 
 /**
- * Method to start the of `Brownie` webapp
+ * Method used to start the of `Brownie` webapp
  */
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {

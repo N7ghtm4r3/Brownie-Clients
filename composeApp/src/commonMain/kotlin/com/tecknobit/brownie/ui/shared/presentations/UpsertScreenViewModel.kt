@@ -66,17 +66,17 @@ abstract class UpsertScreenViewModel<T>(
     }
 
     /**
-     * Method to insert a new item
+     * Method used to insert a new item
      */
     protected abstract fun insert()
 
     /**
-     * Method to edit an existing item
+     * Method used to edit an existing item
      */
     protected abstract fun update()
 
     /**
-     * Method to check the validity of the form data to insert or update an item
+     * Method used to check the validity of the form data to insert or update an item
      *
      * @return the validity of the form as [Boolean]
      */

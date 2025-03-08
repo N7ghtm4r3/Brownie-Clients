@@ -14,7 +14,7 @@ import com.tecknobit.ametistaengine.AmetistaEngine.Companion.FILES_AMETISTA_CONF
 import com.tecknobit.brownie.helpers.BrownieLocalSession
 import com.tecknobit.brownie.helpers.BrownieRequester
 import com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen
-import com.tecknobit.brownie.ui.screens.connect.ConnectScreen
+import com.tecknobit.brownie.ui.screens.connect.presenter.ConnectScreen
 import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen
@@ -93,7 +93,7 @@ const val HOST_SCREEN = "HostScreen"
 const val UPSERT_SERVICE_SCREEN = "UpsertServiceScreen"
 
 /**
- * Method to start the `Brownie`'s application
+ * Method used to start the `Brownie`'s application
  */
 @Composable
 fun App() {
@@ -159,7 +159,7 @@ fun App() {
 }
 
 /**
- * Method to initialize the Ametista system
+ * Method used to initialize the Ametista system
  */
 @Composable
 private fun InitAmetista() {
@@ -177,7 +177,7 @@ private fun InitAmetista() {
 }
 
 /**
- * Method to check whether are available any updates for each platform and then launch the application
+ * Method used to check whether are available any updates for each platform and then launch the application
  * which the correct first screen to display
  *
  */
@@ -186,7 +186,7 @@ private fun InitAmetista() {
 expect fun CheckForUpdatesAndLaunch()
 
 /**
- * Method to init the local session and the related instances then start the user session
+ * Method used to init the local session and the related instances then start the user session
  *
  */
 fun startSession() {
@@ -205,13 +205,13 @@ fun startSession() {
 }
 
 /**
- * Method to set locale language for the application
+ * Method used to set locale language for the application
  *
  */
 expect fun setUserLanguage()
 
 /**
- * Method to manage correctly the back navigation from the current screen
+ * Method used to manage correctly the back navigation from the current screen
  *
  */
 @Composable

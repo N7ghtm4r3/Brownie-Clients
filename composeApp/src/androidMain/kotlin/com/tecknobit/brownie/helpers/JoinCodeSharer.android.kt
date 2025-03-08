@@ -11,7 +11,7 @@ import com.tecknobit.equinoxcore.utilities.ContextActivityProvider
 private const val INTENT_TYPE = "text/plain"
 
 /**
- * Method to share the join code
+ * Method used to share the join code
  *
  * @param viewModel The support viewmodel of the screen
  */

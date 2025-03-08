@@ -22,10 +22,16 @@ import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.equinoxcompose.session.screens.EquinoxNoModelScreen
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * The [Splashscreen] class is used to retrieve and load the session data and enter the application's workflow
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ * @see EquinoxNoModelScreen
+ */
 class Splashscreen : EquinoxNoModelScreen() {
 
     /**
-     * Method to arrange the content of the screen to display
+     * Method used to arrange the content of the screen to display
      */
     @Composable
     override fun ArrangeScreenContent() {
@@ -71,7 +77,7 @@ class Splashscreen : EquinoxNoModelScreen() {
     }
 
     /**
-     * Method to collect or instantiate the states of the screen
+     * Method used to collect or instantiate the states of the screen
      */
     @Composable
     override fun CollectStates() {

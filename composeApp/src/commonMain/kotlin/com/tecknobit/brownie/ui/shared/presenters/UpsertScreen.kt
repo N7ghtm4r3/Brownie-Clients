@@ -94,7 +94,7 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
     protected lateinit var item: State<T?>
 
     /**
-     * Method to arrange the content of the screen to display
+     * Method used to arrange the content of the screen to display
      */
     @Composable
     override fun ArrangeScreenContent() {
@@ -333,7 +333,7 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
     }
 
     /**
-     * Method to collect or instantiate the states of the screen
+     * Method used to collect or instantiate the states of the screen
      */
     @Composable
     @RequiresSuperCall

@@ -6,7 +6,7 @@ import androidx.compose.runtime.NonRestartableComposable
 import kotlinx.coroutines.delay
 
 /**
- * Method to check whether are available any updates for each platform and then launch the application
+ * Method used to check whether are available any updates for each platform and then launch the application
  * which the correct first screen to display
  *
  */
@@ -20,13 +20,13 @@ actual fun CheckForUpdatesAndLaunch() {
 }
 
 /**
- * Method to set locale language for the application
+ * Method used to set locale language for the application
  *
  */
 actual fun setUserLanguage() {}
 
 /**
- * Method to manage correctly the back navigation from the current screen
+ * Method used to manage correctly the back navigation from the current screen
  *
  */
 @Composable

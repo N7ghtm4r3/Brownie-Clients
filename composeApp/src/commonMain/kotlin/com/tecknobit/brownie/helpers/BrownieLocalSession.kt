@@ -144,7 +144,7 @@ class BrownieLocalSession {
     }
 
     /**
-     * Method to clear the current local user session
+     * Method used to clear the current local user session
      */
     fun clear() {
         kmpPrefs.clearAll()

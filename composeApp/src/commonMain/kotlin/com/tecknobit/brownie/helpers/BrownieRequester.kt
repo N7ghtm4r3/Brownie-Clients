@@ -62,7 +62,7 @@ class BrownieRequester(
 
 
     /**
-     * Method to change, during the runtime for example when the session changed, the host address to make the
+     * Method used to change, during the runtime for example when the session changed, the host address to make the
      * requests
      *
      * @param host The new host address to use

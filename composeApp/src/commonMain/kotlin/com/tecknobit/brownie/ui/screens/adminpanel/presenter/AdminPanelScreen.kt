@@ -79,12 +79,19 @@ import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
 import com.tecknobit.equinoxcore.helpers.InputsValidator.Companion.LANGUAGES_SUPPORTED
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * The [AdminPanelScreen] display the session settings of the current [localSession], and
+ * allows to customize the preferences of the user
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ * @see com.tecknobit.equinoxcompose.session.EquinoxScreen
+ */
 class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
     viewModel = AdminPanelScreenViewModel()
 ) {
 
     /**
-     * Method to arrange the content of the screen to display
+     * Method used to arrange the content of the screen to display
      */
     @Composable
     override fun ArrangeScreenContent() {
@@ -149,6 +156,10 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
         }
     }
 
+    /**
+     * The section to display the [com.tecknobit.brownie.helpers.BrownieLocalSession.joinCode] property
+     * and to share the code
+     */
     @Composable
     @NonRestartableComposable
     private fun JoinCodeSection() {
@@ -291,6 +302,9 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
         }
     }
 
+    /**
+     * Section containing the buttons to to logout from the session or delete the current [localSession]
+     */
     @Composable
     @NonRestartableComposable
     private fun ButtonsSection() {
@@ -303,6 +317,9 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
         )
     }
 
+    /**
+     * Custom [ButtonsSection] displayed on large screen size classes
+     */
     @Composable
     @NonRestartableComposable
     @ResponsiveClassComponent(
@@ -323,6 +340,9 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
         }
     }
 
+    /**
+     * Custom [ButtonsSection] displayed on compact screen size classes
+     */
     @Composable
     @CompactClassComponent
     @NonRestartableComposable
@@ -342,6 +362,11 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
         }
     }
 
+    /**
+     * The custom [Button] used to logout from the current session or delete the current [localSession]
+     *
+     * @param modifier The modifier to apply to the buttons
+     */
     @Composable
     @CompactClassComponent
     private fun ControlButtons(
@@ -382,7 +407,7 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
     }
 
     /**
-     * Method to collect or instantiate the states of the screen
+     * Method used to collect or instantiate the states of the screen
      */
     @Composable
     override fun CollectStates() {

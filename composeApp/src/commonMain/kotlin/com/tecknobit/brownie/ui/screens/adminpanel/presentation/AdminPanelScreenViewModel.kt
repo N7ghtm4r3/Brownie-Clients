@@ -2,15 +2,28 @@ package com.tecknobit.brownie.ui.screens.adminpanel.presentation
 
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.MutableState
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tecknobit.brownie.localSession
 import com.tecknobit.brownie.requester
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme
+import com.tecknobit.equinoxcompose.session.Retriever
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.helpers.InputsValidator.Companion.isPasswordValid
 import com.tecknobit.equinoxcore.network.Requester.Companion.sendRequest
 import kotlinx.coroutines.launch
 
+/**
+ * The `AdminPanelScreenViewModel` class is the support class used by the
+ * [com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen] screen to manage the
+ * current session data and to customize his/her language and theme
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ * @see ViewModel
+ * @see Retriever.RetrieverWrapper
+ * @see EquinoxViewModel
+ *
+ */
 class AdminPanelScreenViewModel : EquinoxViewModel(
     snackbarHostState = SnackbarHostState()
 ) {
@@ -36,7 +49,7 @@ class AdminPanelScreenViewModel : EquinoxViewModel(
     lateinit var passwordError: MutableState<Boolean>
 
     /**
-     * Method to execute the language change
+     * Method used to execute the language change
      *
      * @param onSuccess The action to execute if the request has been successful
      */
@@ -48,7 +61,7 @@ class AdminPanelScreenViewModel : EquinoxViewModel(
     }
 
     /**
-     * Method to execute the theme change
+     * Method used to execute the theme change
      *
      * @param onChange The action to execute when the theme changed
      */
@@ -60,7 +73,7 @@ class AdminPanelScreenViewModel : EquinoxViewModel(
     }
 
     /**
-     * Method to clear the current [localSession] session
+     * Method used to clear the current [localSession] session
      *
      * @param onClear The action to execute when the session has been cleaned
      */
@@ -71,6 +84,11 @@ class AdminPanelScreenViewModel : EquinoxViewModel(
         onClear?.invoke()
     }
 
+    /**
+     * Method used to delete the current [localSession] session
+     *
+     * @param onClear The callback to execute when the session has been cleaned
+     */
     fun deleteSession(
         onClear: (() -> Unit)? = null,
     ) {

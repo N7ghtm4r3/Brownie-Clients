@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMultiplatform::class)
 
-package com.tecknobit.brownie.ui.screens.connect
+package com.tecknobit.brownie.ui.screens.connect.presenter
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
@@ -64,6 +64,7 @@ import brownie.composeapp.generated.resources.wrong_join_code
 import brownie.composeapp.generated.resources.wrong_password
 import com.tecknobit.brownie.CloseApplicationOnNavBack
 import com.tecknobit.brownie.displayFontFamily
+import com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel
 import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.equinoxcompose.components.EmptyState
 import com.tecknobit.equinoxcompose.components.EquinoxOutlinedTextField
@@ -73,12 +74,18 @@ import com.tecknobit.equinoxcore.helpers.InputsValidator.Companion.isServerSecre
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * The [ConnectScreen] class is used to connect to an existing session or create a new one
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ * @see EquinoxScreen
+ */
 class ConnectScreen : EquinoxScreen<ConnectScreenViewModel>(
     viewModel = ConnectScreenViewModel()
 ) {
 
     /**
-     * Method to arrange the content of the screen to display
+     * Method used to arrange the content of the screen to display
      */
     @Composable
     override fun ArrangeScreenContent() {
@@ -99,7 +106,7 @@ class ConnectScreen : EquinoxScreen<ConnectScreenViewModel>(
     }
 
     /**
-     * Method to create the header section of the activity
+     * Method used to create the header section of the activity
      */
     @Composable
     private fun HeaderSection() {
@@ -143,7 +150,7 @@ class ConnectScreen : EquinoxScreen<ConnectScreenViewModel>(
     }
 
     /**
-     * Method to create the form where the user can fill it with his credentials
+     * Method used to create the form where the user can fill it with his credentials
      */
     @Composable
     @NonRestartableComposable
@@ -287,7 +294,7 @@ class ConnectScreen : EquinoxScreen<ConnectScreenViewModel>(
     }
 
     /**
-     * Method to collect or instantiate the states of the screen
+     * Method used to collect or instantiate the states of the screen
      */
     @Composable
     override fun CollectStates() {

@@ -13,7 +13,7 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 /**
- * Method to start the of `Brownie` desktop app
+ * Method used to start the of `Brownie` desktop app
  */
 fun main() {
     AmetistaEngine.intake()

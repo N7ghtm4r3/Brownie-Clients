@@ -5,7 +5,7 @@ import com.tecknobit.ametistaengine.AmetistaEngine
 import com.tecknobit.equinoxcompose.session.setUpSession
 
 /**
- * Method to start the of `Brownie` iOs application
+ * Method used to start the of `Brownie` iOs application
  */
 fun MainViewController() {
     AmetistaEngine.intake()

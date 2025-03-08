@@ -6,7 +6,7 @@ import platform.UIKit.UIActivityViewController
 import platform.UIKit.UIApplication
 
 /**
- * Method to share the join code
+ * Method used to share the join code
  *
  * @param viewModel The support viewmodel of the screen
  */

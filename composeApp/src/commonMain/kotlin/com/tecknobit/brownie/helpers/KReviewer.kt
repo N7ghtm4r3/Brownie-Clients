@@ -9,7 +9,7 @@ package com.tecknobit.brownie.helpers
 expect class KReviewer() {
 
     /**
-     * Method to review in-app the application
+     * Method used to review in-app the application
      *
      * @param flowAction The action to execute when the review form appears or not and if appeared
      * the when user dismissed the action or leaved a review

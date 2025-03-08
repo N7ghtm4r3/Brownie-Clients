@@ -55,7 +55,7 @@ class HostScreen(
     private lateinit var hostOverview: State<SavedHostOverview?>
 
     /**
-     * Method to arrange the content of the screen to display
+     * Method used to arrange the content of the screen to display
      */
     @Composable
     override fun ArrangeScreenContent() {
@@ -197,7 +197,7 @@ class HostScreen(
     }
 
     /**
-     * Method to collect or instantiate the states of the screen
+     * Method used to collect or instantiate the states of the screen
      */
     @Composable
     override fun CollectStates() {

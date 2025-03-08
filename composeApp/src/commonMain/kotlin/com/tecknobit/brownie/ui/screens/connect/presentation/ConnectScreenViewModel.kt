@@ -1,4 +1,4 @@
-package com.tecknobit.brownie.ui.screens.connect
+package com.tecknobit.brownie.ui.screens.connect.presentation
 
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.MutableState
@@ -19,10 +19,22 @@ import com.tecknobit.equinoxcore.network.Requester.Companion.toResponseData
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.JsonObject
 
+/**
+ * The `ConnectScreenViewModel` class is the support class used to connect to an existing session or
+ * to create a new one
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ * @see androidx.lifecycle.ViewModel
+ * @see com.tecknobit.equinoxcompose.session.Retriever
+ * @see EquinoxViewModel
+ */
 class ConnectScreenViewModel : EquinoxViewModel(
     snackbarHostState = SnackbarHostState()
 ) {
 
+    /**
+     * `connecting` whether the user attempting to connect to an existing session
+     */
     lateinit var connecting: MutableState<Boolean>
 
     /**
@@ -65,6 +77,9 @@ class ConnectScreenViewModel : EquinoxViewModel(
      */
     lateinit var passwordError: MutableState<Boolean>
 
+    /**
+     * Method used to connect or create a new session
+     */
     fun connect() {
         if (!isHostValid(host.value)) {
             hostError.value = true
@@ -91,6 +106,9 @@ class ConnectScreenViewModel : EquinoxViewModel(
             createSession()
     }
 
+    /**
+     * Method used to connect to an exiting session
+     */
     private fun connectToSession() {
         viewModelScope.launch {
             requester.sendRequest(
@@ -112,6 +130,9 @@ class ConnectScreenViewModel : EquinoxViewModel(
         }
     }
 
+    /**
+     * Method to create a new session
+     */
     private fun createSession() {
         viewModelScope.launch {
             requester.sendRequest(
@@ -133,6 +154,13 @@ class ConnectScreenViewModel : EquinoxViewModel(
         }
     }
 
+    /**
+     * Method to launch the application after the connection request, will be instantiated the
+     * [localSession]
+     *
+     * @param joinCode The join code to connect to the session
+     * @param responseData The response of the connection request
+     */
     private fun launchApp(
         joinCode: String,
         responseData: JsonObject,
