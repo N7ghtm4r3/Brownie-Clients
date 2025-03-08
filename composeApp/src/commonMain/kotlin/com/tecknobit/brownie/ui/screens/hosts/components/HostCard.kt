@@ -44,6 +44,12 @@ import com.tecknobit.brownie.ui.theme.yellow
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.HostStatus.REBOOTING
 
+/**
+ * Custom [Card] used to display the host information
+ *
+ * @param viewModel The support viewmodel for the screen
+ * @param host The host to display
+ */
 @Composable
 @NonRestartableComposable
 fun HostCard(
@@ -99,6 +105,13 @@ fun HostCard(
     }
 }
 
+/**
+ * The toolbar of the [HostCard] component used to handle the host status
+ *
+ * @param viewModel The support viewmodel for the screen
+ * @param host The host to display
+ * @param statusState The state container used to trigger the UI when the status changed
+ */
 @Composable
 @NonRestartableComposable
 private fun StatusToolbar(

@@ -45,6 +45,7 @@ import com.tecknobit.brownie.UPSERT_HOST_SCREEN
 import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.components.StatusFilterButton
 import com.tecknobit.brownie.ui.icons.AssignmentAdd
+import com.tecknobit.brownie.ui.screens.connect.presenter.ConnectScreen
 import com.tecknobit.brownie.ui.screens.hosts.components.HostsList
 import com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel
 import com.tecknobit.brownie.ui.theme.BrownieTheme
@@ -57,6 +58,12 @@ import com.tecknobit.equinoxcompose.utilities.ResponsiveClassComponent
 import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * The [HostsScreen] class is used to display and handle the current hosts owned by the session
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ * @see EquinoxScreen
+ */
 class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
     viewModel = HostsScreenViewModel()
 ) {
@@ -139,6 +146,9 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
         }
     }
 
+    /**
+     * Custom [ExtendedFloatingActionButton] used to register a new host
+     */
     @Composable
     @NonRestartableComposable
     @ResponsiveClassComponent(
@@ -162,10 +172,15 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
         }
     }
 
+    /**
+     * Custom section used to filter the hosts result
+     *
+     * @param modifier The modifier to apply to the section
+     */
     @Composable
     @NonRestartableComposable
     private fun FiltersBar(
-        modifier: Modifier,
+        modifier: Modifier
     ) {
         Row(
             modifier = modifier
@@ -219,6 +234,9 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
         }
     }
 
+    /**
+     * Method invoked when the [ShowContent] composable has been started
+     */
     override fun onStart() {
         super.onStart()
         viewModel.retrieveCurrentHostsStatus()

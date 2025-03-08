@@ -24,6 +24,12 @@ import io.github.ahmad_hamwi.compose.pagination.PaginatedLazyColumn
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * Custom [PaginatedLazyColumn] component used to display the hosts
+ *
+ * @param modifier The modifier to apply to the component
+ * @param viewModel The support viewmodel for the screen
+ */
 @Composable
 @NonRestartableComposable
 fun HostsList(
@@ -57,6 +63,9 @@ fun HostsList(
     }
 }
 
+/**
+ * Custom [EmptyState] component used to display the no avaibility of hosts to display
+ */
 @Composable
 @NonRestartableComposable
 private fun NoHostsRegistered() {

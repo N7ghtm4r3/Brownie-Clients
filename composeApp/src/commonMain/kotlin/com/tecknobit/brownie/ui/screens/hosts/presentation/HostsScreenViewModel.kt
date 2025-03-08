@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalPaginationApi::class)
-
 package com.tecknobit.brownie.ui.screens.hosts.presentation
 
 import androidx.compose.material3.SnackbarHostState
@@ -32,20 +30,43 @@ import kotlinx.coroutines.launch
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.jsonObject
 
+/**
+ * The `HostsScreenViewModel` class is the support class used by the
+ * [com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen] screen
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ * @see androidx.lifecycle.ViewModel
+ * @see com.tecknobit.equinoxcompose.session.Retriever
+ * @see EquinoxViewModel
+ * @see HostManager
+ *
+ */
 class HostsScreenViewModel : EquinoxViewModel(
     snackbarHostState = SnackbarHostState()
 ), HostManager {
 
+    /**
+     *`requestsScope` the [CoroutineScope] used to make the requests to the backend
+     */
     override var requestsScope: CoroutineScope = MainScope()
 
+    /**
+     *`inputSearch` is the input inserted by the user to filter the hosts result
+     */
     lateinit var inputSearch: MutableState<String>
 
+    /**
+     *`statusFilters` the list of the statuses used to filter the hosts result
+     */
     val statusFilters = mutableStateListOf<HostStatus>()
 
     init {
         statusFilters.addAll(HostStatus.entries)
     }
 
+    /**
+     *`hostsState` the state used to handle the pagination of the hosts
+     */
     val hostsState = PaginationState<Int, SavedHostImpl>(
         initialPageKey = DEFAULT_PAGE,
         onRequestPage = { page ->
@@ -55,11 +76,18 @@ class HostsScreenViewModel : EquinoxViewModel(
         }
     )
 
+    /**
+     *`_refreshingHosts` shared state used to refresh the hosts statuses
+     */
     private val _refreshingHosts = MutableSharedFlow<Boolean>(
         replay = 1
     )
     val refreshingHosts = _refreshingHosts.asSharedFlow()
 
+    /**
+     * Method used to load and retrieve the hosts owned by the session
+     * @param page The page to request
+     */
     private fun loadHosts(
         page: Int,
     ) {
@@ -87,6 +115,9 @@ class HostsScreenViewModel : EquinoxViewModel(
         }
     }
 
+    /**
+     * Method used to retrieve the current hosts statuses and refresh the [hostsState] items
+     */
     fun retrieveCurrentHostsStatus() {
         retrieve(
             currentContext = HostsScreen::class,
@@ -122,6 +153,11 @@ class HostsScreenViewModel : EquinoxViewModel(
         )
     }
 
+    /**
+     * Method used to update the status of a host
+     *
+     * @param statusInfo The updated information of the host
+     */
     private fun updateHostStatus(
         statusInfo: JsonObject,
     ) {
@@ -135,6 +171,11 @@ class HostsScreenViewModel : EquinoxViewModel(
         }
     }
 
+    /**
+     * Method used to apply the selected statuses and refresh the current [hostsState] list
+     *
+     * @param onSuccess The callback invoked when the statuses have been applied
+     */
     fun applyStatusFilters(
         onSuccess: () -> Unit,
     ) {
@@ -142,19 +183,16 @@ class HostsScreenViewModel : EquinoxViewModel(
         hostsState.refresh()
     }
 
+    /**
+     * Method used to display an eventual occurred error
+     * @param error The error to display
+     */
     override fun showFailure(
         error: JsonObject,
     ) {
         showSnackbarMessage(
             response = error
         )
-    }
-
-    override fun suspendRetriever() {
-        try {
-            super.suspendRetriever()
-        } catch (_: Exception) {
-        }
     }
 
 }
