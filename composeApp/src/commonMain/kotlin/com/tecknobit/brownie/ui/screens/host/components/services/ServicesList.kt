@@ -62,7 +62,7 @@ fun ServicesList(
     ) {
         items(
             items = viewModel.servicesState.allItems!!,
-            key = { service -> service.pid }
+            key = { service -> service.id }
         ) { service ->
             ServiceCard(
                 viewModel = viewModel,
