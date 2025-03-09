@@ -1,5 +1,8 @@
 
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.dokka.base.DokkaBase
+import org.jetbrains.dokka.base.DokkaBaseConfiguration
+import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
@@ -12,6 +15,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     kotlin("plugin.serialization") version "2.1.0"
     id("com.github.gmazzo.buildconfig") version "5.5.1"
+    alias(libs.plugins.dokka)
 }
 
 kotlin {
@@ -213,4 +217,16 @@ buildConfig {
         name = "BYPASS_SSL_VALIDATION",
         value = project.findProperty("bypass_ssl_validation").toString().toBoolean()
     )
+}
+
+tasks.withType<DokkaTask>().configureEach {
+    dokkaSourceSets {
+        moduleName.set("Brownie")
+        outputDirectory.set(layout.projectDirectory.dir("../docs"))
+    }
+
+    pluginConfiguration<DokkaBase, DokkaBaseConfiguration> {
+        customAssets = listOf(file("../docs/logo-icon.svg"))
+        footerMessage = "(c) 2025 Tecknobit"
+    }
 }

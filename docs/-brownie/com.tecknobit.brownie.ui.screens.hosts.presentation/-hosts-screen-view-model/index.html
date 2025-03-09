@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>HostsScreenViewModel</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+<link href="../../../images/logo-icon.svg">
+</head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+                    <a class="library-name--link" href="../../../index.html">
+                            Brownie
+                    </a>
+            </div>
+            <div class="library-version">
+1.0.0            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":composeApp:dokkaHtml/commonMain">common</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="Brownie::com.tecknobit.brownie.ui.screens.hosts.presentation/HostsScreenViewModel///PointingToDeclaration//-813795679">
+  <div class="breadcrumbs"><a href="../../../index.html">Brownie</a><span class="delimiter">/</span><a href="../index.html">com.tecknobit.brownie.ui.screens.hosts.presentation</a><span class="delimiter">/</span><span class="current">HostsScreenViewModel</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Hosts</span><wbr></wbr><span>Screen</span><wbr></wbr><span>View</span><wbr></wbr><span><span>Model</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">HostsScreenViewModel</a> : <span data-unresolved-link="com.tecknobit.equinoxcompose.viewmodels/EquinoxViewModel///PointingToDeclaration/">EquinoxViewModel</span>, <a href="../../com.tecknobit.brownie.ui.shared.presentations/-host-manager/index.html">HostManager</a></div><p class="paragraph">The <code class="lang-kotlin">HostsScreenViewModel</code> class is the support class used by the <a href="../../com.tecknobit.brownie.ui.screens.hosts.presenter/-hosts-screen/index.html">com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen</a> screen</p><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">N7ghtm4r3 - Tecknobit</p></span><h4 class="">See also</h4><div class="table"><div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel.html"><span>View</span><wbr></wbr><span><span>Model</span></span></a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><span data-unresolved-link="com.tecknobit.equinoxcompose.session/Retriever///PointingToDeclaration/"><span><span>Retriever</span></span></span></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><span data-unresolved-link="com.tecknobit.equinoxcompose.viewmodels/EquinoxViewModel///PointingToDeclaration/"><span>Equinox</span><wbr></wbr><span>View</span><wbr></wbr><span><span>Model</span></span></span></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-host-manager/index.html"><span>Host</span><wbr></wbr><span><span>Manager</span></span></a></div></span></div><div></div></div></div></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="357477315%2FConstructors%2F-813795679" anchor-label="HostsScreenViewModel" id="357477315%2FConstructors%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-hosts-screen-view-model.html"><span>Hosts</span><wbr></wbr><span>Screen</span><wbr></wbr><span>View</span><wbr></wbr><span><span>Model</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="357477315%2FConstructors%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-1822266518%2FProperties%2F-813795679" anchor-label="hostsState" id="-1822266518%2FProperties%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="hosts-state.html"><span>hosts</span><wbr></wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1822266518%2FProperties%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="hosts-state.html">hostsState</a><span class="token operator">: </span><span data-unresolved-link="io.github.ahmad_hamwi.compose.pagination/PaginationState///PointingToDeclaration/">PaginationState</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span><a href="../../com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/-saved-host-impl/index.html">SavedHost.SavedHostImpl</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">hostsState</code> the state used to handle the pagination of the hosts</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="530350040%2FProperties%2F-813795679" anchor-label="inputSearch" id="530350040%2FProperties%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="input-search.html"><span>input</span><wbr></wbr><span><span>Search</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="530350040%2FProperties%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">lateinit </span><span class="token keyword">var </span><a href="input-search.html">inputSearch</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState.html">MutableState</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">inputSearch</code> is the input inserted by the user to filter the hosts result</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1708261062%2FProperties%2F-813795679" anchor-label="refreshingHosts" id="1708261062%2FProperties%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="refreshing-hosts.html"><span>refreshing</span><wbr></wbr><span><span>Hosts</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1708261062%2FProperties%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="refreshing-hosts.html">refreshingHosts</a><span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-647590022%2FProperties%2F-813795679" anchor-label="requestsScope" id="-647590022%2FProperties%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="requests-scope.html"><span>requests</span><wbr></wbr><span><span>Scope</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-647590022%2FProperties%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">var </span><a href="requests-scope.html">requestsScope</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines/CoroutineScope///PointingToDeclaration/">CoroutineScope</span></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">requestsScope</code> the <span data-unresolved-link="kotlinx.coroutines/CoroutineScope///PointingToDeclaration/">CoroutineScope</span> used to make the requests to the backend</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="625987206%2FProperties%2F-813795679" anchor-label="snackbarHostState" id="625987206%2FProperties%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#625987206%2FProperties%2F-813795679"><span>snackbar</span><wbr></wbr><span>Host</span><wbr></wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="625987206%2FProperties%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#625987206%2FProperties%2F-813795679">snackbarHostState</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHostState.html">SnackbarHostState</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="847287009%2FProperties%2F-813795679" anchor-label="statusFilters" id="847287009%2FProperties%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="status-filters.html"><span>status</span><wbr></wbr><span><span>Filters</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="847287009%2FProperties%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="status-filters.html">statusFilters</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/snapshots/SnapshotStateList.html">SnapshotStateList</a><span class="token operator">&lt;</span><span data-unresolved-link="com.tecknobit.browniecore.enums/HostStatus///PointingToDeclaration/">HostStatus</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><code class="lang-kotlin">statusFilters</code> the list of the statuses used to filter the hosts result</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-462089743%2FFunctions%2F-813795679" anchor-label="addCloseable" id="-462089743%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#2068605057%2FFunctions%2F-813795679"><span>add</span><wbr></wbr><span><span>Closeable</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-462089743%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#2068605057%2FFunctions%2F-813795679"><span class="token function">addCloseable</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">closeable<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-auto-closeable/index.html">AutoCloseable</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#2093014716%2FFunctions%2F-813795679"><span class="token function">addCloseable</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">closeable<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-auto-closeable/index.html">AutoCloseable</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-81330895%2FFunctions%2F-813795679" anchor-label="applyStatusFilters" id="-81330895%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="apply-status-filters.html"><span>apply</span><wbr></wbr><span>Status</span><wbr></wbr><span><span>Filters</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-81330895%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="apply-status-filters.html"><span class="token function">applyStatusFilters</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">onSuccess<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Method used to apply the selected statuses and refresh the current <a href="hosts-state.html">hostsState</a> list</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1021598606%2FFunctions%2F-813795679" anchor-label="canRetrieverStart" id="1021598606%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#1021598606%2FFunctions%2F-813795679"><span>can</span><wbr></wbr><span>Retriever</span><wbr></wbr><span><span>Start</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1021598606%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#1021598606%2FFunctions%2F-813795679"><span class="token function">canRetrieverStart</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1845797905%2FFunctions%2F-813795679" anchor-label="continueToRetrieve" id="-1845797905%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#-1845797905%2FFunctions%2F-813795679"><span>continue</span><wbr></wbr><span>To</span><wbr></wbr><span><span>Retrieve</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1845797905%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#-1845797905%2FFunctions%2F-813795679"><span class="token function">continueToRetrieve</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">currentContext<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.reflect/-k-class/index.html">KClass</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1102255800%2FFunctions%2F-813795679" anchor-label="getCloseable" id="1102255800%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#1102255800%2FFunctions%2F-813795679"><span>get</span><wbr></wbr><span><span>Closeable</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1102255800%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#1102255800%2FFunctions%2F-813795679">T</a><span class="token operator"> : </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-auto-closeable/index.html">AutoCloseable</a><span class="token operator">&gt; </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#1102255800%2FFunctions%2F-813795679"><span class="token function">getCloseable</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#1102255800%2FFunctions%2F-813795679">T</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1269233762%2FFunctions%2F-813795679" anchor-label="handleHostStatus" id="1269233762%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-host-manager/handle-host-status.html"><span>handle</span><wbr></wbr><span>Host</span><wbr></wbr><span><span>Status</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1269233762%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-host-manager/handle-host-status.html"><span class="token function">handleHostStatus</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">host<span class="token operator">: </span><a href="../../com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/index.html">SavedHost</a><span class="token punctuation">, </span></span><span class="parameter ">onStatusChange<span class="token operator">: </span><span class="token punctuation">(</span><span data-unresolved-link="com.tecknobit.browniecore.enums/HostStatus///PointingToDeclaration/">HostStatus</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Method used to handle the status of the host such online or offline</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1274226079%2FFunctions%2F-813795679" anchor-label="rebootHost" id="-1274226079%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-host-manager/reboot-host.html"><span>reboot</span><wbr></wbr><span><span>Host</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1274226079%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-host-manager/reboot-host.html"><span class="token function">rebootHost</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">host<span class="token operator">: </span><a href="../../com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/index.html">SavedHost</a><span class="token punctuation">, </span></span><span class="parameter ">onStatusChange<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Method used to reboot a host</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2047976695%2FFunctions%2F-813795679" anchor-label="restartRetriever" id="-2047976695%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#-2047976695%2FFunctions%2F-813795679"><span>restart</span><wbr></wbr><span><span>Retriever</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2047976695%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#-2047976695%2FFunctions%2F-813795679"><span class="token function">restartRetriever</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="216722984%2FFunctions%2F-813795679" anchor-label="restartRetrieverIf" id="216722984%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#216722984%2FFunctions%2F-813795679"><span>restart</span><wbr></wbr><span>Retriever</span><wbr></wbr><span><span>If</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="216722984%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#216722984%2FFunctions%2F-813795679"><span class="token function">restartRetrieverIf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">condition<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="394123494%2FFunctions%2F-813795679" anchor-label="retrieve" id="394123494%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#394123494%2FFunctions%2F-813795679"><span><span>retrieve</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="394123494%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#394123494%2FFunctions%2F-813795679"><span class="token function">retrieve</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">currentContext<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.reflect/-k-class/index.html">KClass</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">routine<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">repeatRoutine<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">refreshDelay<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="475063408%2FFunctions%2F-813795679" anchor-label="retrieveCurrentHostsStatus" id="475063408%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="retrieve-current-hosts-status.html"><span>retrieve</span><wbr></wbr><span>Current</span><wbr></wbr><span>Hosts</span><wbr></wbr><span><span>Status</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="475063408%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="retrieve-current-hosts-status.html"><span class="token function">retrieveCurrentHostsStatus</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Method used to retrieve the current hosts statuses and refresh the <a href="hosts-state.html">hostsState</a> items</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1180848995%2FFunctions%2F-813795679" anchor-label="setActiveContext" id="-1180848995%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#-1180848995%2FFunctions%2F-813795679"><span>set</span><wbr></wbr><span>Active</span><wbr></wbr><span><span>Context</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1180848995%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#-1180848995%2FFunctions%2F-813795679"><span class="token function">setActiveContext</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">currentContext<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.reflect/-k-class/index.html">KClass</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1253225203%2FFunctions%2F-813795679" anchor-label="showFailure" id="-1253225203%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="show-failure.html"><span>show</span><wbr></wbr><span><span>Failure</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1253225203%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="show-failure.html"><span class="token function">showFailure</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">error<span class="token operator">: </span><span data-unresolved-link="kotlinx.serialization.json/JsonObject///PointingToDeclaration/">JsonObject</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Method used to display an eventual occurred error</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1429099309%2FFunctions%2F-813795679" anchor-label="showSnackbarMessage" id="-1429099309%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#-1913775873%2FFunctions%2F-813795679"><span>show</span><wbr></wbr><span>Snackbar</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1429099309%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#-1913775873%2FFunctions%2F-813795679"><span class="token function">showSnackbarMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#173216869%2FFunctions%2F-813795679"><span class="token function">showSnackbarMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">response<span class="token operator">: </span><span data-unresolved-link="kotlinx.serialization.json/JsonObject///PointingToDeclaration/">JsonObject</span></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#98444063%2FFunctions%2F-813795679"><span class="token function">showSnackbarMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><span data-unresolved-link="org.jetbrains.compose.resources/StringResource///PointingToDeclaration/">StringResource</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="255431158%2FFunctions%2F-813795679" anchor-label="suspendRetriever" id="255431158%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#255431158%2FFunctions%2F-813795679"><span>suspend</span><wbr></wbr><span><span>Retriever</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="255431158%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#255431158%2FFunctions%2F-813795679"><span class="token function">suspendRetriever</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="575449877%2FFunctions%2F-813795679" anchor-label="suspendRetrieverIf" id="575449877%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#575449877%2FFunctions%2F-813795679"><span>suspend</span><wbr></wbr><span>Retriever</span><wbr></wbr><span><span>If</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="575449877%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html#575449877%2FFunctions%2F-813795679"><span class="token function">suspendRetrieverIf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">condition<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1983057032%2FFunctions%2F-813795679" anchor-label="unregisterHost" id="-1983057032%2FFunctions%2F-813795679" data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":composeApp:dokkaHtml/commonMain" data-filterable-set=":composeApp:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../com.tecknobit.brownie.ui.shared.presentations/-host-manager/unregister-host.html"><span>unregister</span><wbr></wbr><span><span>Host</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1983057032%2FFunctions%2F-813795679"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":composeApp:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../../com.tecknobit.brownie.ui.shared.presentations/-host-manager/unregister-host.html"><span class="token function">unregisterHost</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">host<span class="token operator">: </span><a href="../../com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/index.html">SavedHost</a><span class="token punctuation">, </span></span><span class="parameter ">onSuccess<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Method used to unregister a host from the session</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>(c) 2025 Tecknobit</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

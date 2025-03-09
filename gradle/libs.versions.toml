@@ -20,6 +20,7 @@ browniecore = "1.0.0"
 appUpdate = "2.1.0"
 review = "2.0.2"
 ametista-engine = "1.0.2"
+dokka = "1.9.20"
 
 #TODO: TO REMOVE
 startupRuntime = "1.2.0"
@@ -43,6 +44,7 @@ review-ktx = { module = "com.google.android.play:review-ktx", version.ref = "rev
 app-update = { module = "com.google.android.play:app-update", version.ref = "appUpdate" }
 app-update-ktx = { module = "com.google.android.play:app-update-ktx", version.ref = "appUpdate" }
 ametista-engine = { module = "io.github.n7ghtm4r3:Ametista-Engine", version.ref = "ametista-engine" }
+dokka-base = { module = "org.jetbrains.dokka:dokka-base", version.ref = "dokka" }
 
 #TODO: TO REMOVE
 androidx-startup-runtime = { module = "androidx.startup:startup-runtime", version.ref = "startupRuntime" }
@@ -53,3 +55,4 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
