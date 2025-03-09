@@ -191,7 +191,8 @@ compose.desktop {
                 rpmLicenseType = "MIT"
             }
             buildTypes.release.proguard {
-                configurationFiles.from(project.file("compose-desktop.pro"))
+                configurationFiles.from(project.file("src/desktopMain/resources/compose-desktop.pro"))
+                version.set("7.5.0")
                 obfuscate.set(true)
             }
         }
