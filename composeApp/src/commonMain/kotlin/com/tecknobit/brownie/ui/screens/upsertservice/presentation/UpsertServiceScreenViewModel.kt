@@ -41,7 +41,7 @@ class UpsertServiceScreenViewModel(
     lateinit var programArguments: MutableState<String>
 
     /**
-     * `purgeNohupOutAfterReboot` whether the {@code nohup.out} file related to the service must be
+     * `purgeNohupOutAfterReboot` whether the `nohup.out` file related to the service must be
      * deleted at each service start
      */
     lateinit var purgeNohupOutAfterReboot: MutableState<Boolean>

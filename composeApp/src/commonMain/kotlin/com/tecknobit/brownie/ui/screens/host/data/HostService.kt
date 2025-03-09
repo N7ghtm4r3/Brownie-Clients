@@ -85,7 +85,7 @@ data class HostService(
      *
      * @property id The identifier of the configuration
      * @property programArguments The arguments of the program
-     * @property purgeNohupOutAfterReboot Whether the {@code nohup.out} file related to the service
+     * @property purgeNohupOutAfterReboot Whether the `nohup.out` file related to the service
      * must be deleted at each service start
      * @property autoRunAfterHostReboot Whether the service must be automatically restarted after the
      * host start or the host restart

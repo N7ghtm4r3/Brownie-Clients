@@ -28,12 +28,18 @@ import com.tecknobit.browniecore.helpers.BrownieEndpoints.REBOOT_ENDPOINT
 import com.tecknobit.browniecore.helpers.BrownieEndpoints.START_ENDPOINT
 import com.tecknobit.browniecore.helpers.BrownieEndpoints.STOP_ENDPOINT
 import com.tecknobit.equinoxcore.annotations.Assembler
+import com.tecknobit.equinoxcore.annotations.RequestPath
 import com.tecknobit.equinoxcore.annotations.Wrapper
 import com.tecknobit.equinoxcore.helpers.LANGUAGE_KEY
 import com.tecknobit.equinoxcore.helpers.NAME_KEY
 import com.tecknobit.equinoxcore.helpers.PASSWORD_KEY
 import com.tecknobit.equinoxcore.helpers.SERVER_SECRET_KEY
 import com.tecknobit.equinoxcore.network.EquinoxBaseEndpointsSet.Companion.BASE_EQUINOX_ENDPOINT
+import com.tecknobit.equinoxcore.network.RequestMethod.DELETE
+import com.tecknobit.equinoxcore.network.RequestMethod.GET
+import com.tecknobit.equinoxcore.network.RequestMethod.PATCH
+import com.tecknobit.equinoxcore.network.RequestMethod.POST
+import com.tecknobit.equinoxcore.network.RequestMethod.PUT
 import com.tecknobit.equinoxcore.network.Requester
 import com.tecknobit.equinoxcore.pagination.PaginatedResponse.Companion.PAGE_KEY
 import kotlinx.serialization.json.JsonObject
@@ -42,6 +48,19 @@ import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.put
 import kotlinx.serialization.json.putJsonArray
 
+/**
+ * The `BrownieRequester` class is useful to communicate with Brownie's backend
+ *
+ * @param host The host address where is running the backend
+ * @param sessionId The identifier of the session
+ * @param language The language of the device
+ * @param debugMode Whether the requester is still in development and who is developing needs the log
+ * of the requester's workflow, if it is enabled all the details of the requests sent and the errors
+ * occurred will be printed in the console
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ *
+ */
 class BrownieRequester(
     host: String,
     var sessionId: String?,
@@ -60,7 +79,6 @@ class BrownieRequester(
         }
     }
 
-
     /**
      * Method used to change, during the runtime for example when the session changed, the host address to make the
      * requests
@@ -75,6 +93,16 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Request to connect to a specific session
+     *
+     * @param serverSecret The secret of the server
+     * @param joinCode The code used to join in the session
+     * @param password The password which protects the session accesses
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(path = "/api/v1/sessions/connect", method = PUT)
     suspend fun connectToSession(
         serverSecret: String,
         joinCode: String,
@@ -93,6 +121,15 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Request to create a new session
+     *
+     * @param serverSecret The secret of the server
+     * @param password The password which protects the session accesses
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(path = "/api/v1/sessions", method = POST)
     suspend fun createSession(
         serverSecret: String,
         password: String,
@@ -107,6 +144,14 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Request to delete an existing session
+     *
+     * @param password The password which protects the session accesses
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(path = "/api/v1/sessions/{session_id}", method = DELETE)
     suspend fun deleteSession(
         password: String,
     ): JsonObject {
@@ -119,6 +164,13 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Method used to assemble an endpoint related to sessions
+     *
+     * @param subEndpoint The sub endpoint to execute a specific action
+     *
+     * @return the session endpoint as [String]
+     */
     @Assembler
     private fun assembleSessionEndpoint(
         subEndpoint: String = "",
@@ -129,6 +181,16 @@ class BrownieRequester(
             SESSIONS_KEY + subEndpoint
     }
 
+    /**
+     * Request to get the hosts related to the session
+     *
+     * @param page The page to request
+     * @param keywords The keywords to filter the hosts to retrieve
+     * @param statuses The statuses to filter the hosts to retrieve
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(path = "/api/v1/sessions/{session_id}/hosts", method = GET)
     suspend fun getHosts(
         page: Int,
         keywords: String,
@@ -151,6 +213,14 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Request to get the current status of the specified hosts
+     *
+     * @param currentHosts The hosts to monitor their status
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(path = "/api/v1/sessions/{session_id}/hosts/status", method = GET)
     suspend fun getHostsStatus(
         currentHosts: List<SavedHostImpl>?,
     ): JsonObject {
@@ -169,17 +239,17 @@ class BrownieRequester(
         )
     }
 
-    suspend fun getHost(
-        hostId: String,
-    ): JsonObject {
-        return execGet(
-            endpoint = assembleHostEndpoint(
-                hostId = hostId,
-            ),
-            query = createLanguageQuery()
-        )
-    }
-
+    /**
+     * Request to register a new host
+     *
+     * @param hostName The name of the host
+     * @param hostAddress The address of the host
+     * @param sshUser The user used in the SSH connection
+     * @param sshPassword The password used in the SSH connection
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(path = "/api/v1/sessions/{session_id}/hosts", method = POST)
     suspend fun registerHost(
         hostName: String,
         hostAddress: String,
@@ -198,6 +268,36 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Request to get a specific host
+     *
+     * @param hostId The identifier of the host
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(path = "/api/v1/sessions/{session_id}/hosts/{host_id}", method = GET)
+    suspend fun getHost(
+        hostId: String,
+    ): JsonObject {
+        return execGet(
+            endpoint = assembleHostEndpoint(
+                hostId = hostId,
+            ),
+            query = createLanguageQuery()
+        )
+    }
+
+    /**
+     * Request to edit an existing host
+     *
+     * @param hostName The name of the host
+     * @param hostAddress The address of the host
+     * @param sshUser The user used in the SSH connection
+     * @param sshPassword The password used in the SSH connection
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(path = "/api/v1/sessions/{session_id}/hosts/{host_id}", method = PATCH)
     suspend fun editHost(
         hostId: String,
         hostName: String,
@@ -219,6 +319,16 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Method used to assemble the payload for the [registerHost] and [editHost] requests
+     *
+     * @param hostName The name of the host
+     * @param hostAddress The address of the host
+     * @param sshUser The user used in the SSH connection
+     * @param sshPassword The password used in the SSH connection
+     *
+     * @return the payload as [JsonObject]
+     */
     @Assembler
     private fun createUpsertHostPayload(
         hostName: String,
@@ -236,6 +346,18 @@ class BrownieRequester(
         }
     }
 
+    /**
+     * Request to handle the status of a host
+     *
+     * @param host The host to handle its status
+     * @param newStatus The status to set
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(
+        path = "/api/v1/sessions/{session_id}/hosts/{host_id}/(start or stop)",
+        method = PATCH
+    )
     suspend fun handleHostStatus(
         host: SavedHost,
         newStatus: HostStatus,
@@ -252,6 +374,14 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Request to reboot a host
+     *
+     * @param host The host to reboot
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(path = "/api/v1/sessions/{session_id}/hosts/{host_id}/reboot", method = PATCH)
     suspend fun rebootHost(
         host: SavedHost,
     ): JsonObject {
@@ -264,6 +394,14 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Request to get the host overview
+     *
+     * @param hostId The identifier of the host
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(path = "/api/v1/sessions/{session_id}/hosts/{host_id}/overview", method = GET)
     suspend fun getHostOverview(
         hostId: String,
     ): JsonObject {
@@ -276,6 +414,14 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Request to unregister a host from the system
+     *
+     * @param host The host to unregister
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(path = "/api/v1/sessions/{session_id}/hosts/{host_id}", method = DELETE)
     suspend fun unregisterHost(
         host: SavedHost,
     ): JsonObject {
@@ -287,6 +433,14 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Method used to assemble an endpoint related to host section
+     *
+     * @param hostId The identifier of the host
+     * @param subEndpoint The sub endpoint to execute a specific action
+     *
+     * @return the host endpoint as [String]
+     */
     @Assembler
     private fun assembleHostEndpoint(
         hostId: String = "",
@@ -300,6 +454,20 @@ class BrownieRequester(
         return hostEndpoint + subEndpoint
     }
 
+    /**
+     * Request to add a service to a host
+     *
+     * @param hostId The identifier of the host
+     * @param serviceName The name of the service
+     * @param programArguments The arguments of the program
+     * @param purgeNohupOutAfterReboot Whether the `nohup.out` file related to the service must be
+     * deleted at each service start
+     * @param autoRunAfterHostReboot Whether the service must be automatically restarted after the
+     * host start or the host restart
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(path = "/api/v1/sessions/{session_id}/hosts/{host_id}/services", method = PUT)
     suspend fun addService(
         hostId: String,
         serviceName: String,
@@ -322,6 +490,16 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Request to get a service
+     *
+     * @param hostId The identifier of the host
+     * @param serviceId The identifier of the service
+     */
+    @RequestPath(
+        path = "/api/v1/sessions/{session_id}/hosts/{host_id}/services/{service_id}",
+        method = GET
+    )
     suspend fun getService(
         hostId: String,
         serviceId: String,
@@ -335,6 +513,23 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Request to edit an existing service
+     *
+     * @param hostId The identifier of the host
+     * @param serviceName The name of the service
+     * @param programArguments The arguments of the program
+     * @param purgeNohupOutAfterReboot Whether the `nohup.out` file related to the service must be
+     * deleted at each service start
+     * @param autoRunAfterHostReboot Whether the service must be automatically restarted after the
+     * host start or the host restart
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(
+        path = "/api/v1/sessions/{session_id}/hosts/{host_id}/services/{service_id}",
+        method = PATCH
+    )
     suspend fun editService(
         hostId: String,
         serviceId: String,
@@ -359,6 +554,19 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Request to handle the status of a service
+     *
+     * @param hostId The host identifier
+     * @param service The service to handle its status
+     * @param newStatus The status to set
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(
+        path = "/api/v1/sessions/{session_id}/hosts/{host_id}/services/{service_id}/(start or stop)",
+        method = PATCH
+    )
     suspend fun handleServiceStatus(
         hostId: String,
         service: HostService,
@@ -377,6 +585,18 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Request to reboot a service
+     *
+     * @param hostId The host identifier
+     * @param service The service to handle its status
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(
+        path = "/api/v1/sessions/{session_id}/hosts/{host_id}/services/{service_id}/reboot",
+        method = PATCH
+    )
     suspend fun rebootService(
         hostId: String,
         service: HostService,
@@ -391,6 +611,18 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Method used to assemble the payload for the [addService] and [editService] requests
+     *
+     * @param serviceName The name of the service
+     * @param programArguments The arguments of the program
+     * @param purgeNohupOutAfterReboot Whether the `nohup.out` file related to the service must be
+     * deleted at each service start
+     * @param autoRunAfterHostReboot Whether the service must be automatically restarted after the
+     * host start or the host restart
+     *
+     * @return the payload as [JsonObject]
+     */
     @Assembler
     private fun createServicePayload(
         serviceName: String,
@@ -406,6 +638,16 @@ class BrownieRequester(
         }
     }
 
+    /**
+     * Request to get the services of a host
+     *
+     * @param page The page to request
+     * @param keywords The keywords to filter the services to retrieve
+     * @param statuses The statuses to filter the services to retrieve
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(path = "/api/v1/sessions/{session_id}/hosts/{host_id}/services", method = GET)
     suspend fun getServices(
         hostId: String,
         page: Int,
@@ -431,6 +673,18 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Request to get the current status of the specified services
+     *
+     * @param hostId The identifier of the host
+     * @param currentServices The services to monitor their status
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(
+        path = "/api/v1/sessions/{session_id}/hosts/{host_id}/services/status",
+        method = GET
+    )
     suspend fun getServicesStatus(
         hostId: String,
         currentServices: List<HostService>?,
@@ -451,7 +705,19 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Request to delete the service
+     *
+     * @param hostId The identifier of the host
+     * @param serviceId The identifier of the service
+     *
+     * @return the response of the request as [JsonObject]
+     */
     @Wrapper
+    @RequestPath(
+        path = "/api/v1/sessions/{session_id}/hosts/{host_id}/services/{service_id}",
+        method = DELETE
+    )
     suspend fun deleteService(
         hostId: String,
         serviceId: String,
@@ -463,6 +729,20 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Request to delete the service
+     *
+     * @param hostId The identifier of the host
+     * @param serviceId The identifier of the service
+     * @param removeFromTheHost Whether the removing include also the removing from the filesystem
+     * of the host
+     *
+     * @return the response of the request as [JsonObject]
+     */
+    @RequestPath(
+        path = "/api/v1/sessions/{session_id}/hosts/{host_id}/services/{service_id}",
+        method = DELETE
+    )
     suspend fun removeService(
         hostId: String,
         serviceId: String,
@@ -481,6 +761,15 @@ class BrownieRequester(
         )
     }
 
+    /**
+     * Method used to assemble an endpoint related to services
+     *
+     * @param hostId The identifier of the host
+     * @param serviceId The identifier of the service
+     * @param subEndpoint The sub endpoint to execute a specific action
+     *
+     * @return the service endpoint as [String]
+     */
     @Assembler
     private fun assembleServicesEndpoint(
         hostId: String,
@@ -496,6 +785,12 @@ class BrownieRequester(
         return serviceEndpoint + subEndpoint
     }
 
+    /**
+     * Method used to assemble the query with language parameter
+     *
+     * @return the language query as [JsonObject]
+     */
+    @Assembler
     private fun createLanguageQuery(): JsonObject {
         return buildJsonObject {
             put(LANGUAGE_KEY, language)
