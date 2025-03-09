@@ -161,7 +161,7 @@ compose.desktop {
     application {
         mainClass = "com.tecknobit.brownie.MainKt"
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            targetFormats(TargetFormat.Dmg, TargetFormat.Exe, TargetFormat.Deb)
             modules(
                 "java.compiler", "java.instrument", "java.management", "java.naming", "java.net.http", "java.prefs",
                 "java.rmi", "java.scripting", "java.security.jgss", "java.sql", "jdk.jfr", "jdk.unsupported",

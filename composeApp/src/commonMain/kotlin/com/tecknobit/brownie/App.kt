@@ -171,7 +171,7 @@ private fun InitAmetista() {
             serverSecret = AmetistaConfig.SERVER_SECRET!!,
             applicationId = AmetistaConfig.APPLICATION_IDENTIFIER!!,
             bypassSslValidation = AmetistaConfig.BYPASS_SSL_VALIDATION,
-            debugMode = true // TODO: TO SET ON FALSE
+            debugMode = false
         )
     }
 }
@@ -193,8 +193,7 @@ fun startSession() {
     requester = BrownieRequester(
         host = localSession.hostAddress,
         sessionId = localSession.sessionId,
-        language = localSession.language,
-        debugMode = true // TODO: TO REMOVE
+        language = localSession.language
     )
     val route = if (localSession.sessionId != null)
         HOSTS_SCREEN
