@@ -185,7 +185,7 @@ compose.desktop {
                 debMaintainer = "infotecknobitcompany@gmail.com"
                 appRelease = "1.0.1"
                 appCategory = "PERSONALIZATION"
-                rpmLicenseType = "MIT"
+                rpmLicenseType = "APACHE2"
             }
             buildTypes.release.proguard {
                 configurationFiles.from(project.file("src/desktopMain/resources/compose-desktop.pro"))
