@@ -21,7 +21,7 @@ plugins {
 kotlin {
     androidTarget {
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_22)
+            jvmTarget.set(JvmTarget.JVM_18)
         }
     }
     
@@ -38,7 +38,7 @@ kotlin {
     
     jvm("desktop") {
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_22)
+            jvmTarget.set(JvmTarget.JVM_18)
         }
     }
     
@@ -72,9 +72,6 @@ kotlin {
             implementation(libs.app.update.ktx)
             implementation(libs.review)
             implementation(libs.review.ktx)
-
-            // TODO: TO REMOVE 
-            implementation(libs.androidx.startup.runtime)
         }
 
         val commonMain by getting {
@@ -134,8 +131,8 @@ android {
         applicationId = "com.tecknobit.brownie"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 2
-        versionName = "1.0.0"
+        versionCode = 3
+        versionName = "1.0.1"
     }
     packaging {
         resources {
@@ -148,8 +145,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_22
-        targetCompatibility = JavaVersion.VERSION_22
+        sourceCompatibility = JavaVersion.VERSION_18
+        targetCompatibility = JavaVersion.VERSION_18
     }
 }
 
@@ -168,8 +165,8 @@ compose.desktop {
                 "jdk.security.auth"
             )
             packageName = "Brownie"
-            packageVersion = "1.0.0"
-            version = "1.0.0"
+            packageVersion = "1.0.1"
+            version = "1.0.1"
             description = "Self-hosted VPS manager"
             copyright = "© 2025 Tecknobit"
             vendor = "Tecknobit"
@@ -186,7 +183,7 @@ compose.desktop {
                 iconFile.set(project.file("src/desktopMain/resources/logo.png"))
                 packageName = "com-tecknobit-brownie"
                 debMaintainer = "infotecknobitcompany@gmail.com"
-                appRelease = "1.0.0"
+                appRelease = "1.0.1"
                 appCategory = "PERSONALIZATION"
                 rpmLicenseType = "MIT"
             }
