@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
@@ -25,7 +24,6 @@ import com.tecknobit.equinoxcompose.components.EquinoxOutlinedTextField
  * @param viewModel The support viewmodel for the screen
  */
 @Composable
-@NonRestartableComposable
 fun HostAddressSection(
     viewModel: UpsertHostScreenViewModel
 ) {

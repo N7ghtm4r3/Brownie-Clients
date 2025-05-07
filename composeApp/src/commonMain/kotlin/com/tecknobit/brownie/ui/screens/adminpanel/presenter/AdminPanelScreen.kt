@@ -65,6 +65,7 @@ import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.brownie.ui.theme.red
+import com.tecknobit.equinoxcompose.annotations.ScreenSection
 import com.tecknobit.equinoxcompose.components.ChameleonText
 import com.tecknobit.equinoxcompose.components.stepper.Step
 import com.tecknobit.equinoxcompose.components.stepper.StepContent
@@ -72,6 +73,7 @@ import com.tecknobit.equinoxcompose.components.stepper.Stepper
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
 import com.tecknobit.equinoxcompose.utilities.CompactClassComponent
+import com.tecknobit.equinoxcompose.utilities.LayoutCoordinator
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.EXPANDED_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.MEDIUM_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClassComponent
@@ -161,6 +163,7 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
      * and to share the code
      */
     @Composable
+    @ScreenSection
     @NonRestartableComposable
     private fun JoinCodeSection() {
         Column {
@@ -196,7 +199,6 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
      * The settings section to customize the [localSession] experience
      */
     @Composable
-    @NonRestartableComposable
     private fun Settings() {
         SectionTitle(
             title = Res.string.local_settings
@@ -251,7 +253,6 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
         number = 1
     )
     @Composable
-    @NonRestartableComposable
     private fun ChangeLanguage() {
         Column(
             modifier = Modifier
@@ -280,7 +281,6 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
         number = 2
     )
     @Composable
-    @NonRestartableComposable
     private fun ChangeTheme() {
         Column(
             modifier = Modifier
@@ -306,12 +306,11 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
      * Section containing the buttons to to logout from the session or delete the current [localSession]
      */
     @Composable
-    @NonRestartableComposable
+    @ScreenSection
+    @LayoutCoordinator
     private fun ButtonsSection() {
         ResponsiveContent(
-            onExpandedSizeClass = {
-                ExpandedButtons()
-            },
+            onExpandedSizeClass = { ExpandedButtons() },
             onMediumSizeClass = { ExpandedButtons() },
             onCompactSizeClass = { CompactButtons() }
         )

@@ -14,7 +14,6 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SheetState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.PathEffect
@@ -49,7 +48,6 @@ import kotlinx.coroutines.launch
  * @param service The service to display the related events
  */
 @Composable
-@NonRestartableComposable
 fun ServiceHistory(
     state: SheetState,
     scope: CoroutineScope,
@@ -99,7 +97,6 @@ fun ServiceHistory(
  * @param events The events related to the service lifecycle
  */
 @Composable
-@NonRestartableComposable
 private fun ServiceEvents(
     events: List<ServiceEvent>
 ) {
@@ -150,7 +147,6 @@ private fun ServiceEvents(
  * Custom component used to display a [ServiceEvent] information
  */
 @Composable
-@NonRestartableComposable
 private fun ServiceEvent.eventText() {
     EventText(
         text = when (type) {

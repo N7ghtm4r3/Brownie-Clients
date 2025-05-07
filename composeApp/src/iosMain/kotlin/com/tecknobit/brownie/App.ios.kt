@@ -40,7 +40,7 @@ actual fun setUserLanguage() {
  * Method used to manage correctly the back navigation from the current screen
  *
  */
-@NonRestartableComposable
 @Composable
+@NonRestartableComposable
 actual fun CloseApplicationOnNavBack() {
 }

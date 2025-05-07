@@ -19,7 +19,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -76,7 +75,6 @@ val alertTitleStyle = TextStyle(
  * @param onSuccess The success callback to invoke
  */
 @Composable
-@NonRestartableComposable
 fun UnregisterSavedHost(
     show: MutableState<Boolean>,
     hostManager: HostManager,
@@ -113,7 +111,6 @@ fun UnregisterSavedHost(
  * @param viewModel The support viewmodel for the screen
  */
 @Composable
-@NonRestartableComposable
 fun RemoveService(
     show: MutableState<Boolean>,
     viewModel: UpsertServiceScreenViewModel,
@@ -146,7 +143,6 @@ fun RemoveService(
  * @param viewModel The support viewmodel for the screen
  */
 @Composable
-@NonRestartableComposable
 fun DeleteService(
     show: MutableState<Boolean>,
     viewModel: UpsertServiceScreenViewModel,
@@ -177,7 +173,6 @@ fun DeleteService(
  * @param viewModel The support viewmodel for the screen
  */
 @Composable
-@NonRestartableComposable
 fun Logout(
     show: MutableState<Boolean>,
     viewModel: AdminPanelScreenViewModel,
@@ -211,7 +206,6 @@ fun Logout(
  * @param viewModel The support viewmodel for the screen
  */
 @Composable
-@NonRestartableComposable
 fun DeleteSession(
     show: MutableState<Boolean>,
     viewModel: AdminPanelScreenViewModel,

@@ -46,7 +46,6 @@ import org.jetbrains.compose.resources.stringResource
  * @param statusFilters The current statuses used as filters
  */
 @Composable
-@NonRestartableComposable
 fun StatusFilterButton(
     modifier: Modifier = Modifier,
     onClick: (MutableState<Boolean>) -> Unit,
@@ -129,7 +128,6 @@ private fun StatusFilterChip(
  */
 @Composable
 @CompactClassComponent
-@NonRestartableComposable
 private fun StatusFilterIconButton(
     expanded: MutableState<Boolean>,
 ) {
@@ -151,7 +149,6 @@ private fun StatusFilterIconButton(
  * @param statusFilters The current statuses used as filters
  */
 @Composable
-@NonRestartableComposable
 private fun StatusesMenu(
     expanded: MutableState<Boolean>,
     onClick: (MutableState<Boolean>) -> Unit,

@@ -22,7 +22,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -51,7 +50,6 @@ import com.tecknobit.browniecore.enums.HostStatus.REBOOTING
  * @param host The host to display
  */
 @Composable
-@NonRestartableComposable
 fun HostCard(
     viewModel: HostsScreenViewModel,
     host: SavedHostImpl,
@@ -113,7 +111,6 @@ fun HostCard(
  * @param statusState The state container used to trigger the UI when the status changed
  */
 @Composable
-@NonRestartableComposable
 private fun StatusToolbar(
     viewModel: HostsScreenViewModel,
     host: SavedHostImpl,

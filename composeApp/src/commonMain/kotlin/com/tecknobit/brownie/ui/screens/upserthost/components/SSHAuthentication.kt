@@ -11,7 +11,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -43,7 +42,6 @@ import org.jetbrains.compose.resources.stringResource
  * @param isEditing Whether the operation is an edit or a new registration
  */
 @Composable
-@NonRestartableComposable
 fun SSHAuthentication(
     viewModel: UpsertHostScreenViewModel,
     isEditing: Boolean
@@ -77,7 +75,6 @@ fun SSHAuthentication(
  * @param isEditing Whether the operation is an edit or a new registration
  */
 @Composable
-@NonRestartableComposable
 private fun SSHUser(
     viewModel: UpsertHostScreenViewModel,
     isEditing: Boolean
@@ -113,7 +110,6 @@ private fun SSHUser(
  * @param isEditing Whether the operation is an edit or a new registration
  */
 @Composable
-@NonRestartableComposable
 private fun SSHPassword(
     viewModel: UpsertHostScreenViewModel,
     isEditing: Boolean

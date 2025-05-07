@@ -41,9 +41,11 @@ import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
 import com.tecknobit.browniecore.enums.ServiceStatus
+import com.tecknobit.equinoxcompose.annotations.ScreenSection
 import com.tecknobit.equinoxcompose.components.EquinoxAlertDialog
 import com.tecknobit.equinoxcompose.components.EquinoxTextField
 import com.tecknobit.equinoxcompose.utilities.CompactClassComponent
+import com.tecknobit.equinoxcompose.utilities.LayoutCoordinator
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.EXPANDED_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.MEDIUM_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClassComponent
@@ -58,7 +60,8 @@ import org.jetbrains.compose.resources.stringResource
  * @param savedHostOverview The overview data of the host
  */
 @Composable
-@NonRestartableComposable
+@ScreenSection
+@LayoutCoordinator
 fun ServicesSection(
     viewModel: HostScreenViewModel,
     savedHostOverview: SavedHostOverview,
@@ -92,6 +95,7 @@ fun ServicesSection(
  * @param savedHostOverview The overview data of the host
  */
 @Composable
+@ScreenSection
 @NonRestartableComposable
 @ResponsiveClassComponent(
     classes = [EXPANDED_CONTENT, MEDIUM_CONTENT]
@@ -130,6 +134,7 @@ private fun FixedServicesSection(
  * @param savedHostOverview The overview data of the host
  */
 @Composable
+@ScreenSection
 @CompactClassComponent
 @NonRestartableComposable
 private fun ExpandableServicesSection(
@@ -158,7 +163,7 @@ private fun ExpandableServicesSection(
  * @param viewModel The support viewmodel for the screen
  */
 @Composable
-@NonRestartableComposable
+@ScreenSection
 private fun FiltersSection(
     viewModel: HostScreenViewModel
 ) {
@@ -183,7 +188,6 @@ private fun FiltersSection(
  * @param viewModel The support viewmodel for the screen
  */
 @Composable
-@NonRestartableComposable
 private fun FiltersDialog(
     show: MutableState<Boolean>,
     viewModel: HostScreenViewModel

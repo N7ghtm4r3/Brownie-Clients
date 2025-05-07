@@ -11,7 +11,6 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -50,7 +49,6 @@ import com.tecknobit.equinoxcore.time.TimeFormatter.toDateString
  * @param hostOverview The host overview data
  */
 @Composable
-@NonRestartableComposable
 fun HostHistory(
     hostOverview: SavedHostOverview,
 ) {
@@ -82,7 +80,6 @@ fun HostHistory(
  * @param events The events related to the host lifecycle
  */
 @Composable
-@NonRestartableComposable
 private fun HistoryEvents(
     events: List<HostHistoryEvent>,
 ) {
@@ -142,7 +139,6 @@ private fun HistoryEvents(
  * Custom component used to display a [HostHistoryEvent] information
  */
 @Composable
-@NonRestartableComposable
 private fun HostHistoryEvent.eventText() {
     EventText(
         text = when (type) {

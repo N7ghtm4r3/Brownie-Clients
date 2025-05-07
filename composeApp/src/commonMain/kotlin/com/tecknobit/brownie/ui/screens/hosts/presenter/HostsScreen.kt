@@ -183,7 +183,6 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
      * @param modifier The modifier to apply to the section
      */
     @Composable
-    @NonRestartableComposable
     private fun FiltersBar(
         modifier: Modifier
     ) {

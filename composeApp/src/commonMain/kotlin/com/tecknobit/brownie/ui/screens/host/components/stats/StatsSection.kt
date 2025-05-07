@@ -12,7 +12,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -22,6 +21,7 @@ import com.tecknobit.brownie.ui.screens.host.components.ExpandableSection
 import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.equinoxcompose.utilities.CompactClassComponent
+import com.tecknobit.equinoxcompose.utilities.LayoutCoordinator
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.EXPANDED_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.MEDIUM_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClassComponent
@@ -33,7 +33,7 @@ import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
  * @param hostOverview The overview data of the host
  */
 @Composable
-@NonRestartableComposable
+@LayoutCoordinator
 fun StatsSection(
     hostOverview: SavedHostOverview
 ) {
@@ -62,7 +62,6 @@ fun StatsSection(
  * @param hostOverview The overview data of the host
  */
 @Composable
-@NonRestartableComposable
 @ResponsiveClassComponent(
     classes = [EXPANDED_CONTENT, MEDIUM_CONTENT]
 )
@@ -113,7 +112,6 @@ private fun RowStats(
  */
 @Composable
 @CompactClassComponent
-@NonRestartableComposable
 private fun ColumnStats(
     hostOverview: SavedHostOverview
 ) {

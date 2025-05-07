@@ -21,7 +21,6 @@ import java.util.Locale
  *
  */
 @Composable
-@NonRestartableComposable
 actual fun CheckForUpdatesAndLaunch() {
     var launchApp by remember { mutableStateOf(true) }
     BrownieTheme {
@@ -51,7 +50,7 @@ actual fun setUserLanguage() {
  * Method used to manage correctly the back navigation from the current screen
  *
  */
-@NonRestartableComposable
 @Composable
+@NonRestartableComposable
 actual fun CloseApplicationOnNavBack() {
 }
