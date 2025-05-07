@@ -94,6 +94,10 @@ dependencies {
   <img src="https://github.com/N7ghtm4r3/Brownie-Clients/blob/main/images/add_service.png" alt="add_service"/>
 </details>
 
+## Illustrations
+
+All the illustrations were sourced from [undraw](https://undraw.co/)!
+
 ## Support
 
 If you need help using the library or encounter any problems or bugs, please contact us via the
