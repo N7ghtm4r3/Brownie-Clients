@@ -18,7 +18,6 @@ import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -30,7 +29,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ExperimentalComposeApi
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -54,10 +52,7 @@ import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.equinoxcompose.components.EquinoxTextField
 import com.tecknobit.equinoxcompose.session.ManagedContent
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
-import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.EXPANDED_CONTENT
-import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.MEDIUM_CONTENT
-import com.tecknobit.equinoxcompose.utilities.ResponsiveClassComponent
-import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
+import com.tecknobit.equinoxcompose.utilities.responsiveAssignment
 import com.tecknobit.equinoxcompose.utilities.responsiveMaxWidth
 import org.jetbrains.compose.resources.stringResource
 
@@ -114,18 +109,23 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
                             )
                         },
                         floatingActionButton = {
-                            ResponsiveContent(
-                                onExpandedSizeClass = { ExpandedFAB() },
-                                onMediumSizeClass = { ExpandedFAB() },
-                                onCompactSizeClass = {
-                                    FloatingActionButton(
-                                        onClick = { navigator.navigate(UPSERT_HOST_SCREEN) }
-                                    ) {
-                                        Icon(
-                                            imageVector = AssignmentAdd,
-                                            contentDescription = null
-                                        )
-                                    }
+                            ExtendedFloatingActionButton(
+                                onClick = { navigator.navigate(UPSERT_HOST_SCREEN) },
+                                expanded = responsiveAssignment(
+                                    onExpandedSizeClass = { true },
+                                    onMediumSizeClass = { true },
+                                    onCompactSizeClass = { false }
+                                ),
+                                icon = {
+                                    Icon(
+                                        imageVector = AssignmentAdd,
+                                        contentDescription = null
+                                    )
+                                },
+                                text = {
+                                    Text(
+                                        text = stringResource(Res.string.register)
+                                    )
                                 }
                             )
                         }
@@ -147,32 +147,6 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
                         }
                     }
                 }
-            )
-        }
-    }
-
-    /**
-     * Custom [ExtendedFloatingActionButton] used to register a new host
-     */
-    @Composable
-    @NonRestartableComposable
-    @ResponsiveClassComponent(
-        classes = [EXPANDED_CONTENT, MEDIUM_CONTENT]
-    )
-    private fun ExpandedFAB() {
-        ExtendedFloatingActionButton(
-            onClick = { navigator.navigate(UPSERT_HOST_SCREEN) }
-        ) {
-            Text(
-                text = stringResource(Res.string.register)
-            )
-            Icon(
-                modifier = Modifier
-                    .padding(
-                        start = 5.dp
-                    ),
-                imageVector = AssignmentAdd,
-                contentDescription = null
             )
         }
     }
