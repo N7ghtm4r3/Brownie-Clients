@@ -5,6 +5,7 @@ package com.tecknobit.brownie.ui.screens.hosts.components
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
@@ -70,6 +71,8 @@ fun HostsList(
 @NonRestartableComposable
 private fun NoHostsRegistered() {
     EmptyState(
+        containerModifier = Modifier
+            .fillMaxSize(),
         resourceSize = responsiveAssignment(
             onExpandedSizeClass = { 400.dp },
             onMediumSizeClass = { 300.dp },

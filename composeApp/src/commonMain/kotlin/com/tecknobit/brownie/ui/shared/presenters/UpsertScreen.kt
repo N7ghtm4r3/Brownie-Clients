@@ -100,6 +100,8 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
     override fun ArrangeScreenContent() {
         BrownieTheme {
             ManagedContent(
+                modifier = Modifier
+                    .fillMaxSize(),
                 viewModel = viewModel,
                 initialDelay = 500,
                 loadingRoutine = if (isEditing) {

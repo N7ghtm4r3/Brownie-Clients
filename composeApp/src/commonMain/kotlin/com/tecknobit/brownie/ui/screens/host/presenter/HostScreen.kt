@@ -3,6 +3,7 @@
 package com.tecknobit.brownie.ui.screens.host.presenter
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -74,6 +75,8 @@ class HostScreen(
     override fun ArrangeScreenContent() {
         BrownieTheme {
             ManagedContent(
+                modifier = Modifier
+                    .fillMaxSize(),
                 viewModel = viewModel,
                 initialDelay = 2000,
                 loadingRoutine = { hostOverview.value != null },

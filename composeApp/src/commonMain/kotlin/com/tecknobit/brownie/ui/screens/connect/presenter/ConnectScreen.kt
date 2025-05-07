@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.sizeIn
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -169,10 +169,7 @@ class ConnectScreen : EquinoxScreen<ConnectScreenViewModel>(
         ) {
             EmptyState(
                 containerModifier = Modifier
-                    .sizeIn(
-                        maxWidth = 190.dp,
-                        maxHeight = 190.dp
-                    ),
+                    .size(190.dp),
                 resourceSize = 175.dp,
                 resource = painterResource(Res.drawable.undraw_enter),
                 contentDescription = "Connect to Brownie",

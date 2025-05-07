@@ -24,6 +24,7 @@ import com.tecknobit.equinoxcore.network.Requester.Companion.toResponseArrayData
 import com.tecknobit.equinoxcore.network.Requester.Companion.toResponseData
 import com.tecknobit.equinoxcore.network.sendPaginatedRequest
 import com.tecknobit.equinoxcore.network.sendRequest
+import com.tecknobit.equinoxcore.network.sendRequestAsyncHandlers
 import com.tecknobit.equinoxcore.pagination.PaginatedResponse.Companion.DEFAULT_PAGE
 import io.github.ahmad_hamwi.compose.pagination.PaginationState
 import kotlinx.coroutines.CoroutineScope
@@ -164,7 +165,7 @@ class HostScreenViewModel(
                     onFailure = { showSnackbarMessage(it) },
                     onConnectionError = { setServerOfflineValue(true) }
                 )
-                requester.sendRequest(
+                requester.sendRequestAsyncHandlers(
                     request = {
                         getServicesStatus(
                             hostId = hostId,
@@ -172,18 +173,16 @@ class HostScreenViewModel(
                         )
                     },
                     onSuccess = {
-                        viewModelScope.launch {
-                            setServerOfflineValue(false)
-                            _refreshingServices.emit(true)
-                            val services = it.toResponseArrayData()
-                            services.forEach { serviceEntry ->
-                                updateServiceStatus(
-                                    serviceInfo = serviceEntry.jsonObject
-                                )
-                            }
-                            delay(100)
-                            _refreshingServices.emit(false)
+                        setServerOfflineValue(false)
+                        _refreshingServices.emit(true)
+                        val services = it.toResponseArrayData()
+                        services.forEach { serviceEntry ->
+                            updateServiceStatus(
+                                serviceInfo = serviceEntry.jsonObject
+                            )
                         }
+                        delay(100)
+                        _refreshingServices.emit(false)
                     },
                     onFailure = { showSnackbarMessage(it) },
                     onConnectionError = { setServerOfflineValue(true) }

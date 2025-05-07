@@ -1,4 +1,7 @@
-@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMultiplatform::class)
+@file:OptIn(
+    ExperimentalMaterial3Api::class, ExperimentalMultiplatform::class,
+    ExperimentalComposeApi::class
+)
 
 package com.tecknobit.brownie.ui.screens.hosts.presenter
 
@@ -8,7 +11,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AdminPanelSettings
@@ -27,6 +29,7 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -45,7 +48,6 @@ import com.tecknobit.brownie.UPSERT_HOST_SCREEN
 import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.components.StatusFilterButton
 import com.tecknobit.brownie.ui.icons.AssignmentAdd
-import com.tecknobit.brownie.ui.screens.connect.presenter.ConnectScreen
 import com.tecknobit.brownie.ui.screens.hosts.components.HostsList
 import com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel
 import com.tecknobit.brownie.ui.theme.BrownieTheme
@@ -56,6 +58,7 @@ import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.EXPANDED_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.MEDIUM_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClassComponent
 import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
+import com.tecknobit.equinoxcompose.utilities.responsiveMaxWidth
 import org.jetbrains.compose.resources.stringResource
 
 /**
@@ -76,6 +79,8 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
         CloseApplicationOnNavBack()
         BrownieTheme {
             ManagedContent(
+                modifier = Modifier
+                    .fillMaxSize(),
                 viewModel = viewModel,
                 content = {
                     Scaffold(
@@ -184,9 +189,7 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
     ) {
         Row(
             modifier = modifier
-                .widthIn(
-                    max = MAX_CONTAINER_WIDTH
-                )
+                .responsiveMaxWidth()
                 .padding(
                     horizontal = 16.dp
                 ),

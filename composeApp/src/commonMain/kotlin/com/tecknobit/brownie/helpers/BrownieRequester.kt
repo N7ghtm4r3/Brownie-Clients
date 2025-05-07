@@ -6,9 +6,7 @@ import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl
 import com.tecknobit.browniecore.AUTO_RUN_AFTER_HOST_REBOOT_KEY
 import com.tecknobit.browniecore.HOSTS_KEY
-import com.tecknobit.browniecore.HOST_ADDRESS_KEY
 import com.tecknobit.browniecore.JOIN_CODE_KEY
-import com.tecknobit.browniecore.KEYWORDS_KEY
 import com.tecknobit.browniecore.PROGRAM_ARGUMENTS_KEY
 import com.tecknobit.browniecore.PURGE_NOHUP_OUT_AFTER_REBOOT_KEY
 import com.tecknobit.browniecore.REMOVE_FROM_THE_HOST_KEY
@@ -17,7 +15,6 @@ import com.tecknobit.browniecore.SESSIONS_KEY
 import com.tecknobit.browniecore.SSH_PASSWORD_KEY
 import com.tecknobit.browniecore.SSH_USER_KEY
 import com.tecknobit.browniecore.STATUSES_KEY
-import com.tecknobit.browniecore.STATUS_KEY
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.HostStatus.ONLINE
 import com.tecknobit.browniecore.enums.ServiceStatus
@@ -30,10 +27,13 @@ import com.tecknobit.browniecore.helpers.BrownieEndpoints.STOP_ENDPOINT
 import com.tecknobit.equinoxcore.annotations.Assembler
 import com.tecknobit.equinoxcore.annotations.RequestPath
 import com.tecknobit.equinoxcore.annotations.Wrapper
+import com.tecknobit.equinoxcore.helpers.HOST_ADDRESS_KEY
+import com.tecknobit.equinoxcore.helpers.KEYWORDS_KEY
 import com.tecknobit.equinoxcore.helpers.LANGUAGE_KEY
 import com.tecknobit.equinoxcore.helpers.NAME_KEY
 import com.tecknobit.equinoxcore.helpers.PASSWORD_KEY
 import com.tecknobit.equinoxcore.helpers.SERVER_SECRET_KEY
+import com.tecknobit.equinoxcore.helpers.STATUS_KEY
 import com.tecknobit.equinoxcore.network.EquinoxBaseEndpointsSet.Companion.BASE_EQUINOX_ENDPOINT
 import com.tecknobit.equinoxcore.network.RequestMethod.DELETE
 import com.tecknobit.equinoxcore.network.RequestMethod.GET

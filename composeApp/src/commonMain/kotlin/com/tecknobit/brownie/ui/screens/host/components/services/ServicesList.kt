@@ -5,6 +5,7 @@ package com.tecknobit.brownie.ui.screens.host.components.services
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.items
@@ -80,6 +81,8 @@ fun ServicesList(
 @NonRestartableComposable
 private fun NoServicesRegistered() {
     EmptyState(
+        containerModifier = Modifier
+            .fillMaxSize(),
         resourceSize = responsiveAssignment(
             onExpandedSizeClass = { 400.dp },
             onMediumSizeClass = { 300.dp },

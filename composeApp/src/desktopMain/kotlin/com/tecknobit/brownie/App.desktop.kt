@@ -1,7 +1,5 @@
 package com.tecknobit.brownie
 
-import OctocatKDUConfig
-import UpdaterDialog
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.getValue
@@ -12,6 +10,8 @@ import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.app_name
 import brownie.composeapp.generated.resources.app_version
 import com.tecknobit.brownie.ui.theme.BrownieTheme
+import com.tecknobit.octocatkdu.OctocatKDUConfig
+import com.tecknobit.octocatkdu.UpdaterDialog
 import org.jetbrains.compose.resources.stringResource
 import java.util.Locale
 

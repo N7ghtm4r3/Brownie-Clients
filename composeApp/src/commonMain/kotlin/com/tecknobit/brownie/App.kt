@@ -171,7 +171,7 @@ private fun InitAmetista() {
             serverSecret = AmetistaConfig.SERVER_SECRET!!,
             applicationId = AmetistaConfig.APPLICATION_IDENTIFIER!!,
             bypassSslValidation = AmetistaConfig.BYPASS_SSL_VALIDATION,
-            debugMode = false
+            debugMode = true // TODO: TO SET ON FALSE
         )
     }
 }
