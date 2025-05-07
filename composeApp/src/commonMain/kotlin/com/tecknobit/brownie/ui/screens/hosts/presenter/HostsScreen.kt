@@ -49,7 +49,7 @@ import com.tecknobit.brownie.ui.icons.AssignmentAdd
 import com.tecknobit.brownie.ui.screens.hosts.components.HostsList
 import com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel
 import com.tecknobit.brownie.ui.theme.BrownieTheme
-import com.tecknobit.equinoxcompose.components.EquinoxTextField
+import com.tecknobit.equinoxcompose.components.DebouncedTextField
 import com.tecknobit.equinoxcompose.session.ManagedContent
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
 import com.tecknobit.equinoxcompose.utilities.responsiveAssignment
@@ -169,13 +169,10 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            EquinoxTextField(
+            DebouncedTextField(
                 shape = CardDefaults.shape,
                 value = viewModel.inputSearch,
-                onValueChange = {
-                    viewModel.inputSearch.value = it
-                    viewModel.hostsState.refresh()
-                },
+                debounce = { viewModel.hostsState.refresh() },
                 placeholder = stringResource(Res.string.enter_name_or_ip),
                 maxLines = 1,
                 textFieldColors = TextFieldDefaults.colors(
