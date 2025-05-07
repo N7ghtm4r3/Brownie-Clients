@@ -4,7 +4,6 @@ package com.tecknobit.brownie
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.text.font.FontFamily
 import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.rubik
@@ -182,7 +181,6 @@ private fun InitAmetista() {
  *
  */
 @Composable
-@NonRestartableComposable
 expect fun CheckForUpdatesAndLaunch()
 
 /**
@@ -214,5 +212,4 @@ expect fun setUserLanguage()
  *
  */
 @Composable
-@NonRestartableComposable
 expect fun CloseApplicationOnNavBack()

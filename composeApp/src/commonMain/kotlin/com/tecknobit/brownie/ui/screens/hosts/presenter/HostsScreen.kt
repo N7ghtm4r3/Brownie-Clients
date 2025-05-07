@@ -1,4 +1,7 @@
-@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMultiplatform::class)
+@file:OptIn(
+    ExperimentalMaterial3Api::class, ExperimentalMultiplatform::class,
+    ExperimentalComposeApi::class
+)
 
 package com.tecknobit.brownie.ui.screens.hosts.presenter
 
@@ -8,7 +11,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AdminPanelSettings
@@ -16,7 +18,6 @@ import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -27,7 +28,7 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -45,17 +46,14 @@ import com.tecknobit.brownie.UPSERT_HOST_SCREEN
 import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.components.StatusFilterButton
 import com.tecknobit.brownie.ui.icons.AssignmentAdd
-import com.tecknobit.brownie.ui.screens.connect.presenter.ConnectScreen
 import com.tecknobit.brownie.ui.screens.hosts.components.HostsList
 import com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel
 import com.tecknobit.brownie.ui.theme.BrownieTheme
-import com.tecknobit.equinoxcompose.components.EquinoxTextField
+import com.tecknobit.equinoxcompose.components.DebouncedTextField
 import com.tecknobit.equinoxcompose.session.ManagedContent
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
-import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.EXPANDED_CONTENT
-import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.MEDIUM_CONTENT
-import com.tecknobit.equinoxcompose.utilities.ResponsiveClassComponent
-import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
+import com.tecknobit.equinoxcompose.utilities.responsiveAssignment
+import com.tecknobit.equinoxcompose.utilities.responsiveMaxWidth
 import org.jetbrains.compose.resources.stringResource
 
 /**
@@ -76,6 +74,8 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
         CloseApplicationOnNavBack()
         BrownieTheme {
             ManagedContent(
+                modifier = Modifier
+                    .fillMaxSize(),
                 viewModel = viewModel,
                 content = {
                     Scaffold(
@@ -109,18 +109,23 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
                             )
                         },
                         floatingActionButton = {
-                            ResponsiveContent(
-                                onExpandedSizeClass = { ExpandedFAB() },
-                                onMediumSizeClass = { ExpandedFAB() },
-                                onCompactSizeClass = {
-                                    FloatingActionButton(
-                                        onClick = { navigator.navigate(UPSERT_HOST_SCREEN) }
-                                    ) {
-                                        Icon(
-                                            imageVector = AssignmentAdd,
-                                            contentDescription = null
-                                        )
-                                    }
+                            ExtendedFloatingActionButton(
+                                onClick = { navigator.navigate(UPSERT_HOST_SCREEN) },
+                                expanded = responsiveAssignment(
+                                    onExpandedSizeClass = { true },
+                                    onMediumSizeClass = { true },
+                                    onCompactSizeClass = { false }
+                                ),
+                                icon = {
+                                    Icon(
+                                        imageVector = AssignmentAdd,
+                                        contentDescription = null
+                                    )
+                                },
+                                text = {
+                                    Text(
+                                        text = stringResource(Res.string.register)
+                                    )
                                 }
                             )
                         }
@@ -147,59 +152,27 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
     }
 
     /**
-     * Custom [ExtendedFloatingActionButton] used to register a new host
-     */
-    @Composable
-    @NonRestartableComposable
-    @ResponsiveClassComponent(
-        classes = [EXPANDED_CONTENT, MEDIUM_CONTENT]
-    )
-    private fun ExpandedFAB() {
-        ExtendedFloatingActionButton(
-            onClick = { navigator.navigate(UPSERT_HOST_SCREEN) }
-        ) {
-            Text(
-                text = stringResource(Res.string.register)
-            )
-            Icon(
-                modifier = Modifier
-                    .padding(
-                        start = 5.dp
-                    ),
-                imageVector = AssignmentAdd,
-                contentDescription = null
-            )
-        }
-    }
-
-    /**
      * Custom section used to filter the hosts result
      *
      * @param modifier The modifier to apply to the section
      */
     @Composable
-    @NonRestartableComposable
     private fun FiltersBar(
         modifier: Modifier
     ) {
         Row(
             modifier = modifier
-                .widthIn(
-                    max = MAX_CONTAINER_WIDTH
-                )
+                .responsiveMaxWidth()
                 .padding(
                     horizontal = 16.dp
                 ),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            EquinoxTextField(
+            DebouncedTextField(
                 shape = CardDefaults.shape,
                 value = viewModel.inputSearch,
-                onValueChange = {
-                    viewModel.inputSearch.value = it
-                    viewModel.hostsState.refresh()
-                },
+                debounce = { viewModel.hostsState.refresh() },
                 placeholder = stringResource(Res.string.enter_name_or_ip),
                 maxLines = 1,
                 textFieldColors = TextFieldDefaults.colors(

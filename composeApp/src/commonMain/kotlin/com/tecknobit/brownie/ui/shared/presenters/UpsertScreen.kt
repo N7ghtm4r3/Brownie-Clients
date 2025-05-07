@@ -50,6 +50,7 @@ import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel
 import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.browniecore.helpers.BrownieInputsValidator
+import com.tecknobit.equinoxcompose.annotations.ScreenSection
 import com.tecknobit.equinoxcompose.components.EquinoxOutlinedTextField
 import com.tecknobit.equinoxcompose.session.ManagedContent
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
@@ -100,6 +101,8 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
     override fun ArrangeScreenContent() {
         BrownieTheme {
             ManagedContent(
+                modifier = Modifier
+                    .fillMaxSize(),
                 viewModel = viewModel,
                 initialDelay = 500,
                 loadingRoutine = if (isEditing) {
@@ -172,14 +175,14 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
      * Custom section used to display the title of the item
      */
     @Composable
-    @NonRestartableComposable
+    @ScreenSection
     protected abstract fun Title()
 
     /**
      * Custom section used to provide extra actions available to handle the item
      */
     @Composable
-    @NonRestartableComposable
+    @ScreenSection
     protected open fun Actions() {
     }
 
@@ -187,7 +190,7 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
      * The form used to insert or edit the item details
      */
     @Composable
-    @NonRestartableComposable
+    @ScreenSection
     protected abstract fun Form()
 
     /**
@@ -198,7 +201,7 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
      * @param errorText The error text to display when the input is not valid
      */
     @Composable
-    @NonRestartableComposable
+    @ScreenSection
     protected fun ItemNameSection(
         header: StringResource,
         placeholder: StringResource,
@@ -238,7 +241,7 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
      * Section containing the buttons to save the data inserted [Form] component
      */
     @Composable
-    @NonRestartableComposable
+    @ScreenSection
     protected fun ColumnScope.ButtonsSection() {
         Column(
             modifier = Modifier
@@ -302,7 +305,6 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
      */
     @Composable
     @RequiresSuperCall
-    @NonRestartableComposable
     protected open fun UpsertButtons(
         modifier: Modifier,
     ) {

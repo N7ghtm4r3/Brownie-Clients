@@ -32,6 +32,7 @@ import com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertService
 import com.tecknobit.brownie.ui.shared.presenters.UpsertScreen
 import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.brownie.ui.theme.red
+import com.tecknobit.equinoxcompose.annotations.ScreenSection
 import com.tecknobit.equinoxcompose.components.ChameleonText
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
 import com.tecknobit.equinoxcore.annotations.RequiresSuperCall
@@ -64,7 +65,7 @@ class UpsertServiceScreen(
      * Custom section used to display the title of the item
      */
     @Composable
-    @NonRestartableComposable
+    @ScreenSection
     override fun Title() {
         Column {
             Text(
@@ -91,7 +92,7 @@ class UpsertServiceScreen(
      * Custom section used to provide extra actions available to handle the item
      */
     @Composable
-    @NonRestartableComposable
+    @ScreenSection
     override fun Actions() {
         if (isEditing) {
             val deleteService = remember { mutableStateOf(false) }
@@ -115,6 +116,7 @@ class UpsertServiceScreen(
      * The form used to insert or edit the item details
      */
     @Composable
+    @ScreenSection
     @NonRestartableComposable
     override fun Form() {
         ItemNameSection(
@@ -137,7 +139,6 @@ class UpsertServiceScreen(
      */
     @Composable
     @RequiresSuperCall
-    @NonRestartableComposable
     override fun UpsertButtons(
         modifier: Modifier,
     ) {

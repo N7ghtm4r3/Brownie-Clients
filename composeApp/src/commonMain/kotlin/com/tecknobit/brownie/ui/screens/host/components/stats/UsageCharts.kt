@@ -23,7 +23,6 @@ import androidx.compose.material3.TooltipDefaults
 import androidx.compose.material3.TooltipScope
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -65,7 +64,6 @@ import kotlin.math.sin
  */
 @Wrapper
 @Composable
-@NonRestartableComposable
 fun CpuUsageChart(
     usage: CpuUsage
 ) {
@@ -92,7 +90,6 @@ fun CpuUsageChart(
  */
 @Wrapper
 @Composable
-@NonRestartableComposable
 fun MemoryUsageChart(
     usage: MemoryUsage
 ) {
@@ -119,7 +116,6 @@ fun MemoryUsageChart(
  */
 @Wrapper
 @Composable
-@NonRestartableComposable
 fun StorageUsageChart(
     usage: StorageUsage
 ) {
@@ -151,7 +147,6 @@ fun StorageUsageChart(
  * [Credits](https://proandroiddev.com/creating-a-custom-gauge-speedometer-in-jetpack-compose-bd3c3d72074b)
  */
 @Composable
-@NonRestartableComposable
 fun GaugeChart(
     modifier: Modifier = Modifier,
     usageTitle: StringResource,

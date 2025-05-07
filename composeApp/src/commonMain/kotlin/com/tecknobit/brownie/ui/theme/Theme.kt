@@ -5,7 +5,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.graphics.Color
 import com.tecknobit.brownie.localSession
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme.Dark
@@ -213,7 +212,6 @@ fun BrownieTheme(
  * @return whether to apply the dark theme as [Boolean]
  */
 @Composable
-@NonRestartableComposable
 private fun isDarkThemeApplied(): Boolean {
     return when (localSession.theme) {
         Light -> false

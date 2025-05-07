@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.sizeIn
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -31,7 +31,6 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -66,6 +65,7 @@ import com.tecknobit.brownie.CloseApplicationOnNavBack
 import com.tecknobit.brownie.displayFontFamily
 import com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel
 import com.tecknobit.brownie.ui.theme.BrownieTheme
+import com.tecknobit.equinoxcompose.annotations.ScreenSection
 import com.tecknobit.equinoxcompose.components.EmptyState
 import com.tecknobit.equinoxcompose.components.EquinoxOutlinedTextField
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
@@ -153,7 +153,7 @@ class ConnectScreen : EquinoxScreen<ConnectScreenViewModel>(
      * Method used to create the form where the user can fill it with his credentials
      */
     @Composable
-    @NonRestartableComposable
+    @ScreenSection
     private fun FormSection() {
         Column(
             modifier = Modifier
@@ -169,10 +169,7 @@ class ConnectScreen : EquinoxScreen<ConnectScreenViewModel>(
         ) {
             EmptyState(
                 containerModifier = Modifier
-                    .sizeIn(
-                        maxWidth = 190.dp,
-                        maxHeight = 190.dp
-                    ),
+                    .size(190.dp),
                 resourceSize = 175.dp,
                 resource = painterResource(Res.drawable.undraw_enter),
                 contentDescription = "Connect to Brownie",

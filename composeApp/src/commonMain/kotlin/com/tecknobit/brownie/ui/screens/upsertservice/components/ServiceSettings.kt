@@ -7,7 +7,6 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -20,6 +19,7 @@ import brownie.composeapp.generated.resources.purge_nohup_out_after_reboot_descr
 import brownie.composeapp.generated.resources.settings
 import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel
+import com.tecknobit.equinoxcompose.annotations.ScreenSection
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -29,7 +29,7 @@ import org.jetbrains.compose.resources.stringResource
  * @param viewModel The support viewmodel for the screen
  */
 @Composable
-@NonRestartableComposable
+@ScreenSection
 fun ServiceSettings(
     viewModel: UpsertServiceScreenViewModel
 ) {
@@ -61,7 +61,6 @@ fun ServiceSettings(
  * @param settingDescription The description of the setting
  */
 @Composable
-@NonRestartableComposable
 private fun SettingCheckBox(
     settingState: MutableState<Boolean>,
     settingTitle: StringResource,

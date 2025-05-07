@@ -10,20 +10,21 @@ import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
 import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
 import com.tecknobit.brownie.ui.shared.presentations.HostManager
 import com.tecknobit.browniecore.PID_KEY
-import com.tecknobit.browniecore.STATUS_KEY
 import com.tecknobit.browniecore.enums.ServiceStatus
 import com.tecknobit.browniecore.enums.ServiceStatus.RUNNING
 import com.tecknobit.browniecore.enums.ServiceStatus.STOPPED
 import com.tecknobit.equinoxcompose.session.setServerOfflineValue
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
+import com.tecknobit.equinoxcore.helpers.STATUS_KEY
 import com.tecknobit.equinoxcore.json.treatsAsLong
 import com.tecknobit.equinoxcore.json.treatsAsString
 import com.tecknobit.equinoxcore.mergeIfNotContained
-import com.tecknobit.equinoxcore.network.Requester.Companion.sendPaginatedRequest
-import com.tecknobit.equinoxcore.network.Requester.Companion.sendRequest
 import com.tecknobit.equinoxcore.network.Requester.Companion.toResponseArrayData
 import com.tecknobit.equinoxcore.network.Requester.Companion.toResponseData
+import com.tecknobit.equinoxcore.network.sendPaginatedRequest
+import com.tecknobit.equinoxcore.network.sendRequest
+import com.tecknobit.equinoxcore.network.sendRequestAsyncHandlers
 import com.tecknobit.equinoxcore.pagination.PaginatedResponse.Companion.DEFAULT_PAGE
 import io.github.ahmad_hamwi.compose.pagination.PaginationState
 import kotlinx.coroutines.CoroutineScope
@@ -151,46 +152,41 @@ class HostScreenViewModel(
         retrieve(
             currentContext = HostScreen::class,
             routine = {
-                // TODO: REMOVE THIS WORKAROUND WHEN ROUTINE SUSPENDABLE
-                viewModelScope.launch {
-                    requester.sendRequest(
-                        request = {
-                            getHostOverview(
-                                hostId = hostId
+                requester.sendRequest(
+                    request = {
+                        getHostOverview(
+                            hostId = hostId
+                        )
+                    },
+                    onSuccess = {
+                        setServerOfflineValue(false)
+                        _hostOverview.value = json.decodeFromJsonElement(it.toResponseData())
+                    },
+                    onFailure = { showSnackbarMessage(it) },
+                    onConnectionError = { setServerOfflineValue(true) }
+                )
+                requester.sendRequestAsyncHandlers(
+                    request = {
+                        getServicesStatus(
+                            hostId = hostId,
+                            currentServices = servicesState.allItems
+                        )
+                    },
+                    onSuccess = {
+                        setServerOfflineValue(false)
+                        _refreshingServices.emit(true)
+                        val services = it.toResponseArrayData()
+                        services.forEach { serviceEntry ->
+                            updateServiceStatus(
+                                serviceInfo = serviceEntry.jsonObject
                             )
-                        },
-                        onSuccess = {
-                            setServerOfflineValue(false)
-                            _hostOverview.value = json.decodeFromJsonElement(it.toResponseData())
-                        },
-                        onFailure = { showSnackbarMessage(it) },
-                        onConnectionError = { setServerOfflineValue(true) }
-                    )
-                    requester.sendRequest(
-                        request = {
-                            getServicesStatus(
-                                hostId = hostId,
-                                currentServices = servicesState.allItems
-                            )
-                        },
-                        onSuccess = {
-                            viewModelScope.launch {
-                                setServerOfflineValue(false)
-                                _refreshingServices.emit(true)
-                                val services = it.toResponseArrayData()
-                                services.forEach { serviceEntry ->
-                                    updateServiceStatus(
-                                        serviceInfo = serviceEntry.jsonObject
-                                    )
-                                }
-                                delay(100)
-                                _refreshingServices.emit(false)
-                            }
-                        },
-                        onFailure = { showSnackbarMessage(it) },
-                        onConnectionError = { setServerOfflineValue(true) }
-                    )
-                }
+                        }
+                        delay(100)
+                        _refreshingServices.emit(false)
+                    },
+                    onFailure = { showSnackbarMessage(it) },
+                    onConnectionError = { setServerOfflineValue(true) }
+                )
             },
             refreshDelay = 3000
         )
@@ -208,9 +204,7 @@ class HostScreenViewModel(
         val status = ServiceStatus.valueOf(
             value = serviceInfo[STATUS_KEY].treatsAsString()
         )
-        val pid = serviceInfo[PID_KEY].treatsAsLong(
-            defValue = 0 // TODO: REMOVE DEF VALUE WHEN RENAMING DONE
-        )
+        val pid = serviceInfo[PID_KEY].treatsAsLong()
         val service = servicesState.allItems?.find { service -> service.id == serviceId }
         service?.let {
             service.status = status

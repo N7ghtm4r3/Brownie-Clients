@@ -36,8 +36,10 @@ import com.tecknobit.brownie.ui.theme.green
 import com.tecknobit.brownie.ui.theme.red
 import com.tecknobit.brownie.ui.theme.yellow
 import com.tecknobit.browniecore.enums.HostStatus
+import com.tecknobit.equinoxcompose.annotations.ScreenSection
 import com.tecknobit.equinoxcompose.components.ChameleonText
 import com.tecknobit.equinoxcompose.utilities.CompactClassComponent
+import com.tecknobit.equinoxcompose.utilities.LayoutCoordinator
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.EXPANDED_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.MEDIUM_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClassComponent
@@ -51,7 +53,8 @@ import org.jetbrains.compose.resources.stringResource
  * @param hostOverview The overview data of the host
  */
 @Composable
-@NonRestartableComposable
+@ScreenSection
+@LayoutCoordinator
 fun ActionsSection(
     viewModel: HostScreenViewModel,
     hostOverview: SavedHostOverview
@@ -85,6 +88,7 @@ fun ActionsSection(
  * @param hostOverview The overview data of the host
  */
 @Composable
+@ScreenSection
 @NonRestartableComposable
 @ResponsiveClassComponent(
     classes = [EXPANDED_CONTENT, MEDIUM_CONTENT]
@@ -118,6 +122,7 @@ private fun FixedActionsSection(
  * @param hostOverview The overview data of the host
  */
 @Composable
+@ScreenSection
 @CompactClassComponent
 @NonRestartableComposable
 private fun ExpandableActionsSection(
@@ -143,7 +148,6 @@ private fun ExpandableActionsSection(
  * @param hostOverview The overview data of the host
  */
 @Composable
-@NonRestartableComposable
 private fun ActionsContent(
     modifier: Modifier = Modifier,
     viewModel: HostScreenViewModel,
@@ -206,7 +210,6 @@ private fun ActionsContent(
  * @param statusState The state container used to trigger the UI when the status changed
  */
 @Composable
-@NonRestartableComposable
 private fun ActionButtons(
     buttonModifier: Modifier = Modifier,
     viewModel: HostScreenViewModel,

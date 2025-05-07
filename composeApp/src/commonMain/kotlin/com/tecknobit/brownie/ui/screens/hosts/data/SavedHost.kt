@@ -5,11 +5,11 @@ import androidx.compose.ui.graphics.Color
 import com.tecknobit.brownie.ui.theme.green
 import com.tecknobit.brownie.ui.theme.red
 import com.tecknobit.brownie.ui.theme.yellow
-import com.tecknobit.browniecore.HOST_ADDRESS_KEY
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.HostStatus.OFFLINE
 import com.tecknobit.browniecore.enums.HostStatus.ONLINE
 import com.tecknobit.browniecore.enums.HostStatus.REBOOTING
+import com.tecknobit.equinoxcore.helpers.HOST_ADDRESS_KEY
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

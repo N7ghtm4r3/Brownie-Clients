@@ -5,7 +5,7 @@ import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.HostStatus.OFFLINE
 import com.tecknobit.browniecore.enums.HostStatus.ONLINE
-import com.tecknobit.equinoxcore.network.Requester.Companion.sendRequest
+import com.tecknobit.equinoxcore.network.sendRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.JsonObject

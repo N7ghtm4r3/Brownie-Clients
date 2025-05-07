@@ -2,8 +2,8 @@
 
 package com.tecknobit.brownie.ui.components
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import brownie.composeapp.generated.resources.Res
@@ -20,12 +20,12 @@ import org.jetbrains.compose.resources.stringResource
  * @param modifier The modifier to apply to the component
  */
 @Composable
-@NonRestartableComposable
 fun NoEventsAvailable(
     modifier: Modifier = Modifier,
 ) {
     EmptyState(
-        containerModifier = modifier,
+        containerModifier = modifier
+            .fillMaxSize(),
         resource = painterResource(Res.drawable.undraw_events),
         contentDescription = "No events available",
         resourceSize = 300.dp,

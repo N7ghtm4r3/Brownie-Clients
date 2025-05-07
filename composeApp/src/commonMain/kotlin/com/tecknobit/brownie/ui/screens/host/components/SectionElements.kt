@@ -17,7 +17,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -27,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.tecknobit.brownie.ui.theme.AppTypography
+import com.tecknobit.equinoxcompose.annotations.ScreenSection
 import com.tecknobit.equinoxcompose.utilities.CompactClassComponent
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
@@ -40,8 +40,8 @@ import org.jetbrains.compose.resources.stringResource
  * @param content The content of the section
  */
 @Composable
+@ScreenSection
 @CompactClassComponent
-@NonRestartableComposable
 fun ExpandableSection(
     modifier: Modifier = Modifier,
     title: StringResource,
@@ -117,7 +117,7 @@ fun ExpandableSection(
  * @param filtersContent The content where the user can insert the filter to apply to the results
  */
 @Composable
-@NonRestartableComposable
+@ScreenSection
 fun SectionTitle(
     modifier: Modifier = Modifier,
     title: StringResource,

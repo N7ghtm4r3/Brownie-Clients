@@ -55,7 +55,6 @@ actual fun setUserLanguage() {
  *
  */
 @Composable
-@NonRestartableComposable
 actual fun CloseApplicationOnNavBack() {
     val context = LocalActivity.current!!
     BackHandler {

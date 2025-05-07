@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
@@ -15,6 +14,7 @@ import brownie.composeapp.generated.resources.programs_arguments
 import brownie.composeapp.generated.resources.programs_arguments_placeholder
 import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel
+import com.tecknobit.equinoxcompose.annotations.ScreenSection
 import com.tecknobit.equinoxcompose.components.EquinoxOutlinedTextField
 
 /**
@@ -23,7 +23,7 @@ import com.tecknobit.equinoxcompose.components.EquinoxOutlinedTextField
  * @param viewModel The support viewmodel for the screen
  */
 @Composable
-@NonRestartableComposable
+@ScreenSection
 fun ProgramArgumentsSection(
     viewModel: UpsertServiceScreenViewModel
 ) {

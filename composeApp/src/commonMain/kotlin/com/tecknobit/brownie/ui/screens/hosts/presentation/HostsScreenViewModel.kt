@@ -8,18 +8,17 @@ import com.tecknobit.brownie.requester
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.shared.presentations.HostManager
-import com.tecknobit.browniecore.STATUS_KEY
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.equinoxcompose.session.setHasBeenDisconnectedValue
 import com.tecknobit.equinoxcompose.session.setServerOfflineValue
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
+import com.tecknobit.equinoxcore.helpers.STATUS_KEY
 import com.tecknobit.equinoxcore.json.treatsAsString
-import com.tecknobit.equinoxcore.network.Requester.Companion.sendPaginatedRequest
-import com.tecknobit.equinoxcore.network.Requester.Companion.sendRequest
 import com.tecknobit.equinoxcore.network.Requester.Companion.toResponseArrayData
+import com.tecknobit.equinoxcore.network.sendPaginatedRequest
+import com.tecknobit.equinoxcore.network.sendRequestAsyncHandlers
 import com.tecknobit.equinoxcore.pagination.PaginatedResponse.Companion.DEFAULT_PAGE
-import io.github.ahmad_hamwi.compose.pagination.ExperimentalPaginationApi
 import io.github.ahmad_hamwi.compose.pagination.PaginationState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
@@ -122,32 +121,27 @@ class HostsScreenViewModel : EquinoxViewModel(
         retrieve(
             currentContext = HostsScreen::class,
             routine = {
-                // TODO: TO REMOVE THIS WORKAROUND WHEN ROUTINE suspend
-                viewModelScope.launch {
-                    requester.sendRequest(
-                        request = {
-                            getHostsStatus(
-                                currentHosts = hostsState.allItems
+                requester.sendRequestAsyncHandlers(
+                    request = {
+                        getHostsStatus(
+                            currentHosts = hostsState.allItems
+                        )
+                    },
+                    onSuccess = {
+                        setServerOfflineValue(false)
+                        _refreshingHosts.emit(true)
+                        val statuses = it.toResponseArrayData()
+                        statuses.forEach { statusEntry ->
+                            updateHostStatus(
+                                statusInfo = statusEntry.jsonObject
                             )
-                        },
-                        onSuccess = {
-                            viewModelScope.launch {
-                                setServerOfflineValue(false)
-                                _refreshingHosts.emit(true)
-                                val statuses = it.toResponseArrayData()
-                                statuses.forEach { statusEntry ->
-                                    updateHostStatus(
-                                        statusInfo = statusEntry.jsonObject
-                                    )
-                                }
-                                delay(100)
-                                _refreshingHosts.emit(false)
-                            }
-                        },
-                        onFailure = { setHasBeenDisconnectedValue(true) },
-                        onConnectionError = { setServerOfflineValue(true) }
-                    )
-                }
+                        }
+                        delay(100)
+                        _refreshingHosts.emit(false)
+                    },
+                    onFailure = { setHasBeenDisconnectedValue(true) },
+                    onConnectionError = { setServerOfflineValue(true) }
+                )
             },
             refreshDelay = 10_000
         )

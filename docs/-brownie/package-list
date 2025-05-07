@@ -398,14 +398,6 @@ $dokka.location:com.tecknobit.brownie/MainActivity.Companion/appUpdateManager/#/
 $dokka.location:com.tecknobit.brownie/MainActivity.Companion/launcher/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/-main-activity/-companion/launcher.html
 $dokka.location:com.tecknobit.brownie/MainActivity///PointingToDeclaration/-brownie/com.tecknobit.brownie/-main-activity/index.html
 $dokka.location:com.tecknobit.brownie/MainActivity/MainActivity/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/-main-activity/-main-activity.html
-$dokka.location:com.tecknobit.equinoxcompose.utilities.context////PointingToDeclaration/-brownie/com.tecknobit.equinoxcompose.utilities.context/index.html
-$dokka.location:com.tecknobit.equinoxcompose.utilities.context/AppContext///PointingToDeclaration/-brownie/com.tecknobit.equinoxcompose.utilities.context/-app-context/index.html
-$dokka.location:com.tecknobit.equinoxcompose.utilities.context/AppContext/get/#/PointingToDeclaration/-brownie/com.tecknobit.equinoxcompose.utilities.context/-app-context/get.html
-$dokka.location:com.tecknobit.equinoxcompose.utilities.context/AppContext/setUp/#android.content.Context/PointingToDeclaration/-brownie/com.tecknobit.equinoxcompose.utilities.context/-app-context/set-up.html
-$dokka.location:com.tecknobit.equinoxcompose.utilities.context/AppContextInitializer///PointingToDeclaration/-brownie/com.tecknobit.equinoxcompose.utilities.context/-app-context-initializer/index.html
-$dokka.location:com.tecknobit.equinoxcompose.utilities.context/AppContextInitializer/AppContextInitializer/#/PointingToDeclaration/-brownie/com.tecknobit.equinoxcompose.utilities.context/-app-context-initializer/-app-context-initializer.html
-$dokka.location:com.tecknobit.equinoxcompose.utilities.context/AppContextInitializer/create/#android.content.Context/PointingToDeclaration/-brownie/com.tecknobit.equinoxcompose.utilities.context/-app-context-initializer/create.html
-$dokka.location:com.tecknobit.equinoxcompose.utilities.context/AppContextInitializer/dependencies/#/PointingToDeclaration/-brownie/com.tecknobit.equinoxcompose.utilities.context/-app-context-initializer/dependencies.html
 com.tecknobit.brownie
 com.tecknobit.brownie.helpers
 com.tecknobit.brownie.ui.components
@@ -436,5 +428,3 @@ com.tecknobit.brownie.ui.screens.upsertservice.presenter
 com.tecknobit.brownie.ui.shared.presentations
 com.tecknobit.brownie.ui.shared.presenters
 com.tecknobit.brownie.ui.theme
-com.tecknobit.equinoxcompose.utilities.context
-

@@ -2,7 +2,6 @@ package com.tecknobit.brownie.ui.components
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
 import com.tecknobit.equinoxcore.json.treatsAsInt
 import com.tecknobit.equinoxcore.json.treatsAsString
 import kotlinx.serialization.json.JsonElement
@@ -19,7 +18,6 @@ import org.jetbrains.compose.resources.stringResource
  * @param eventExtra The extra information related to an event to display
  */
 @Composable
-@NonRestartableComposable
 fun EventText(
     text: Resource,
     eventExtra: JsonElement?,

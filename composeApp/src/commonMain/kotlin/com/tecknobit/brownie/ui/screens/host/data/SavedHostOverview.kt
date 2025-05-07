@@ -12,7 +12,6 @@ import com.tecknobit.brownie.ui.theme.violet
 import com.tecknobit.brownie.ui.theme.yellow
 import com.tecknobit.browniecore.CPU_USAGE_KEY
 import com.tecknobit.browniecore.EVENT_DATE_KEY
-import com.tecknobit.browniecore.HOST_ADDRESS_KEY
 import com.tecknobit.browniecore.HOST_EVENTS_KEY
 import com.tecknobit.browniecore.MEMORY_USAGE_KEY
 import com.tecknobit.browniecore.STORAGE_USAGE_KEY
@@ -25,6 +24,7 @@ import com.tecknobit.browniecore.enums.HostEventType.SERVICE_ADDED
 import com.tecknobit.browniecore.enums.HostEventType.SERVICE_DELETED
 import com.tecknobit.browniecore.enums.HostEventType.SERVICE_REMOVED
 import com.tecknobit.browniecore.enums.HostStatus
+import com.tecknobit.equinoxcore.helpers.HOST_ADDRESS_KEY
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement

@@ -5,10 +5,10 @@ package com.tecknobit.brownie.ui.screens.hosts.components
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import brownie.composeapp.generated.resources.Res
@@ -31,7 +31,6 @@ import org.jetbrains.compose.resources.stringResource
  * @param viewModel The support viewmodel for the screen
  */
 @Composable
-@NonRestartableComposable
 fun HostsList(
     modifier: Modifier = Modifier,
     viewModel: HostsScreenViewModel,
@@ -67,9 +66,10 @@ fun HostsList(
  * Custom [EmptyState] component used to display the no availability of hosts to display
  */
 @Composable
-@NonRestartableComposable
 private fun NoHostsRegistered() {
     EmptyState(
+        containerModifier = Modifier
+            .fillMaxSize(),
         resourceSize = responsiveAssignment(
             onExpandedSizeClass = { 400.dp },
             onMediumSizeClass = { 300.dp },

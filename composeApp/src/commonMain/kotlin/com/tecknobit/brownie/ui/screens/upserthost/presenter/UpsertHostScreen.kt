@@ -18,6 +18,7 @@ import com.tecknobit.brownie.ui.screens.upserthost.components.SSHAuthentication
 import com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel
 import com.tecknobit.brownie.ui.shared.presenters.UpsertScreen
 import com.tecknobit.brownie.ui.theme.AppTypography
+import com.tecknobit.equinoxcompose.annotations.ScreenSection
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
 import com.tecknobit.equinoxcore.annotations.RequiresSuperCall
 import org.jetbrains.compose.resources.stringResource
@@ -44,7 +45,7 @@ class UpsertHostScreen(
      * Custom section used to display the title of the item
      */
     @Composable
-    @NonRestartableComposable
+    @ScreenSection
     override fun Title() {
         Text(
             text = stringResource(
@@ -63,6 +64,7 @@ class UpsertHostScreen(
      * The form used to insert or edit the item details
      */
     @Composable
+    @ScreenSection
     @NonRestartableComposable
     override fun Form() {
         ItemNameSection(
@@ -84,7 +86,6 @@ class UpsertHostScreen(
      */
     @Composable
     @RequiresSuperCall
-    @NonRestartableComposable
     override fun CollectStates() {
         super.CollectStates()
         viewModel.addressError = remember { mutableStateOf(false) }
@@ -99,7 +100,6 @@ class UpsertHostScreen(
      * initial value to the states
      */
     @Composable
-    @NonRestartableComposable
     override fun CollectStatesAfterLoading() {
         viewModel.name = remember {
             mutableStateOf(

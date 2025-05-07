@@ -12,7 +12,9 @@ import brownie.composeapp.generated.resources.history
 import com.tecknobit.brownie.ui.screens.host.components.ExpandableSection
 import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview
+import com.tecknobit.equinoxcompose.annotations.ScreenSection
 import com.tecknobit.equinoxcompose.utilities.CompactClassComponent
+import com.tecknobit.equinoxcompose.utilities.LayoutCoordinator
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.EXPANDED_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.MEDIUM_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClassComponent
@@ -24,7 +26,8 @@ import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
  * @param savedHostOverview The host overview data
  */
 @Composable
-@NonRestartableComposable
+@ScreenSection
+@LayoutCoordinator
 fun HistorySection(
     savedHostOverview: SavedHostOverview
 ) {
@@ -53,7 +56,7 @@ fun HistorySection(
  * @param savedHostOverview The host overview data
  */
 @Composable
-@NonRestartableComposable
+@ScreenSection
 @ResponsiveClassComponent(
     classes = [EXPANDED_CONTENT, MEDIUM_CONTENT]
 )
@@ -79,6 +82,7 @@ private fun FixedHistorySection(
  * @param savedHostOverview The host overview data
  */
 @Composable
+@ScreenSection
 @CompactClassComponent
 @NonRestartableComposable
 private fun ExpandableHistorySection(
