@@ -1,5 +1,6 @@
 package com.tecknobit.brownie.helpers
 
+import androidx.compose.ui.text.intl.Locale
 import com.tecknobit.brownie.requester
 import com.tecknobit.browniecore.JOIN_CODE_KEY
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme
@@ -7,6 +8,7 @@ import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme.Au
 import com.tecknobit.equinoxcore.helpers.HOST_ADDRESS_KEY
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 import com.tecknobit.equinoxcore.helpers.InputsValidator.Companion.DEFAULT_LANGUAGE
+import com.tecknobit.equinoxcore.helpers.InputsValidator.Companion.SUPPORTED_LANGUAGES
 import com.tecknobit.equinoxcore.helpers.LANGUAGE_KEY
 import com.tecknobit.equinoxcore.helpers.THEME_KEY
 import com.tecknobit.kmprefs.KMPrefs
@@ -132,9 +134,13 @@ class BrownieLocalSession {
             key = JOIN_CODE_KEY,
             defValue = ""
         )!!
+        val currentLocaleLanguage = Locale.current.language
         language = kmpPrefs.retrieveString(
             key = LANGUAGE_KEY,
-            defValue = DEFAULT_LANGUAGE
+            defValue = if (SUPPORTED_LANGUAGES.containsKey(currentLocaleLanguage))
+                currentLocaleLanguage
+            else
+                DEFAULT_LANGUAGE
         )!!
         theme = ApplicationTheme.getInstance(
             kmpPrefs.retrieveString(
