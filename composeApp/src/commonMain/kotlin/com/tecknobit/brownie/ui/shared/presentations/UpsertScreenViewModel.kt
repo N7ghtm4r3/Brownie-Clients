@@ -1,8 +1,10 @@
 package com.tecknobit.brownie.ui.shared.presentations
 
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.MutableState
 import com.tecknobit.browniecore.helpers.BrownieInputsValidator.isItemNameValid
+import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowState
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.annotations.RequiresSuperCall
 import com.tecknobit.equinoxcore.annotations.Structure
@@ -47,6 +49,12 @@ abstract class UpsertScreenViewModel<T>(
      * `nameError` whether the [name] field is not valid
      */
     lateinit var nameError: MutableState<Boolean>
+
+    /**
+     * `sessionFlowState` the state used to manage the session lifecycle in the screen
+     */
+    @OptIn(ExperimentalComposeApi::class)
+    lateinit var sessionFlowState: SessionFlowState
 
     /**
      * Method used to retrieve the information of the item to display

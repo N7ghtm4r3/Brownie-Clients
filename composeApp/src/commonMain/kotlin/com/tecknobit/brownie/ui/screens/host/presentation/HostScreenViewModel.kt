@@ -1,6 +1,9 @@
+@file:OptIn(ExperimentalComposeApi::class)
+
 package com.tecknobit.brownie.ui.screens.host.presentation
 
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.viewModelScope
@@ -13,7 +16,7 @@ import com.tecknobit.browniecore.PID_KEY
 import com.tecknobit.browniecore.enums.ServiceStatus
 import com.tecknobit.browniecore.enums.ServiceStatus.RUNNING
 import com.tecknobit.browniecore.enums.ServiceStatus.STOPPED
-import com.tecknobit.equinoxcompose.session.setServerOfflineValue
+import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowState
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 import com.tecknobit.equinoxcore.helpers.STATUS_KEY
@@ -85,6 +88,11 @@ class HostScreenViewModel(
     }
 
     /**
+     * `sessionFlowState` the state used to manage the session lifecycle in the screen
+     */
+    lateinit var sessionFlowState: SessionFlowState
+
+    /**
      * `json` the json instance used to ignore the unknown keys during the serialization
      */
     private val json = Json {
@@ -122,17 +130,18 @@ class HostScreenViewModel(
                 },
                 serializer = HostService.serializer(),
                 onSuccess = { paginatedResponse ->
-                    setServerOfflineValue(false)
+                    sessionFlowState.notifyOperational()
                     servicesState.appendPage(
                         items = paginatedResponse.data,
                         nextPageKey = paginatedResponse.nextPage,
                         isLastPage = paginatedResponse.isLastPage
                     )
                 },
-                onFailure = {
-                    showSnackbarMessage(it)
-                },
-                onConnectionError = { setServerOfflineValue(true) }
+                onFailure = { showSnackbarMessage(it) },
+                onConnectionError = {
+                    servicesState.setError(Exception())
+                    sessionFlowState.notifyServerOffline()
+                }
             )
         }
     }
@@ -159,11 +168,11 @@ class HostScreenViewModel(
                         )
                     },
                     onSuccess = {
-                        setServerOfflineValue(false)
+                        sessionFlowState.notifyOperational()
                         _hostOverview.value = json.decodeFromJsonElement(it.toResponseData())
                     },
                     onFailure = { showSnackbarMessage(it) },
-                    onConnectionError = { setServerOfflineValue(true) }
+                    onConnectionError = { sessionFlowState.notifyServerOffline() }
                 )
                 requester.sendRequestAsyncHandlers(
                     request = {
@@ -173,7 +182,7 @@ class HostScreenViewModel(
                         )
                     },
                     onSuccess = {
-                        setServerOfflineValue(false)
+                        sessionFlowState.notifyOperational()
                         _refreshingServices.emit(true)
                         val services = it.toResponseArrayData()
                         services.forEach { serviceEntry ->
@@ -185,7 +194,7 @@ class HostScreenViewModel(
                         _refreshingServices.emit(false)
                     },
                     onFailure = { showSnackbarMessage(it) },
-                    onConnectionError = { setServerOfflineValue(true) }
+                    onConnectionError = { sessionFlowState.notifyServerOffline() }
                 )
             },
             refreshDelay = 3000

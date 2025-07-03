@@ -44,14 +44,16 @@ import com.tecknobit.brownie.ADMIN_CONTROL_PANEL_SCREEN
 import com.tecknobit.brownie.CloseApplicationOnNavBack
 import com.tecknobit.brownie.UPSERT_HOST_SCREEN
 import com.tecknobit.brownie.navigator
+import com.tecknobit.brownie.ui.components.RetryButton
 import com.tecknobit.brownie.ui.components.StatusFilterButton
 import com.tecknobit.brownie.ui.icons.AssignmentAdd
 import com.tecknobit.brownie.ui.screens.hosts.components.HostsList
 import com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel
 import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.equinoxcompose.components.DebouncedTextField
-import com.tecknobit.equinoxcompose.session.ManagedContent
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
+import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowContainer
+import com.tecknobit.equinoxcompose.session.sessionflow.rememberSessionFlowState
 import com.tecknobit.equinoxcompose.utilities.responsiveAssignment
 import com.tecknobit.equinoxcompose.utilities.responsiveMaxWidth
 import org.jetbrains.compose.resources.stringResource
@@ -73,9 +75,10 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
     override fun ArrangeScreenContent() {
         CloseApplicationOnNavBack()
         BrownieTheme {
-            ManagedContent(
+            SessionFlowContainer(
                 modifier = Modifier
                     .fillMaxSize(),
+                state = viewModel.sessionFlowState,
                 viewModel = viewModel,
                 content = {
                     Scaffold(
@@ -146,6 +149,13 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
                             )
                         }
                     }
+                },
+                retryFailedFlowContent = {
+                    RetryButton(
+                        onRetry = {
+                            viewModel.hostsState.retryLastFailedRequest()
+                        }
+                    )
                 }
             )
         }
@@ -221,6 +231,7 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
     @Composable
     override fun CollectStates() {
         viewModel.inputSearch = remember { mutableStateOf("") }
+        viewModel.sessionFlowState = rememberSessionFlowState()
     }
 
 }

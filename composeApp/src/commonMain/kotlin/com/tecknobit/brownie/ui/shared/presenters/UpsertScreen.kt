@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMultiplatform::class)
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeApi::class)
 
 package com.tecknobit.brownie.ui.shared.presenters
 
@@ -29,6 +29,7 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.State
@@ -46,14 +47,16 @@ import brownie.composeapp.generated.resources.Res.string
 import brownie.composeapp.generated.resources.edit
 import brownie.composeapp.generated.resources.save
 import com.tecknobit.brownie.navigator
+import com.tecknobit.brownie.ui.components.RetryButton
 import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel
 import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.browniecore.helpers.BrownieInputsValidator
 import com.tecknobit.equinoxcompose.annotations.ScreenSection
 import com.tecknobit.equinoxcompose.components.EquinoxOutlinedTextField
-import com.tecknobit.equinoxcompose.session.ManagedContent
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
+import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowContainer
+import com.tecknobit.equinoxcompose.session.sessionflow.rememberSessionFlowState
 import com.tecknobit.equinoxcompose.utilities.CompactClassComponent
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.EXPANDED_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.MEDIUM_CONTENT
@@ -100,11 +103,13 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
     @Composable
     override fun ArrangeScreenContent() {
         BrownieTheme {
-            ManagedContent(
+            SessionFlowContainer(
                 modifier = Modifier
                     .fillMaxSize(),
+                state = viewModel.sessionFlowState,
                 viewModel = viewModel,
-                initialDelay = 500,
+                loadingContentColor = MaterialTheme.colorScheme.primary,
+                initialLoadingRoutineDelay = 500L,
                 loadingRoutine = if (isEditing) {
                     {
                         item.value != null
@@ -166,6 +171,15 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
                             }
                         }
                     }
+                },
+                retryFailedFlowContent = {
+                    RetryButton(
+                        onRetry = {
+                            // TODO: INTEGRATE INTO RELOAD DIRECTLY
+                            viewModel.sessionFlowState.reload()
+                            viewModel.retrieveItem()
+                        }
+                    )
                 }
             )
         }
@@ -342,6 +356,7 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
     override fun CollectStates() {
         item = viewModel.item.collectAsState()
         viewModel.nameError = remember { mutableStateOf(false) }
+        viewModel.sessionFlowState = rememberSessionFlowState()
     }
 
 }
