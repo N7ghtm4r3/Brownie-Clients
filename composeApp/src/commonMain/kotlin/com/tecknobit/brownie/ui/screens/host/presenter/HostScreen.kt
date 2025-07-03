@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeApi::class)
 
 package com.tecknobit.brownie.ui.screens.host.presenter
 
@@ -20,6 +20,7 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
@@ -30,6 +31,7 @@ import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.add_service
 import com.tecknobit.brownie.UPSERT_SERVICE_SCREEN
 import com.tecknobit.brownie.navigator
+import com.tecknobit.brownie.ui.components.RetryButton
 import com.tecknobit.brownie.ui.components.UnregisterSavedHost
 import com.tecknobit.brownie.ui.icons.ServerSpark
 import com.tecknobit.brownie.ui.screens.host.components.HostOverview
@@ -38,8 +40,9 @@ import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.brownie.ui.theme.BrownieTheme
-import com.tecknobit.equinoxcompose.session.ManagedContent
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
+import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowContainer
+import com.tecknobit.equinoxcompose.session.sessionflow.rememberSessionFlowState
 import com.tecknobit.equinoxcompose.utilities.responsiveAssignment
 import org.jetbrains.compose.resources.stringResource
 
@@ -71,11 +74,13 @@ class HostScreen(
     @Composable
     override fun ArrangeScreenContent() {
         BrownieTheme {
-            ManagedContent(
+            SessionFlowContainer(
                 modifier = Modifier
                     .fillMaxSize(),
+                state = viewModel.sessionFlowState,
                 viewModel = viewModel,
-                initialDelay = 2000,
+                loadingContentColor = MaterialTheme.colorScheme.primary,
+                initialLoadingRoutineDelay = 2000L,
                 loadingRoutine = { hostOverview.value != null },
                 content = {
                     Scaffold(
@@ -175,6 +180,16 @@ class HostScreen(
                             hostOverview = hostOverview.value!!
                         )
                     }
+                },
+                retryFailedFlowContent = {
+                    RetryButton(
+                        onRetry = {
+                            // TODO: INTEGRATE INTO RELOAD DIRECTLY
+                            viewModel.sessionFlowState.reload()
+                            viewModel.retrieveHostOverview()
+                            viewModel.servicesState.retryLastFailedRequest()
+                        }
+                    )
                 }
             )
         }
@@ -194,6 +209,7 @@ class HostScreen(
     @Composable
     override fun CollectStates() {
         hostOverview = viewModel.hostOverview.collectAsState()
+        viewModel.sessionFlowState = rememberSessionFlowState()
     }
 
 }

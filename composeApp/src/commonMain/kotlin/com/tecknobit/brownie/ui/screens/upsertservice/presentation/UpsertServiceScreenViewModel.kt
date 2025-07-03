@@ -1,5 +1,8 @@
+@file:OptIn(ExperimentalComposeApi::class)
+
 package com.tecknobit.brownie.ui.screens.upsertservice.presentation
 
+import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.MutableState
 import androidx.lifecycle.viewModelScope
 import com.tecknobit.brownie.helpers.KReviewer
@@ -66,8 +69,12 @@ class UpsertServiceScreenViewModel(
                         serviceId = itemId
                     )
                 },
-                onSuccess = { _item.value = Json.decodeFromJsonElement(it.toResponseData()) },
-                onFailure = { showSnackbarMessage(it) }
+                onSuccess = {
+                    sessionFlowState.notifyOperational()
+                    _item.value = Json.decodeFromJsonElement(it.toResponseData())
+                },
+                onFailure = { showSnackbarMessage(it) },
+                onConnectionError = { sessionFlowState.notifyServerOffline() }
             )
         }
     }

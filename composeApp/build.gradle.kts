@@ -21,7 +21,7 @@ plugins {
 kotlin {
     androidTarget {
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_18)
+            jvmTarget.set(JvmTarget.JVM_22)
         }
     }
     
@@ -38,13 +38,13 @@ kotlin {
     
     jvm("desktop") {
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_18)
+            jvmTarget.set(JvmTarget.JVM_22)
         }
     }
     
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
-        moduleName = "composeApp"
+        outputModuleName = "composeApp"
         browser {
             val rootDirPath = project.rootDir.path
             val projectDirPath = project.projectDir.path
@@ -131,8 +131,8 @@ android {
         applicationId = "com.tecknobit.brownie"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 3
-        versionName = "1.0.1"
+        versionCode = 4
+        versionName = "1.0.2"
     }
     packaging {
         resources {
@@ -145,8 +145,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_18
-        targetCompatibility = JavaVersion.VERSION_18
+        sourceCompatibility = JavaVersion.VERSION_22
+        targetCompatibility = JavaVersion.VERSION_22
     }
 }
 
@@ -165,8 +165,8 @@ compose.desktop {
                 "jdk.security.auth"
             )
             packageName = "Brownie"
-            packageVersion = "1.0.1"
-            version = "1.0.1"
+            packageVersion = "1.0.2"
+            version = "1.0.2"
             description = "Self-hosted VPS manager"
             copyright = "© 2025 Tecknobit"
             vendor = "Tecknobit"
@@ -183,7 +183,7 @@ compose.desktop {
                 iconFile.set(project.file("src/desktopMain/resources/logo.png"))
                 packageName = "com-tecknobit-brownie"
                 debMaintainer = "infotecknobitcompany@gmail.com"
-                appRelease = "1.0.1"
+                appRelease = "1.0.2"
                 appCategory = "PERSONALIZATION"
                 rpmLicenseType = "APACHE2"
             }

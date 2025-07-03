@@ -1070,6 +1070,16 @@
     ]
   },
   {
+    "name": "fun RetryButton(onRetry: () -> Unit, text: StringResource = Res.string.retry)",
+    "description": "com.tecknobit.brownie.ui.components.RetryButton",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/-retry-button.html",
+    "searchKeys": [
+      "RetryButton",
+      "fun RetryButton(onRetry: () -> Unit, text: StringResource = Res.string.retry)",
+      "com.tecknobit.brownie.ui.components.RetryButton"
+    ]
+  },
+  {
     "name": "fun SSHAuthentication(viewModel: UpsertHostScreenViewModel, isEditing: Boolean)",
     "description": "com.tecknobit.brownie.ui.screens.upserthost.components.SSHAuthentication",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.components/-s-s-h-authentication.html",
@@ -1787,6 +1797,36 @@
       "servicesQuery",
       "lateinit var servicesQuery: MutableState<String>",
       "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.servicesQuery"
+    ]
+  },
+  {
+    "name": "lateinit var sessionFlowState: SessionFlowState",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.sessionFlowState",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/session-flow-state.html",
+    "searchKeys": [
+      "sessionFlowState",
+      "lateinit var sessionFlowState: SessionFlowState",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.sessionFlowState"
+    ]
+  },
+  {
+    "name": "lateinit var sessionFlowState: SessionFlowState",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.sessionFlowState",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presentation/-hosts-screen-view-model/session-flow-state.html",
+    "searchKeys": [
+      "sessionFlowState",
+      "lateinit var sessionFlowState: SessionFlowState",
+      "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.sessionFlowState"
+    ]
+  },
+  {
+    "name": "lateinit var sessionFlowState: SessionFlowState",
+    "description": "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.sessionFlowState",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/session-flow-state.html",
+    "searchKeys": [
+      "sessionFlowState",
+      "lateinit var sessionFlowState: SessionFlowState",
+      "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.sessionFlowState"
     ]
   },
   {

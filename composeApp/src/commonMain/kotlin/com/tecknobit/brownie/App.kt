@@ -1,8 +1,7 @@
-@file:OptIn(ExperimentalResourceApi::class)
-
 package com.tecknobit.brownie
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.text.font.FontFamily
 import brownie.composeapp.generated.resources.Res
@@ -20,6 +19,7 @@ import com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen
 import com.tecknobit.brownie.ui.screens.upserthost.presenter.UpsertHostScreen
 import com.tecknobit.brownie.ui.screens.upsertservice.presenter.UpsertServiceScreen
 import com.tecknobit.browniecore.HOST_IDENTIFIER_KEY
+import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowState
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 import com.tecknobit.equinoxcore.helpers.NAME_KEY
 import moe.tlaster.precompose.PreComposeApp
@@ -27,7 +27,6 @@ import moe.tlaster.precompose.navigation.NavHost
 import moe.tlaster.precompose.navigation.Navigator
 import moe.tlaster.precompose.navigation.path
 import moe.tlaster.precompose.navigation.rememberNavigator
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.Font
 
 /**
@@ -94,6 +93,7 @@ const val UPSERT_SERVICE_SCREEN = "UpsertServiceScreen"
 /**
  * Method used to start the `Brownie`'s application
  */
+@OptIn(ExperimentalComposeApi::class)
 @Composable
 fun App() {
     bodyFontFamily = FontFamily(Font(Res.font.rubik))
@@ -154,6 +154,10 @@ fun App() {
                 ).ShowContent()
             }
         }
+    }
+    SessionFlowState.invokeOnUserDisconnected {
+        localSession.clear()
+        navigator.navigate(SPLASHSCREEN)
     }
 }
 

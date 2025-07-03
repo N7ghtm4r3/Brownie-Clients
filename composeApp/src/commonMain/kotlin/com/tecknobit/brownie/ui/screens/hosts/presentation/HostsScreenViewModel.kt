@@ -1,6 +1,9 @@
+@file:OptIn(ExperimentalComposeApi::class)
+
 package com.tecknobit.brownie.ui.screens.hosts.presentation
 
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.viewModelScope
@@ -9,8 +12,7 @@ import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.shared.presentations.HostManager
 import com.tecknobit.browniecore.enums.HostStatus
-import com.tecknobit.equinoxcompose.session.setHasBeenDisconnectedValue
-import com.tecknobit.equinoxcompose.session.setServerOfflineValue
+import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowState
 import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 import com.tecknobit.equinoxcore.helpers.STATUS_KEY
@@ -59,6 +61,11 @@ class HostsScreenViewModel : EquinoxViewModel(
      */
     val statusFilters = mutableStateListOf<HostStatus>()
 
+    /**
+     * `sessionFlowState` the state used to manage the session lifecycle in the screen
+     */
+    lateinit var sessionFlowState: SessionFlowState
+
     init {
         statusFilters.addAll(HostStatus.entries)
     }
@@ -101,15 +108,18 @@ class HostsScreenViewModel : EquinoxViewModel(
                 },
                 serializer = SavedHostImpl.serializer(),
                 onSuccess = { paginatedResponse ->
-                    setServerOfflineValue(false)
+                    sessionFlowState.notifyOperational()
                     hostsState.appendPage(
                         items = paginatedResponse.data,
                         nextPageKey = paginatedResponse.nextPage,
                         isLastPage = paginatedResponse.isLastPage
                     )
                 },
-                onFailure = { setHasBeenDisconnectedValue(true) },
-                onConnectionError = { setServerOfflineValue(true) }
+                onFailure = { sessionFlowState.notifyUserDisconnected() },
+                onConnectionError = {
+                    hostsState.setError(Exception())
+                    sessionFlowState.notifyServerOffline()
+                }
             )
         }
     }
@@ -128,7 +138,7 @@ class HostsScreenViewModel : EquinoxViewModel(
                         )
                     },
                     onSuccess = {
-                        setServerOfflineValue(false)
+                        sessionFlowState.notifyOperational()
                         _refreshingHosts.emit(true)
                         val statuses = it.toResponseArrayData()
                         statuses.forEach { statusEntry ->
@@ -139,8 +149,8 @@ class HostsScreenViewModel : EquinoxViewModel(
                         delay(100)
                         _refreshingHosts.emit(false)
                     },
-                    onFailure = { setHasBeenDisconnectedValue(true) },
-                    onConnectionError = { setServerOfflineValue(true) }
+                    onFailure = { sessionFlowState.notifyUserDisconnected() },
+                    onConnectionError = { sessionFlowState.notifyServerOffline() }
                 )
             },
             refreshDelay = 10_000
