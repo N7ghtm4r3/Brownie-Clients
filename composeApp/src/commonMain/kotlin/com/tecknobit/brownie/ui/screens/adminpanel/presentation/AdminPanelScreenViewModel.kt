@@ -8,7 +8,7 @@ import com.tecknobit.brownie.localSession
 import com.tecknobit.brownie.requester
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme
 import com.tecknobit.equinoxcompose.session.Retriever
-import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
+import com.tecknobit.equinoxcompose.session.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.helpers.InputsValidator.Companion.isPasswordValid
 import com.tecknobit.equinoxcore.network.sendRequest
 import kotlinx.coroutines.launch

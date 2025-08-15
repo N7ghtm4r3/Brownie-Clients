@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Brownie</string>
-    <string name="app_version">1.0.2</string>
+    <string name="app_version">1.0.3</string>
     <string name="hosts">Anfitriones</string>
     <string name="register">Regístrese en</string>
     <string name="no_hosts_registered">No hay anfitriones registrados</string>
@@ -104,4 +104,6 @@
     <string name="create">Cree</string>
     <string name="create_session">Crear sesión</string>
     <string name="connect_to_session">Conectarse a la sesión</string>
+    <string name="login_required">Inicio de sesión obligatorio</string>
+    <string name="enter_your_credentials_to_continue">Introduzca sus credenciales para continuar</string>
 </resources>

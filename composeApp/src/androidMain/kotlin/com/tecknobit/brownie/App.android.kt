@@ -1,5 +1,6 @@
 package com.tecknobit.brownie
 
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.LocalActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
@@ -10,7 +11,6 @@ import com.google.android.play.core.ktx.isImmediateUpdateAllowed
 import com.tecknobit.brownie.MainActivity.Companion.appUpdateManager
 import com.tecknobit.brownie.MainActivity.Companion.launcher
 import com.tecknobit.equinoxcore.utilities.AppContext
-import moe.tlaster.precompose.navigation.BackHandler
 import java.util.Locale
 
 /**

@@ -1,6 +1,5 @@
 package com.tecknobit.brownie.helpers
 
-import com.tecknobit.ametistaengine.AmetistaEngine.Companion.ametistaEngine
 import com.tecknobit.brownie.ui.screens.host.data.HostService
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl
@@ -74,9 +73,10 @@ class BrownieRequester(
 ) {
 
     init {
-        attachInterceptorOnRequest {
-            ametistaEngine.notifyNetworkRequest()
-        }
+        // TODO: TO REIMPLEMENT WHEN NECESSARY
+//        attachInterceptorOnRequest {
+//            ametistaEngine.notifyNetworkRequest()
+//        }
     }
 
     /**

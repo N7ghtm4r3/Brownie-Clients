@@ -5,7 +5,7 @@ import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.MutableState
 import com.tecknobit.browniecore.helpers.BrownieInputsValidator.isItemNameValid
 import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowState
-import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
+import com.tecknobit.equinoxcompose.session.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.annotations.RequiresSuperCall
 import com.tecknobit.equinoxcore.annotations.Structure
 import kotlinx.coroutines.flow.MutableStateFlow

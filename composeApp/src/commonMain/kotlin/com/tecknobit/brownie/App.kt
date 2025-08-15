@@ -1,14 +1,21 @@
+@file:OptIn(ExperimentalStdlibApi::class)
+
 package com.tecknobit.brownie
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.text.font.FontFamily
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.rubik
 import brownie.composeapp.generated.resources.ubuntu_mono
 import com.tecknobit.ametistaengine.AmetistaEngine
 import com.tecknobit.ametistaengine.AmetistaEngine.Companion.FILES_AMETISTA_CONFIG_PATHNAME
+import com.tecknobit.biometrik.rememberBiometrikState
 import com.tecknobit.brownie.helpers.BrownieLocalSession
 import com.tecknobit.brownie.helpers.BrownieRequester
 import com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen
@@ -18,15 +25,12 @@ import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen
 import com.tecknobit.brownie.ui.screens.upserthost.presenter.UpsertHostScreen
 import com.tecknobit.brownie.ui.screens.upsertservice.presenter.UpsertServiceScreen
+import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.browniecore.HOST_IDENTIFIER_KEY
+import com.tecknobit.equinoxcompose.session.screens.equinoxScreen
 import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowState
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 import com.tecknobit.equinoxcore.helpers.NAME_KEY
-import moe.tlaster.precompose.PreComposeApp
-import moe.tlaster.precompose.navigation.NavHost
-import moe.tlaster.precompose.navigation.Navigator
-import moe.tlaster.precompose.navigation.path
-import moe.tlaster.precompose.navigation.rememberNavigator
 import org.jetbrains.compose.resources.Font
 
 /**
@@ -53,7 +57,7 @@ val localSession = BrownieLocalSession()
 /**
  * `navigator` the navigator instance is useful to manage the navigation between the screens of the application
  */
-lateinit var navigator: Navigator
+lateinit var navigator: NavHostController
 
 /**
  * `SPLASHSCREEN` route to navigate to the [com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen]
@@ -96,65 +100,112 @@ const val UPSERT_SERVICE_SCREEN = "UpsertServiceScreen"
 @OptIn(ExperimentalComposeApi::class)
 @Composable
 fun App() {
+    val biometrikState = rememberBiometrikState()
     bodyFontFamily = FontFamily(Font(Res.font.rubik))
     displayFontFamily = FontFamily(Font(Res.font.ubuntu_mono))
-    InitAmetista()
-    PreComposeApp {
-        navigator = rememberNavigator()
+    // InitAmetista()
+    navigator = rememberNavController()
+    // TODO: TO USE UNIQUE THEME
+    // BrownieTheme {
         NavHost(
-            navigator = navigator,
-            initialRoute = SPLASHSCREEN
+            navController = navigator,
+            startDestination = SPLASHSCREEN
         ) {
-            scene(
+            composable(
                 route = SPLASHSCREEN
             ) {
-                Splashscreen().ShowContent()
+                // TODO: TO REMOVE THIS THEME CALL
+                BrownieTheme {
+                    val splashscreen = equinoxScreen {
+                        Splashscreen(
+                            biometrikState = biometrikState
+                        )
+                    }
+                    splashscreen.ShowContent()
+                }
             }
-            scene(
+            composable(
                 route = CONNECT_SCREEN
             ) {
-                ConnectScreen().ShowContent()
+                // TODO: TO REMOVE THIS THEME CALL
+                BrownieTheme {
+                    val connectScreen = equinoxScreen { ConnectScreen() }
+                    connectScreen.ShowContent()
+                }
             }
-            scene(
+            composable(
                 route = HOSTS_SCREEN
             ) {
-                HostsScreen().ShowContent()
+                // TODO: TO REMOVE THIS THEME CALL
+                BrownieTheme {
+                    val savedStateHandle = navigator.currentBackStackEntry?.savedStateHandle
+                    val hostsScreen = equinoxScreen { HostsScreen() }
+                    hostsScreen.ShowContent()
+                    savedStateHandle?.remove<String>(IDENTIFIER_KEY)
+                }
             }
-            scene(
+            composable(
                 route = ADMIN_CONTROL_PANEL_SCREEN
             ) {
-                AdminPanelScreen().ShowContent()
+                // TODO: TO REMOVE THIS THEME CALL
+                BrownieTheme {
+                    val adminPanelScreen = equinoxScreen { AdminPanelScreen() }
+                    adminPanelScreen.ShowContent()
+                }
             }
-            scene(
-                route = "$UPSERT_HOST_SCREEN/{$IDENTIFIER_KEY}?"
-            ) { backStackEntry ->
-                val hostId = backStackEntry.path<String>(IDENTIFIER_KEY)
-                UpsertHostScreen(
-                    hostId = hostId
-                ).ShowContent()
+            composable(
+                route = UPSERT_HOST_SCREEN
+            ) {
+                // TODO: TO REMOVE THIS THEME CALL
+                BrownieTheme {
+                    val savedStateHandle = navigator.previousBackStackEntry?.savedStateHandle!!
+                    val hostId: String? = savedStateHandle[IDENTIFIER_KEY]
+                    val upsertHostScreen = equinoxScreen {
+                        UpsertHostScreen(
+                            hostId = hostId
+                        )
+                    }
+                    upsertHostScreen.ShowContent()
+                    savedStateHandle.remove<String>(IDENTIFIER_KEY)
+                }
             }
-            scene(
-                route = "$HOST_SCREEN/{$IDENTIFIER_KEY}"
-            ) { backStackEntry ->
-                val hostId = backStackEntry.path<String>(IDENTIFIER_KEY)!!
-                HostScreen(
-                    hostId = hostId
-                ).ShowContent()
+            composable(
+                route = HOST_SCREEN
+            ) {
+                // TODO: TO REMOVE THIS THEME CALL
+                BrownieTheme {
+                    val savedStateHandle = navigator.previousBackStackEntry?.savedStateHandle!!
+                    val hostId: String = savedStateHandle[IDENTIFIER_KEY]!!
+                    val hostScreen = equinoxScreen {
+                        HostScreen(
+                            hostId = hostId
+                        )
+                    }
+                    hostScreen.ShowContent()
+                }
             }
-            scene(
-                route = "$UPSERT_SERVICE_SCREEN/{$HOST_IDENTIFIER_KEY}/{$NAME_KEY}/{$IDENTIFIER_KEY}?"
-            ) { backStackEntry ->
-                val hostId = backStackEntry.path<String>(HOST_IDENTIFIER_KEY)!!
-                val hostName = backStackEntry.path<String>(NAME_KEY)!!
-                val serviceId = backStackEntry.path<String>(IDENTIFIER_KEY)
-                UpsertServiceScreen(
-                    hostId = hostId,
-                    hostName = hostName,
-                    serviceId = serviceId
-                ).ShowContent()
+            composable(
+                route = UPSERT_SERVICE_SCREEN
+            ) {
+                // TODO: TO REMOVE THIS THEME CALL
+                BrownieTheme {
+                    val savedStateHandle = navigator.previousBackStackEntry?.savedStateHandle!!
+                    val hostId: String = savedStateHandle[HOST_IDENTIFIER_KEY]!!
+                    val hostName: String = savedStateHandle[NAME_KEY]!!
+                    val serviceId: String? = savedStateHandle[IDENTIFIER_KEY]
+                    val upsertServiceScreen = equinoxScreen {
+                        UpsertServiceScreen(
+                            hostId = hostId,
+                            hostName = hostName,
+                            serviceId = serviceId
+                        )
+                    }
+                    upsertServiceScreen.ShowContent()
+                    savedStateHandle.keys().forEach { savedStateHandle.remove<Any>(it) }
+                }
             }
         }
-    }
+    // }
     SessionFlowState.invokeOnUserDisconnected {
         localSession.clear()
         navigator.navigate(SPLASHSCREEN)
@@ -165,6 +216,7 @@ fun App() {
  * Method used to initialize the Ametista system
  */
 @Composable
+// TODO: TO REIMPLEMENT WHEN NECESSARY
 private fun InitAmetista() {
     LaunchedEffect(Unit) {
         val ametistaEngine = AmetistaEngine.ametistaEngine

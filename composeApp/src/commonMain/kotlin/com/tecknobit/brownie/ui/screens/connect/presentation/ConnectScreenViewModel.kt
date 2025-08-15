@@ -8,7 +8,7 @@ import com.tecknobit.brownie.localSession
 import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.requester
 import com.tecknobit.browniecore.JOIN_CODE_KEY
-import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
+import com.tecknobit.equinoxcompose.session.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 import com.tecknobit.equinoxcore.helpers.InputsValidator.Companion.isHostValid
 import com.tecknobit.equinoxcore.helpers.InputsValidator.Companion.isPasswordValid

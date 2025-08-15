@@ -13,7 +13,7 @@ import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.shared.presentations.HostManager
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowState
-import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
+import com.tecknobit.equinoxcompose.session.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 import com.tecknobit.equinoxcore.helpers.STATUS_KEY
 import com.tecknobit.equinoxcore.json.treatsAsString

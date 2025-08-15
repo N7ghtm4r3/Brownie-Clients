@@ -17,12 +17,11 @@ import com.tecknobit.browniecore.enums.ServiceStatus
 import com.tecknobit.browniecore.enums.ServiceStatus.RUNNING
 import com.tecknobit.browniecore.enums.ServiceStatus.STOPPED
 import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowState
-import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
+import com.tecknobit.equinoxcompose.session.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 import com.tecknobit.equinoxcore.helpers.STATUS_KEY
 import com.tecknobit.equinoxcore.json.treatsAsLong
 import com.tecknobit.equinoxcore.json.treatsAsString
-import com.tecknobit.equinoxcore.mergeIfNotContained
 import com.tecknobit.equinoxcore.network.Requester.Companion.toResponseArrayData
 import com.tecknobit.equinoxcore.network.Requester.Companion.toResponseData
 import com.tecknobit.equinoxcore.network.sendPaginatedRequest
@@ -230,9 +229,6 @@ class HostScreenViewModel(
         onClear: () -> Unit,
     ) {
         servicesQuery.value = ""
-        statusFilters.mergeIfNotContained(
-            collectionToMerge = ServiceStatus.entries
-        )
         restartRetriever()
         onClear()
     }

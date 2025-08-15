@@ -59,6 +59,9 @@ kotlin {
                 }
             }
         }
+        compilerOptions {
+            freeCompilerArgs.add("-Xwasm-attach-js-exception")
+        }
         binaries.executable()
     }
     
@@ -72,6 +75,7 @@ kotlin {
             implementation(libs.app.update.ktx)
             implementation(libs.review)
             implementation(libs.review.ktx)
+            implementation(libs.androidx.appcompat)
         }
 
         val commonMain by getting {
@@ -87,13 +91,14 @@ kotlin {
                 implementation(libs.androidx.lifecycle.runtime.compose)
                 implementation(libs.equinox.compose)
                 implementation(libs.equinox.core)
-                implementation(libs.precompose)
                 implementation(libs.browniecore)
                 implementation(libs.lazy.pagination.compose)
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.jetlime)
                 implementation(libs.kmprefs)
                 implementation(libs.ametista.engine)
+                implementation(libs.navigation.compose)
+                implementation(libs.biometrik)
             }
         }
 
@@ -131,8 +136,8 @@ android {
         applicationId = "com.tecknobit.brownie"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 4
-        versionName = "1.0.2"
+        versionCode = 5
+        versionName = "1.0.3"
     }
     packaging {
         resources {
@@ -165,8 +170,8 @@ compose.desktop {
                 "jdk.security.auth"
             )
             packageName = "Brownie"
-            packageVersion = "1.0.2"
-            version = "1.0.2"
+            packageVersion = "1.0.3"
+            version = "1.0.3"
             description = "Self-hosted VPS manager"
             copyright = "© 2025 Tecknobit"
             vendor = "Tecknobit"
@@ -183,7 +188,7 @@ compose.desktop {
                 iconFile.set(project.file("src/desktopMain/resources/logo.png"))
                 packageName = "com-tecknobit-brownie"
                 debMaintainer = "infotecknobitcompany@gmail.com"
-                appRelease = "1.0.2"
+                appRelease = "1.0.3"
                 appCategory = "PERSONALIZATION"
                 rpmLicenseType = "APACHE2"
             }

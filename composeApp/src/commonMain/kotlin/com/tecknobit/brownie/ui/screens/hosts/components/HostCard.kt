@@ -42,6 +42,7 @@ import com.tecknobit.brownie.ui.theme.red
 import com.tecknobit.brownie.ui.theme.yellow
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.HostStatus.REBOOTING
+import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 
 /**
  * Custom [Card] used to display the host information
@@ -65,8 +66,20 @@ fun HostCard(
         modifier = Modifier
             .clip(CardDefaults.shape)
             .combinedClickable(
-                onClick = { navigator.navigate("$HOST_SCREEN/${host.id}") },
-                onLongClick = { navigator.navigate("$UPSERT_HOST_SCREEN/${host.id}") }
+                onClick = {
+                    val savedStateHandle = navigator.currentBackStackEntry?.savedStateHandle
+                    savedStateHandle?.let {
+                        savedStateHandle[IDENTIFIER_KEY] = host.id
+                        navigator.navigate(HOST_SCREEN)
+                    }
+                },
+                onLongClick = {
+                    val savedStateHandle = navigator.currentBackStackEntry?.savedStateHandle
+                    savedStateHandle?.let {
+                        savedStateHandle[IDENTIFIER_KEY] = host.id
+                        navigator.navigate(UPSERT_HOST_SCREEN)
+                    }
+                }
             )
     ) {
         ListItem(

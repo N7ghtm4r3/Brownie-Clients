@@ -220,22 +220,22 @@
     ]
   },
   {
-    "name": "class MainActivity : ComponentActivity",
+    "name": "class MainActivity : AppCompatActivity",
     "description": "com.tecknobit.brownie.MainActivity",
     "location": "-brownie/com.tecknobit.brownie/-main-activity/index.html",
     "searchKeys": [
       "MainActivity",
-      "class MainActivity : ComponentActivity",
+      "class MainActivity : AppCompatActivity",
       "com.tecknobit.brownie.MainActivity"
     ]
   },
   {
-    "name": "class Splashscreen : EquinoxNoModelScreen",
+    "name": "class Splashscreen(biometrikState: BiometrikState) : EquinoxNoModelScreen",
     "description": "com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.splashscreen/-splashscreen/index.html",
     "searchKeys": [
       "Splashscreen",
-      "class Splashscreen : EquinoxNoModelScreen",
+      "class Splashscreen(biometrikState: BiometrikState) : EquinoxNoModelScreen",
       "com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen"
     ]
   },
@@ -430,12 +430,12 @@
     ]
   },
   {
-    "name": "constructor()",
+    "name": "constructor(biometrikState: BiometrikState)",
     "description": "com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen.Splashscreen",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.splashscreen/-splashscreen/-splashscreen.html",
     "searchKeys": [
       "Splashscreen",
-      "constructor()",
+      "constructor(biometrikState: BiometrikState)",
       "com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen.Splashscreen"
     ]
   },
@@ -840,22 +840,22 @@
     ]
   },
   {
-    "name": "fun DeleteService(show: MutableState<Boolean>, viewModel: UpsertServiceScreenViewModel)",
+    "name": "fun DeleteService(show: <Error class: unknown class><Boolean>, viewModel: UpsertServiceScreenViewModel)",
     "description": "com.tecknobit.brownie.ui.components.DeleteService",
     "location": "-brownie/com.tecknobit.brownie.ui.components/-delete-service.html",
     "searchKeys": [
       "DeleteService",
-      "fun DeleteService(show: MutableState<Boolean>, viewModel: UpsertServiceScreenViewModel)",
+      "fun DeleteService(show: <Error class: unknown class><Boolean>, viewModel: UpsertServiceScreenViewModel)",
       "com.tecknobit.brownie.ui.components.DeleteService"
     ]
   },
   {
-    "name": "fun DeleteSession(show: MutableState<Boolean>, viewModel: AdminPanelScreenViewModel)",
+    "name": "fun DeleteSession(show: <Error class: unknown class><Boolean>, viewModel: AdminPanelScreenViewModel)",
     "description": "com.tecknobit.brownie.ui.components.DeleteSession",
     "location": "-brownie/com.tecknobit.brownie.ui.components/-delete-session.html",
     "searchKeys": [
       "DeleteSession",
-      "fun DeleteSession(show: MutableState<Boolean>, viewModel: AdminPanelScreenViewModel)",
+      "fun DeleteSession(show: <Error class: unknown class><Boolean>, viewModel: AdminPanelScreenViewModel)",
       "com.tecknobit.brownie.ui.components.DeleteSession"
     ]
   },
@@ -1010,12 +1010,12 @@
     ]
   },
   {
-    "name": "fun Logout(show: MutableState<Boolean>, viewModel: AdminPanelScreenViewModel)",
+    "name": "fun Logout(show: <Error class: unknown class><Boolean>, viewModel: AdminPanelScreenViewModel)",
     "description": "com.tecknobit.brownie.ui.components.Logout",
     "location": "-brownie/com.tecknobit.brownie.ui.components/-logout.html",
     "searchKeys": [
       "Logout",
-      "fun Logout(show: MutableState<Boolean>, viewModel: AdminPanelScreenViewModel)",
+      "fun Logout(show: <Error class: unknown class><Boolean>, viewModel: AdminPanelScreenViewModel)",
       "com.tecknobit.brownie.ui.components.Logout"
     ]
   },
@@ -1060,23 +1060,13 @@
     ]
   },
   {
-    "name": "fun RemoveService(show: MutableState<Boolean>, viewModel: UpsertServiceScreenViewModel)",
+    "name": "fun RemoveService(show: <Error class: unknown class><Boolean>, viewModel: UpsertServiceScreenViewModel)",
     "description": "com.tecknobit.brownie.ui.components.RemoveService",
     "location": "-brownie/com.tecknobit.brownie.ui.components/-remove-service.html",
     "searchKeys": [
       "RemoveService",
-      "fun RemoveService(show: MutableState<Boolean>, viewModel: UpsertServiceScreenViewModel)",
+      "fun RemoveService(show: <Error class: unknown class><Boolean>, viewModel: UpsertServiceScreenViewModel)",
       "com.tecknobit.brownie.ui.components.RemoveService"
-    ]
-  },
-  {
-    "name": "fun RetryButton(onRetry: () -> Unit, text: StringResource = Res.string.retry)",
-    "description": "com.tecknobit.brownie.ui.components.RetryButton",
-    "location": "-brownie/com.tecknobit.brownie.ui.components/-retry-button.html",
-    "searchKeys": [
-      "RetryButton",
-      "fun RetryButton(onRetry: () -> Unit, text: StringResource = Res.string.retry)",
-      "com.tecknobit.brownie.ui.components.RetryButton"
     ]
   },
   {
@@ -1200,12 +1190,12 @@
     ]
   },
   {
-    "name": "fun StatusFilterButton(modifier: Modifier = Modifier, onClick: (MutableState<Boolean>) -> Unit, statusFilters: SnapshotStateList<HostStatus>)",
+    "name": "fun StatusFilterButton(modifier: Modifier = Modifier, onClick: (<Error class: unknown class><Boolean>) -> Unit, statusFilters: <Error class: unknown class><HostStatus>)",
     "description": "com.tecknobit.brownie.ui.components.StatusFilterButton",
     "location": "-brownie/com.tecknobit.brownie.ui.components/-status-filter-button.html",
     "searchKeys": [
       "StatusFilterButton",
-      "fun StatusFilterButton(modifier: Modifier = Modifier, onClick: (MutableState<Boolean>) -> Unit, statusFilters: SnapshotStateList<HostStatus>)",
+      "fun StatusFilterButton(modifier: Modifier = Modifier, onClick: (<Error class: unknown class><Boolean>) -> Unit, statusFilters: <Error class: unknown class><HostStatus>)",
       "com.tecknobit.brownie.ui.components.StatusFilterButton"
     ]
   },
@@ -1230,12 +1220,12 @@
     ]
   },
   {
-    "name": "fun UnregisterSavedHost(show: MutableState<Boolean>, hostManager: HostManager, host: SavedHost, onSuccess: () -> Unit)",
+    "name": "fun UnregisterSavedHost(show: <Error class: unknown class><Boolean>, hostManager: HostManager, host: SavedHost, onSuccess: () -> Unit)",
     "description": "com.tecknobit.brownie.ui.components.UnregisterSavedHost",
     "location": "-brownie/com.tecknobit.brownie.ui.components/-unregister-saved-host.html",
     "searchKeys": [
       "UnregisterSavedHost",
-      "fun UnregisterSavedHost(show: MutableState<Boolean>, hostManager: HostManager, host: SavedHost, onSuccess: () -> Unit)",
+      "fun UnregisterSavedHost(show: <Error class: unknown class><Boolean>, hostManager: HostManager, host: SavedHost, onSuccess: () -> Unit)",
       "com.tecknobit.brownie.ui.components.UnregisterSavedHost"
     ]
   },
@@ -1530,22 +1520,22 @@
     ]
   },
   {
-    "name": "lateinit var address: MutableState<String>",
+    "name": "lateinit var address: <Error class: unknown class><String>",
     "description": "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.address",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presentation/-upsert-host-screen-view-model/address.html",
     "searchKeys": [
       "address",
-      "lateinit var address: MutableState<String>",
+      "lateinit var address: <Error class: unknown class><String>",
       "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.address"
     ]
   },
   {
-    "name": "lateinit var addressError: MutableState<Boolean>",
+    "name": "lateinit var addressError: <Error class: unknown class><Boolean>",
     "description": "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.addressError",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presentation/-upsert-host-screen-view-model/address-error.html",
     "searchKeys": [
       "addressError",
-      "lateinit var addressError: MutableState<Boolean>",
+      "lateinit var addressError: <Error class: unknown class><Boolean>",
       "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.addressError"
     ]
   },
@@ -1560,12 +1550,12 @@
     ]
   },
   {
-    "name": "lateinit var autoRunAfterHostReboot: MutableState<Boolean>",
+    "name": "lateinit var autoRunAfterHostReboot: <Error class: unknown class><Boolean>",
     "description": "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.autoRunAfterHostReboot",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.upsertservice.presentation/-upsert-service-screen-view-model/auto-run-after-host-reboot.html",
     "searchKeys": [
       "autoRunAfterHostReboot",
-      "lateinit var autoRunAfterHostReboot: MutableState<Boolean>",
+      "lateinit var autoRunAfterHostReboot: <Error class: unknown class><Boolean>",
       "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.autoRunAfterHostReboot"
     ]
   },
@@ -1580,12 +1570,12 @@
     ]
   },
   {
-    "name": "lateinit var connecting: MutableState<Boolean>",
+    "name": "lateinit var connecting: <Error class: unknown class><Boolean>",
     "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.connecting",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/connecting.html",
     "searchKeys": [
       "connecting",
-      "lateinit var connecting: MutableState<Boolean>",
+      "lateinit var connecting: <Error class: unknown class><Boolean>",
       "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.connecting"
     ]
   },
@@ -1600,62 +1590,62 @@
     ]
   },
   {
-    "name": "lateinit var host: MutableState<String>",
+    "name": "lateinit var host: <Error class: unknown class><String>",
     "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.host",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/host.html",
     "searchKeys": [
       "host",
-      "lateinit var host: MutableState<String>",
+      "lateinit var host: <Error class: unknown class><String>",
       "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.host"
     ]
   },
   {
-    "name": "lateinit var hostError: MutableState<Boolean>",
+    "name": "lateinit var hostError: <Error class: unknown class><Boolean>",
     "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.hostError",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/host-error.html",
     "searchKeys": [
       "hostError",
-      "lateinit var hostError: MutableState<Boolean>",
+      "lateinit var hostError: <Error class: unknown class><Boolean>",
       "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.hostError"
     ]
   },
   {
-    "name": "lateinit var inputSearch: MutableState<String>",
+    "name": "lateinit var inputSearch: <Error class: unknown class><String>",
     "description": "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.inputSearch",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presentation/-hosts-screen-view-model/input-search.html",
     "searchKeys": [
       "inputSearch",
-      "lateinit var inputSearch: MutableState<String>",
+      "lateinit var inputSearch: <Error class: unknown class><String>",
       "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.inputSearch"
     ]
   },
   {
-    "name": "lateinit var joinCode: MutableState<String>",
+    "name": "lateinit var joinCode: <Error class: unknown class><String>",
     "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.joinCode",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/join-code.html",
     "searchKeys": [
       "joinCode",
-      "lateinit var joinCode: MutableState<String>",
+      "lateinit var joinCode: <Error class: unknown class><String>",
       "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.joinCode"
     ]
   },
   {
-    "name": "lateinit var joinCodeError: MutableState<Boolean>",
+    "name": "lateinit var joinCodeError: <Error class: unknown class><Boolean>",
     "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.joinCodeError",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/join-code-error.html",
     "searchKeys": [
       "joinCodeError",
-      "lateinit var joinCodeError: MutableState<Boolean>",
+      "lateinit var joinCodeError: <Error class: unknown class><Boolean>",
       "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.joinCodeError"
     ]
   },
   {
-    "name": "lateinit var language: MutableState<String>",
+    "name": "lateinit var language: <Error class: unknown class><String>",
     "description": "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.language",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presentation/-admin-panel-screen-view-model/language.html",
     "searchKeys": [
       "language",
-      "lateinit var language: MutableState<String>",
+      "lateinit var language: <Error class: unknown class><String>",
       "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.language"
     ]
   },
@@ -1670,92 +1660,92 @@
     ]
   },
   {
-    "name": "lateinit var name: MutableState<String>",
+    "name": "lateinit var name: <Error class: unknown class><String>",
     "description": "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.name",
     "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/name.html",
     "searchKeys": [
       "name",
-      "lateinit var name: MutableState<String>",
+      "lateinit var name: <Error class: unknown class><String>",
       "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.name"
     ]
   },
   {
-    "name": "lateinit var nameError: MutableState<Boolean>",
+    "name": "lateinit var nameError: <Error class: unknown class><Boolean>",
     "description": "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.nameError",
     "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/name-error.html",
     "searchKeys": [
       "nameError",
-      "lateinit var nameError: MutableState<Boolean>",
+      "lateinit var nameError: <Error class: unknown class><Boolean>",
       "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.nameError"
     ]
   },
   {
-    "name": "lateinit var navigator: Navigator",
+    "name": "lateinit var navigator: NavHostController",
     "description": "com.tecknobit.brownie.navigator",
     "location": "-brownie/com.tecknobit.brownie/navigator.html",
     "searchKeys": [
       "navigator",
-      "lateinit var navigator: Navigator",
+      "lateinit var navigator: NavHostController",
       "com.tecknobit.brownie.navigator"
     ]
   },
   {
-    "name": "lateinit var password: MutableState<String>",
+    "name": "lateinit var password: <Error class: unknown class><String>",
     "description": "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.password",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presentation/-admin-panel-screen-view-model/password.html",
     "searchKeys": [
       "password",
-      "lateinit var password: MutableState<String>",
+      "lateinit var password: <Error class: unknown class><String>",
       "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.password"
     ]
   },
   {
-    "name": "lateinit var password: MutableState<String>",
+    "name": "lateinit var password: <Error class: unknown class><String>",
     "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.password",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/password.html",
     "searchKeys": [
       "password",
-      "lateinit var password: MutableState<String>",
+      "lateinit var password: <Error class: unknown class><String>",
       "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.password"
     ]
   },
   {
-    "name": "lateinit var passwordError: MutableState<Boolean>",
+    "name": "lateinit var passwordError: <Error class: unknown class><Boolean>",
     "description": "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.passwordError",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presentation/-admin-panel-screen-view-model/password-error.html",
     "searchKeys": [
       "passwordError",
-      "lateinit var passwordError: MutableState<Boolean>",
+      "lateinit var passwordError: <Error class: unknown class><Boolean>",
       "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.passwordError"
     ]
   },
   {
-    "name": "lateinit var passwordError: MutableState<Boolean>",
+    "name": "lateinit var passwordError: <Error class: unknown class><Boolean>",
     "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.passwordError",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/password-error.html",
     "searchKeys": [
       "passwordError",
-      "lateinit var passwordError: MutableState<Boolean>",
+      "lateinit var passwordError: <Error class: unknown class><Boolean>",
       "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.passwordError"
     ]
   },
   {
-    "name": "lateinit var programArguments: MutableState<String>",
+    "name": "lateinit var programArguments: <Error class: unknown class><String>",
     "description": "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.programArguments",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.upsertservice.presentation/-upsert-service-screen-view-model/program-arguments.html",
     "searchKeys": [
       "programArguments",
-      "lateinit var programArguments: MutableState<String>",
+      "lateinit var programArguments: <Error class: unknown class><String>",
       "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.programArguments"
     ]
   },
   {
-    "name": "lateinit var purgeNohupOutAfterReboot: MutableState<Boolean>",
+    "name": "lateinit var purgeNohupOutAfterReboot: <Error class: unknown class><Boolean>",
     "description": "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.purgeNohupOutAfterReboot",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.upsertservice.presentation/-upsert-service-screen-view-model/purge-nohup-out-after-reboot.html",
     "searchKeys": [
       "purgeNohupOutAfterReboot",
-      "lateinit var purgeNohupOutAfterReboot: MutableState<Boolean>",
+      "lateinit var purgeNohupOutAfterReboot: <Error class: unknown class><Boolean>",
       "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.purgeNohupOutAfterReboot"
     ]
   },
@@ -1770,32 +1760,32 @@
     ]
   },
   {
-    "name": "lateinit var serverSecret: MutableState<String>",
+    "name": "lateinit var serverSecret: <Error class: unknown class><String>",
     "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.serverSecret",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/server-secret.html",
     "searchKeys": [
       "serverSecret",
-      "lateinit var serverSecret: MutableState<String>",
+      "lateinit var serverSecret: <Error class: unknown class><String>",
       "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.serverSecret"
     ]
   },
   {
-    "name": "lateinit var serverSecretError: MutableState<Boolean>",
+    "name": "lateinit var serverSecretError: <Error class: unknown class><Boolean>",
     "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.serverSecretError",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/server-secret-error.html",
     "searchKeys": [
       "serverSecretError",
-      "lateinit var serverSecretError: MutableState<Boolean>",
+      "lateinit var serverSecretError: <Error class: unknown class><Boolean>",
       "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.serverSecretError"
     ]
   },
   {
-    "name": "lateinit var servicesQuery: MutableState<String>",
+    "name": "lateinit var servicesQuery: <Error class: unknown class><String>",
     "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.servicesQuery",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/services-query.html",
     "searchKeys": [
       "servicesQuery",
-      "lateinit var servicesQuery: MutableState<String>",
+      "lateinit var servicesQuery: <Error class: unknown class><String>",
       "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.servicesQuery"
     ]
   },
@@ -1830,52 +1820,52 @@
     ]
   },
   {
-    "name": "lateinit var sshPassword: MutableState<String>",
+    "name": "lateinit var sshPassword: <Error class: unknown class><String>",
     "description": "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshPassword",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presentation/-upsert-host-screen-view-model/ssh-password.html",
     "searchKeys": [
       "sshPassword",
-      "lateinit var sshPassword: MutableState<String>",
+      "lateinit var sshPassword: <Error class: unknown class><String>",
       "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshPassword"
     ]
   },
   {
-    "name": "lateinit var sshPasswordError: MutableState<Boolean>",
+    "name": "lateinit var sshPasswordError: <Error class: unknown class><Boolean>",
     "description": "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshPasswordError",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presentation/-upsert-host-screen-view-model/ssh-password-error.html",
     "searchKeys": [
       "sshPasswordError",
-      "lateinit var sshPasswordError: MutableState<Boolean>",
+      "lateinit var sshPasswordError: <Error class: unknown class><Boolean>",
       "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshPasswordError"
     ]
   },
   {
-    "name": "lateinit var sshUser: MutableState<String>",
+    "name": "lateinit var sshUser: <Error class: unknown class><String>",
     "description": "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshUser",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presentation/-upsert-host-screen-view-model/ssh-user.html",
     "searchKeys": [
       "sshUser",
-      "lateinit var sshUser: MutableState<String>",
+      "lateinit var sshUser: <Error class: unknown class><String>",
       "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshUser"
     ]
   },
   {
-    "name": "lateinit var sshUserError: MutableState<Boolean>",
+    "name": "lateinit var sshUserError: <Error class: unknown class><Boolean>",
     "description": "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshUserError",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presentation/-upsert-host-screen-view-model/ssh-user-error.html",
     "searchKeys": [
       "sshUserError",
-      "lateinit var sshUserError: MutableState<Boolean>",
+      "lateinit var sshUserError: <Error class: unknown class><Boolean>",
       "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshUserError"
     ]
   },
   {
-    "name": "lateinit var theme: MutableState<EquinoxLocalUser.ApplicationTheme>",
+    "name": "lateinit var theme: <Error class: unknown class><EquinoxLocalUser.ApplicationTheme>",
     "description": "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.theme",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presentation/-admin-panel-screen-view-model/theme.html",
     "searchKeys": [
       "theme",
-      "lateinit var theme: MutableState<EquinoxLocalUser.ApplicationTheme>",
+      "lateinit var theme: <Error class: unknown class><EquinoxLocalUser.ApplicationTheme>",
       "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.theme"
     ]
   },
@@ -3370,23 +3360,23 @@
     ]
   },
   {
-    "name": "val statusFilters: SnapshotStateList<HostStatus>",
-    "description": "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.statusFilters",
-    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presentation/-hosts-screen-view-model/status-filters.html",
-    "searchKeys": [
-      "statusFilters",
-      "val statusFilters: SnapshotStateList<HostStatus>",
-      "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.statusFilters"
-    ]
-  },
-  {
-    "name": "val statusFilters: SnapshotStateList<ServiceStatus>",
+    "name": "val statusFilters: <Error class: unknown class>",
     "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.statusFilters",
     "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/status-filters.html",
     "searchKeys": [
       "statusFilters",
-      "val statusFilters: SnapshotStateList<ServiceStatus>",
+      "val statusFilters: <Error class: unknown class>",
       "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.statusFilters"
+    ]
+  },
+  {
+    "name": "val statusFilters: <Error class: unknown class>",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.statusFilters",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presentation/-hosts-screen-view-model/status-filters.html",
+    "searchKeys": [
+      "statusFilters",
+      "val statusFilters: <Error class: unknown class>",
+      "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.statusFilters"
     ]
   },
   {
