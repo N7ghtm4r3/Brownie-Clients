@@ -104,4 +104,6 @@
     <string name="create">Create</string>
     <string name="create_session">Create session</string>
     <string name="connect_to_session">Connect to session</string>
+    <string name="login_required">Login required</string>
+    <string name="enter_your_credentials_to_continue">Enter your credentials to continue</string>
 </resources>

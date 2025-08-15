@@ -1,13 +1,13 @@
 package com.tecknobit.brownie
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts.StartIntentSenderForResult
 import androidx.annotation.ContentView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.tecknobit.equinoxcore.utilities.ContextActivityProvider
@@ -16,10 +16,10 @@ import com.tecknobit.equinoxcore.utilities.ContextActivityProvider
  * The [MainActivity] is used as entry point of Brownie's application for Android
  *
  * @author N7ghtm4r3 - Tecknobit
- * @see ComponentActivity
+ * @see AppCompatActivity
  *
  */
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
 
     companion object {
 

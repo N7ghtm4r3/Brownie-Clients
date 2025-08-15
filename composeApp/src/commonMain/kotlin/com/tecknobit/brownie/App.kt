@@ -15,6 +15,7 @@ import brownie.composeapp.generated.resources.rubik
 import brownie.composeapp.generated.resources.ubuntu_mono
 import com.tecknobit.ametistaengine.AmetistaEngine
 import com.tecknobit.ametistaengine.AmetistaEngine.Companion.FILES_AMETISTA_CONFIG_PATHNAME
+import com.tecknobit.biometrik.rememberBiometrikState
 import com.tecknobit.brownie.helpers.BrownieLocalSession
 import com.tecknobit.brownie.helpers.BrownieRequester
 import com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen
@@ -99,6 +100,7 @@ const val UPSERT_SERVICE_SCREEN = "UpsertServiceScreen"
 @OptIn(ExperimentalComposeApi::class)
 @Composable
 fun App() {
+    val biometrikState = rememberBiometrikState()
     bodyFontFamily = FontFamily(Font(Res.font.rubik))
     displayFontFamily = FontFamily(Font(Res.font.ubuntu_mono))
     // InitAmetista()
@@ -115,7 +117,9 @@ fun App() {
                 // TODO: TO REMOVE THIS THEME CALL
                 BrownieTheme {
                     val splashscreen = equinoxScreen {
-                        Splashscreen()
+                        Splashscreen(
+                            biometrikState = biometrikState
+                        )
                     }
                     splashscreen.ShowContent()
                 }

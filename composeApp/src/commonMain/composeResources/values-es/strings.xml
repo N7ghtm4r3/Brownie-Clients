@@ -104,4 +104,6 @@
     <string name="create">Cree</string>
     <string name="create_session">Crear sesión</string>
     <string name="connect_to_session">Conectarse a la sesión</string>
+    <string name="login_required">Inicio de sesión obligatorio</string>
+    <string name="enter_your_credentials_to_continue">Introduzca sus credenciales para continuar</string>
 </resources>

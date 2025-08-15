@@ -5,6 +5,8 @@ android-minSdk = "24"
 android-targetSdk = "36"
 androidx-activityCompose = "1.10.1"
 androidx-lifecycle = "2.9.1"
+appcompat = "1.7.1"
+biometrik = "1.0.0beta-01"
 compose-multiplatform = "1.8.2"
 equinox = "1.1.5"
 jetlime = "4.0.0"
@@ -22,6 +24,8 @@ ametista-engine = "1.0.4"
 dokka = "2.0.0"
 
 [libraries]
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+biometrik = { module = "io.github.n7ghtm4r3:Biometrik", version.ref = "biometrik" }
 equinox-compose = { module = "io.github.n7ghtm4r3:equinox-compose", version.ref = "equinox" }
 equinox-core = { module = "io.github.n7ghtm4r3:equinox-core", version.ref = "equinox" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }

@@ -59,6 +59,9 @@ kotlin {
                 }
             }
         }
+        compilerOptions {
+            freeCompilerArgs.add("-Xwasm-attach-js-exception")
+        }
         binaries.executable()
     }
     
@@ -72,6 +75,7 @@ kotlin {
             implementation(libs.app.update.ktx)
             implementation(libs.review)
             implementation(libs.review.ktx)
+            implementation(libs.androidx.appcompat)
         }
 
         val commonMain by getting {
@@ -94,6 +98,7 @@ kotlin {
                 implementation(libs.kmprefs)
                 implementation(libs.ametista.engine)
                 implementation(libs.navigation.compose)
+                implementation(libs.biometrik)
             }
         }
 
