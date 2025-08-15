@@ -66,7 +66,13 @@ fun HostCard(
         modifier = Modifier
             .clip(CardDefaults.shape)
             .combinedClickable(
-                onClick = { navigator.navigate("$HOST_SCREEN/${host.id}") },
+                onClick = {
+                    val savedStateHandle = navigator.currentBackStackEntry?.savedStateHandle
+                    savedStateHandle?.let {
+                        savedStateHandle[IDENTIFIER_KEY] = host.id
+                        navigator.navigate(HOST_SCREEN)
+                    }
+                },
                 onLongClick = {
                     val savedStateHandle = navigator.currentBackStackEntry?.savedStateHandle
                     savedStateHandle?.let {

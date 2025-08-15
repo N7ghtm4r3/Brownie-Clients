@@ -39,11 +39,13 @@ import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.brownie.ui.theme.BrownieTheme
+import com.tecknobit.browniecore.HOST_IDENTIFIER_KEY
 import com.tecknobit.equinoxcompose.components.RetryButton
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
 import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowContainer
 import com.tecknobit.equinoxcompose.session.sessionflow.rememberSessionFlowState
 import com.tecknobit.equinoxcompose.utilities.responsiveAssignment
+import com.tecknobit.equinoxcore.helpers.NAME_KEY
 import org.jetbrains.compose.resources.stringResource
 
 /**
@@ -80,7 +82,7 @@ class HostScreen(
                 state = viewModel.sessionFlowState,
                 viewModel = viewModel,
                 loadingContentColor = MaterialTheme.colorScheme.primary,
-                initialLoadingRoutineDelay = 2000L,
+                initialLoadingRoutineDelay = 1500L,
                 loadingRoutine = { hostOverview.value != null },
                 content = {
                     Scaffold(
@@ -147,10 +149,14 @@ class HostScreen(
                         floatingActionButton = {
                             ExtendedFloatingActionButton(
                                 onClick = {
-                                    navigator.navigate(
-                                        route = "$UPSERT_SERVICE_SCREEN/${hostOverview.value!!.id}" +
-                                                "/${hostOverview.value!!.name}"
-                                    )
+                                    val savedStateHandle =
+                                        navigator.currentBackStackEntry?.savedStateHandle
+                                    savedStateHandle?.let {
+                                        savedStateHandle[HOST_IDENTIFIER_KEY] =
+                                            hostOverview.value!!.id
+                                        savedStateHandle[NAME_KEY] = hostOverview.value!!.name
+                                    }
+                                    navigator.navigate(UPSERT_SERVICE_SCREEN)
                                 },
                                 expanded = responsiveAssignment(
                                     onExpandedSizeClass = { true },

@@ -19,9 +19,11 @@ import com.tecknobit.brownie.helpers.BrownieLocalSession
 import com.tecknobit.brownie.helpers.BrownieRequester
 import com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen
 import com.tecknobit.brownie.ui.screens.connect.presenter.ConnectScreen
+import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen
 import com.tecknobit.brownie.ui.screens.upserthost.presenter.UpsertHostScreen
+import com.tecknobit.brownie.ui.screens.upsertservice.presenter.UpsertServiceScreen
 import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.browniecore.HOST_IDENTIFIER_KEY
 import com.tecknobit.equinoxcompose.session.screens.equinoxScreen
@@ -132,8 +134,10 @@ fun App() {
             ) {
                 // TODO: TO REMOVE THIS THEME CALL
                 BrownieTheme {
+                    val savedStateHandle = navigator.currentBackStackEntry?.savedStateHandle
                     val hostsScreen = equinoxScreen { HostsScreen() }
                     hostsScreen.ShowContent()
+                    savedStateHandle?.remove<String>(IDENTIFIER_KEY)
                 }
             }
             composable(
@@ -152,35 +156,48 @@ fun App() {
                 BrownieTheme {
                     val savedStateHandle = navigator.previousBackStackEntry?.savedStateHandle!!
                     val hostId: String? = savedStateHandle[IDENTIFIER_KEY]
-                    UpsertHostScreen(
-                        hostId = hostId
-                    ).ShowContent()
+                    val upsertHostScreen = equinoxScreen {
+                        UpsertHostScreen(
+                            hostId = hostId
+                        )
+                    }
+                    upsertHostScreen.ShowContent()
+                    savedStateHandle.remove<String>(IDENTIFIER_KEY)
                 }
             }
             composable(
-                route = "$HOST_SCREEN/{$IDENTIFIER_KEY}"
-            ) { backStackEntry ->
+                route = HOST_SCREEN
+            ) {
                 // TODO: TO REMOVE THIS THEME CALL
                 BrownieTheme {
-//                    val hostId = backStackEntry.path<String>(IDENTIFIER_KEY)!!
-//                    HostScreen(
-//                        hostId = hostId
-//                    ).ShowContent()
+                    val savedStateHandle = navigator.previousBackStackEntry?.savedStateHandle!!
+                    val hostId: String = savedStateHandle[IDENTIFIER_KEY]!!
+                    val hostScreen = equinoxScreen {
+                        HostScreen(
+                            hostId = hostId
+                        )
+                    }
+                    hostScreen.ShowContent()
                 }
             }
             composable(
-                route = "$UPSERT_SERVICE_SCREEN/{$HOST_IDENTIFIER_KEY}/{$NAME_KEY}/{$IDENTIFIER_KEY}?"
-            ) { backStackEntry ->
+                route = UPSERT_SERVICE_SCREEN
+            ) {
                 // TODO: TO REMOVE THIS THEME CALL
                 BrownieTheme {
-//                    val hostId = backStackEntry.path<String>(HOST_IDENTIFIER_KEY)!!
-//                    val hostName = backStackEntry.path<String>(NAME_KEY)!!
-//                    val serviceId = backStackEntry.path<String>(IDENTIFIER_KEY)
-//                    UpsertServiceScreen(
-//                        hostId = hostId,
-//                        hostName = hostName,
-//                        serviceId = serviceId
-//                    ).ShowContent()
+                    val savedStateHandle = navigator.previousBackStackEntry?.savedStateHandle!!
+                    val hostId: String = savedStateHandle[HOST_IDENTIFIER_KEY]!!
+                    val hostName: String = savedStateHandle[NAME_KEY]!!
+                    val serviceId: String? = savedStateHandle[IDENTIFIER_KEY]
+                    val upsertServiceScreen = equinoxScreen {
+                        UpsertServiceScreen(
+                            hostId = hostId,
+                            hostName = hostName,
+                            serviceId = serviceId
+                        )
+                    }
+                    upsertServiceScreen.ShowContent()
+                    savedStateHandle.keys().forEach { savedStateHandle.remove<Any>(it) }
                 }
             }
         }
