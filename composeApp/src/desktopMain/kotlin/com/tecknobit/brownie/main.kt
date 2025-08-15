@@ -7,8 +7,6 @@ import androidx.compose.ui.window.application
 import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.app_name
 import brownie.composeapp.generated.resources.logo
-import com.tecknobit.ametistaengine.AmetistaEngine
-import com.tecknobit.equinoxcompose.session.setUpSession
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -16,7 +14,7 @@ import org.jetbrains.compose.resources.stringResource
  * Method used to start the of `Brownie` desktop app
  */
 fun main() {
-    AmetistaEngine.intake()
+    // AmetistaEngine.intake()
     application {
         Window(
             onCloseRequest = ::exitApplication,
@@ -26,10 +24,6 @@ fun main() {
             ),
             icon = painterResource(Res.drawable.logo)
         ) {
-            setUpSession {
-                localSession.clear()
-                navigator.navigate(SPLASHSCREEN)
-            }
             App()
         }
     }

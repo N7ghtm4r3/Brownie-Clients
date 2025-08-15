@@ -98,7 +98,7 @@ const val UPSERT_SERVICE_SCREEN = "UpsertServiceScreen"
 fun App() {
     bodyFontFamily = FontFamily(Font(Res.font.rubik))
     displayFontFamily = FontFamily(Font(Res.font.ubuntu_mono))
-    InitAmetista()
+    // InitAmetista()
     PreComposeApp {
         navigator = rememberNavigator()
         NavHost(
@@ -165,6 +165,7 @@ fun App() {
  * Method used to initialize the Ametista system
  */
 @Composable
+// TODO: TO REIMPLEMENT WHEN NECESSARY
 private fun InitAmetista() {
     LaunchedEffect(Unit) {
         val ametistaEngine = AmetistaEngine.ametistaEngine

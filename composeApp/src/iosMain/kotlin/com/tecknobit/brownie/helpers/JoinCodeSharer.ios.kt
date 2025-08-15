@@ -1,7 +1,7 @@
 package com.tecknobit.brownie.helpers
 
 import com.tecknobit.brownie.localSession
-import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
+import com.tecknobit.equinoxcompose.session.viewmodels.EquinoxViewModel
 import platform.UIKit.UIActivityViewController
 import platform.UIKit.UIApplication
 

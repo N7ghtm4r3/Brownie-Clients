@@ -2,7 +2,7 @@ package com.tecknobit.brownie.helpers
 
 import android.content.Intent
 import com.tecknobit.brownie.localSession
-import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
+import com.tecknobit.equinoxcompose.session.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.utilities.ContextActivityProvider
 
 /**

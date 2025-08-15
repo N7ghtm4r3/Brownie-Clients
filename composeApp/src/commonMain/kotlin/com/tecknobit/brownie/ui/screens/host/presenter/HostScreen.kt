@@ -31,7 +31,6 @@ import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.add_service
 import com.tecknobit.brownie.UPSERT_SERVICE_SCREEN
 import com.tecknobit.brownie.navigator
-import com.tecknobit.brownie.ui.components.RetryButton
 import com.tecknobit.brownie.ui.components.UnregisterSavedHost
 import com.tecknobit.brownie.ui.icons.ServerSpark
 import com.tecknobit.brownie.ui.screens.host.components.HostOverview
@@ -40,6 +39,7 @@ import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.brownie.ui.theme.BrownieTheme
+import com.tecknobit.equinoxcompose.components.RetryButton
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
 import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowContainer
 import com.tecknobit.equinoxcompose.session.sessionflow.rememberSessionFlowState
@@ -184,10 +184,12 @@ class HostScreen(
                 retryFailedFlowContent = {
                     RetryButton(
                         onRetry = {
-                            // TODO: INTEGRATE INTO RELOAD DIRECTLY
-                            viewModel.sessionFlowState.reload()
-                            viewModel.retrieveHostOverview()
-                            viewModel.servicesState.retryLastFailedRequest()
+                            viewModel.sessionFlowState.reload(
+                                onReload = {
+                                    viewModel.retrieveHostOverview()
+                                    viewModel.servicesState.retryLastFailedRequest()
+                                }
+                            )
                         }
                     )
                 }

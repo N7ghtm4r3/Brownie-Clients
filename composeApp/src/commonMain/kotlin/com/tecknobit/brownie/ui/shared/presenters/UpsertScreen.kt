@@ -47,13 +47,13 @@ import brownie.composeapp.generated.resources.Res.string
 import brownie.composeapp.generated.resources.edit
 import brownie.composeapp.generated.resources.save
 import com.tecknobit.brownie.navigator
-import com.tecknobit.brownie.ui.components.RetryButton
 import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel
 import com.tecknobit.brownie.ui.theme.BrownieTheme
 import com.tecknobit.browniecore.helpers.BrownieInputsValidator
 import com.tecknobit.equinoxcompose.annotations.ScreenSection
 import com.tecknobit.equinoxcompose.components.EquinoxOutlinedTextField
+import com.tecknobit.equinoxcompose.components.RetryButton
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
 import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowContainer
 import com.tecknobit.equinoxcompose.session.sessionflow.rememberSessionFlowState
@@ -175,9 +175,11 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
                 retryFailedFlowContent = {
                     RetryButton(
                         onRetry = {
-                            // TODO: INTEGRATE INTO RELOAD DIRECTLY
-                            viewModel.sessionFlowState.reload()
-                            viewModel.retrieveItem()
+                            viewModel.sessionFlowState.reload(
+                                onReload = {
+                                    viewModel.retrieveItem()
+                                }
+                            )
                         }
                     )
                 }

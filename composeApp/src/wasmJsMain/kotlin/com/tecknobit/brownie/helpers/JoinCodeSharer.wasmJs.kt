@@ -3,8 +3,8 @@ package com.tecknobit.brownie.helpers
 import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.join_code_copied
 import com.tecknobit.brownie.localSession
+import com.tecknobit.equinoxcompose.session.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcompose.utilities.copyOnClipboard
-import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
 
 /**
  * Method used to share the join code

@@ -54,7 +54,7 @@ import com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertService
 import com.tecknobit.brownie.ui.shared.presentations.HostManager
 import com.tecknobit.equinoxcompose.components.EquinoxAlertDialog
 import com.tecknobit.equinoxcompose.components.EquinoxOutlinedTextField
-import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
+import com.tecknobit.equinoxcompose.session.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.helpers.InputsValidator
 import org.jetbrains.compose.resources.stringResource
 

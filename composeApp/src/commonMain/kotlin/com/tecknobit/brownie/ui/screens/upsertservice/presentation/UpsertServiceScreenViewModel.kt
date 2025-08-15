@@ -10,7 +10,7 @@ import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.requester
 import com.tecknobit.brownie.ui.screens.host.data.HostService
 import com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel
-import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
+import com.tecknobit.equinoxcompose.session.viewmodels.EquinoxViewModel
 import com.tecknobit.equinoxcore.network.Requester.Companion.toResponseData
 import com.tecknobit.equinoxcore.network.sendRequest
 import kotlinx.coroutines.launch

@@ -1,6 +1,6 @@
 package com.tecknobit.brownie.helpers
 
-import com.tecknobit.equinoxcompose.viewmodels.EquinoxViewModel
+import com.tecknobit.equinoxcompose.session.viewmodels.EquinoxViewModel
 
 /**
  * Method used to share the join code
