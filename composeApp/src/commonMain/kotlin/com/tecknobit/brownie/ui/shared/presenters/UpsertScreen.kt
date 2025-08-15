@@ -128,7 +128,7 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
                                 ),
                                 navigationIcon = {
                                     IconButton(
-                                        onClick = { navigator.goBack() }
+                                        onClick = { navigator.popBackStack() }
                                     ) {
                                         Icon(
                                             imageVector = Icons.AutoMirrored.Filled.ArrowBackIos,

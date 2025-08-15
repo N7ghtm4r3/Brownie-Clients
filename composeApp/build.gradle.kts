@@ -87,13 +87,13 @@ kotlin {
                 implementation(libs.androidx.lifecycle.runtime.compose)
                 implementation(libs.equinox.compose)
                 implementation(libs.equinox.core)
-                implementation(libs.precompose)
                 implementation(libs.browniecore)
                 implementation(libs.lazy.pagination.compose)
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.jetlime)
                 implementation(libs.kmprefs)
                 implementation(libs.ametista.engine)
+                implementation(libs.navigation.compose)
             }
         }
 

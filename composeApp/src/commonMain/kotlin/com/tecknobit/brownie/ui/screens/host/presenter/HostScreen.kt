@@ -93,7 +93,7 @@ class HostScreen(
                                 ),
                                 navigationIcon = {
                                     IconButton(
-                                        onClick = { navigator.goBack() }
+                                        onClick = { navigator.popBackStack() }
                                     ) {
                                         Icon(
                                             imageVector = Icons.AutoMirrored.Filled.ArrowBackIos,
@@ -133,7 +133,7 @@ class HostScreen(
                                         host = hostOverview.value!!,
                                         onSuccess = {
                                             viewModel.suspendRetriever()
-                                            navigator.goBack()
+                                            navigator.popBackStack()
                                         }
                                     )
                                 }

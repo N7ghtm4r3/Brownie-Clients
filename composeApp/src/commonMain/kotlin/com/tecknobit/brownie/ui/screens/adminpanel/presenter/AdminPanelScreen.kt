@@ -108,7 +108,7 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
                         ),
                         navigationIcon = {
                             IconButton(
-                                onClick = { navigator.goBack() }
+                                onClick = { navigator.popBackStack() }
                             ) {
                                 Icon(
                                     imageVector = Icons.AutoMirrored.Filled.ArrowBackIos,

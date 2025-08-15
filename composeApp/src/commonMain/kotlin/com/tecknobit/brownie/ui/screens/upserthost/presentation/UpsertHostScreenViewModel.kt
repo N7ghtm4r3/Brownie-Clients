@@ -114,7 +114,7 @@ class UpsertHostScreenViewModel(
                 onSuccess = {
                     val kReviewer = KReviewer()
                     kReviewer.reviewInApp {
-                        navigator.goBack()
+                        navigator.popBackStack()
                     }
                 },
                 onFailure = { showSnackbarMessage(it) }
@@ -140,7 +140,7 @@ class UpsertHostScreenViewModel(
                 onSuccess = {
                     val kReviewer = KReviewer()
                     kReviewer.reviewInApp {
-                        navigator.goBack()
+                        navigator.popBackStack()
                     }
                 },
                 onFailure = { showSnackbarMessage(it) }

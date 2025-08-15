@@ -13,8 +13,8 @@ kotlin = "2.2.10"
 kotlinx-coroutines = "1.10.2"
 kotlinxSerializationJson = "1.9.0"
 lazyPaginationCompose = "1.7.0"
+navigationCompose = "2.9.0-beta05"
 octocatkdu = "1.0.6"
-precompose = "1.7.0-alpha03"
 browniecore = "1.0.2"
 appUpdate = "2.1.0"
 review = "2.0.2"
@@ -32,8 +32,8 @@ kmprefs = { module = "io.github.n7ghtm4r3:KMPrefs", version.ref = "kmprefs" }
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 lazy-pagination-compose = { module = "io.github.ahmad-hamwi:lazy-pagination-compose", version.ref = "lazyPaginationCompose" }
+navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 octocatkdu = { module = "io.github.n7ghtm4r3:octocatkdu", version.ref = "octocatkdu" }
-precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
 browniecore = { module = "com.tecknobit.browniecore:browniecore", version.ref = "browniecore" }
 review = { module = "com.google.android.play:review", version.ref = "review" }
 review-ktx = { module = "com.google.android.play:review-ktx", version.ref = "review" }

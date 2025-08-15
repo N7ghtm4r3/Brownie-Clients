@@ -96,7 +96,7 @@ class UpsertServiceScreenViewModel(
                     )
                 },
                 onSuccess = {
-                    navigator.goBack()
+                    navigator.popBackStack()
                     onSuccess()
                 },
                 onFailure = { showSnackbarMessage(it) }
@@ -121,7 +121,7 @@ class UpsertServiceScreenViewModel(
                     )
                 },
                 onSuccess = {
-                    navigator.goBack()
+                    navigator.popBackStack()
                     onSuccess()
                 },
                 onFailure = { showSnackbarMessage(it) }
@@ -147,7 +147,7 @@ class UpsertServiceScreenViewModel(
                 onSuccess = {
                     val kReviewer = KReviewer()
                     kReviewer.reviewInApp {
-                        navigator.goBack()
+                        navigator.popBackStack()
                     }
                 },
                 onFailure = { showSnackbarMessage(it) }
@@ -174,7 +174,7 @@ class UpsertServiceScreenViewModel(
                 onSuccess = {
                     val kReviewer = KReviewer()
                     kReviewer.reviewInApp {
-                        navigator.goBack()
+                        navigator.popBackStack()
                     }
                 },
                 onFailure = { showSnackbarMessage(it) }
