@@ -204,8 +204,8 @@ buildConfig {
     className("BrownieConfig")
     packageName("com.tecknobit.brownie")
     buildConfigField<String>(
-        name = "HOST",
-        value = project.findProperty("host").toString()
+        name = "LOCAL_STORAGE_PATH",
+        value = project.findProperty("localStoragePath").toString()
     )
 }
 
