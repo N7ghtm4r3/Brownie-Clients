@@ -29,7 +29,11 @@ class BrownieLocalSession {
 
     protected companion object {
 
-        // TODO: TO DOCU SINCE
+        /**
+         * `sensitiveKeys` The keys related to the properties considered sensitive that require to be safeguarded
+         *
+         * @since 1.0.4
+         */
         val sensitiveKeys = setOf(HOST_ADDRESS_KEY, IDENTIFIER_KEY, JOIN_CODE_KEY)
 
     }
@@ -61,29 +65,13 @@ class BrownieLocalSession {
      * `sessionId` the current identifier of the session
      */
     var sessionId: String? = null
-        set(value) {
-            if (field != value) {
-                preferencesManager.storeString(
-                    key = IDENTIFIER_KEY,
-                    value = value
-                )
-                field = value
-            }
-        }
+        private set
 
     /**
      * `joinCode` the join code of the session
      */
     var joinCode: String = ""
-        set(value) {
-            if (field != value) {
-                preferencesManager.storeString(
-                    key = JOIN_CODE_KEY,
-                    value = value
-                )
-                field = value
-            }
-        }
+        private set
 
     /**
      * `language` the language of the user
@@ -98,7 +86,12 @@ class BrownieLocalSession {
         private set
 
     init {
-        initLocalSession()
+        // TODO: TO REMOVE THIS IN NEXT VERSION
+        try {
+            initLocalSession()
+        } catch (e: Exception) {
+            clear()
+        }
     }
 
     /**
@@ -114,8 +107,15 @@ class BrownieLocalSession {
         )
         setPreference<String>(
             key = IDENTIFIER_KEY,
-            prefInit = { userId ->
-                this.userId = userId
+            prefInit = { sessionId ->
+                this.sessionId = sessionId
+            }
+        )
+        setNullSafePreference<String>(
+            key = JOIN_CODE_KEY,
+            defPrefValue = "",
+            prefInit = { joinCode ->
+                this.joinCode = joinCode
             }
         )
         val currentLocaleLanguage = Locale.current.language
@@ -136,13 +136,6 @@ class BrownieLocalSession {
                 this.theme = theme
             }
         )
-        sessionId = preferencesManager.retrieveString(
-            key = IDENTIFIER_KEY
-        )
-        joinCode = preferencesManager.retrieveString(
-            key = JOIN_CODE_KEY,
-            defValue = ""
-        )!!
     }
 
     /**
@@ -157,10 +150,16 @@ class BrownieLocalSession {
         sessionId: String,
         joinCode: String,
     ) {
-        val currentLocaleLanguage = Locale.current.language
         initHostAddress(
             hostAddress = hostAddress
         )
+        initSessionId(
+            sessionId = sessionId
+        )
+        initJoinCode(
+            joinCode = joinCode
+        )
+        val currentLocaleLanguage = Locale.current.language
         initLanguage(
             language = if (SUPPORTED_LANGUAGES.containsKey(currentLocaleLanguage))
                 currentLocaleLanguage
@@ -170,11 +169,6 @@ class BrownieLocalSession {
         initTheme(
             theme = Auto
         )
-
-
-        this.sessionId = sessionId
-        requester.sessionId = sessionId
-        this.joinCode = joinCode
     }
 
     /**
@@ -184,13 +178,48 @@ class BrownieLocalSession {
      *
      * @since 1.0.4
      */
-    fun initHostAddress(
+    private fun initHostAddress(
         hostAddress: String,
     ) {
         this.hostAddress = hostAddress
         savePreference(
             key = HOST_ADDRESS_KEY,
             value = hostAddress
+        )
+    }
+
+    /**
+     * Method to initialize the [sessionId] property and locally save its value with the [savePreference] method
+     *
+     * @param sessionId The current identifier of the session
+     *
+     * @since 1.0.4
+     */
+    private fun initSessionId(
+        sessionId: String,
+    ) {
+        this.sessionId = sessionId
+        requester.sessionId = sessionId
+        savePreference(
+            key = IDENTIFIER_KEY,
+            value = sessionId
+        )
+    }
+
+    /**
+     * Method to initialize the [joinCode] property and locally save its value with the [savePreference] method
+     *
+     * @param joinCode The join code of the session
+     *
+     * @since 1.0.4
+     */
+    private fun initJoinCode(
+        joinCode: String,
+    ) {
+        this.joinCode = joinCode
+        savePreference(
+            key = JOIN_CODE_KEY,
+            value = joinCode
         )
     }
 
@@ -232,8 +261,8 @@ class BrownieLocalSession {
      * Method to locally save a preference.
      *
      * If the [key] is present in the [sensitiveKeys] set, before saving it, will be encrypted.
-     * Similar to the [sensitiveKeys], if the [key] is present in the [observableKeys] set will be handled by the
-     * [BrownieLocalSessionStateStore]
+     * Similar to the [sensitiveKeys], if the [key] is present in the observable keys set will be
+     * handled by the [BrownieLocalSessionStateStore]
      *
      * @param key The representative key of a preference
      * @param value The value of the preference to save
