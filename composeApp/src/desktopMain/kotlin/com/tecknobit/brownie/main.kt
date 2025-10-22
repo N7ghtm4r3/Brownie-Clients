@@ -14,7 +14,6 @@ import org.jetbrains.compose.resources.stringResource
  * Method used to start the of `Brownie` desktop app
  */
 fun main() {
-    // AmetistaEngine.intake()
     application {
         Window(
             onCloseRequest = ::exitApplication,

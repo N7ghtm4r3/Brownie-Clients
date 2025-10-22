@@ -4,7 +4,6 @@ package com.tecknobit.brownie
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ExperimentalComposeApi
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.text.font.FontFamily
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -13,8 +12,6 @@ import androidx.navigation.compose.rememberNavController
 import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.rubik
 import brownie.composeapp.generated.resources.ubuntu_mono
-import com.tecknobit.ametistaengine.AmetistaEngine
-import com.tecknobit.ametistaengine.AmetistaEngine.Companion.FILES_AMETISTA_CONFIG_PATHNAME
 import com.tecknobit.biometrik.rememberBiometrikState
 import com.tecknobit.brownie.helpers.BrownieLocalSession
 import com.tecknobit.brownie.helpers.BrownieRequester
@@ -103,7 +100,6 @@ fun App() {
     val biometrikState = rememberBiometrikState()
     bodyFontFamily = FontFamily(Font(Res.font.rubik))
     displayFontFamily = FontFamily(Font(Res.font.ubuntu_mono))
-    // InitAmetista()
     navigator = rememberNavController()
     // TODO: TO USE UNIQUE THEME
     // BrownieTheme {
@@ -209,25 +205,6 @@ fun App() {
     SessionFlowState.invokeOnUserDisconnected {
         localSession.clear()
         navigator.navigate(SPLASHSCREEN)
-    }
-}
-
-/**
- * Method used to initialize the Ametista system
- */
-@Composable
-// TODO: TO REIMPLEMENT WHEN NECESSARY
-private fun InitAmetista() {
-    LaunchedEffect(Unit) {
-        val ametistaEngine = AmetistaEngine.ametistaEngine
-        ametistaEngine.fireUp(
-            configData = Res.readBytes(FILES_AMETISTA_CONFIG_PATHNAME),
-            host = AmetistaConfig.HOST,
-            serverSecret = AmetistaConfig.SERVER_SECRET!!,
-            applicationId = AmetistaConfig.APPLICATION_IDENTIFIER!!,
-            bypassSslValidation = AmetistaConfig.BYPASS_SSL_VALIDATION,
-            debugMode = false
-        )
     }
 }
 

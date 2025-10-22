@@ -72,13 +72,6 @@ class BrownieRequester(
     byPassSSLValidation = true
 ) {
 
-    init {
-        // TODO: TO REIMPLEMENT WHEN NECESSARY
-//        attachInterceptorOnRequest {
-//            ametistaEngine.notifyNetworkRequest()
-//        }
-    }
-
     /**
      * Method used to change, during the runtime for example when the session changed, the host address to make the
      * requests

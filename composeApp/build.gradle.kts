@@ -96,7 +96,6 @@ kotlin {
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.jetlime)
                 implementation(libs.kmprefs)
-                implementation(libs.ametista.engine)
                 implementation(libs.navigation.compose)
                 implementation(libs.biometrik)
             }
