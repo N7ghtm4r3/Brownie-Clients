@@ -101,8 +101,7 @@ fun App() {
     bodyFontFamily = FontFamily(Font(Res.font.rubik))
     displayFontFamily = FontFamily(Font(Res.font.ubuntu_mono))
     navigator = rememberNavController()
-    // TODO: TO USE UNIQUE THEME
-    // BrownieTheme {
+    BrownieTheme {
         NavHost(
             navController = navigator,
             startDestination = SPLASHSCREEN
@@ -110,98 +109,77 @@ fun App() {
             composable(
                 route = SPLASHSCREEN
             ) {
-                // TODO: TO REMOVE THIS THEME CALL
-                BrownieTheme {
-                    val splashscreen = equinoxScreen {
-                        Splashscreen(
-                            biometrikState = biometrikState
-                        )
-                    }
-                    splashscreen.ShowContent()
+                val splashscreen = equinoxScreen {
+                    Splashscreen(
+                        biometrikState = biometrikState
+                    )
                 }
+                splashscreen.ShowContent()
             }
             composable(
                 route = CONNECT_SCREEN
             ) {
-                // TODO: TO REMOVE THIS THEME CALL
-                BrownieTheme {
-                    val connectScreen = equinoxScreen { ConnectScreen() }
-                    connectScreen.ShowContent()
-                }
+                val connectScreen = equinoxScreen { ConnectScreen() }
+                connectScreen.ShowContent()
             }
             composable(
                 route = HOSTS_SCREEN
             ) {
-                // TODO: TO REMOVE THIS THEME CALL
-                BrownieTheme {
-                    val savedStateHandle = navigator.currentBackStackEntry?.savedStateHandle
-                    val hostsScreen = equinoxScreen { HostsScreen() }
-                    hostsScreen.ShowContent()
-                    savedStateHandle?.remove<String>(IDENTIFIER_KEY)
-                }
+                val savedStateHandle = navigator.currentBackStackEntry?.savedStateHandle
+                val hostsScreen = equinoxScreen { HostsScreen() }
+                hostsScreen.ShowContent()
+                savedStateHandle?.remove<String>(IDENTIFIER_KEY)
             }
             composable(
                 route = ADMIN_CONTROL_PANEL_SCREEN
             ) {
-                // TODO: TO REMOVE THIS THEME CALL
-                BrownieTheme {
-                    val adminPanelScreen = equinoxScreen { AdminPanelScreen() }
-                    adminPanelScreen.ShowContent()
-                }
+                val adminPanelScreen = equinoxScreen { AdminPanelScreen() }
+                adminPanelScreen.ShowContent()
             }
             composable(
                 route = UPSERT_HOST_SCREEN
             ) {
-                // TODO: TO REMOVE THIS THEME CALL
-                BrownieTheme {
-                    val savedStateHandle = navigator.previousBackStackEntry?.savedStateHandle!!
-                    val hostId: String? = savedStateHandle[IDENTIFIER_KEY]
-                    val upsertHostScreen = equinoxScreen {
-                        UpsertHostScreen(
-                            hostId = hostId
-                        )
-                    }
-                    upsertHostScreen.ShowContent()
-                    savedStateHandle.remove<String>(IDENTIFIER_KEY)
+                val savedStateHandle = navigator.previousBackStackEntry?.savedStateHandle!!
+                val hostId: String? = savedStateHandle[IDENTIFIER_KEY]
+                val upsertHostScreen = equinoxScreen {
+                    UpsertHostScreen(
+                        hostId = hostId
+                    )
                 }
+                upsertHostScreen.ShowContent()
+                savedStateHandle.remove<String>(IDENTIFIER_KEY)
             }
             composable(
                 route = HOST_SCREEN
             ) {
-                // TODO: TO REMOVE THIS THEME CALL
-                BrownieTheme {
-                    val savedStateHandle = navigator.previousBackStackEntry?.savedStateHandle!!
-                    val hostId: String = savedStateHandle[IDENTIFIER_KEY]!!
-                    val hostScreen = equinoxScreen {
-                        HostScreen(
-                            hostId = hostId
-                        )
-                    }
-                    hostScreen.ShowContent()
+                val savedStateHandle = navigator.previousBackStackEntry?.savedStateHandle!!
+                val hostId: String = savedStateHandle[IDENTIFIER_KEY]!!
+                val hostScreen = equinoxScreen {
+                    HostScreen(
+                        hostId = hostId
+                    )
                 }
+                hostScreen.ShowContent()
             }
             composable(
                 route = UPSERT_SERVICE_SCREEN
             ) {
-                // TODO: TO REMOVE THIS THEME CALL
-                BrownieTheme {
-                    val savedStateHandle = navigator.previousBackStackEntry?.savedStateHandle!!
-                    val hostId: String = savedStateHandle[HOST_IDENTIFIER_KEY]!!
-                    val hostName: String = savedStateHandle[NAME_KEY]!!
-                    val serviceId: String? = savedStateHandle[IDENTIFIER_KEY]
-                    val upsertServiceScreen = equinoxScreen {
-                        UpsertServiceScreen(
-                            hostId = hostId,
-                            hostName = hostName,
-                            serviceId = serviceId
-                        )
-                    }
-                    upsertServiceScreen.ShowContent()
-                    savedStateHandle.keys().forEach { savedStateHandle.remove<Any>(it) }
+                val savedStateHandle = navigator.previousBackStackEntry?.savedStateHandle!!
+                val hostId: String = savedStateHandle[HOST_IDENTIFIER_KEY]!!
+                val hostName: String = savedStateHandle[NAME_KEY]!!
+                val serviceId: String? = savedStateHandle[IDENTIFIER_KEY]
+                val upsertServiceScreen = equinoxScreen {
+                    UpsertServiceScreen(
+                        hostId = hostId,
+                        hostName = hostName,
+                        serviceId = serviceId
+                    )
                 }
+                upsertServiceScreen.ShowContent()
+                savedStateHandle.keys().forEach { savedStateHandle.remove<Any>(it) }
             }
         }
-    // }
+    }
     SessionFlowState.invokeOnUserDisconnected {
         localSession.clear()
         navigator.navigate(SPLASHSCREEN)

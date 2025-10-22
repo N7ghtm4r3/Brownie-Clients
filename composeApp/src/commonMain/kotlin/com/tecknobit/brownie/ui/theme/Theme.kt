@@ -5,10 +5,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import com.tecknobit.brownie.localSession
+import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme.Dark
 import com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme.Light
+import com.tecknobit.equinoxcore.helpers.THEME_KEY
 
 /**
  * **lightScheme** default light colors scheme
@@ -213,7 +216,10 @@ fun BrownieTheme(
  */
 @Composable
 private fun isDarkThemeApplied(): Boolean {
-    return when (localSession.theme) {
+    val theme by localSession.observe<ApplicationTheme>(
+        key = THEME_KEY
+    )
+    return when (theme) {
         Light -> false
         Dark -> true
         else -> isSystemInDarkTheme()
