@@ -14,7 +14,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     kotlin("plugin.serialization") version "2.1.0"
-    id("com.github.gmazzo.buildconfig") version "5.5.1"
+    id("com.github.gmazzo.buildconfig") version "5.7.0"
     alias(libs.plugins.dokka)
 }
 
@@ -136,8 +136,8 @@ android {
         applicationId = "com.tecknobit.brownie"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 5
-        versionName = "1.0.3"
+        versionCode = 6
+        versionName = "1.0.4"
     }
     packaging {
         resources {
@@ -170,8 +170,8 @@ compose.desktop {
                 "jdk.security.auth"
             )
             packageName = "Brownie"
-            packageVersion = "1.0.3"
-            version = "1.0.3"
+            packageVersion = "1.0.4"
+            version = "1.0.4"
             description = "Self-hosted VPS manager"
             copyright = "© 2025 Tecknobit"
             vendor = "Tecknobit"
@@ -188,7 +188,7 @@ compose.desktop {
                 iconFile.set(project.file("src/desktopMain/resources/logo.png"))
                 packageName = "com-tecknobit-brownie"
                 debMaintainer = "infotecknobitcompany@gmail.com"
-                appRelease = "1.0.3"
+                appRelease = "1.0.4"
                 appCategory = "PERSONALIZATION"
                 rpmLicenseType = "APACHE2"
             }
@@ -202,23 +202,11 @@ compose.desktop {
 }
 
 buildConfig {
-    className("AmetistaConfig")
+    className("BrownieConfig")
     packageName("com.tecknobit.brownie")
     buildConfigField<String>(
         name = "HOST",
         value = project.findProperty("host").toString()
-    )
-    buildConfigField<String?>(
-        name = "SERVER_SECRET",
-        value = project.findProperty("server_secret").toString()
-    )
-    buildConfigField<String?>(
-        name = "APPLICATION_IDENTIFIER",
-        value = project.findProperty("application_id").toString()
-    )
-    buildConfigField<Boolean>(
-        name = "BYPASS_SSL_VALIDATION",
-        value = project.findProperty("bypass_ssl_validation").toString().toBoolean()
     )
 }
 
