@@ -32,7 +32,7 @@ contact us to talk about, thanks and good use!
 
 ### Backend
 
-- [Backend service "out-of-the-box"](https://github.com/N7ghtm4r3/Brownie/releases/tag/1.0.2)
+- [Backend service "out-of-the-box"](https://github.com/N7ghtm4r3/Brownie/releases/tag/1.0.3)
 
 ## Usages
 
@@ -67,7 +67,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.tecknobit.browniecore:browniecore:1.0.2'
+  implementation 'com.tecknobit.browniecore:browniecore:1.0.3'
 }
 ```
 
@@ -80,7 +80,7 @@ repositories {
 }
 
 dependencies {
-  implementation("com.tecknobit.browniecore:browniecore:1.0.2")
+  implementation("com.tecknobit.browniecore:browniecore:1.0.3")
 }
 ```
 

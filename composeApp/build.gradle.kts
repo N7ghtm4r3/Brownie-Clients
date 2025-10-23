@@ -91,7 +91,6 @@ kotlin {
                 implementation(libs.androidx.lifecycle.runtime.compose)
                 implementation(libs.equinox.compose)
                 implementation(libs.equinox.core)
-                implementation(libs.browniecore)
                 implementation(libs.lazy.pagination.compose)
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.jetlime)
@@ -99,6 +98,7 @@ kotlin {
                 implementation(libs.navigation.compose)
                 implementation(libs.biometrik)
                 implementation(libs.equinoxmisc.navigation.compose.util)
+                implementation(libs.browniecore)
             }
         }
 
