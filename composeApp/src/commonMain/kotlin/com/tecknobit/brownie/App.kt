@@ -36,6 +36,7 @@ import com.tecknobit.equinoxcompose.session.screens.equinoxScreen
 import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowState
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 import com.tecknobit.equinoxcore.helpers.NAME_KEY
+import com.tecknobit.equinoxmisc.navigationcomposeutil.getDestinationNavData
 import org.jetbrains.compose.resources.Font
 
 /**
@@ -93,10 +94,8 @@ fun App() {
             composable(
                 route = HOSTS_SCREEN
             ) {
-                val savedStateHandle = navigator.currentBackStackEntry?.savedStateHandle
                 val hostsScreen = equinoxScreen { HostsScreen() }
                 hostsScreen.ShowContent()
-                savedStateHandle?.remove<String>(IDENTIFIER_KEY)
             }
             composable(
                 route = ADMIN_CONTROL_PANEL_SCREEN
@@ -107,21 +106,23 @@ fun App() {
             composable(
                 route = UPSERT_HOST_SCREEN
             ) {
-                val savedStateHandle = navigator.previousBackStackEntry?.savedStateHandle!!
-                val hostId: String? = savedStateHandle[IDENTIFIER_KEY]
+                val hostId: String? = navigator.getDestinationNavData(
+                    key = IDENTIFIER_KEY
+                )
                 val upsertHostScreen = equinoxScreen {
                     UpsertHostScreen(
                         hostId = hostId
                     )
                 }
                 upsertHostScreen.ShowContent()
-                savedStateHandle.remove<String>(IDENTIFIER_KEY)
             }
             composable(
                 route = HOST_SCREEN
             ) {
-                val savedStateHandle = navigator.previousBackStackEntry?.savedStateHandle!!
-                val hostId: String = savedStateHandle[IDENTIFIER_KEY]!!
+                val hostId: String = navigator.getDestinationNavData(
+                    key = IDENTIFIER_KEY,
+                    defaultValue = ""
+                )!!
                 val hostScreen = equinoxScreen {
                     HostScreen(
                         hostId = hostId
@@ -132,10 +133,17 @@ fun App() {
             composable(
                 route = UPSERT_SERVICE_SCREEN
             ) {
-                val savedStateHandle = navigator.previousBackStackEntry?.savedStateHandle!!
-                val hostId: String = savedStateHandle[HOST_IDENTIFIER_KEY]!!
-                val hostName: String = savedStateHandle[NAME_KEY]!!
-                val serviceId: String? = savedStateHandle[IDENTIFIER_KEY]
+                val hostId: String = navigator.getDestinationNavData(
+                    key = HOST_IDENTIFIER_KEY,
+                    defaultValue = ""
+                )!!
+                val hostName: String = navigator.getDestinationNavData(
+                    key = NAME_KEY,
+                    defaultValue = ""
+                )!!
+                val serviceId: String? = navigator.getDestinationNavData(
+                    key = IDENTIFIER_KEY
+                )
                 val upsertServiceScreen = equinoxScreen {
                     UpsertServiceScreen(
                         hostId = hostId,
@@ -144,7 +152,6 @@ fun App() {
                     )
                 }
                 upsertServiceScreen.ShowContent()
-                savedStateHandle.keys().forEach { savedStateHandle.remove<Any>(it) }
             }
         }
     }

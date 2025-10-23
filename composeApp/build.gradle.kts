@@ -98,6 +98,7 @@ kotlin {
                 implementation(libs.kmprefs)
                 implementation(libs.navigation.compose)
                 implementation(libs.biometrik)
+                implementation(libs.equinoxmisc.navigation.compose.util)
             }
         }
 

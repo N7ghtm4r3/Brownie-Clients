@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalStdlibApi::class)
+
 package com.tecknobit.brownie.helpers
 
 import androidx.navigation.NavHostController
@@ -10,10 +12,12 @@ import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen
 import com.tecknobit.brownie.ui.screens.upserthost.presenter.UpsertHostScreen
+import com.tecknobit.brownie.ui.screens.upsertservice.presenter.UpsertServiceScreen
 import com.tecknobit.browniecore.HOST_IDENTIFIER_KEY
 import com.tecknobit.equinoxcompose.annotations.DestinationScreen
 import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 import com.tecknobit.equinoxcore.helpers.NAME_KEY
+import com.tecknobit.equinoxmisc.navigationcomposeutil.navWithData
 
 /**
  * `navigator` the navigator instance is useful to manage the navigation between the screens of the application
@@ -63,51 +67,72 @@ fun navToSplashscreen() {
     navigator.navigate(SPLASHSCREEN)
 }
 
+/**
+ * Method used to navigate to the [HostsScreen]
+ */
 @DestinationScreen(HostsScreen::class)
 fun navToHostsScreen() {
     navigator.navigate(HOSTS_SCREEN)
 }
 
+/**
+ * Method used to navigate to the [HostScreen]
+ *
+ * @param host The host to display on the related screen
+ */
 @DestinationScreen(HostScreen::class)
 fun navToHostScreen(
     host: SavedHostImpl,
 ) {
-    val savedStateHandle = navigator.currentBackStackEntry?.savedStateHandle
-    savedStateHandle?.let {
-        savedStateHandle[IDENTIFIER_KEY] = host.id
-        navigator.navigate(HOST_SCREEN)
-    }
+    navigator.navWithData(
+        route = HOST_SCREEN,
+        data = buildMap {
+            put(IDENTIFIER_KEY, host.id)
+        }
+    )
 }
 
+/**
+ * Method used to navigate to the [UpsertHostScreen]
+ *
+ * @param host The host to edit if is not `null`
+ */
 @DestinationScreen(UpsertHostScreen::class)
 fun navToUpsertHostScreen(
     host: SavedHostImpl? = null,
 ) {
-    val savedStateHandle = navigator.currentBackStackEntry?.savedStateHandle
-    savedStateHandle?.let {
-        host?.let {
-            savedStateHandle[IDENTIFIER_KEY] = host.id
+    navigator.navWithData(
+        route = UPSERT_HOST_SCREEN,
+        data = buildMap {
+            put(IDENTIFIER_KEY, host?.id)
         }
-        navigator.navigate(UPSERT_HOST_SCREEN)
-    }
+    )
 }
 
-@DestinationScreen(UpsertHostScreen::class)
+/**
+ * Method used to navigate to the [UpsertServiceScreen]
+ *
+ * @param savedHostOverview The host owner of the service
+ * @param service The service to edit if is not `null`
+ */
+@DestinationScreen(UpsertServiceScreen::class)
 fun navToUpsertServiceScreen(
     savedHostOverview: SavedHostOverview,
     service: HostService? = null,
 ) {
-    val savedStateHandle = navigator.currentBackStackEntry?.savedStateHandle
-    savedStateHandle?.let {
-        savedStateHandle[HOST_IDENTIFIER_KEY] = savedHostOverview.id
-        savedStateHandle[NAME_KEY] = savedHostOverview.name
-        service?.let {
-            savedStateHandle[IDENTIFIER_KEY] = service.id
+    navigator.navWithData(
+        route = UPSERT_SERVICE_SCREEN,
+        data = buildMap {
+            put(HOST_IDENTIFIER_KEY, savedHostOverview.id)
+            put(NAME_KEY, savedHostOverview.name)
+            put(IDENTIFIER_KEY, service?.id)
         }
-    }
-    navigator.navigate(UPSERT_SERVICE_SCREEN)
+    )
 }
 
+/**
+ * Method used to navigate to the [AdminPanelScreen]
+ */
 @DestinationScreen(AdminPanelScreen::class)
 fun navToAdminPanelScreen() {
     navigator.navigate(ADMIN_CONTROL_PANEL_SCREEN)
