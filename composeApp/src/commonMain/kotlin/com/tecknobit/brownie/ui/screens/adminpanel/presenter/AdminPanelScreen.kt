@@ -54,10 +54,10 @@ import brownie.composeapp.generated.resources.delete_session
 import brownie.composeapp.generated.resources.join_code
 import brownie.composeapp.generated.resources.local_settings
 import brownie.composeapp.generated.resources.logout
-import com.tecknobit.brownie.SPLASHSCREEN
+import com.tecknobit.brownie.helpers.navToSplashscreen
+import com.tecknobit.brownie.helpers.navigator
 import com.tecknobit.brownie.helpers.shareJoinCode
 import com.tecknobit.brownie.localSession
-import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.components.DeleteSession
 import com.tecknobit.brownie.ui.components.Logout
 import com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel
@@ -217,7 +217,7 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
                         viewModel.changeLanguage(
                             onSuccess = {
                                 visible.value = false
-                                navigator.navigate(SPLASHSCREEN)
+                                navToSplashscreen()
                             }
                         )
                     }

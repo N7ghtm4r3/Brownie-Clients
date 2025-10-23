@@ -3,9 +3,8 @@ package com.tecknobit.brownie.ui.screens.connect.presentation
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.MutableState
 import androidx.lifecycle.viewModelScope
-import com.tecknobit.brownie.HOSTS_SCREEN
+import com.tecknobit.brownie.helpers.navToHostsScreen
 import com.tecknobit.brownie.localSession
-import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.requester
 import com.tecknobit.browniecore.JOIN_CODE_KEY
 import com.tecknobit.equinoxcompose.session.viewmodels.EquinoxViewModel
@@ -170,7 +169,7 @@ class ConnectScreenViewModel : EquinoxViewModel(
             sessionId = responseData[IDENTIFIER_KEY].treatsAsString(),
             joinCode = joinCode
         )
-        navigator.navigate(HOSTS_SCREEN)
+        navToHostsScreen()
     }
 
 }

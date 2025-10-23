@@ -5,7 +5,6 @@ package com.tecknobit.brownie
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.ui.text.font.FontFamily
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -13,8 +12,17 @@ import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.rubik
 import brownie.composeapp.generated.resources.ubuntu_mono
 import com.tecknobit.biometrik.rememberBiometrikState
+import com.tecknobit.brownie.helpers.ADMIN_CONTROL_PANEL_SCREEN
 import com.tecknobit.brownie.helpers.BrownieLocalSession
 import com.tecknobit.brownie.helpers.BrownieRequester
+import com.tecknobit.brownie.helpers.CONNECT_SCREEN
+import com.tecknobit.brownie.helpers.HOSTS_SCREEN
+import com.tecknobit.brownie.helpers.HOST_SCREEN
+import com.tecknobit.brownie.helpers.SPLASHSCREEN
+import com.tecknobit.brownie.helpers.UPSERT_HOST_SCREEN
+import com.tecknobit.brownie.helpers.UPSERT_SERVICE_SCREEN
+import com.tecknobit.brownie.helpers.navToSplashscreen
+import com.tecknobit.brownie.helpers.navigator
 import com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen
 import com.tecknobit.brownie.ui.screens.connect.presenter.ConnectScreen
 import com.tecknobit.brownie.ui.screens.host.presenter.HostScreen
@@ -50,46 +58,6 @@ lateinit var requester: BrownieRequester
  * the device
  */
 val localSession = BrownieLocalSession()
-
-/**
- * `navigator` the navigator instance is useful to manage the navigation between the screens of the application
- */
-lateinit var navigator: NavHostController
-
-/**
- * `SPLASHSCREEN` route to navigate to the [com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen]
- */
-const val SPLASHSCREEN = "Splashscreen"
-
-/**
- * `CONNECT_SCREEN` route to navigate to the [com.tecknobit.brownie.ui.screens.connect.ConnectScreen]
- */
-const val CONNECT_SCREEN = "ConnectScreen"
-
-/**
- * `ADMIN_CONTROL_PANEL_SCREEN` route to navigate to the [com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen]
- */
-const val ADMIN_CONTROL_PANEL_SCREEN = "AdminControlPanelScreen"
-
-/**
- * `HostsScreen` route to navigate to the [com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen]
- */
-const val HOSTS_SCREEN = "HostsScreen"
-
-/**
- * `UPSERT_HOST_SCREEN` route to navigate to the [com.tecknobit.brownie.ui.screens.upserthost.presenter.UpsertHostScreen]
- */
-const val UPSERT_HOST_SCREEN = "UpsertHostScreen"
-
-/**
- * `HOST_SCREEN` route to navigate to the [com.tecknobit.brownie.ui.screens.host.presenter.HostScreen]
- */
-const val HOST_SCREEN = "HostScreen"
-
-/**
- * `UPSERT_SERVICE_SCREEN` route to navigate to the [com.tecknobit.brownie.ui.screens.upsertservice.presenter.UpsertServiceScreen]
- */
-const val UPSERT_SERVICE_SCREEN = "UpsertServiceScreen"
 
 /**
  * Method used to start the `Brownie`'s application
@@ -182,7 +150,7 @@ fun App() {
     }
     SessionFlowState.invokeOnUserDisconnected {
         localSession.clear()
-        navigator.navigate(SPLASHSCREEN)
+        navToSplashscreen()
     }
 }
 

@@ -45,9 +45,8 @@ import brownie.composeapp.generated.resources.remove_service_message
 import brownie.composeapp.generated.resources.unregister_host
 import brownie.composeapp.generated.resources.unregister_host_message
 import brownie.composeapp.generated.resources.wrong_password
-import com.tecknobit.brownie.SPLASHSCREEN
 import com.tecknobit.brownie.displayFontFamily
-import com.tecknobit.brownie.navigator
+import com.tecknobit.brownie.helpers.navToSplashscreen
 import com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost
 import com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel
@@ -192,7 +191,7 @@ fun Logout(
             viewModel.clearSession(
                 onClear = {
                     show.value = false
-                    navigator.navigate(SPLASHSCREEN)
+                    navToSplashscreen()
                 }
             )
         }
@@ -271,7 +270,7 @@ fun DeleteSession(
             viewModel.deleteSession(
                 onClear = {
                     show.value = false
-                    navigator.navigate(SPLASHSCREEN)
+                    navToSplashscreen()
                 }
             )
         }

@@ -30,9 +30,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
-import com.tecknobit.brownie.HOST_SCREEN
-import com.tecknobit.brownie.UPSERT_HOST_SCREEN
-import com.tecknobit.brownie.navigator
+import com.tecknobit.brownie.helpers.navToHostScreen
+import com.tecknobit.brownie.helpers.navToUpsertHostScreen
 import com.tecknobit.brownie.ui.components.HostStatusBadge
 import com.tecknobit.brownie.ui.components.UnregisterSavedHost
 import com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl
@@ -42,7 +41,6 @@ import com.tecknobit.brownie.ui.theme.red
 import com.tecknobit.brownie.ui.theme.yellow
 import com.tecknobit.browniecore.enums.HostStatus
 import com.tecknobit.browniecore.enums.HostStatus.REBOOTING
-import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
 
 /**
  * Custom [Card] used to display the host information
@@ -67,18 +65,14 @@ fun HostCard(
             .clip(CardDefaults.shape)
             .combinedClickable(
                 onClick = {
-                    val savedStateHandle = navigator.currentBackStackEntry?.savedStateHandle
-                    savedStateHandle?.let {
-                        savedStateHandle[IDENTIFIER_KEY] = host.id
-                        navigator.navigate(HOST_SCREEN)
-                    }
+                    navToHostScreen(
+                        host = host
+                    )
                 },
                 onLongClick = {
-                    val savedStateHandle = navigator.currentBackStackEntry?.savedStateHandle
-                    savedStateHandle?.let {
-                        savedStateHandle[IDENTIFIER_KEY] = host.id
-                        navigator.navigate(UPSERT_HOST_SCREEN)
-                    }
+                    navToUpsertHostScreen(
+                        host = host
+                    )
                 }
             )
     ) {
