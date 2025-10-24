@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeApi::class)
+@file:OptIn(ExperimentalMaterial3Api::class)
 
 package com.tecknobit.brownie.ui.shared.presenters
 
@@ -29,7 +29,6 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.State
@@ -46,7 +45,7 @@ import androidx.compose.ui.unit.sp
 import brownie.composeapp.generated.resources.Res.string
 import brownie.composeapp.generated.resources.edit
 import brownie.composeapp.generated.resources.save
-import com.tecknobit.brownie.navigator
+import com.tecknobit.brownie.helpers.navigator
 import com.tecknobit.brownie.ui.screens.host.components.SectionTitle
 import com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel
 import com.tecknobit.brownie.ui.theme.BrownieTheme
@@ -123,7 +122,7 @@ abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(
                             .navigationBarsPadding(),
                         topBar = {
                             MediumTopAppBar(
-                                colors = TopAppBarDefaults.mediumTopAppBarColors(
+                                colors = TopAppBarDefaults.topAppBarColors(
                                     containerColor = MaterialTheme.colorScheme.primaryContainer
                                 ),
                                 navigationIcon = {

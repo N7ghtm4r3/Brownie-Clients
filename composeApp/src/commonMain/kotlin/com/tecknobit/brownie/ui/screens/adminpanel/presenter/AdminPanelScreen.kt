@@ -1,14 +1,10 @@
-@file:OptIn(
-    ExperimentalLayoutApi::class, ExperimentalComposeApi::class,
-    ExperimentalMaterial3Api::class, ExperimentalMultiplatform::class
-)
+@file:OptIn(ExperimentalMaterial3Api::class)
 
 package com.tecknobit.brownie.ui.screens.adminpanel.presenter
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -37,7 +33,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -54,10 +49,10 @@ import brownie.composeapp.generated.resources.delete_session
 import brownie.composeapp.generated.resources.join_code
 import brownie.composeapp.generated.resources.local_settings
 import brownie.composeapp.generated.resources.logout
-import com.tecknobit.brownie.SPLASHSCREEN
+import com.tecknobit.brownie.helpers.navToSplashscreen
+import com.tecknobit.brownie.helpers.navigator
 import com.tecknobit.brownie.helpers.shareJoinCode
 import com.tecknobit.brownie.localSession
-import com.tecknobit.brownie.navigator
 import com.tecknobit.brownie.ui.components.DeleteSession
 import com.tecknobit.brownie.ui.components.Logout
 import com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel
@@ -86,7 +81,7 @@ import org.jetbrains.compose.resources.stringResource
  * allows to customize the preferences of the user
  *
  * @author N7ghtm4r3 - Tecknobit
- * @see com.tecknobit.equinoxcompose.session.EquinoxScreen
+ * @see com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
  */
 class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
     viewModel = AdminPanelScreenViewModel()
@@ -217,7 +212,7 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
                         viewModel.changeLanguage(
                             onSuccess = {
                                 visible.value = false
-                                navigator.navigate(SPLASHSCREEN)
+                                navToSplashscreen()
                             }
                         )
                     }
@@ -232,10 +227,7 @@ class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
                     },
                     confirmAction = { visible ->
                         viewModel.changeTheme(
-                            onChange = {
-                                visible.value = false
-                                navigator.navigate(SPLASHSCREEN)
-                            }
+                            onChange = { visible.value = false }
                         )
                     }
                 )

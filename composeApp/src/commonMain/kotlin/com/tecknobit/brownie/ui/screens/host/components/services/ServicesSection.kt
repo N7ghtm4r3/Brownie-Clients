@@ -50,7 +50,7 @@ import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.EXPANDED_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClass.MEDIUM_CONTENT
 import com.tecknobit.equinoxcompose.utilities.ResponsiveClassComponent
 import com.tecknobit.equinoxcompose.utilities.ResponsiveContent
-import com.tecknobit.equinoxcore.toggle
+import com.tecknobit.equinoxcore.util.toggle
 import org.jetbrains.compose.resources.stringResource
 
 /**

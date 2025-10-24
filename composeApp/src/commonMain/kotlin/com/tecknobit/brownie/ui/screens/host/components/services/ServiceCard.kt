@@ -27,8 +27,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
-import com.tecknobit.brownie.UPSERT_SERVICE_SCREEN
-import com.tecknobit.brownie.navigator
+import com.tecknobit.brownie.helpers.navToUpsertServiceScreen
 import com.tecknobit.brownie.ui.components.ServiceStatusBadge
 import com.tecknobit.brownie.ui.icons.RuleSettings
 import com.tecknobit.brownie.ui.screens.host.data.HostService
@@ -37,11 +36,8 @@ import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
 import com.tecknobit.brownie.ui.theme.green
 import com.tecknobit.brownie.ui.theme.red
 import com.tecknobit.brownie.ui.theme.yellow
-import com.tecknobit.browniecore.HOST_IDENTIFIER_KEY
 import com.tecknobit.browniecore.enums.ServiceStatus
 import com.tecknobit.browniecore.enums.ServiceStatus.REBOOTING
-import com.tecknobit.equinoxcore.helpers.IDENTIFIER_KEY
-import com.tecknobit.equinoxcore.helpers.NAME_KEY
 import kotlinx.coroutines.launch
 
 /**
@@ -186,13 +182,10 @@ private fun StatusToolbar(
         ) {
             IconButton(
                 onClick = {
-                    val savedStateHandle = navigator.currentBackStackEntry?.savedStateHandle
-                    savedStateHandle?.let {
-                        savedStateHandle[HOST_IDENTIFIER_KEY] = savedHostOverview.id
-                        savedStateHandle[NAME_KEY] = savedHostOverview.name
-                        savedStateHandle[IDENTIFIER_KEY] = service.id
-                    }
-                    navigator.navigate(UPSERT_SERVICE_SCREEN)
+                    navToUpsertServiceScreen(
+                        savedHostOverview = savedHostOverview,
+                        service = service
+                    )
                 }
             ) {
                 Icon(

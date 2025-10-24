@@ -40,10 +40,9 @@ import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.enter_name_or_ip
 import brownie.composeapp.generated.resources.hosts
 import brownie.composeapp.generated.resources.register
-import com.tecknobit.brownie.ADMIN_CONTROL_PANEL_SCREEN
 import com.tecknobit.brownie.CloseApplicationOnNavBack
-import com.tecknobit.brownie.UPSERT_HOST_SCREEN
-import com.tecknobit.brownie.navigator
+import com.tecknobit.brownie.helpers.navToAdminPanelScreen
+import com.tecknobit.brownie.helpers.navToUpsertHostScreen
 import com.tecknobit.brownie.ui.components.StatusFilterButton
 import com.tecknobit.brownie.ui.icons.AssignmentAdd
 import com.tecknobit.brownie.ui.screens.hosts.components.HostsList
@@ -96,7 +95,7 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
                                 },
                                 actions = {
                                     IconButton(
-                                        onClick = { navigator.navigate(ADMIN_CONTROL_PANEL_SCREEN) }
+                                        onClick = { navToAdminPanelScreen() }
                                     ) {
                                         Icon(
                                             imageVector = Icons.Default.AdminPanelSettings,
@@ -113,7 +112,7 @@ class HostsScreen : EquinoxScreen<HostsScreenViewModel>(
                         },
                         floatingActionButton = {
                             ExtendedFloatingActionButton(
-                                onClick = { navigator.navigate(UPSERT_HOST_SCREEN) },
+                                onClick = { navToUpsertHostScreen() },
                                 expanded = responsiveAssignment(
                                     onExpandedSizeClass = { true },
                                     onMediumSizeClass = { true },

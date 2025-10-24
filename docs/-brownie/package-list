@@ -1,14 +1,31 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 $dokka.location:com.tecknobit.brownie.helpers////PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/index.html
+$dokka.location:com.tecknobit.brownie.helpers//ADMIN_CONTROL_PANEL_SCREEN/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-a-d-m-i-n_-c-o-n-t-r-o-l_-p-a-n-e-l_-s-c-r-e-e-n.html
+$dokka.location:com.tecknobit.brownie.helpers//CONNECT_SCREEN/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-c-o-n-n-e-c-t_-s-c-r-e-e-n.html
+$dokka.location:com.tecknobit.brownie.helpers//HOSTS_SCREEN/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-h-o-s-t-s_-s-c-r-e-e-n.html
+$dokka.location:com.tecknobit.brownie.helpers//HOST_SCREEN/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-h-o-s-t_-s-c-r-e-e-n.html
+$dokka.location:com.tecknobit.brownie.helpers//SPLASHSCREEN/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-s-p-l-a-s-h-s-c-r-e-e-n.html
+$dokka.location:com.tecknobit.brownie.helpers//UPSERT_HOST_SCREEN/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-u-p-s-e-r-t_-h-o-s-t_-s-c-r-e-e-n.html
+$dokka.location:com.tecknobit.brownie.helpers//UPSERT_SERVICE_SCREEN/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-u-p-s-e-r-t_-s-e-r-v-i-c-e_-s-c-r-e-e-n.html
+$dokka.location:com.tecknobit.brownie.helpers//navToAdminPanelScreen/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/nav-to-admin-panel-screen.html
+$dokka.location:com.tecknobit.brownie.helpers//navToHostScreen/#com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/nav-to-host-screen.html
+$dokka.location:com.tecknobit.brownie.helpers//navToHostsScreen/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/nav-to-hosts-screen.html
+$dokka.location:com.tecknobit.brownie.helpers//navToSplashscreen/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/nav-to-splashscreen.html
+$dokka.location:com.tecknobit.brownie.helpers//navToUpsertHostScreen/#com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl?/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/nav-to-upsert-host-screen.html
+$dokka.location:com.tecknobit.brownie.helpers//navToUpsertServiceScreen/#com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview#com.tecknobit.brownie.ui.screens.host.data.HostService?/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/nav-to-upsert-service-screen.html
+$dokka.location:com.tecknobit.brownie.helpers//navigator/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/navigator.html
 $dokka.location:com.tecknobit.brownie.helpers//shareJoinCode/#com.tecknobit.equinoxcompose.session.viewmodels.EquinoxViewModel/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/share-join-code.html
 $dokka.location:com.tecknobit.brownie.helpers/BrownieLocalSession///PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/index.html
 $dokka.location:com.tecknobit.brownie.helpers/BrownieLocalSession/BrownieLocalSession/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/-brownie-local-session.html
 $dokka.location:com.tecknobit.brownie.helpers/BrownieLocalSession/clear/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/clear.html
 $dokka.location:com.tecknobit.brownie.helpers/BrownieLocalSession/hostAddress/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/host-address.html
+$dokka.location:com.tecknobit.brownie.helpers/BrownieLocalSession/initLanguage/#kotlin.String/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/init-language.html
+$dokka.location:com.tecknobit.brownie.helpers/BrownieLocalSession/initTheme/#com.tecknobit.equinoxcompose.session.EquinoxLocalUser.ApplicationTheme/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/init-theme.html
 $dokka.location:com.tecknobit.brownie.helpers/BrownieLocalSession/insertNewSession/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/insert-new-session.html
 $dokka.location:com.tecknobit.brownie.helpers/BrownieLocalSession/joinCode/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/join-code.html
 $dokka.location:com.tecknobit.brownie.helpers/BrownieLocalSession/language/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/language.html
+$dokka.location:com.tecknobit.brownie.helpers/BrownieLocalSession/observe/#kotlin.String/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/observe.html
 $dokka.location:com.tecknobit.brownie.helpers/BrownieLocalSession/sessionId/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/session-id.html
 $dokka.location:com.tecknobit.brownie.helpers/BrownieLocalSession/theme/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/theme.html
 $dokka.location:com.tecknobit.brownie.helpers/BrownieRequester///PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-brownie-requester/index.html
@@ -40,20 +57,20 @@ $dokka.location:com.tecknobit.brownie.helpers/KReviewer///PointingToDeclaration/
 $dokka.location:com.tecknobit.brownie.helpers/KReviewer/KReviewer/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-k-reviewer/-k-reviewer.html
 $dokka.location:com.tecknobit.brownie.helpers/KReviewer/reviewInApp/#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-brownie/com.tecknobit.brownie.helpers/-k-reviewer/review-in-app.html
 $dokka.location:com.tecknobit.brownie.ui.components////PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/index.html
-$dokka.location:com.tecknobit.brownie.ui.components//DeleteService/#[Error type: Unresolved type for MutableState<Boolean>][kotlin.Boolean]#com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-delete-service.html
-$dokka.location:com.tecknobit.brownie.ui.components//DeleteSession/#[Error type: Unresolved type for MutableState<Boolean>][kotlin.Boolean]#com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-delete-session.html
+$dokka.location:com.tecknobit.brownie.ui.components//DeleteService/#androidx.compose.runtime.MutableState[kotlin.Boolean]#com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-delete-service.html
+$dokka.location:com.tecknobit.brownie.ui.components//DeleteSession/#androidx.compose.runtime.MutableState[kotlin.Boolean]#com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-delete-session.html
 $dokka.location:com.tecknobit.brownie.ui.components//EventText/#org.jetbrains.compose.resources.Resource#kotlinx.serialization.json.JsonElement?/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-event-text.html
 $dokka.location:com.tecknobit.brownie.ui.components//FirstPageProgressIndicator/#androidx.compose.ui.Modifier/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-first-page-progress-indicator.html
 $dokka.location:com.tecknobit.brownie.ui.components//HistoryEventBadge/#com.tecknobit.browniecore.enums.HostEventType/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-history-event-badge.html
 $dokka.location:com.tecknobit.brownie.ui.components//HostStatusBadge/#com.tecknobit.browniecore.enums.HostStatus/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-host-status-badge.html
-$dokka.location:com.tecknobit.brownie.ui.components//Logout/#[Error type: Unresolved type for MutableState<Boolean>][kotlin.Boolean]#com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-logout.html
+$dokka.location:com.tecknobit.brownie.ui.components//Logout/#androidx.compose.runtime.MutableState[kotlin.Boolean]#com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-logout.html
 $dokka.location:com.tecknobit.brownie.ui.components//NewPageProgressIndicator/#androidx.compose.ui.Modifier/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-new-page-progress-indicator.html
 $dokka.location:com.tecknobit.brownie.ui.components//NoEventsAvailable/#androidx.compose.ui.Modifier/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-no-events-available.html
-$dokka.location:com.tecknobit.brownie.ui.components//RemoveService/#[Error type: Unresolved type for MutableState<Boolean>][kotlin.Boolean]#com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-remove-service.html
+$dokka.location:com.tecknobit.brownie.ui.components//RemoveService/#androidx.compose.runtime.MutableState[kotlin.Boolean]#com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-remove-service.html
 $dokka.location:com.tecknobit.brownie.ui.components//ServiceEventBadge/#com.tecknobit.browniecore.enums.ServiceEventType/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-service-event-badge.html
 $dokka.location:com.tecknobit.brownie.ui.components//ServiceStatusBadge/#com.tecknobit.browniecore.enums.ServiceStatus/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-service-status-badge.html
-$dokka.location:com.tecknobit.brownie.ui.components//StatusFilterButton/#androidx.compose.ui.Modifier#kotlin.Function1[[Error type: Unresolved type for MutableState<Boolean>][kotlin.Boolean],kotlin.Unit]#[Error type: Unresolved type for SnapshotStateList<HostStatus>][com.tecknobit.browniecore.enums.HostStatus]/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-status-filter-button.html
-$dokka.location:com.tecknobit.brownie.ui.components//UnregisterSavedHost/#[Error type: Unresolved type for MutableState<Boolean>][kotlin.Boolean]#com.tecknobit.brownie.ui.shared.presentations.HostManager#com.tecknobit.brownie.ui.screens.hosts.data.SavedHost#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-unregister-saved-host.html
+$dokka.location:com.tecknobit.brownie.ui.components//StatusFilterButton/#androidx.compose.ui.Modifier#kotlin.Function1[androidx.compose.runtime.MutableState[kotlin.Boolean],kotlin.Unit]#androidx.compose.runtime.snapshots.SnapshotStateList[com.tecknobit.browniecore.enums.HostStatus]/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-status-filter-button.html
+$dokka.location:com.tecknobit.brownie.ui.components//UnregisterSavedHost/#androidx.compose.runtime.MutableState[kotlin.Boolean]#com.tecknobit.brownie.ui.shared.presentations.HostManager#com.tecknobit.brownie.ui.screens.hosts.data.SavedHost#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/-unregister-saved-host.html
 $dokka.location:com.tecknobit.brownie.ui.components//alertTitleStyle/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.components/alert-title-style.html
 $dokka.location:com.tecknobit.brownie.ui.icons////PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.icons/index.html
 $dokka.location:com.tecknobit.brownie.ui.icons//AssignmentAdd/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.icons/-assignment-add.html
@@ -378,21 +395,14 @@ $dokka.location:com.tecknobit.brownie.ui.theme//tertiaryLight/#/PointingToDeclar
 $dokka.location:com.tecknobit.brownie.ui.theme//violet/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.theme/violet.html
 $dokka.location:com.tecknobit.brownie.ui.theme//yellow/#/PointingToDeclaration/-brownie/com.tecknobit.brownie.ui.theme/yellow.html
 $dokka.location:com.tecknobit.brownie////PointingToDeclaration/-brownie/com.tecknobit.brownie/index.html
-$dokka.location:com.tecknobit.brownie//ADMIN_CONTROL_PANEL_SCREEN/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/-a-d-m-i-n_-c-o-n-t-r-o-l_-p-a-n-e-l_-s-c-r-e-e-n.html
 $dokka.location:com.tecknobit.brownie//App/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/-app.html
-$dokka.location:com.tecknobit.brownie//CONNECT_SCREEN/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/-c-o-n-n-e-c-t_-s-c-r-e-e-n.html
 $dokka.location:com.tecknobit.brownie//CheckForUpdatesAndLaunch/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/-check-for-updates-and-launch.html
 $dokka.location:com.tecknobit.brownie//CloseApplicationOnNavBack/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/-close-application-on-nav-back.html
-$dokka.location:com.tecknobit.brownie//HOSTS_SCREEN/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/-h-o-s-t-s_-s-c-r-e-e-n.html
-$dokka.location:com.tecknobit.brownie//HOST_SCREEN/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/-h-o-s-t_-s-c-r-e-e-n.html
-$dokka.location:com.tecknobit.brownie//SPLASHSCREEN/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/-s-p-l-a-s-h-s-c-r-e-e-n.html
-$dokka.location:com.tecknobit.brownie//UPSERT_HOST_SCREEN/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/-u-p-s-e-r-t_-h-o-s-t_-s-c-r-e-e-n.html
-$dokka.location:com.tecknobit.brownie//UPSERT_SERVICE_SCREEN/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/-u-p-s-e-r-t_-s-e-r-v-i-c-e_-s-c-r-e-e-n.html
+$dokka.location:com.tecknobit.brownie//MainViewController/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/-main-view-controller.html
 $dokka.location:com.tecknobit.brownie//bodyFontFamily/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/body-font-family.html
 $dokka.location:com.tecknobit.brownie//displayFontFamily/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/display-font-family.html
 $dokka.location:com.tecknobit.brownie//localSession/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/local-session.html
 $dokka.location:com.tecknobit.brownie//main/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/[wasm-js]main.html
-$dokka.location:com.tecknobit.brownie//navigator/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/navigator.html
 $dokka.location:com.tecknobit.brownie//requester/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/requester.html
 $dokka.location:com.tecknobit.brownie//setUserLanguage/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/set-user-language.html
 $dokka.location:com.tecknobit.brownie//startSession/#/PointingToDeclaration/-brownie/com.tecknobit.brownie/start-session.html

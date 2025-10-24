@@ -1,8 +1,7 @@
 
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.dokka.base.DokkaBase
-import org.jetbrains.dokka.base.DokkaBaseConfiguration
-import org.jetbrains.dokka.gradle.DokkaTask
+import org.jetbrains.dokka.DokkaDefaults.documentedVisibilities
+import org.jetbrains.dokka.gradle.engine.parameters.VisibilityModifier
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
@@ -14,7 +13,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     kotlin("plugin.serialization") version "2.1.0"
-    id("com.github.gmazzo.buildconfig") version "5.5.1"
+    id("com.github.gmazzo.buildconfig") version "5.7.0"
     alias(libs.plugins.dokka)
 }
 
@@ -91,14 +90,14 @@ kotlin {
                 implementation(libs.androidx.lifecycle.runtime.compose)
                 implementation(libs.equinox.compose)
                 implementation(libs.equinox.core)
-                implementation(libs.browniecore)
                 implementation(libs.lazy.pagination.compose)
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.jetlime)
                 implementation(libs.kmprefs)
-                implementation(libs.ametista.engine)
                 implementation(libs.navigation.compose)
                 implementation(libs.biometrik)
+                implementation(libs.equinoxmisc.navigation.compose.util)
+                implementation(libs.browniecore)
             }
         }
 
@@ -136,8 +135,8 @@ android {
         applicationId = "com.tecknobit.brownie"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 5
-        versionName = "1.0.3"
+        versionCode = 6
+        versionName = "1.0.4"
     }
     packaging {
         resources {
@@ -170,8 +169,8 @@ compose.desktop {
                 "jdk.security.auth"
             )
             packageName = "Brownie"
-            packageVersion = "1.0.3"
-            version = "1.0.3"
+            packageVersion = "1.0.4"
+            version = "1.0.4"
             description = "Self-hosted VPS manager"
             copyright = "© 2025 Tecknobit"
             vendor = "Tecknobit"
@@ -188,7 +187,7 @@ compose.desktop {
                 iconFile.set(project.file("src/desktopMain/resources/logo.png"))
                 packageName = "com-tecknobit-brownie"
                 debMaintainer = "infotecknobitcompany@gmail.com"
-                appRelease = "1.0.3"
+                appRelease = "1.0.4"
                 appCategory = "PERSONALIZATION"
                 rpmLicenseType = "APACHE2"
             }
@@ -202,34 +201,26 @@ compose.desktop {
 }
 
 buildConfig {
-    className("AmetistaConfig")
+    className("BrownieConfig")
     packageName("com.tecknobit.brownie")
     buildConfigField<String>(
-        name = "HOST",
-        value = project.findProperty("host").toString()
-    )
-    buildConfigField<String?>(
-        name = "SERVER_SECRET",
-        value = project.findProperty("server_secret").toString()
-    )
-    buildConfigField<String?>(
-        name = "APPLICATION_IDENTIFIER",
-        value = project.findProperty("application_id").toString()
-    )
-    buildConfigField<Boolean>(
-        name = "BYPASS_SSL_VALIDATION",
-        value = project.findProperty("bypass_ssl_validation").toString().toBoolean()
+        name = "LOCAL_STORAGE_PATH",
+        value = project.findProperty("localStoragePath").toString()
     )
 }
 
-tasks.withType<DokkaTask>().configureEach {
-    dokkaSourceSets {
-        moduleName.set("Brownie")
+dokka {
+    moduleName.set("Brownie")
+    dokkaPublications.html {
         outputDirectory.set(layout.projectDirectory.dir("../docs"))
     }
-
-    pluginConfiguration<DokkaBase, DokkaBaseConfiguration> {
-        customAssets = listOf(file("../docs/logo-icon.svg"))
-        footerMessage = "(c) 2025 Tecknobit"
+    pluginsConfiguration {
+        versioning {
+            version.set("1.0.4")
+        }
+        html {
+            customAssets.from("../images/logo-icon.svg")
+            footerMessage.set("(c) 2025 Tecknobit")
+        }
     }
 }

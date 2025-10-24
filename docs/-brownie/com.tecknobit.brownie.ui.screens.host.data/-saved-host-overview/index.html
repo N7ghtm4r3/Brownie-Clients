@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>SavedHostOverview</title>
     <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
     <script>var pathToRoot = "../../../";</script>
-    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
-    if (storage == null) {
+      if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    } else {
+      } else {
         const savedDarkMode = JSON.parse(storage)
-        if(savedDarkMode === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    }
+      }
     </script>
     <script type="text/javascript"
             src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js"
@@ -28,9 +28,8 @@
     <link href="../../../styles/main.css" rel="Stylesheet">
     <link href="../../../styles/prism.css" rel="Stylesheet">
     <link href="../../../styles/logo-styles.css" rel="Stylesheet">
-    <link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
     <link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
-    <script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+    <script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
     <script type="text/javascript" src="../../../scripts/navigation-loader.js"
             async="async"></script>
     <script type="text/javascript" src="../../../scripts/platform-content-handler.js"
@@ -38,14 +37,12 @@
     <script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
     <script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
     <script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
-    <script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js"
-            defer="defer"></script>
     <link href="../../../images/logo-icon.svg">
 </head>
 <body>
 <div class="root">
-    <nav class="navigation theme-dark" id="navigation-wrapper">
-        <a class="library-name--link" href="../../../index.html">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+        <a class="library-name--link" href="../../../index.html" tabindex="1">
             Brownie
         </a>
         <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only"
@@ -54,12 +51,14 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-            1.0.3
+            1.0.4
         </div>
         <div class="navigation-controls">
-            <div class="filter-section filter-section_loading" id="filter-section">
+            <ul class="filter-section filter-section_loading" id="filter-section"
+                aria-label="Target filter">
                 <button class="platform-tag platform-selector common-like" data-active=""
-                        data-filter=":composeApp:dokkaHtml/commonMain">common
+                        aria-pressed="true"
+                        data-filter=":composeApp/commonMain">common
                 </button>
                 <div class="dropdown filter-section--dropdown" data-role="dropdown"
                      id="filter-section-dropdown">
@@ -72,10 +71,10 @@
                             aria-label="Toggle source sets"
                     ></button>
                     <ul role="listbox" id="platform-tags-listbox" class="dropdown--list"
-                        data-role="dropdown-listbox">
-                        <div class="dropdown--header"><span>Platform filter</span>
+                        data-role="dropdown-listbox" aria-label="Target filter">
+                        <div class="dropdown--header"><span>Target filter</span>
                             <button class="button" data-role="dropdown-toggle"
-                                    aria-label="Close platform filter">
+                                    aria-label="Close target filter">
                                 <i class="ui-kit-icon ui-kit-icon_cross"></i>
                             </button>
                         </div>
@@ -84,8 +83,8 @@
                             tabindex="0">
                             <label class="checkbox">
                                 <input type="checkbox" class="checkbox--input"
-                                       id=":composeApp:dokkaHtml/commonMain"
-                                       data-filter=":composeApp:dokkaHtml/commonMain"/>
+                                       id=":composeApp/commonMain"
+                                       data-filter=":composeApp/commonMain"/>
                                 <span class="checkbox--icon"></span>
                                 common
                             </label>
@@ -93,7 +92,7 @@
                     </ul>
                     <div class="dropdown--overlay"></div>
                 </div>
-            </div>
+            </ul>
             <button class="navigation-controls--btn navigation-controls--btn_theme"
                     id="theme-toggle-button"
                     type="button">Switch theme
@@ -103,12 +102,14 @@
                 API
             </div>
         </div>
-    </nav>
+    </header>
     <div id="container">
-        <div class="sidebar" id="leftColumn">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION"
+             data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
             <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
                 <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
-                    data-role="dropdown-listbox">
+                    data-role="dropdown-listbox" aria-label="Table of contents">
                     <div class="dropdown--header">
                             <span>
                                     Brownie
@@ -122,10 +123,11 @@
                 </ul>
                 <div class="dropdown--overlay"></div>
             </div>
-        </div>
-        <div id="main">
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
             <div class="main-content" data-page-type="classlike" id="content"
-                 pageIds="Brownie::com.tecknobit.brownie.ui.screens.host.data/SavedHostOverview///PointingToDeclaration//-813795679">
+                 pageIds="Brownie::com.tecknobit.brownie.ui.screens.host.data/SavedHostOverview///PointingToDeclaration//799242938">
                 <div class="breadcrumbs"><a href="../../../index.html">Brownie</a><span
                         class="delimiter">/</span><a href="../index.html">com.tecknobit.brownie.ui.screens.host.data</a><span
                         class="delimiter">/</span><span class="current">SavedHostOverview</span>
@@ -138,7 +140,7 @@
                         <span><span>Overview</span></span></h1>
                     <div class="platform-hinted " data-platform-hinted="data-platform-hinted">
                         <div class="content sourceset-dependent-content" data-active=""
-                             data-togglable=":composeApp:dokkaHtml/commonMain">
+                             data-togglable=":composeApp/commonMain">
                             <div class="symbol monospace">
                                 <div class="block">
                                     <div class="block"><span
@@ -191,12 +193,12 @@
                             <p class="paragraph">The <code
                                     class="lang-kotlin">SavedHostOverview</code> class represent the
                                 statistic of a host overview</p><span class="kdoc-tag"><h4 class="">Author</h4><p
-                                class="paragraph">N7ghtm4r3 - Tecknobit</p></span><h4 class="">See
-                            also</h4>
+                                class="paragraph">N7ghtm4r3 - Tecknobit</p></span><h4
+                                class="tableheader">See also</h4>
                             <div class="table">
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex"><div><a
                                                 href="../../com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/index.html"><span>Saved</span><wbr></wbr><span><span>Host</span></span></a></div></span>
@@ -216,19 +218,20 @@
                     </div>
                     <div class="tabs-section-body">
                         <div data-togglable="CONSTRUCTOR">
-                            <h2 class="">Constructors</h2>
-                            <div class="table"><a data-name="-154328389%2FConstructors%2F-813795679"
+                            <h2 class="tableheader">Constructors</h2>
+                            <div class="table"><a data-name="-154328389%2FConstructors%2F799242938"
                                                   anchor-label="SavedHostOverview"
-                                                  id="-154328389%2FConstructors%2F-813795679"
-                                                  data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row" data-togglable="CONSTRUCTOR"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                                  id="-154328389%2FConstructors%2F799242938"
+                                                  data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-togglable="CONSTRUCTOR"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-saved-host-overview.html"><span>Saved</span><wbr></wbr><span>Host</span><wbr></wbr><span><span>Overview</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-154328389%2FConstructors%2F-813795679"></span>
+                                   pointing-to="-154328389%2FConstructors%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -237,7 +240,7 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
+                                                         data-togglable=":composeApp/commonMain">
                                                         <div class="symbol monospace"><span
                                                                 class="token keyword">constructor</span><span
                                                                 class="token punctuation">(</span><span
@@ -288,19 +291,19 @@
                             </div>
                         </div>
                         <div data-togglable="TYPE">
-                            <h2 class="">Types</h2>
-                            <div class="table"><a data-name="449243655%2FClasslikes%2F-813795679"
+                            <h2 class="tableheader">Types</h2>
+                            <div class="table"><a data-name="449243655%2FClasslikes%2F799242938"
                                                   anchor-label="Companion"
-                                                  id="449243655%2FClasslikes%2F-813795679"
-                                                  data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                                  id="449243655%2FClasslikes%2F799242938"
+                                                  data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="449243655%2FClasslikes%2F-813795679"></span>
+                                   pointing-to="449243655%2FClasslikes%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -309,7 +312,7 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
+                                                         data-togglable=":composeApp/commonMain">
                                                         <div class="symbol monospace"><span
                                                                 class="token keyword">object </span><a
                                                                 href="-companion/index.html">Companion</a>
@@ -320,18 +323,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="-1259029983%2FClasslikes%2F-813795679"
+                                <a data-name="-1259029983%2FClasslikes%2F799242938"
                                    anchor-label="HostHistoryEvent"
-                                   id="-1259029983%2FClasslikes%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                   id="-1259029983%2FClasslikes%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-host-history-event/index.html"><span>Host</span><wbr></wbr><span>History</span><wbr></wbr><span><span>Event</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-1259029983%2FClasslikes%2F-813795679"></span>
+                                   pointing-to="-1259029983%2FClasslikes%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -340,7 +343,7 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
+                                                         data-togglable=":composeApp/commonMain">
                                                         <div class="symbol monospace">
                                                             <div class="block">
                                                                 <div class="block"><span
@@ -390,19 +393,19 @@
                             </div>
                         </div>
                         <div data-togglable="PROPERTY">
-                            <h2 class="">Properties</h2>
-                            <div class="table"><a data-name="-1471798367%2FProperties%2F-813795679"
+                            <h2 class="tableheader">Properties</h2>
+                            <div class="table"><a data-name="-1471798367%2FProperties%2F799242938"
                                                   anchor-label="cpuUsage"
-                                                  id="-1471798367%2FProperties%2F-813795679"
-                                                  data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                                  id="-1471798367%2FProperties%2F799242938"
+                                                  data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="cpu-usage.html"><span>cpu</span><wbr></wbr><span><span>Usage</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-1471798367%2FProperties%2F-813795679"></span>
+                                   pointing-to="-1471798367%2FProperties%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -411,7 +414,7 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
+                                                         data-togglable=":composeApp/commonMain">
                                                         <div class="symbol monospace">
                                                             <div class="block">
                                                                 <div class="block"><span
@@ -439,17 +442,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="-1465505940%2FProperties%2F-813795679"
-                                   anchor-label="history" id="-1465505940%2FProperties%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                <a data-name="-1465505940%2FProperties%2F799242938"
+                                   anchor-label="history" id="-1465505940%2FProperties%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="history.html"><span><span>history</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-1465505940%2FProperties%2F-813795679"></span>
+                                   pointing-to="-1465505940%2FProperties%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -458,7 +461,7 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
+                                                         data-togglable=":composeApp/commonMain">
                                                         <div class="symbol monospace">
                                                             <div class="block">
                                                                 <div class="block"><span
@@ -489,18 +492,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="-1964426156%2FProperties%2F-813795679"
+                                <a data-name="-1964426156%2FProperties%2F799242938"
                                    anchor-label="hostAddress"
-                                   id="-1964426156%2FProperties%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                   id="-1964426156%2FProperties%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="host-address.html"><span>host</span><wbr></wbr><span><span>Address</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-1964426156%2FProperties%2F-813795679"></span>
+                                   pointing-to="-1964426156%2FProperties%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -509,7 +512,7 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
+                                                         data-togglable=":composeApp/commonMain">
                                                         <div class="symbol monospace">
                                                             <div class="block">
                                                                 <div class="block"><span
@@ -539,17 +542,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="659805023%2FProperties%2F-813795679" anchor-label="id"
-                                   id="659805023%2FProperties%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                <a data-name="659805023%2FProperties%2F799242938" anchor-label="id"
+                                   id="659805023%2FProperties%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="id.html"><span><span>id</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="659805023%2FProperties%2F-813795679"></span>
+                                   pointing-to="659805023%2FProperties%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -558,7 +561,7 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
+                                                         data-togglable=":composeApp/commonMain">
                                                         <div class="symbol monospace"><span
                                                                 class="token keyword">open </span><span
                                                                 class="token keyword">override </span><span
@@ -575,18 +578,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="1112252128%2FProperties%2F-813795679"
+                                <a data-name="1112252128%2FProperties%2F799242938"
                                    anchor-label="memoryUsage"
-                                   id="1112252128%2FProperties%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                   id="1112252128%2FProperties%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="memory-usage.html"><span>memory</span><wbr></wbr><span><span>Usage</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="1112252128%2FProperties%2F-813795679"></span>
+                                   pointing-to="1112252128%2FProperties%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -595,7 +598,7 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
+                                                         data-togglable=":composeApp/commonMain">
                                                         <div class="symbol monospace">
                                                             <div class="block">
                                                                 <div class="block"><span
@@ -624,17 +627,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="-681262929%2FProperties%2F-813795679"
-                                   anchor-label="name" id="-681262929%2FProperties%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                <a data-name="-681262929%2FProperties%2F799242938"
+                                   anchor-label="name" id="-681262929%2FProperties%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="name.html"><span><span>name</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-681262929%2FProperties%2F-813795679"></span>
+                                   pointing-to="-681262929%2FProperties%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -643,7 +646,7 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
+                                                         data-togglable=":composeApp/commonMain">
                                                         <div class="symbol monospace"><span
                                                                 class="token keyword">open </span><span
                                                                 class="token keyword">override </span><span
@@ -660,17 +663,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="1360767464%2FProperties%2F-813795679"
-                                   anchor-label="status" id="1360767464%2FProperties%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                <a data-name="1360767464%2FProperties%2F799242938"
+                                   anchor-label="status" id="1360767464%2FProperties%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="status.html"><span><span>status</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="1360767464%2FProperties%2F-813795679"></span>
+                                   pointing-to="1360767464%2FProperties%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -679,7 +682,7 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
+                                                         data-togglable=":composeApp/commonMain">
                                                         <div class="symbol monospace"><span
                                                                 class="token keyword">open </span><span
                                                                 class="token keyword">override </span><span
@@ -696,18 +699,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="373775028%2FProperties%2F-813795679"
+                                <a data-name="373775028%2FProperties%2F799242938"
                                    anchor-label="storageUsage"
-                                   id="373775028%2FProperties%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                   id="373775028%2FProperties%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="storage-usage.html"><span>storage</span><wbr></wbr><span><span>Usage</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="373775028%2FProperties%2F-813795679"></span>
+                                   pointing-to="373775028%2FProperties%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -716,7 +719,7 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
+                                                         data-togglable=":composeApp/commonMain">
                                                         <div class="symbol monospace">
                                                             <div class="block">
                                                                 <div class="block"><span
@@ -750,15 +753,20 @@
                 </div>
             </div>
             <div class="footer">
-                <a href="#content" id="go-to-top-link"
-                   class="footer--button footer--button_go-to-top"></a>
-                <span>(c) 2025 Tecknobit</span>
-                <span class="pull-right">
-            <span>Generated by </span>
-            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
-                <span>dokka</span>
-            </a>
-        </span>
+                <div class="footer--container">
+                    <a href="#content" id="go-to-top-link"
+                       class="footer--button footer--button_go-to-top"></a>
+                    <div class="footer--content">
+                        <div>
+                            <span>Generated by </span>
+                            <a class="footer--link footer--link_external"
+                               href="https://github.com/Kotlin/dokka">
+                                Dokka
+                            </a>
+                            <div>(c) 2025 Tecknobit</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -29,8 +29,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import brownie.composeapp.generated.resources.Res
 import brownie.composeapp.generated.resources.add_service
-import com.tecknobit.brownie.UPSERT_SERVICE_SCREEN
-import com.tecknobit.brownie.navigator
+import com.tecknobit.brownie.helpers.navToUpsertServiceScreen
+import com.tecknobit.brownie.helpers.navigator
 import com.tecknobit.brownie.ui.components.UnregisterSavedHost
 import com.tecknobit.brownie.ui.icons.ServerSpark
 import com.tecknobit.brownie.ui.screens.host.components.HostOverview
@@ -39,13 +39,11 @@ import com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel
 import com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen
 import com.tecknobit.brownie.ui.theme.AppTypography
 import com.tecknobit.brownie.ui.theme.BrownieTheme
-import com.tecknobit.browniecore.HOST_IDENTIFIER_KEY
 import com.tecknobit.equinoxcompose.components.RetryButton
 import com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
 import com.tecknobit.equinoxcompose.session.sessionflow.SessionFlowContainer
 import com.tecknobit.equinoxcompose.session.sessionflow.rememberSessionFlowState
 import com.tecknobit.equinoxcompose.utilities.responsiveAssignment
-import com.tecknobit.equinoxcore.helpers.NAME_KEY
 import org.jetbrains.compose.resources.stringResource
 
 /**
@@ -90,7 +88,7 @@ class HostScreen(
                             .navigationBarsPadding(),
                         topBar = {
                             MediumTopAppBar(
-                                colors = TopAppBarDefaults.mediumTopAppBarColors(
+                                colors = TopAppBarDefaults.topAppBarColors(
                                     containerColor = MaterialTheme.colorScheme.primaryContainer
                                 ),
                                 navigationIcon = {
@@ -149,14 +147,9 @@ class HostScreen(
                         floatingActionButton = {
                             ExtendedFloatingActionButton(
                                 onClick = {
-                                    val savedStateHandle =
-                                        navigator.currentBackStackEntry?.savedStateHandle
-                                    savedStateHandle?.let {
-                                        savedStateHandle[HOST_IDENTIFIER_KEY] =
-                                            hostOverview.value!!.id
-                                        savedStateHandle[NAME_KEY] = hostOverview.value!!.name
-                                    }
-                                    navigator.navigate(UPSERT_SERVICE_SCREEN)
+                                    navToUpsertServiceScreen(
+                                        savedHostOverview = hostOverview.value!!
+                                    )
                                 },
                                 expanded = responsiveAssignment(
                                     onExpandedSizeClass = { true },

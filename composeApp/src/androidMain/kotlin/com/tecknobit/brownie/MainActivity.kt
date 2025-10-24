@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         ContextActivityProvider.setCurrentActivity(this)
         appUpdateManager = AppUpdateManagerFactory.create(applicationContext)
-        // AmetistaEngine.intake()
         setContent {
             enableEdgeToEdge()
             App()

@@ -56,7 +56,9 @@ class AdminPanelScreenViewModel : EquinoxViewModel(
     fun changeLanguage(
         onSuccess: (() -> Unit)? = null,
     ) {
-        localSession.language = language.value
+        localSession.initLanguage(
+            language = language.value
+        )
         onSuccess?.invoke()
     }
 
@@ -68,7 +70,9 @@ class AdminPanelScreenViewModel : EquinoxViewModel(
     fun changeTheme(
         onChange: (() -> Unit)? = null,
     ) {
-        localSession.theme = theme.value
+        localSession.initTheme(
+            theme = theme.value
+        )
         onChange?.invoke()
     }
 

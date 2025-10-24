@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>com.tecknobit.brownie.ui.components</title>
     <link href="../../images/logo-icon.svg" rel="icon" type="image/svg">
     <script>var pathToRoot = "../../";</script>
-    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
-    if (storage == null) {
+      if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    } else {
+      } else {
         const savedDarkMode = JSON.parse(storage)
-        if(savedDarkMode === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    }
+      }
     </script>
     <script type="text/javascript"
             src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js"
@@ -28,23 +28,20 @@
     <link href="../../styles/main.css" rel="Stylesheet">
     <link href="../../styles/prism.css" rel="Stylesheet">
     <link href="../../styles/logo-styles.css" rel="Stylesheet">
-    <link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
     <link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
-    <script type="text/javascript" src="../../scripts/clipboard.js" async="async"></script>
+    <script type="text/javascript" src="../../scripts/safe-local-storage_blocking.js"></script>
     <script type="text/javascript" src="../../scripts/navigation-loader.js" async="async"></script>
     <script type="text/javascript" src="../../scripts/platform-content-handler.js"
             async="async"></script>
     <script type="text/javascript" src="../../scripts/main.js" defer="defer"></script>
     <script type="text/javascript" src="../../scripts/prism.js" async="async"></script>
     <script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer="defer"></script>
-    <script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js"
-            defer="defer"></script>
     <link href="../../images/logo-icon.svg">
 </head>
 <body>
 <div class="root">
-    <nav class="navigation theme-dark" id="navigation-wrapper">
-        <a class="library-name--link" href="../../index.html">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+        <a class="library-name--link" href="../../index.html" tabindex="1">
             Brownie
         </a>
         <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only"
@@ -53,12 +50,14 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-            1.0.3
+            1.0.4
         </div>
         <div class="navigation-controls">
-            <div class="filter-section filter-section_loading" id="filter-section">
+            <ul class="filter-section filter-section_loading" id="filter-section"
+                aria-label="Target filter">
                 <button class="platform-tag platform-selector common-like" data-active=""
-                        data-filter=":composeApp:dokkaHtml/commonMain">common
+                        aria-pressed="true"
+                        data-filter=":composeApp/commonMain">common
                 </button>
                 <div class="dropdown filter-section--dropdown" data-role="dropdown"
                      id="filter-section-dropdown">
@@ -71,10 +70,10 @@
                             aria-label="Toggle source sets"
                     ></button>
                     <ul role="listbox" id="platform-tags-listbox" class="dropdown--list"
-                        data-role="dropdown-listbox">
-                        <div class="dropdown--header"><span>Platform filter</span>
+                        data-role="dropdown-listbox" aria-label="Target filter">
+                        <div class="dropdown--header"><span>Target filter</span>
                             <button class="button" data-role="dropdown-toggle"
-                                    aria-label="Close platform filter">
+                                    aria-label="Close target filter">
                                 <i class="ui-kit-icon ui-kit-icon_cross"></i>
                             </button>
                         </div>
@@ -83,8 +82,8 @@
                             tabindex="0">
                             <label class="checkbox">
                                 <input type="checkbox" class="checkbox--input"
-                                       id=":composeApp:dokkaHtml/commonMain"
-                                       data-filter=":composeApp:dokkaHtml/commonMain"/>
+                                       id=":composeApp/commonMain"
+                                       data-filter=":composeApp/commonMain"/>
                                 <span class="checkbox--icon"></span>
                                 common
                             </label>
@@ -92,7 +91,7 @@
                     </ul>
                     <div class="dropdown--overlay"></div>
                 </div>
-            </div>
+            </ul>
             <button class="navigation-controls--btn navigation-controls--btn_theme"
                     id="theme-toggle-button"
                     type="button">Switch theme
@@ -102,12 +101,14 @@
                 API
             </div>
         </div>
-    </nav>
+    </header>
     <div id="container">
-        <div class="sidebar" id="leftColumn">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION"
+             data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
             <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
                 <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
-                    data-role="dropdown-listbox">
+                    data-role="dropdown-listbox" aria-label="Table of contents">
                     <div class="dropdown--header">
                             <span>
                                     Brownie
@@ -121,10 +122,11 @@
                 </ul>
                 <div class="dropdown--overlay"></div>
             </div>
-        </div>
-        <div id="main">
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
             <div class="main-content" data-page-type="package" id="content"
-                 pageIds="Brownie::com.tecknobit.brownie.ui.components////PointingToDeclaration//-813795679">
+                 pageIds="Brownie::com.tecknobit.brownie.ui.components////PointingToDeclaration//799242938">
                 <div class="breadcrumbs"><a href="../../index.html">Brownie</a><span
                         class="delimiter">/</span><span class="current">com.tecknobit.brownie.ui.components</span>
                 </div>
@@ -143,19 +145,19 @@
                     </div>
                     <div class="tabs-section-body">
                         <div data-togglable="PROPERTY">
-                            <h2 class="">Properties</h2>
-                            <div class="table"><a data-name="-1929214284%2FProperties%2F-813795679"
+                            <h2 class="tableheader">Properties</h2>
+                            <div class="table"><a data-name="-1929214284%2FProperties%2F799242938"
                                                   anchor-label="alertTitleStyle"
-                                                  id="-1929214284%2FProperties%2F-813795679"
-                                                  data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                                  id="-1929214284%2FProperties%2F799242938"
+                                                  data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="alert-title-style.html"><span>alert</span><wbr></wbr><span>Title</span><wbr></wbr><span><span>Style</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-1929214284%2FProperties%2F-813795679"></span>
+                                   pointing-to="-1929214284%2FProperties%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -164,7 +166,7 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
+                                                         data-togglable=":composeApp/commonMain">
                                                         <div class="symbol monospace"><span
                                                                 class="token keyword">val </span><a
                                                                 href="alert-title-style.html">alertTitleStyle</a><span
@@ -185,19 +187,19 @@
                             </div>
                         </div>
                         <div data-togglable="FUNCTION">
-                            <h2 class="">Functions</h2>
-                            <div class="table"><a data-name="-41891175%2FFunctions%2F-813795679"
+                            <h2 class="tableheader">Functions</h2>
+                            <div class="table"><a data-name="327215908%2FFunctions%2F799242938"
                                                   anchor-label="DeleteService"
-                                                  id="-41891175%2FFunctions%2F-813795679"
-                                                  data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                                  id="327215908%2FFunctions%2F799242938"
+                                                  data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-delete-service.html"><span>Delete</span><wbr></wbr><span><span>Service</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-41891175%2FFunctions%2F-813795679"></span>
+                                   pointing-to="327215908%2FFunctions%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -206,16 +208,23 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
-                                                        <div class="symbol monospace"><span
-                                                                class="token keyword">fun </span><a
+                                                         data-togglable=":composeApp/commonMain">
+                                                        <div class="symbol monospace">
+                                                            <div class="block">
+                                                                <div class="block"><span
+                                                                        class="token annotation builtin">@</span><a
+                                                                        href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span
+                                                                        class="token annotation builtin">Composable</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <span class="token keyword">fun </span><a
                                                                 href="-delete-service.html"><span
                                                                 class="token function">DeleteService</span></a><span
                                                                 class="token punctuation">(</span><span
                                                                 class="parameters "><span
                                                                 class="parameter ">show<span
-                                                                class="token operator">: </span><span
-                                                                data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span
+                                                                class="token operator">: </span><a
+                                                                href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState.html">MutableState</a><span
                                                                 class="token operator">&lt;</span><a
                                                                 href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span
                                                                 class="token operator">&gt;</span><span
@@ -234,18 +243,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="-1318539570%2FFunctions%2F-813795679"
+                                <a data-name="-1657682599%2FFunctions%2F799242938"
                                    anchor-label="DeleteSession"
-                                   id="-1318539570%2FFunctions%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                   id="-1657682599%2FFunctions%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-delete-session.html"><span>Delete</span><wbr></wbr><span><span>Session</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-1318539570%2FFunctions%2F-813795679"></span>
+                                   pointing-to="-1657682599%2FFunctions%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -254,16 +263,23 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
-                                                        <div class="symbol monospace"><span
-                                                                class="token keyword">fun </span><a
+                                                         data-togglable=":composeApp/commonMain">
+                                                        <div class="symbol monospace">
+                                                            <div class="block">
+                                                                <div class="block"><span
+                                                                        class="token annotation builtin">@</span><a
+                                                                        href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span
+                                                                        class="token annotation builtin">Composable</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <span class="token keyword">fun </span><a
                                                                 href="-delete-session.html"><span
                                                                 class="token function">DeleteSession</span></a><span
                                                                 class="token punctuation">(</span><span
                                                                 class="parameters "><span
                                                                 class="parameter ">show<span
-                                                                class="token operator">: </span><span
-                                                                data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span
+                                                                class="token operator">: </span><a
+                                                                href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState.html">MutableState</a><span
                                                                 class="token operator">&lt;</span><a
                                                                 href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span
                                                                 class="token operator">&gt;</span><span
@@ -282,17 +298,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="1923578100%2FFunctions%2F-813795679"
-                                   anchor-label="EventText" id="1923578100%2FFunctions%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                <a data-name="1923578100%2FFunctions%2F799242938"
+                                   anchor-label="EventText" id="1923578100%2FFunctions%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-event-text.html"><span>Event</span><wbr></wbr><span><span>Text</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="1923578100%2FFunctions%2F-813795679"></span>
+                                   pointing-to="1923578100%2FFunctions%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -301,9 +317,16 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
-                                                        <div class="symbol monospace"><span
-                                                                class="token keyword">fun </span><a
+                                                         data-togglable=":composeApp/commonMain">
+                                                        <div class="symbol monospace">
+                                                            <div class="block">
+                                                                <div class="block"><span
+                                                                        class="token annotation builtin">@</span><a
+                                                                        href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span
+                                                                        class="token annotation builtin">Composable</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <span class="token keyword">fun </span><a
                                                                 href="-event-text.html"><span
                                                                 class="token function">EventText</span></a><span
                                                                 class="token punctuation">(</span><span
@@ -329,18 +352,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="-261983234%2FFunctions%2F-813795679"
+                                <a data-name="-261983234%2FFunctions%2F799242938"
                                    anchor-label="FirstPageProgressIndicator"
-                                   id="-261983234%2FFunctions%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                   id="-261983234%2FFunctions%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-first-page-progress-indicator.html"><span>First</span><wbr></wbr><span>Page</span><wbr></wbr><span>Progress</span><wbr></wbr><span><span>Indicator</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-261983234%2FFunctions%2F-813795679"></span>
+                                   pointing-to="-261983234%2FFunctions%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -349,9 +372,16 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
-                                                        <div class="symbol monospace"><span
-                                                                class="token keyword">fun </span><a
+                                                         data-togglable=":composeApp/commonMain">
+                                                        <div class="symbol monospace">
+                                                            <div class="block">
+                                                                <div class="block"><span
+                                                                        class="token annotation builtin">@</span><a
+                                                                        href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span
+                                                                        class="token annotation builtin">Composable</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <span class="token keyword">fun </span><a
                                                                 href="-first-page-progress-indicator.html"><span
                                                                 class="token function">FirstPageProgressIndicator</span></a><span
                                                                 class="token punctuation">(</span><span
@@ -372,18 +402,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="-52105301%2FFunctions%2F-813795679"
+                                <a data-name="-52105301%2FFunctions%2F799242938"
                                    anchor-label="HistoryEventBadge"
-                                   id="-52105301%2FFunctions%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                   id="-52105301%2FFunctions%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-history-event-badge.html"><span>History</span><wbr></wbr><span>Event</span><wbr></wbr><span><span>Badge</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-52105301%2FFunctions%2F-813795679"></span>
+                                   pointing-to="-52105301%2FFunctions%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -392,9 +422,16 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
-                                                        <div class="symbol monospace"><span
-                                                                class="token keyword">fun </span><a
+                                                         data-togglable=":composeApp/commonMain">
+                                                        <div class="symbol monospace">
+                                                            <div class="block">
+                                                                <div class="block"><span
+                                                                        class="token annotation builtin">@</span><a
+                                                                        href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span
+                                                                        class="token annotation builtin">Composable</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <span class="token keyword">fun </span><a
                                                                 href="-history-event-badge.html"><span
                                                                 class="token function">HistoryEventBadge</span></a><span
                                                                 class="token punctuation">(</span><span
@@ -414,18 +451,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="1961222117%2FFunctions%2F-813795679"
+                                <a data-name="1961222117%2FFunctions%2F799242938"
                                    anchor-label="HostStatusBadge"
-                                   id="1961222117%2FFunctions%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                   id="1961222117%2FFunctions%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-host-status-badge.html"><span>Host</span><wbr></wbr><span>Status</span><wbr></wbr><span><span>Badge</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="1961222117%2FFunctions%2F-813795679"></span>
+                                   pointing-to="1961222117%2FFunctions%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -434,9 +471,16 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
-                                                        <div class="symbol monospace"><span
-                                                                class="token keyword">fun </span><a
+                                                         data-togglable=":composeApp/commonMain">
+                                                        <div class="symbol monospace">
+                                                            <div class="block">
+                                                                <div class="block"><span
+                                                                        class="token annotation builtin">@</span><a
+                                                                        href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span
+                                                                        class="token annotation builtin">Composable</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <span class="token keyword">fun </span><a
                                                                 href="-host-status-badge.html"><span
                                                                 class="token function">HostStatusBadge</span></a><span
                                                                 class="token punctuation">(</span><span
@@ -456,17 +500,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="-773366153%2FFunctions%2F-813795679"
-                                   anchor-label="Logout" id="-773366153%2FFunctions%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                <a data-name="854408514%2FFunctions%2F799242938"
+                                   anchor-label="Logout" id="854408514%2FFunctions%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-logout.html"><span><span>Logout</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-773366153%2FFunctions%2F-813795679"></span>
+                                   pointing-to="854408514%2FFunctions%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -475,16 +519,23 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
-                                                        <div class="symbol monospace"><span
-                                                                class="token keyword">fun </span><a
+                                                         data-togglable=":composeApp/commonMain">
+                                                        <div class="symbol monospace">
+                                                            <div class="block">
+                                                                <div class="block"><span
+                                                                        class="token annotation builtin">@</span><a
+                                                                        href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span
+                                                                        class="token annotation builtin">Composable</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <span class="token keyword">fun </span><a
                                                                 href="-logout.html"><span
                                                                 class="token function">Logout</span></a><span
                                                                 class="token punctuation">(</span><span
                                                                 class="parameters "><span
                                                                 class="parameter ">show<span
-                                                                class="token operator">: </span><span
-                                                                data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span
+                                                                class="token operator">: </span><a
+                                                                href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState.html">MutableState</a><span
                                                                 class="token operator">&lt;</span><a
                                                                 href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span
                                                                 class="token operator">&gt;</span><span
@@ -503,18 +554,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="-1668946962%2FFunctions%2F-813795679"
+                                <a data-name="-1668946962%2FFunctions%2F799242938"
                                    anchor-label="NewPageProgressIndicator"
-                                   id="-1668946962%2FFunctions%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                   id="-1668946962%2FFunctions%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-new-page-progress-indicator.html"><span>New</span><wbr></wbr><span>Page</span><wbr></wbr><span>Progress</span><wbr></wbr><span><span>Indicator</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-1668946962%2FFunctions%2F-813795679"></span>
+                                   pointing-to="-1668946962%2FFunctions%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -523,9 +574,16 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
-                                                        <div class="symbol monospace"><span
-                                                                class="token keyword">fun </span><a
+                                                         data-togglable=":composeApp/commonMain">
+                                                        <div class="symbol monospace">
+                                                            <div class="block">
+                                                                <div class="block"><span
+                                                                        class="token annotation builtin">@</span><a
+                                                                        href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span
+                                                                        class="token annotation builtin">Composable</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <span class="token keyword">fun </span><a
                                                                 href="-new-page-progress-indicator.html"><span
                                                                 class="token function">NewPageProgressIndicator</span></a><span
                                                                 class="token punctuation">(</span><span
@@ -546,18 +604,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="-1414925974%2FFunctions%2F-813795679"
+                                <a data-name="-1414925974%2FFunctions%2F799242938"
                                    anchor-label="NoEventsAvailable"
-                                   id="-1414925974%2FFunctions%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                   id="-1414925974%2FFunctions%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-no-events-available.html"><span>No</span><wbr></wbr><span>Events</span><wbr></wbr><span><span>Available</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-1414925974%2FFunctions%2F-813795679"></span>
+                                   pointing-to="-1414925974%2FFunctions%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -566,9 +624,16 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
-                                                        <div class="symbol monospace"><span
-                                                                class="token keyword">fun </span><a
+                                                         data-togglable=":composeApp/commonMain">
+                                                        <div class="symbol monospace">
+                                                            <div class="block">
+                                                                <div class="block"><span
+                                                                        class="token annotation builtin">@</span><a
+                                                                        href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span
+                                                                        class="token annotation builtin">Composable</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <span class="token keyword">fun </span><a
                                                                 href="-no-events-available.html"><span
                                                                 class="token function">NoEventsAvailable</span></a><span
                                                                 class="token punctuation">(</span><span
@@ -590,18 +655,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="1885037938%2FFunctions%2F-813795679"
+                                <a data-name="-1632781763%2FFunctions%2F799242938"
                                    anchor-label="RemoveService"
-                                   id="1885037938%2FFunctions%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                   id="-1632781763%2FFunctions%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-remove-service.html"><span>Remove</span><wbr></wbr><span><span>Service</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="1885037938%2FFunctions%2F-813795679"></span>
+                                   pointing-to="-1632781763%2FFunctions%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -610,16 +675,23 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
-                                                        <div class="symbol monospace"><span
-                                                                class="token keyword">fun </span><a
+                                                         data-togglable=":composeApp/commonMain">
+                                                        <div class="symbol monospace">
+                                                            <div class="block">
+                                                                <div class="block"><span
+                                                                        class="token annotation builtin">@</span><a
+                                                                        href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span
+                                                                        class="token annotation builtin">Composable</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <span class="token keyword">fun </span><a
                                                                 href="-remove-service.html"><span
                                                                 class="token function">RemoveService</span></a><span
                                                                 class="token punctuation">(</span><span
                                                                 class="parameters "><span
                                                                 class="parameter ">show<span
-                                                                class="token operator">: </span><span
-                                                                data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span
+                                                                class="token operator">: </span><a
+                                                                href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState.html">MutableState</a><span
                                                                 class="token operator">&lt;</span><a
                                                                 href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span
                                                                 class="token operator">&gt;</span><span
@@ -638,18 +710,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="-936938325%2FFunctions%2F-813795679"
+                                <a data-name="-936938325%2FFunctions%2F799242938"
                                    anchor-label="ServiceEventBadge"
-                                   id="-936938325%2FFunctions%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                   id="-936938325%2FFunctions%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-service-event-badge.html"><span>Service</span><wbr></wbr><span>Event</span><wbr></wbr><span><span>Badge</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-936938325%2FFunctions%2F-813795679"></span>
+                                   pointing-to="-936938325%2FFunctions%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -658,9 +730,16 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
-                                                        <div class="symbol monospace"><span
-                                                                class="token keyword">fun </span><a
+                                                         data-togglable=":composeApp/commonMain">
+                                                        <div class="symbol monospace">
+                                                            <div class="block">
+                                                                <div class="block"><span
+                                                                        class="token annotation builtin">@</span><a
+                                                                        href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span
+                                                                        class="token annotation builtin">Composable</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <span class="token keyword">fun </span><a
                                                                 href="-service-event-badge.html"><span
                                                                 class="token function">ServiceEventBadge</span></a><span
                                                                 class="token punctuation">(</span><span
@@ -680,18 +759,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="-1808641785%2FFunctions%2F-813795679"
+                                <a data-name="-1808641785%2FFunctions%2F799242938"
                                    anchor-label="ServiceStatusBadge"
-                                   id="-1808641785%2FFunctions%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                   id="-1808641785%2FFunctions%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-service-status-badge.html"><span>Service</span><wbr></wbr><span>Status</span><wbr></wbr><span><span>Badge</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-1808641785%2FFunctions%2F-813795679"></span>
+                                   pointing-to="-1808641785%2FFunctions%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -700,9 +779,16 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
-                                                        <div class="symbol monospace"><span
-                                                                class="token keyword">fun </span><a
+                                                         data-togglable=":composeApp/commonMain">
+                                                        <div class="symbol monospace">
+                                                            <div class="block">
+                                                                <div class="block"><span
+                                                                        class="token annotation builtin">@</span><a
+                                                                        href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span
+                                                                        class="token annotation builtin">Composable</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <span class="token keyword">fun </span><a
                                                                 href="-service-status-badge.html"><span
                                                                 class="token function">ServiceStatusBadge</span></a><span
                                                                 class="token punctuation">(</span><span
@@ -722,18 +808,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="-1589752624%2FFunctions%2F-813795679"
+                                <a data-name="-1239088903%2FFunctions%2F799242938"
                                    anchor-label="StatusFilterButton"
-                                   id="-1589752624%2FFunctions%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                   id="-1239088903%2FFunctions%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-status-filter-button.html"><span>Status</span><wbr></wbr><span>Filter</span><wbr></wbr><span><span>Button</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="-1589752624%2FFunctions%2F-813795679"></span>
+                                   pointing-to="-1239088903%2FFunctions%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -742,9 +828,16 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
-                                                        <div class="symbol monospace"><span
-                                                                class="token keyword">fun </span><a
+                                                         data-togglable=":composeApp/commonMain">
+                                                        <div class="symbol monospace">
+                                                            <div class="block">
+                                                                <div class="block"><span
+                                                                        class="token annotation builtin">@</span><a
+                                                                        href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span
+                                                                        class="token annotation builtin">Composable</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <span class="token keyword">fun </span><a
                                                                 href="-status-filter-button.html"><span
                                                                 class="token function">StatusFilterButton</span></a><span
                                                                 class="token punctuation">(</span><span
@@ -756,8 +849,8 @@
                                                                 class="token punctuation">, </span></span><span
                                                                 class="parameter ">onClick<span
                                                                 class="token operator">: </span><span
-                                                                class="token punctuation">(</span><span
-                                                                data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span
+                                                                class="token punctuation">(</span><a
+                                                                href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState.html">MutableState</a><span
                                                                 class="token operator">&lt;</span><a
                                                                 href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span
                                                                 class="token operator">&gt;</span><span
@@ -766,8 +859,8 @@
                                                                 href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span
                                                                 class="token punctuation">, </span></span><span
                                                                 class="parameter ">statusFilters<span
-                                                                class="token operator">: </span><span
-                                                                data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span
+                                                                class="token operator">: </span><a
+                                                                href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/snapshots/SnapshotStateList.html">SnapshotStateList</a><span
                                                                 class="token operator">&lt;</span><span
                                                                 data-unresolved-link="com.tecknobit.browniecore.enums/HostStatus///PointingToDeclaration/">HostStatus</span><span
                                                                 class="token operator">&gt;</span></span></span><span
@@ -782,18 +875,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a data-name="384372339%2FFunctions%2F-813795679"
+                                <a data-name="1458452232%2FFunctions%2F799242938"
                                    anchor-label="UnregisterSavedHost"
-                                   id="384372339%2FFunctions%2F-813795679"
-                                   data-filterable-set=":composeApp:dokkaHtml/commonMain"></a>
-                                <div class="table-row"
-                                     data-filterable-current=":composeApp:dokkaHtml/commonMain"
-                                     data-filterable-set=":composeApp:dokkaHtml/commonMain">
+                                   id="1458452232%2FFunctions%2F799242938"
+                                   data-filterable-set=":composeApp/commonMain"></a>
+                                <div class="table-row table-row_content"
+                                     data-filterable-current=":composeApp/commonMain"
+                                     data-filterable-set=":composeApp/commonMain">
                                     <div class="main-subrow keyValue ">
                                         <div class=""><span class="inline-flex">
                   <div><a href="-unregister-saved-host.html"><span>Unregister</span><wbr></wbr><span>Saved</span><wbr></wbr><span><span>Host</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon"
-                                   pointing-to="384372339%2FFunctions%2F-813795679"></span>
+                                   pointing-to="1458452232%2FFunctions%2F799242938"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
                                         <div>
@@ -802,16 +895,23 @@
                                                      data-platform-hinted="data-platform-hinted">
                                                     <div class="content sourceset-dependent-content"
                                                          data-active=""
-                                                         data-togglable=":composeApp:dokkaHtml/commonMain">
-                                                        <div class="symbol monospace"><span
-                                                                class="token keyword">fun </span><a
+                                                         data-togglable=":composeApp/commonMain">
+                                                        <div class="symbol monospace">
+                                                            <div class="block">
+                                                                <div class="block"><span
+                                                                        class="token annotation builtin">@</span><a
+                                                                        href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span
+                                                                        class="token annotation builtin">Composable</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <span class="token keyword">fun </span><a
                                                                 href="-unregister-saved-host.html"><span
                                                                 class="token function">UnregisterSavedHost</span></a><span
                                                                 class="token punctuation">(</span><span
                                                                 class="parameters "><span
                                                                 class="parameter ">show<span
-                                                                class="token operator">: </span><span
-                                                                data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span
+                                                                class="token operator">: </span><a
+                                                                href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/MutableState.html">MutableState</a><span
                                                                 class="token operator">&lt;</span><a
                                                                 href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span
                                                                 class="token operator">&gt;</span><span
@@ -847,15 +947,20 @@
                 </div>
             </div>
             <div class="footer">
-                <a href="#content" id="go-to-top-link"
-                   class="footer--button footer--button_go-to-top"></a>
-                <span>(c) 2025 Tecknobit</span>
-                <span class="pull-right">
-            <span>Generated by </span>
-            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
-                <span>dokka</span>
-            </a>
-        </span>
+                <div class="footer--container">
+                    <a href="#content" id="go-to-top-link"
+                       class="footer--button footer--button_go-to-top"></a>
+                    <div class="footer--content">
+                        <div>
+                            <span>Generated by </span>
+                            <a class="footer--link footer--link_external"
+                               href="https://github.com/Kotlin/dokka">
+                                Dokka
+                            </a>
+                            <div>(c) 2025 Tecknobit</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

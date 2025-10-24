@@ -6,7 +6,6 @@ import androidx.compose.ui.window.ComposeUIViewController
  * Method used to start the of `Brownie` iOs application
  */
 fun MainViewController() {
-    // AmetistaEngine.intake()
     ComposeUIViewController {
         App()
     }
