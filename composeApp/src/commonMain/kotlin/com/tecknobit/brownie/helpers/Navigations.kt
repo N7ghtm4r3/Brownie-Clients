@@ -30,7 +30,7 @@ lateinit var navigator: NavHostController
 const val SPLASHSCREEN = "Splashscreen"
 
 /**
- * `CONNECT_SCREEN` route to navigate to the [com.tecknobit.brownie.ui.screens.connect.ConnectScreen]
+ * `CONNECT_SCREEN` route to navigate to the [com.tecknobit.brownie.ui.screens.connect.presenter.ConnectScreen]
  */
 const val CONNECT_SCREEN = "ConnectScreen"
 

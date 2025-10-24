@@ -1,0 +1,3822 @@
+[
+  {
+    "name": "abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(itemId: String?, viewModel: V) : EquinoxScreen<V> ",
+    "description": "com.tecknobit.brownie.ui.shared.presenters.UpsertScreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presenters/-upsert-screen/index.html",
+    "searchKeys": [
+      "UpsertScreen",
+      "abstract class UpsertScreen<T, V : UpsertScreenViewModel<T>>(itemId: String?, viewModel: V) : EquinoxScreen<V> ",
+      "com.tecknobit.brownie.ui.shared.presenters.UpsertScreen"
+    ]
+  },
+  {
+    "name": "abstract class UpsertScreenViewModel<T>(itemId: String?) : EquinoxViewModel",
+    "description": "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/index.html",
+    "searchKeys": [
+      "UpsertScreenViewModel",
+      "abstract class UpsertScreenViewModel<T>(itemId: String?) : EquinoxViewModel",
+      "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel"
+    ]
+  },
+  {
+    "name": "abstract fun retrieveItem()",
+    "description": "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.retrieveItem",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/retrieve-item.html",
+    "searchKeys": [
+      "retrieveItem",
+      "abstract fun retrieveItem()",
+      "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.retrieveItem"
+    ]
+  },
+  {
+    "name": "abstract fun showFailure(error: JsonObject)",
+    "description": "com.tecknobit.brownie.ui.shared.presentations.HostManager.showFailure",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-host-manager/show-failure.html",
+    "searchKeys": [
+      "showFailure",
+      "abstract fun showFailure(error: JsonObject)",
+      "com.tecknobit.brownie.ui.shared.presentations.HostManager.showFailure"
+    ]
+  },
+  {
+    "name": "abstract val hostAddress: String",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.hostAddress",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/host-address.html",
+    "searchKeys": [
+      "hostAddress",
+      "abstract val hostAddress: String",
+      "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.hostAddress"
+    ]
+  },
+  {
+    "name": "abstract val id: String",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.id",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/id.html",
+    "searchKeys": [
+      "id",
+      "abstract val id: String",
+      "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.id"
+    ]
+  },
+  {
+    "name": "abstract val name: String",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.name",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/name.html",
+    "searchKeys": [
+      "name",
+      "abstract val name: String",
+      "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.name"
+    ]
+  },
+  {
+    "name": "abstract val percentValue: Double",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.percentValue",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-stats/percent-value.html",
+    "searchKeys": [
+      "percentValue",
+      "abstract val percentValue: Double",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.percentValue"
+    ]
+  },
+  {
+    "name": "abstract val totalValue: Double",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.totalValue",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-stats/total-value.html",
+    "searchKeys": [
+      "totalValue",
+      "abstract val totalValue: Double",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.totalValue"
+    ]
+  },
+  {
+    "name": "abstract val usageValue: Double",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.usageValue",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-stats/usage-value.html",
+    "searchKeys": [
+      "usageValue",
+      "abstract val usageValue: Double",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.usageValue"
+    ]
+  },
+  {
+    "name": "abstract var requestsScope: CoroutineScope",
+    "description": "com.tecknobit.brownie.ui.shared.presentations.HostManager.requestsScope",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-host-manager/requests-scope.html",
+    "searchKeys": [
+      "requestsScope",
+      "abstract var requestsScope: CoroutineScope",
+      "com.tecknobit.brownie.ui.shared.presentations.HostManager.requestsScope"
+    ]
+  },
+  {
+    "name": "abstract var status: HostStatus",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.status",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/status.html",
+    "searchKeys": [
+      "status",
+      "abstract var status: HostStatus",
+      "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.status"
+    ]
+  },
+  {
+    "name": "class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel> ",
+    "description": "com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presenter/-admin-panel-screen/index.html",
+    "searchKeys": [
+      "AdminPanelScreen",
+      "class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel> ",
+      "com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen"
+    ]
+  },
+  {
+    "name": "class AdminPanelScreenViewModel : EquinoxViewModel",
+    "description": "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presentation/-admin-panel-screen-view-model/index.html",
+    "searchKeys": [
+      "AdminPanelScreenViewModel",
+      "class AdminPanelScreenViewModel : EquinoxViewModel",
+      "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel"
+    ]
+  },
+  {
+    "name": "class BrownieLocalSession",
+    "description": "com.tecknobit.brownie.helpers.BrownieLocalSession",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/index.html",
+    "searchKeys": [
+      "BrownieLocalSession",
+      "class BrownieLocalSession",
+      "com.tecknobit.brownie.helpers.BrownieLocalSession"
+    ]
+  },
+  {
+    "name": "class BrownieRequester(host: String, var sessionId: String?, language: String, debugMode: Boolean = false) : Requester",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/index.html",
+    "searchKeys": [
+      "BrownieRequester",
+      "class BrownieRequester(host: String, var sessionId: String?, language: String, debugMode: Boolean = false) : Requester",
+      "com.tecknobit.brownie.helpers.BrownieRequester"
+    ]
+  },
+  {
+    "name": "class ConnectScreen : EquinoxScreen<ConnectScreenViewModel> ",
+    "description": "com.tecknobit.brownie.ui.screens.connect.presenter.ConnectScreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presenter/-connect-screen/index.html",
+    "searchKeys": [
+      "ConnectScreen",
+      "class ConnectScreen : EquinoxScreen<ConnectScreenViewModel> ",
+      "com.tecknobit.brownie.ui.screens.connect.presenter.ConnectScreen"
+    ]
+  },
+  {
+    "name": "class ConnectScreenViewModel : EquinoxViewModel",
+    "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/index.html",
+    "searchKeys": [
+      "ConnectScreenViewModel",
+      "class ConnectScreenViewModel : EquinoxViewModel",
+      "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel"
+    ]
+  },
+  {
+    "name": "class HostScreen(hostId: String) : EquinoxScreen<HostScreenViewModel> ",
+    "description": "com.tecknobit.brownie.ui.screens.host.presenter.HostScreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presenter/-host-screen/index.html",
+    "searchKeys": [
+      "HostScreen",
+      "class HostScreen(hostId: String) : EquinoxScreen<HostScreenViewModel> ",
+      "com.tecknobit.brownie.ui.screens.host.presenter.HostScreen"
+    ]
+  },
+  {
+    "name": "class HostScreenViewModel(hostId: String) : EquinoxViewModel, HostManager",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/index.html",
+    "searchKeys": [
+      "HostScreenViewModel",
+      "class HostScreenViewModel(hostId: String) : EquinoxViewModel, HostManager",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel"
+    ]
+  },
+  {
+    "name": "class HostsScreen : EquinoxScreen<HostsScreenViewModel> ",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presenter/-hosts-screen/index.html",
+    "searchKeys": [
+      "HostsScreen",
+      "class HostsScreen : EquinoxScreen<HostsScreenViewModel> ",
+      "com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen"
+    ]
+  },
+  {
+    "name": "class HostsScreenViewModel : EquinoxViewModel, HostManager",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presentation/-hosts-screen-view-model/index.html",
+    "searchKeys": [
+      "HostsScreenViewModel",
+      "class HostsScreenViewModel : EquinoxViewModel, HostManager",
+      "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel"
+    ]
+  },
+  {
+    "name": "class MainActivity : AppCompatActivity",
+    "description": "com.tecknobit.brownie.MainActivity",
+    "location": "-brownie/com.tecknobit.brownie/-main-activity/index.html",
+    "searchKeys": [
+      "MainActivity",
+      "class MainActivity : AppCompatActivity",
+      "com.tecknobit.brownie.MainActivity"
+    ]
+  },
+  {
+    "name": "class Splashscreen(biometrikState: BiometrikState) : EquinoxNoModelScreen",
+    "description": "com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.splashscreen/-splashscreen/index.html",
+    "searchKeys": [
+      "Splashscreen",
+      "class Splashscreen(biometrikState: BiometrikState) : EquinoxNoModelScreen",
+      "com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen"
+    ]
+  },
+  {
+    "name": "class UpsertHostScreen(hostId: String?) : UpsertScreen<SavedHost.SavedHostImpl, UpsertHostScreenViewModel> ",
+    "description": "com.tecknobit.brownie.ui.screens.upserthost.presenter.UpsertHostScreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presenter/-upsert-host-screen/index.html",
+    "searchKeys": [
+      "UpsertHostScreen",
+      "class UpsertHostScreen(hostId: String?) : UpsertScreen<SavedHost.SavedHostImpl, UpsertHostScreenViewModel> ",
+      "com.tecknobit.brownie.ui.screens.upserthost.presenter.UpsertHostScreen"
+    ]
+  },
+  {
+    "name": "class UpsertHostScreenViewModel(hostId: String?) : UpsertScreenViewModel<SavedHost.SavedHostImpl> ",
+    "description": "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presentation/-upsert-host-screen-view-model/index.html",
+    "searchKeys": [
+      "UpsertHostScreenViewModel",
+      "class UpsertHostScreenViewModel(hostId: String?) : UpsertScreenViewModel<SavedHost.SavedHostImpl> ",
+      "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel"
+    ]
+  },
+  {
+    "name": "class UpsertServiceScreen(hostId: String, hostName: String, serviceId: String?) : UpsertScreen<HostService, UpsertServiceScreenViewModel> ",
+    "description": "com.tecknobit.brownie.ui.screens.upsertservice.presenter.UpsertServiceScreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upsertservice.presenter/-upsert-service-screen/index.html",
+    "searchKeys": [
+      "UpsertServiceScreen",
+      "class UpsertServiceScreen(hostId: String, hostName: String, serviceId: String?) : UpsertScreen<HostService, UpsertServiceScreenViewModel> ",
+      "com.tecknobit.brownie.ui.screens.upsertservice.presenter.UpsertServiceScreen"
+    ]
+  },
+  {
+    "name": "class UpsertServiceScreenViewModel(hostId: String, serviceId: String?) : UpsertScreenViewModel<HostService> ",
+    "description": "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upsertservice.presentation/-upsert-service-screen-view-model/index.html",
+    "searchKeys": [
+      "UpsertServiceScreenViewModel",
+      "class UpsertServiceScreenViewModel(hostId: String, serviceId: String?) : UpsertScreenViewModel<HostService> ",
+      "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel"
+    ]
+  },
+  {
+    "name": "const val ADMIN_CONTROL_PANEL_SCREEN: String",
+    "description": "com.tecknobit.brownie.helpers.ADMIN_CONTROL_PANEL_SCREEN",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-a-d-m-i-n_-c-o-n-t-r-o-l_-p-a-n-e-l_-s-c-r-e-e-n.html",
+    "searchKeys": [
+      "ADMIN_CONTROL_PANEL_SCREEN",
+      "const val ADMIN_CONTROL_PANEL_SCREEN: String",
+      "com.tecknobit.brownie.helpers.ADMIN_CONTROL_PANEL_SCREEN"
+    ]
+  },
+  {
+    "name": "const val CONNECT_SCREEN: String",
+    "description": "com.tecknobit.brownie.helpers.CONNECT_SCREEN",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-c-o-n-n-e-c-t_-s-c-r-e-e-n.html",
+    "searchKeys": [
+      "CONNECT_SCREEN",
+      "const val CONNECT_SCREEN: String",
+      "com.tecknobit.brownie.helpers.CONNECT_SCREEN"
+    ]
+  },
+  {
+    "name": "const val HOSTS_SCREEN: String",
+    "description": "com.tecknobit.brownie.helpers.HOSTS_SCREEN",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-h-o-s-t-s_-s-c-r-e-e-n.html",
+    "searchKeys": [
+      "HOSTS_SCREEN",
+      "const val HOSTS_SCREEN: String",
+      "com.tecknobit.brownie.helpers.HOSTS_SCREEN"
+    ]
+  },
+  {
+    "name": "const val HOST_SCREEN: String",
+    "description": "com.tecknobit.brownie.helpers.HOST_SCREEN",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-h-o-s-t_-s-c-r-e-e-n.html",
+    "searchKeys": [
+      "HOST_SCREEN",
+      "const val HOST_SCREEN: String",
+      "com.tecknobit.brownie.helpers.HOST_SCREEN"
+    ]
+  },
+  {
+    "name": "const val SPLASHSCREEN: String",
+    "description": "com.tecknobit.brownie.helpers.SPLASHSCREEN",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-s-p-l-a-s-h-s-c-r-e-e-n.html",
+    "searchKeys": [
+      "SPLASHSCREEN",
+      "const val SPLASHSCREEN: String",
+      "com.tecknobit.brownie.helpers.SPLASHSCREEN"
+    ]
+  },
+  {
+    "name": "const val UPSERT_HOST_SCREEN: String",
+    "description": "com.tecknobit.brownie.helpers.UPSERT_HOST_SCREEN",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-u-p-s-e-r-t_-h-o-s-t_-s-c-r-e-e-n.html",
+    "searchKeys": [
+      "UPSERT_HOST_SCREEN",
+      "const val UPSERT_HOST_SCREEN: String",
+      "com.tecknobit.brownie.helpers.UPSERT_HOST_SCREEN"
+    ]
+  },
+  {
+    "name": "const val UPSERT_SERVICE_SCREEN: String",
+    "description": "com.tecknobit.brownie.helpers.UPSERT_SERVICE_SCREEN",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-u-p-s-e-r-t_-s-e-r-v-i-c-e_-s-c-r-e-e-n.html",
+    "searchKeys": [
+      "UPSERT_SERVICE_SCREEN",
+      "const val UPSERT_SERVICE_SCREEN: String",
+      "com.tecknobit.brownie.helpers.UPSERT_SERVICE_SCREEN"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.brownie.MainActivity.MainActivity",
+    "location": "-brownie/com.tecknobit.brownie/-main-activity/-main-activity.html",
+    "searchKeys": [
+      "MainActivity",
+      "constructor()",
+      "com.tecknobit.brownie.MainActivity.MainActivity"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.brownie.helpers.BrownieLocalSession.BrownieLocalSession",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/-brownie-local-session.html",
+    "searchKeys": [
+      "BrownieLocalSession",
+      "constructor()",
+      "com.tecknobit.brownie.helpers.BrownieLocalSession.BrownieLocalSession"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.AdminPanelScreenViewModel",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presentation/-admin-panel-screen-view-model/-admin-panel-screen-view-model.html",
+    "searchKeys": [
+      "AdminPanelScreenViewModel",
+      "constructor()",
+      "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.AdminPanelScreenViewModel"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen.AdminPanelScreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presenter/-admin-panel-screen/-admin-panel-screen.html",
+    "searchKeys": [
+      "AdminPanelScreen",
+      "constructor()",
+      "com.tecknobit.brownie.ui.screens.adminpanel.presenter.AdminPanelScreen.AdminPanelScreen"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.ConnectScreenViewModel",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/-connect-screen-view-model.html",
+    "searchKeys": [
+      "ConnectScreenViewModel",
+      "constructor()",
+      "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.ConnectScreenViewModel"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.brownie.ui.screens.connect.presenter.ConnectScreen.ConnectScreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presenter/-connect-screen/-connect-screen.html",
+    "searchKeys": [
+      "ConnectScreen",
+      "constructor()",
+      "com.tecknobit.brownie.ui.screens.connect.presenter.ConnectScreen.ConnectScreen"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.HostsScreenViewModel",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presentation/-hosts-screen-view-model/-hosts-screen-view-model.html",
+    "searchKeys": [
+      "HostsScreenViewModel",
+      "constructor()",
+      "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.HostsScreenViewModel"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen.HostsScreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presenter/-hosts-screen/-hosts-screen.html",
+    "searchKeys": [
+      "HostsScreen",
+      "constructor()",
+      "com.tecknobit.brownie.ui.screens.hosts.presenter.HostsScreen.HostsScreen"
+    ]
+  },
+  {
+    "name": "constructor(biometrikState: BiometrikState)",
+    "description": "com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen.Splashscreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.splashscreen/-splashscreen/-splashscreen.html",
+    "searchKeys": [
+      "Splashscreen",
+      "constructor(biometrikState: BiometrikState)",
+      "com.tecknobit.brownie.ui.screens.splashscreen.Splashscreen.Splashscreen"
+    ]
+  },
+  {
+    "name": "constructor(host: String, sessionId: String?, language: String, debugMode: Boolean = false)",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.BrownieRequester",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/-brownie-requester.html",
+    "searchKeys": [
+      "BrownieRequester",
+      "constructor(host: String, sessionId: String?, language: String, debugMode: Boolean = false)",
+      "com.tecknobit.brownie.helpers.BrownieRequester.BrownieRequester"
+    ]
+  },
+  {
+    "name": "constructor(hostId: String)",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.HostScreenViewModel",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/-host-screen-view-model.html",
+    "searchKeys": [
+      "HostScreenViewModel",
+      "constructor(hostId: String)",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.HostScreenViewModel"
+    ]
+  },
+  {
+    "name": "constructor(hostId: String)",
+    "description": "com.tecknobit.brownie.ui.screens.host.presenter.HostScreen.HostScreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presenter/-host-screen/-host-screen.html",
+    "searchKeys": [
+      "HostScreen",
+      "constructor(hostId: String)",
+      "com.tecknobit.brownie.ui.screens.host.presenter.HostScreen.HostScreen"
+    ]
+  },
+  {
+    "name": "constructor(hostId: String, hostName: String, serviceId: String?)",
+    "description": "com.tecknobit.brownie.ui.screens.upsertservice.presenter.UpsertServiceScreen.UpsertServiceScreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upsertservice.presenter/-upsert-service-screen/-upsert-service-screen.html",
+    "searchKeys": [
+      "UpsertServiceScreen",
+      "constructor(hostId: String, hostName: String, serviceId: String?)",
+      "com.tecknobit.brownie.ui.screens.upsertservice.presenter.UpsertServiceScreen.UpsertServiceScreen"
+    ]
+  },
+  {
+    "name": "constructor(hostId: String, serviceId: String?)",
+    "description": "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.UpsertServiceScreenViewModel",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upsertservice.presentation/-upsert-service-screen-view-model/-upsert-service-screen-view-model.html",
+    "searchKeys": [
+      "UpsertServiceScreenViewModel",
+      "constructor(hostId: String, serviceId: String?)",
+      "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.UpsertServiceScreenViewModel"
+    ]
+  },
+  {
+    "name": "constructor(hostId: String?)",
+    "description": "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.UpsertHostScreenViewModel",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presentation/-upsert-host-screen-view-model/-upsert-host-screen-view-model.html",
+    "searchKeys": [
+      "UpsertHostScreenViewModel",
+      "constructor(hostId: String?)",
+      "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.UpsertHostScreenViewModel"
+    ]
+  },
+  {
+    "name": "constructor(hostId: String?)",
+    "description": "com.tecknobit.brownie.ui.screens.upserthost.presenter.UpsertHostScreen.UpsertHostScreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presenter/-upsert-host-screen/-upsert-host-screen.html",
+    "searchKeys": [
+      "UpsertHostScreen",
+      "constructor(hostId: String?)",
+      "com.tecknobit.brownie.ui.screens.upserthost.presenter.UpsertHostScreen.UpsertHostScreen"
+    ]
+  },
+  {
+    "name": "constructor(id: String, name: String, hostAddress: String, status: HostStatus)",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl.SavedHostImpl",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/-saved-host-impl/-saved-host-impl.html",
+    "searchKeys": [
+      "SavedHostImpl",
+      "constructor(id: String, name: String, hostAddress: String, status: HostStatus)",
+      "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl.SavedHostImpl"
+    ]
+  },
+  {
+    "name": "constructor(id: String, name: String, hostAddress: String, status: HostStatus, cpuUsage: CpuUsage, memoryUsage: MemoryUsage, storageUsage: StorageUsage, history: List<SavedHostOverview.HostHistoryEvent> = emptyList())",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.SavedHostOverview",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/-saved-host-overview.html",
+    "searchKeys": [
+      "SavedHostOverview",
+      "constructor(id: String, name: String, hostAddress: String, status: HostStatus, cpuUsage: CpuUsage, memoryUsage: MemoryUsage, storageUsage: StorageUsage, history: List<SavedHostOverview.HostHistoryEvent> = emptyList())",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.SavedHostOverview"
+    ]
+  },
+  {
+    "name": "constructor(id: String, name: String, pid: Long, status: ServiceStatus, configuration: HostService.ServiceConfiguration, events: List<HostService.ServiceEvent> = emptyList(), insertionDate: Long)",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.HostService",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-host-service.html",
+    "searchKeys": [
+      "HostService",
+      "constructor(id: String, name: String, pid: Long, status: ServiceStatus, configuration: HostService.ServiceConfiguration, events: List<HostService.ServiceEvent> = emptyList(), insertionDate: Long)",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.HostService"
+    ]
+  },
+  {
+    "name": "constructor(id: String, programArguments: String = \"\", purgeNohupOutAfterReboot: Boolean = true, autoRunAfterHostReboot: Boolean = false)",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceConfiguration.ServiceConfiguration",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-service-configuration/-service-configuration.html",
+    "searchKeys": [
+      "ServiceConfiguration",
+      "constructor(id: String, programArguments: String = \"\", purgeNohupOutAfterReboot: Boolean = true, autoRunAfterHostReboot: Boolean = false)",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceConfiguration.ServiceConfiguration"
+    ]
+  },
+  {
+    "name": "constructor(id: String, type: HostEventType, eventDate: Long, extra: JsonElement? = null)",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.HostHistoryEvent.HostHistoryEvent",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/-host-history-event/-host-history-event.html",
+    "searchKeys": [
+      "HostHistoryEvent",
+      "constructor(id: String, type: HostEventType, eventDate: Long, extra: JsonElement? = null)",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.HostHistoryEvent.HostHistoryEvent"
+    ]
+  },
+  {
+    "name": "constructor(id: String, type: ServiceEventType, eventDate: Long, extra: JsonElement? = null)",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceEvent.ServiceEvent",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-service-event/-service-event.html",
+    "searchKeys": [
+      "ServiceEvent",
+      "constructor(id: String, type: ServiceEventType, eventDate: Long, extra: JsonElement? = null)",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceEvent.ServiceEvent"
+    ]
+  },
+  {
+    "name": "constructor(itemId: String?)",
+    "description": "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.UpsertScreenViewModel",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/-upsert-screen-view-model.html",
+    "searchKeys": [
+      "UpsertScreenViewModel",
+      "constructor(itemId: String?)",
+      "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.UpsertScreenViewModel"
+    ]
+  },
+  {
+    "name": "constructor(itemId: String?, viewModel: V)",
+    "description": "com.tecknobit.brownie.ui.shared.presenters.UpsertScreen.UpsertScreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presenters/-upsert-screen/-upsert-screen.html",
+    "searchKeys": [
+      "UpsertScreen",
+      "constructor(itemId: String?, viewModel: V)",
+      "com.tecknobit.brownie.ui.shared.presenters.UpsertScreen.UpsertScreen"
+    ]
+  },
+  {
+    "name": "constructor(usageValue: Double, clock: Double)",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.CpuUsage.CpuUsage",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-cpu-usage/-cpu-usage.html",
+    "searchKeys": [
+      "CpuUsage",
+      "constructor(usageValue: Double, clock: Double)",
+      "com.tecknobit.brownie.ui.screens.host.data.CpuUsage.CpuUsage"
+    ]
+  },
+  {
+    "name": "constructor(usageValue: Double, totalValue: Double, percentValue: Double)",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.MemoryUsage.MemoryUsage",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-memory-usage/-memory-usage.html",
+    "searchKeys": [
+      "MemoryUsage",
+      "constructor(usageValue: Double, totalValue: Double, percentValue: Double)",
+      "com.tecknobit.brownie.ui.screens.host.data.MemoryUsage.MemoryUsage"
+    ]
+  },
+  {
+    "name": "constructor(usageValue: Double, totalValue: Double, percentValue: Double)",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.SavedHostStatsImpl.SavedHostStatsImpl",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-stats/-saved-host-stats-impl/-saved-host-stats-impl.html",
+    "searchKeys": [
+      "SavedHostStatsImpl",
+      "constructor(usageValue: Double, totalValue: Double, percentValue: Double)",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.SavedHostStatsImpl.SavedHostStatsImpl"
+    ]
+  },
+  {
+    "name": "constructor(usageValue: Double, totalValue: Double, percentValue: Double, type: StorageType)",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.StorageUsage.StorageUsage",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-storage-usage/-storage-usage.html",
+    "searchKeys": [
+      "StorageUsage",
+      "constructor(usageValue: Double, totalValue: Double, percentValue: Double, type: StorageType)",
+      "com.tecknobit.brownie.ui.screens.host.data.StorageUsage.StorageUsage"
+    ]
+  },
+  {
+    "name": "data class CpuUsage(val usageValue: Double, val clock: Double) : SavedHostStats",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.CpuUsage",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-cpu-usage/index.html",
+    "searchKeys": [
+      "CpuUsage",
+      "data class CpuUsage(val usageValue: Double, val clock: Double) : SavedHostStats",
+      "com.tecknobit.brownie.ui.screens.host.data.CpuUsage"
+    ]
+  },
+  {
+    "name": "data class HostHistoryEvent(val id: String, val type: HostEventType, val eventDate: Long, val extra: JsonElement? = null)",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.HostHistoryEvent",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/-host-history-event/index.html",
+    "searchKeys": [
+      "HostHistoryEvent",
+      "data class HostHistoryEvent(val id: String, val type: HostEventType, val eventDate: Long, val extra: JsonElement? = null)",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.HostHistoryEvent"
+    ]
+  },
+  {
+    "name": "data class HostService(val id: String, val name: String, var pid: Long, var status: ServiceStatus, val configuration: HostService.ServiceConfiguration, val events: List<HostService.ServiceEvent> = emptyList(), val insertionDate: Long)",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/index.html",
+    "searchKeys": [
+      "HostService",
+      "data class HostService(val id: String, val name: String, var pid: Long, var status: ServiceStatus, val configuration: HostService.ServiceConfiguration, val events: List<HostService.ServiceEvent> = emptyList(), val insertionDate: Long)",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService"
+    ]
+  },
+  {
+    "name": "data class MemoryUsage(val usageValue: Double, val totalValue: Double, val percentValue: Double) : SavedHostStats",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.MemoryUsage",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-memory-usage/index.html",
+    "searchKeys": [
+      "MemoryUsage",
+      "data class MemoryUsage(val usageValue: Double, val totalValue: Double, val percentValue: Double) : SavedHostStats",
+      "com.tecknobit.brownie.ui.screens.host.data.MemoryUsage"
+    ]
+  },
+  {
+    "name": "data class SavedHostImpl(val id: String, val name: String, val hostAddress: String, var status: HostStatus) : SavedHost",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/-saved-host-impl/index.html",
+    "searchKeys": [
+      "SavedHostImpl",
+      "data class SavedHostImpl(val id: String, val name: String, val hostAddress: String, var status: HostStatus) : SavedHost",
+      "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl"
+    ]
+  },
+  {
+    "name": "data class SavedHostOverview(val id: String, val name: String, val hostAddress: String, var status: HostStatus, val cpuUsage: CpuUsage, val memoryUsage: MemoryUsage, val storageUsage: StorageUsage, val history: List<SavedHostOverview.HostHistoryEvent> = emptyList()) : SavedHost",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/index.html",
+    "searchKeys": [
+      "SavedHostOverview",
+      "data class SavedHostOverview(val id: String, val name: String, val hostAddress: String, var status: HostStatus, val cpuUsage: CpuUsage, val memoryUsage: MemoryUsage, val storageUsage: StorageUsage, val history: List<SavedHostOverview.HostHistoryEvent> = emptyList()) : SavedHost",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview"
+    ]
+  },
+  {
+    "name": "data class SavedHostStatsImpl(val usageValue: Double, val totalValue: Double, val percentValue: Double) : SavedHostStats",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.SavedHostStatsImpl",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-stats/-saved-host-stats-impl/index.html",
+    "searchKeys": [
+      "SavedHostStatsImpl",
+      "data class SavedHostStatsImpl(val usageValue: Double, val totalValue: Double, val percentValue: Double) : SavedHostStats",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.SavedHostStatsImpl"
+    ]
+  },
+  {
+    "name": "data class ServiceConfiguration(val id: String, val programArguments: String = \"\", val purgeNohupOutAfterReboot: Boolean = true, val autoRunAfterHostReboot: Boolean = false)",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceConfiguration",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-service-configuration/index.html",
+    "searchKeys": [
+      "ServiceConfiguration",
+      "data class ServiceConfiguration(val id: String, val programArguments: String = \"\", val purgeNohupOutAfterReboot: Boolean = true, val autoRunAfterHostReboot: Boolean = false)",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceConfiguration"
+    ]
+  },
+  {
+    "name": "data class ServiceEvent(val id: String, val type: ServiceEventType, val eventDate: Long, val extra: JsonElement? = null)",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceEvent",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-service-event/index.html",
+    "searchKeys": [
+      "ServiceEvent",
+      "data class ServiceEvent(val id: String, val type: ServiceEventType, val eventDate: Long, val extra: JsonElement? = null)",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceEvent"
+    ]
+  },
+  {
+    "name": "data class StorageUsage(val usageValue: Double, val totalValue: Double, val percentValue: Double, val type: StorageType) : SavedHostStats",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.StorageUsage",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-storage-usage/index.html",
+    "searchKeys": [
+      "StorageUsage",
+      "data class StorageUsage(val usageValue: Double, val totalValue: Double, val percentValue: Double, val type: StorageType) : SavedHostStats",
+      "com.tecknobit.brownie.ui.screens.host.data.StorageUsage"
+    ]
+  },
+  {
+    "name": "expect class KReviewer",
+    "description": "com.tecknobit.brownie.helpers.KReviewer",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-k-reviewer/index.html",
+    "searchKeys": [
+      "KReviewer",
+      "expect class KReviewer",
+      "com.tecknobit.brownie.helpers.KReviewer"
+    ]
+  },
+  {
+    "name": "expect constructor()",
+    "description": "com.tecknobit.brownie.helpers.KReviewer.KReviewer",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-k-reviewer/-k-reviewer.html",
+    "searchKeys": [
+      "KReviewer",
+      "expect constructor()",
+      "com.tecknobit.brownie.helpers.KReviewer.KReviewer"
+    ]
+  },
+  {
+    "name": "expect fun CheckForUpdatesAndLaunch()",
+    "description": "com.tecknobit.brownie.CheckForUpdatesAndLaunch",
+    "location": "-brownie/com.tecknobit.brownie/-check-for-updates-and-launch.html",
+    "searchKeys": [
+      "CheckForUpdatesAndLaunch",
+      "expect fun CheckForUpdatesAndLaunch()",
+      "com.tecknobit.brownie.CheckForUpdatesAndLaunch"
+    ]
+  },
+  {
+    "name": "expect fun CloseApplicationOnNavBack()",
+    "description": "com.tecknobit.brownie.CloseApplicationOnNavBack",
+    "location": "-brownie/com.tecknobit.brownie/-close-application-on-nav-back.html",
+    "searchKeys": [
+      "CloseApplicationOnNavBack",
+      "expect fun CloseApplicationOnNavBack()",
+      "com.tecknobit.brownie.CloseApplicationOnNavBack"
+    ]
+  },
+  {
+    "name": "expect fun reviewInApp(flowAction: () -> Unit)",
+    "description": "com.tecknobit.brownie.helpers.KReviewer.reviewInApp",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-k-reviewer/review-in-app.html",
+    "searchKeys": [
+      "reviewInApp",
+      "expect fun reviewInApp(flowAction: () -> Unit)",
+      "com.tecknobit.brownie.helpers.KReviewer.reviewInApp"
+    ]
+  },
+  {
+    "name": "expect fun setUserLanguage()",
+    "description": "com.tecknobit.brownie.setUserLanguage",
+    "location": "-brownie/com.tecknobit.brownie/set-user-language.html",
+    "searchKeys": [
+      "setUserLanguage",
+      "expect fun setUserLanguage()",
+      "com.tecknobit.brownie.setUserLanguage"
+    ]
+  },
+  {
+    "name": "expect fun shareJoinCode(viewModel: EquinoxViewModel)",
+    "description": "com.tecknobit.brownie.helpers.shareJoinCode",
+    "location": "-brownie/com.tecknobit.brownie.helpers/share-join-code.html",
+    "searchKeys": [
+      "shareJoinCode",
+      "expect fun shareJoinCode(viewModel: EquinoxViewModel)",
+      "com.tecknobit.brownie.helpers.shareJoinCode"
+    ]
+  },
+  {
+    "name": "fun <T> observe(key: String): State<T>",
+    "description": "com.tecknobit.brownie.helpers.BrownieLocalSession.observe",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/observe.html",
+    "searchKeys": [
+      "observe",
+      "fun <T> observe(key: String): State<T>",
+      "com.tecknobit.brownie.helpers.BrownieLocalSession.observe"
+    ]
+  },
+  {
+    "name": "fun ActionsSection(viewModel: HostScreenViewModel, hostOverview: SavedHostOverview)",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.actions.ActionsSection",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components.actions/-actions-section.html",
+    "searchKeys": [
+      "ActionsSection",
+      "fun ActionsSection(viewModel: HostScreenViewModel, hostOverview: SavedHostOverview)",
+      "com.tecknobit.brownie.ui.screens.host.components.actions.ActionsSection"
+    ]
+  },
+  {
+    "name": "fun App()",
+    "description": "com.tecknobit.brownie.App",
+    "location": "-brownie/com.tecknobit.brownie/-app.html",
+    "searchKeys": [
+      "App",
+      "fun App()",
+      "com.tecknobit.brownie.App"
+    ]
+  },
+  {
+    "name": "fun BrownieTheme(darkTheme: Boolean = isDarkThemeApplied(), content: () -> Unit)",
+    "description": "com.tecknobit.brownie.ui.theme.BrownieTheme",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/-brownie-theme.html",
+    "searchKeys": [
+      "BrownieTheme",
+      "fun BrownieTheme(darkTheme: Boolean = isDarkThemeApplied(), content: () -> Unit)",
+      "com.tecknobit.brownie.ui.theme.BrownieTheme"
+    ]
+  },
+  {
+    "name": "fun CpuUsageChart(usage: CpuUsage)",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.stats.CpuUsageChart",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components.stats/-cpu-usage-chart.html",
+    "searchKeys": [
+      "CpuUsageChart",
+      "fun CpuUsageChart(usage: CpuUsage)",
+      "com.tecknobit.brownie.ui.screens.host.components.stats.CpuUsageChart"
+    ]
+  },
+  {
+    "name": "fun DeleteService(show: MutableState<Boolean>, viewModel: UpsertServiceScreenViewModel)",
+    "description": "com.tecknobit.brownie.ui.components.DeleteService",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/-delete-service.html",
+    "searchKeys": [
+      "DeleteService",
+      "fun DeleteService(show: MutableState<Boolean>, viewModel: UpsertServiceScreenViewModel)",
+      "com.tecknobit.brownie.ui.components.DeleteService"
+    ]
+  },
+  {
+    "name": "fun DeleteSession(show: MutableState<Boolean>, viewModel: AdminPanelScreenViewModel)",
+    "description": "com.tecknobit.brownie.ui.components.DeleteSession",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/-delete-session.html",
+    "searchKeys": [
+      "DeleteSession",
+      "fun DeleteSession(show: MutableState<Boolean>, viewModel: AdminPanelScreenViewModel)",
+      "com.tecknobit.brownie.ui.components.DeleteSession"
+    ]
+  },
+  {
+    "name": "fun Double.toRadians(): Float",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.stats.toRadians",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components.stats/to-radians.html",
+    "searchKeys": [
+      "toRadians",
+      "fun Double.toRadians(): Float",
+      "com.tecknobit.brownie.ui.screens.host.components.stats.toRadians"
+    ]
+  },
+  {
+    "name": "fun EventText(text: Resource, eventExtra: JsonElement?)",
+    "description": "com.tecknobit.brownie.ui.components.EventText",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/-event-text.html",
+    "searchKeys": [
+      "EventText",
+      "fun EventText(text: Resource, eventExtra: JsonElement?)",
+      "com.tecknobit.brownie.ui.components.EventText"
+    ]
+  },
+  {
+    "name": "fun ExpandableSection(modifier: Modifier = Modifier, title: StringResource, filtersContent: () -> Unit? = null, content: ColumnScope.() -> Unit)",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.ExpandableSection",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components/-expandable-section.html",
+    "searchKeys": [
+      "ExpandableSection",
+      "fun ExpandableSection(modifier: Modifier = Modifier, title: StringResource, filtersContent: () -> Unit? = null, content: ColumnScope.() -> Unit)",
+      "com.tecknobit.brownie.ui.screens.host.components.ExpandableSection"
+    ]
+  },
+  {
+    "name": "fun FirstPageProgressIndicator(modifier: Modifier = Modifier)",
+    "description": "com.tecknobit.brownie.ui.components.FirstPageProgressIndicator",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/-first-page-progress-indicator.html",
+    "searchKeys": [
+      "FirstPageProgressIndicator",
+      "fun FirstPageProgressIndicator(modifier: Modifier = Modifier)",
+      "com.tecknobit.brownie.ui.components.FirstPageProgressIndicator"
+    ]
+  },
+  {
+    "name": "fun GaugeChart(modifier: Modifier = Modifier, usageTitle: StringResource, usagePercent: Double, richToolTipContent: TooltipScope.() -> Unit)",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.stats.GaugeChart",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components.stats/-gauge-chart.html",
+    "searchKeys": [
+      "GaugeChart",
+      "fun GaugeChart(modifier: Modifier = Modifier, usageTitle: StringResource, usagePercent: Double, richToolTipContent: TooltipScope.() -> Unit)",
+      "com.tecknobit.brownie.ui.screens.host.components.stats.GaugeChart"
+    ]
+  },
+  {
+    "name": "fun HistoryEventBadge(eventType: HostEventType)",
+    "description": "com.tecknobit.brownie.ui.components.HistoryEventBadge",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/-history-event-badge.html",
+    "searchKeys": [
+      "HistoryEventBadge",
+      "fun HistoryEventBadge(eventType: HostEventType)",
+      "com.tecknobit.brownie.ui.components.HistoryEventBadge"
+    ]
+  },
+  {
+    "name": "fun HistorySection(savedHostOverview: SavedHostOverview)",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.history.HistorySection",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components.history/-history-section.html",
+    "searchKeys": [
+      "HistorySection",
+      "fun HistorySection(savedHostOverview: SavedHostOverview)",
+      "com.tecknobit.brownie.ui.screens.host.components.history.HistorySection"
+    ]
+  },
+  {
+    "name": "fun HostAddressSection(viewModel: UpsertHostScreenViewModel)",
+    "description": "com.tecknobit.brownie.ui.screens.upserthost.components.HostAddressSection",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.components/-host-address-section.html",
+    "searchKeys": [
+      "HostAddressSection",
+      "fun HostAddressSection(viewModel: UpsertHostScreenViewModel)",
+      "com.tecknobit.brownie.ui.screens.upserthost.components.HostAddressSection"
+    ]
+  },
+  {
+    "name": "fun HostCard(viewModel: HostsScreenViewModel, host: SavedHost.SavedHostImpl)",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.components.HostCard",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.components/-host-card.html",
+    "searchKeys": [
+      "HostCard",
+      "fun HostCard(viewModel: HostsScreenViewModel, host: SavedHost.SavedHostImpl)",
+      "com.tecknobit.brownie.ui.screens.hosts.components.HostCard"
+    ]
+  },
+  {
+    "name": "fun HostEventType.asColor(): Color",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.Companion.asColor",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/-companion/as-color.html",
+    "searchKeys": [
+      "asColor",
+      "fun HostEventType.asColor(): Color",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.Companion.asColor"
+    ]
+  },
+  {
+    "name": "fun HostHistory(hostOverview: SavedHostOverview)",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.history.HostHistory",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components.history/-host-history.html",
+    "searchKeys": [
+      "HostHistory",
+      "fun HostHistory(hostOverview: SavedHostOverview)",
+      "com.tecknobit.brownie.ui.screens.host.components.history.HostHistory"
+    ]
+  },
+  {
+    "name": "fun HostOverview(modifier: Modifier, viewModel: HostScreenViewModel, hostOverview: SavedHostOverview)",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.HostOverview",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components/-host-overview.html",
+    "searchKeys": [
+      "HostOverview",
+      "fun HostOverview(modifier: Modifier, viewModel: HostScreenViewModel, hostOverview: SavedHostOverview)",
+      "com.tecknobit.brownie.ui.screens.host.components.HostOverview"
+    ]
+  },
+  {
+    "name": "fun HostStatus.asColor(): Color",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.Companion.asColor",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/-companion/as-color.html",
+    "searchKeys": [
+      "asColor",
+      "fun HostStatus.asColor(): Color",
+      "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.Companion.asColor"
+    ]
+  },
+  {
+    "name": "fun HostStatusBadge(status: HostStatus)",
+    "description": "com.tecknobit.brownie.ui.components.HostStatusBadge",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/-host-status-badge.html",
+    "searchKeys": [
+      "HostStatusBadge",
+      "fun HostStatusBadge(status: HostStatus)",
+      "com.tecknobit.brownie.ui.components.HostStatusBadge"
+    ]
+  },
+  {
+    "name": "fun HostsList(modifier: Modifier = Modifier, viewModel: HostsScreenViewModel)",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.components.HostsList",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.components/-hosts-list.html",
+    "searchKeys": [
+      "HostsList",
+      "fun HostsList(modifier: Modifier = Modifier, viewModel: HostsScreenViewModel)",
+      "com.tecknobit.brownie.ui.screens.hosts.components.HostsList"
+    ]
+  },
+  {
+    "name": "fun Logout(show: MutableState<Boolean>, viewModel: AdminPanelScreenViewModel)",
+    "description": "com.tecknobit.brownie.ui.components.Logout",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/-logout.html",
+    "searchKeys": [
+      "Logout",
+      "fun Logout(show: MutableState<Boolean>, viewModel: AdminPanelScreenViewModel)",
+      "com.tecknobit.brownie.ui.components.Logout"
+    ]
+  },
+  {
+    "name": "fun MainViewController()",
+    "description": "com.tecknobit.brownie.MainViewController",
+    "location": "-brownie/com.tecknobit.brownie/-main-view-controller.html",
+    "searchKeys": [
+      "MainViewController",
+      "fun MainViewController()",
+      "com.tecknobit.brownie.MainViewController"
+    ]
+  },
+  {
+    "name": "fun MemoryUsageChart(usage: MemoryUsage)",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.stats.MemoryUsageChart",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components.stats/-memory-usage-chart.html",
+    "searchKeys": [
+      "MemoryUsageChart",
+      "fun MemoryUsageChart(usage: MemoryUsage)",
+      "com.tecknobit.brownie.ui.screens.host.components.stats.MemoryUsageChart"
+    ]
+  },
+  {
+    "name": "fun NewPageProgressIndicator(modifier: Modifier = Modifier)",
+    "description": "com.tecknobit.brownie.ui.components.NewPageProgressIndicator",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/-new-page-progress-indicator.html",
+    "searchKeys": [
+      "NewPageProgressIndicator",
+      "fun NewPageProgressIndicator(modifier: Modifier = Modifier)",
+      "com.tecknobit.brownie.ui.components.NewPageProgressIndicator"
+    ]
+  },
+  {
+    "name": "fun NoEventsAvailable(modifier: Modifier = Modifier)",
+    "description": "com.tecknobit.brownie.ui.components.NoEventsAvailable",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/-no-events-available.html",
+    "searchKeys": [
+      "NoEventsAvailable",
+      "fun NoEventsAvailable(modifier: Modifier = Modifier)",
+      "com.tecknobit.brownie.ui.components.NoEventsAvailable"
+    ]
+  },
+  {
+    "name": "fun ProgramArgumentsSection(viewModel: UpsertServiceScreenViewModel)",
+    "description": "com.tecknobit.brownie.ui.screens.upsertservice.components.ProgramArgumentsSection",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upsertservice.components/-program-arguments-section.html",
+    "searchKeys": [
+      "ProgramArgumentsSection",
+      "fun ProgramArgumentsSection(viewModel: UpsertServiceScreenViewModel)",
+      "com.tecknobit.brownie.ui.screens.upsertservice.components.ProgramArgumentsSection"
+    ]
+  },
+  {
+    "name": "fun RemoveService(show: MutableState<Boolean>, viewModel: UpsertServiceScreenViewModel)",
+    "description": "com.tecknobit.brownie.ui.components.RemoveService",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/-remove-service.html",
+    "searchKeys": [
+      "RemoveService",
+      "fun RemoveService(show: MutableState<Boolean>, viewModel: UpsertServiceScreenViewModel)",
+      "com.tecknobit.brownie.ui.components.RemoveService"
+    ]
+  },
+  {
+    "name": "fun SSHAuthentication(viewModel: UpsertHostScreenViewModel, isEditing: Boolean)",
+    "description": "com.tecknobit.brownie.ui.screens.upserthost.components.SSHAuthentication",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.components/-s-s-h-authentication.html",
+    "searchKeys": [
+      "SSHAuthentication",
+      "fun SSHAuthentication(viewModel: UpsertHostScreenViewModel, isEditing: Boolean)",
+      "com.tecknobit.brownie.ui.screens.upserthost.components.SSHAuthentication"
+    ]
+  },
+  {
+    "name": "fun SectionTitle(modifier: Modifier = Modifier, title: StringResource, fontSize: TextUnit = TextUnit.Unspecified, filtersContent: () -> Unit? = null)",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.SectionTitle",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components/-section-title.html",
+    "searchKeys": [
+      "SectionTitle",
+      "fun SectionTitle(modifier: Modifier = Modifier, title: StringResource, fontSize: TextUnit = TextUnit.Unspecified, filtersContent: () -> Unit? = null)",
+      "com.tecknobit.brownie.ui.screens.host.components.SectionTitle"
+    ]
+  },
+  {
+    "name": "fun ServiceCard(viewModel: HostScreenViewModel, savedHostOverview: SavedHostOverview, service: HostService)",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.services.ServiceCard",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components.services/-service-card.html",
+    "searchKeys": [
+      "ServiceCard",
+      "fun ServiceCard(viewModel: HostScreenViewModel, savedHostOverview: SavedHostOverview, service: HostService)",
+      "com.tecknobit.brownie.ui.screens.host.components.services.ServiceCard"
+    ]
+  },
+  {
+    "name": "fun ServiceEventBadge(eventType: ServiceEventType)",
+    "description": "com.tecknobit.brownie.ui.components.ServiceEventBadge",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/-service-event-badge.html",
+    "searchKeys": [
+      "ServiceEventBadge",
+      "fun ServiceEventBadge(eventType: ServiceEventType)",
+      "com.tecknobit.brownie.ui.components.ServiceEventBadge"
+    ]
+  },
+  {
+    "name": "fun ServiceEventType.asColor(): Color",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.Companion.asColor",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-companion/as-color.html",
+    "searchKeys": [
+      "asColor",
+      "fun ServiceEventType.asColor(): Color",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.Companion.asColor"
+    ]
+  },
+  {
+    "name": "fun ServiceHistory(state: SheetState, scope: CoroutineScope, service: HostService)",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.services.ServiceHistory",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components.services/-service-history.html",
+    "searchKeys": [
+      "ServiceHistory",
+      "fun ServiceHistory(state: SheetState, scope: CoroutineScope, service: HostService)",
+      "com.tecknobit.brownie.ui.screens.host.components.services.ServiceHistory"
+    ]
+  },
+  {
+    "name": "fun ServiceSettings(viewModel: UpsertServiceScreenViewModel)",
+    "description": "com.tecknobit.brownie.ui.screens.upsertservice.components.ServiceSettings",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upsertservice.components/-service-settings.html",
+    "searchKeys": [
+      "ServiceSettings",
+      "fun ServiceSettings(viewModel: UpsertServiceScreenViewModel)",
+      "com.tecknobit.brownie.ui.screens.upsertservice.components.ServiceSettings"
+    ]
+  },
+  {
+    "name": "fun ServiceStatus.asColor(): Color",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.Companion.asColor",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-companion/as-color.html",
+    "searchKeys": [
+      "asColor",
+      "fun ServiceStatus.asColor(): Color",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.Companion.asColor"
+    ]
+  },
+  {
+    "name": "fun ServiceStatusBadge(status: ServiceStatus)",
+    "description": "com.tecknobit.brownie.ui.components.ServiceStatusBadge",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/-service-status-badge.html",
+    "searchKeys": [
+      "ServiceStatusBadge",
+      "fun ServiceStatusBadge(status: ServiceStatus)",
+      "com.tecknobit.brownie.ui.components.ServiceStatusBadge"
+    ]
+  },
+  {
+    "name": "fun ServicesList(modifier: Modifier = Modifier, viewModel: HostScreenViewModel, savedHostOverview: SavedHostOverview)",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.services.ServicesList",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components.services/-services-list.html",
+    "searchKeys": [
+      "ServicesList",
+      "fun ServicesList(modifier: Modifier = Modifier, viewModel: HostScreenViewModel, savedHostOverview: SavedHostOverview)",
+      "com.tecknobit.brownie.ui.screens.host.components.services.ServicesList"
+    ]
+  },
+  {
+    "name": "fun ServicesSection(viewModel: HostScreenViewModel, savedHostOverview: SavedHostOverview)",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.services.ServicesSection",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components.services/-services-section.html",
+    "searchKeys": [
+      "ServicesSection",
+      "fun ServicesSection(viewModel: HostScreenViewModel, savedHostOverview: SavedHostOverview)",
+      "com.tecknobit.brownie.ui.screens.host.components.services.ServicesSection"
+    ]
+  },
+  {
+    "name": "fun StatsSection(hostOverview: SavedHostOverview)",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.stats.StatsSection",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components.stats/-stats-section.html",
+    "searchKeys": [
+      "StatsSection",
+      "fun StatsSection(hostOverview: SavedHostOverview)",
+      "com.tecknobit.brownie.ui.screens.host.components.stats.StatsSection"
+    ]
+  },
+  {
+    "name": "fun StatusFilterButton(modifier: Modifier = Modifier, onClick: (MutableState<Boolean>) -> Unit, statusFilters: SnapshotStateList<HostStatus>)",
+    "description": "com.tecknobit.brownie.ui.components.StatusFilterButton",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/-status-filter-button.html",
+    "searchKeys": [
+      "StatusFilterButton",
+      "fun StatusFilterButton(modifier: Modifier = Modifier, onClick: (MutableState<Boolean>) -> Unit, statusFilters: SnapshotStateList<HostStatus>)",
+      "com.tecknobit.brownie.ui.components.StatusFilterButton"
+    ]
+  },
+  {
+    "name": "fun StorageType.asText(): String",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.StorageUsage.Companion.asText",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-storage-usage/-companion/as-text.html",
+    "searchKeys": [
+      "asText",
+      "fun StorageType.asText(): String",
+      "com.tecknobit.brownie.ui.screens.host.data.StorageUsage.Companion.asText"
+    ]
+  },
+  {
+    "name": "fun StorageUsageChart(usage: StorageUsage)",
+    "description": "com.tecknobit.brownie.ui.screens.host.components.stats.StorageUsageChart",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.components.stats/-storage-usage-chart.html",
+    "searchKeys": [
+      "StorageUsageChart",
+      "fun StorageUsageChart(usage: StorageUsage)",
+      "com.tecknobit.brownie.ui.screens.host.components.stats.StorageUsageChart"
+    ]
+  },
+  {
+    "name": "fun UnregisterSavedHost(show: MutableState<Boolean>, hostManager: HostManager, host: SavedHost, onSuccess: () -> Unit)",
+    "description": "com.tecknobit.brownie.ui.components.UnregisterSavedHost",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/-unregister-saved-host.html",
+    "searchKeys": [
+      "UnregisterSavedHost",
+      "fun UnregisterSavedHost(show: MutableState<Boolean>, hostManager: HostManager, host: SavedHost, onSuccess: () -> Unit)",
+      "com.tecknobit.brownie.ui.components.UnregisterSavedHost"
+    ]
+  },
+  {
+    "name": "fun applyFilters(onApply: () -> Unit)",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.applyFilters",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/apply-filters.html",
+    "searchKeys": [
+      "applyFilters",
+      "fun applyFilters(onApply: () -> Unit)",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.applyFilters"
+    ]
+  },
+  {
+    "name": "fun applyStatusFilters(onSuccess: () -> Unit)",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.applyStatusFilters",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presentation/-hosts-screen-view-model/apply-status-filters.html",
+    "searchKeys": [
+      "applyStatusFilters",
+      "fun applyStatusFilters(onSuccess: () -> Unit)",
+      "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.applyStatusFilters"
+    ]
+  },
+  {
+    "name": "fun changeLanguage(onSuccess: () -> Unit? = null)",
+    "description": "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.changeLanguage",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presentation/-admin-panel-screen-view-model/change-language.html",
+    "searchKeys": [
+      "changeLanguage",
+      "fun changeLanguage(onSuccess: () -> Unit? = null)",
+      "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.changeLanguage"
+    ]
+  },
+  {
+    "name": "fun changeTheme(onChange: () -> Unit? = null)",
+    "description": "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.changeTheme",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presentation/-admin-panel-screen-view-model/change-theme.html",
+    "searchKeys": [
+      "changeTheme",
+      "fun changeTheme(onChange: () -> Unit? = null)",
+      "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.changeTheme"
+    ]
+  },
+  {
+    "name": "fun clear()",
+    "description": "com.tecknobit.brownie.helpers.BrownieLocalSession.clear",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/clear.html",
+    "searchKeys": [
+      "clear",
+      "fun clear()",
+      "com.tecknobit.brownie.helpers.BrownieLocalSession.clear"
+    ]
+  },
+  {
+    "name": "fun clearFilters(onClear: () -> Unit)",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.clearFilters",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/clear-filters.html",
+    "searchKeys": [
+      "clearFilters",
+      "fun clearFilters(onClear: () -> Unit)",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.clearFilters"
+    ]
+  },
+  {
+    "name": "fun clearSession(onClear: () -> Unit? = null)",
+    "description": "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.clearSession",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presentation/-admin-panel-screen-view-model/clear-session.html",
+    "searchKeys": [
+      "clearSession",
+      "fun clearSession(onClear: () -> Unit? = null)",
+      "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.clearSession"
+    ]
+  },
+  {
+    "name": "fun connect()",
+    "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.connect",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/connect.html",
+    "searchKeys": [
+      "connect",
+      "fun connect()",
+      "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.connect"
+    ]
+  },
+  {
+    "name": "fun deleteService(onSuccess: () -> Unit)",
+    "description": "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.deleteService",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upsertservice.presentation/-upsert-service-screen-view-model/delete-service.html",
+    "searchKeys": [
+      "deleteService",
+      "fun deleteService(onSuccess: () -> Unit)",
+      "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.deleteService"
+    ]
+  },
+  {
+    "name": "fun deleteSession(onClear: () -> Unit? = null)",
+    "description": "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.deleteSession",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presentation/-admin-panel-screen-view-model/delete-session.html",
+    "searchKeys": [
+      "deleteSession",
+      "fun deleteSession(onClear: () -> Unit? = null)",
+      "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.deleteSession"
+    ]
+  },
+  {
+    "name": "fun green(): Color",
+    "description": "com.tecknobit.brownie.ui.theme.green",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/green.html",
+    "searchKeys": [
+      "green",
+      "fun green(): Color",
+      "com.tecknobit.brownie.ui.theme.green"
+    ]
+  },
+  {
+    "name": "fun handleServiceStatus(service: HostService, onStatusChange: (ServiceStatus) -> Unit)",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.handleServiceStatus",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/handle-service-status.html",
+    "searchKeys": [
+      "handleServiceStatus",
+      "fun handleServiceStatus(service: HostService, onStatusChange: (ServiceStatus) -> Unit)",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.handleServiceStatus"
+    ]
+  },
+  {
+    "name": "fun initLanguage(language: String)",
+    "description": "com.tecknobit.brownie.helpers.BrownieLocalSession.initLanguage",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/init-language.html",
+    "searchKeys": [
+      "initLanguage",
+      "fun initLanguage(language: String)",
+      "com.tecknobit.brownie.helpers.BrownieLocalSession.initLanguage"
+    ]
+  },
+  {
+    "name": "fun initTheme(theme: EquinoxLocalUser.ApplicationTheme)",
+    "description": "com.tecknobit.brownie.helpers.BrownieLocalSession.initTheme",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/init-theme.html",
+    "searchKeys": [
+      "initTheme",
+      "fun initTheme(theme: EquinoxLocalUser.ApplicationTheme)",
+      "com.tecknobit.brownie.helpers.BrownieLocalSession.initTheme"
+    ]
+  },
+  {
+    "name": "fun insertNewSession(hostAddress: String, sessionId: String, joinCode: String)",
+    "description": "com.tecknobit.brownie.helpers.BrownieLocalSession.insertNewSession",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/insert-new-session.html",
+    "searchKeys": [
+      "insertNewSession",
+      "fun insertNewSession(hostAddress: String, sessionId: String, joinCode: String)",
+      "com.tecknobit.brownie.helpers.BrownieLocalSession.insertNewSession"
+    ]
+  },
+  {
+    "name": "fun main()",
+    "description": "com.tecknobit.brownie.main",
+    "location": "-brownie/com.tecknobit.brownie/[desktop]main.html",
+    "searchKeys": [
+      "main",
+      "fun main()",
+      "com.tecknobit.brownie.main"
+    ]
+  },
+  {
+    "name": "fun main()",
+    "description": "com.tecknobit.brownie.main",
+    "location": "-brownie/com.tecknobit.brownie/[wasm-js]main.html",
+    "searchKeys": [
+      "main",
+      "fun main()",
+      "com.tecknobit.brownie.main"
+    ]
+  },
+  {
+    "name": "fun navToAdminPanelScreen()",
+    "description": "com.tecknobit.brownie.helpers.navToAdminPanelScreen",
+    "location": "-brownie/com.tecknobit.brownie.helpers/nav-to-admin-panel-screen.html",
+    "searchKeys": [
+      "navToAdminPanelScreen",
+      "fun navToAdminPanelScreen()",
+      "com.tecknobit.brownie.helpers.navToAdminPanelScreen"
+    ]
+  },
+  {
+    "name": "fun navToHostScreen(host: SavedHost.SavedHostImpl)",
+    "description": "com.tecknobit.brownie.helpers.navToHostScreen",
+    "location": "-brownie/com.tecknobit.brownie.helpers/nav-to-host-screen.html",
+    "searchKeys": [
+      "navToHostScreen",
+      "fun navToHostScreen(host: SavedHost.SavedHostImpl)",
+      "com.tecknobit.brownie.helpers.navToHostScreen"
+    ]
+  },
+  {
+    "name": "fun navToHostsScreen()",
+    "description": "com.tecknobit.brownie.helpers.navToHostsScreen",
+    "location": "-brownie/com.tecknobit.brownie.helpers/nav-to-hosts-screen.html",
+    "searchKeys": [
+      "navToHostsScreen",
+      "fun navToHostsScreen()",
+      "com.tecknobit.brownie.helpers.navToHostsScreen"
+    ]
+  },
+  {
+    "name": "fun navToSplashscreen()",
+    "description": "com.tecknobit.brownie.helpers.navToSplashscreen",
+    "location": "-brownie/com.tecknobit.brownie.helpers/nav-to-splashscreen.html",
+    "searchKeys": [
+      "navToSplashscreen",
+      "fun navToSplashscreen()",
+      "com.tecknobit.brownie.helpers.navToSplashscreen"
+    ]
+  },
+  {
+    "name": "fun navToUpsertHostScreen(host: SavedHost.SavedHostImpl? = null)",
+    "description": "com.tecknobit.brownie.helpers.navToUpsertHostScreen",
+    "location": "-brownie/com.tecknobit.brownie.helpers/nav-to-upsert-host-screen.html",
+    "searchKeys": [
+      "navToUpsertHostScreen",
+      "fun navToUpsertHostScreen(host: SavedHost.SavedHostImpl? = null)",
+      "com.tecknobit.brownie.helpers.navToUpsertHostScreen"
+    ]
+  },
+  {
+    "name": "fun navToUpsertServiceScreen(savedHostOverview: SavedHostOverview, service: HostService? = null)",
+    "description": "com.tecknobit.brownie.helpers.navToUpsertServiceScreen",
+    "location": "-brownie/com.tecknobit.brownie.helpers/nav-to-upsert-service-screen.html",
+    "searchKeys": [
+      "navToUpsertServiceScreen",
+      "fun navToUpsertServiceScreen(savedHostOverview: SavedHostOverview, service: HostService? = null)",
+      "com.tecknobit.brownie.helpers.navToUpsertServiceScreen"
+    ]
+  },
+  {
+    "name": "fun rebootService(service: HostService, onStatusChange: () -> Unit)",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.rebootService",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/reboot-service.html",
+    "searchKeys": [
+      "rebootService",
+      "fun rebootService(service: HostService, onStatusChange: () -> Unit)",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.rebootService"
+    ]
+  },
+  {
+    "name": "fun red(): Color",
+    "description": "com.tecknobit.brownie.ui.theme.red",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/red.html",
+    "searchKeys": [
+      "red",
+      "fun red(): Color",
+      "com.tecknobit.brownie.ui.theme.red"
+    ]
+  },
+  {
+    "name": "fun removeService(onSuccess: () -> Unit)",
+    "description": "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.removeService",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upsertservice.presentation/-upsert-service-screen-view-model/remove-service.html",
+    "searchKeys": [
+      "removeService",
+      "fun removeService(onSuccess: () -> Unit)",
+      "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.removeService"
+    ]
+  },
+  {
+    "name": "fun retrieveCurrentHostsStatus()",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.retrieveCurrentHostsStatus",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presentation/-hosts-screen-view-model/retrieve-current-hosts-status.html",
+    "searchKeys": [
+      "retrieveCurrentHostsStatus",
+      "fun retrieveCurrentHostsStatus()",
+      "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.retrieveCurrentHostsStatus"
+    ]
+  },
+  {
+    "name": "fun retrieveHostOverview()",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.retrieveHostOverview",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/retrieve-host-overview.html",
+    "searchKeys": [
+      "retrieveHostOverview",
+      "fun retrieveHostOverview()",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.retrieveHostOverview"
+    ]
+  },
+  {
+    "name": "fun serviceAddedColor(): Color",
+    "description": "com.tecknobit.brownie.ui.theme.serviceAddedColor",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/service-added-color.html",
+    "searchKeys": [
+      "serviceAddedColor",
+      "fun serviceAddedColor(): Color",
+      "com.tecknobit.brownie.ui.theme.serviceAddedColor"
+    ]
+  },
+  {
+    "name": "fun serviceDeletedColor(): Color",
+    "description": "com.tecknobit.brownie.ui.theme.serviceDeletedColor",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/service-deleted-color.html",
+    "searchKeys": [
+      "serviceDeletedColor",
+      "fun serviceDeletedColor(): Color",
+      "com.tecknobit.brownie.ui.theme.serviceDeletedColor"
+    ]
+  },
+  {
+    "name": "fun serviceRemovedColor(): Color",
+    "description": "com.tecknobit.brownie.ui.theme.serviceRemovedColor",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/service-removed-color.html",
+    "searchKeys": [
+      "serviceRemovedColor",
+      "fun serviceRemovedColor(): Color",
+      "com.tecknobit.brownie.ui.theme.serviceRemovedColor"
+    ]
+  },
+  {
+    "name": "fun startSession()",
+    "description": "com.tecknobit.brownie.startSession",
+    "location": "-brownie/com.tecknobit.brownie/start-session.html",
+    "searchKeys": [
+      "startSession",
+      "fun startSession()",
+      "com.tecknobit.brownie.startSession"
+    ]
+  },
+  {
+    "name": "fun upsert()",
+    "description": "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.upsert",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/upsert.html",
+    "searchKeys": [
+      "upsert",
+      "fun upsert()",
+      "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.upsert"
+    ]
+  },
+  {
+    "name": "fun violet(): Color",
+    "description": "com.tecknobit.brownie.ui.theme.violet",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/violet.html",
+    "searchKeys": [
+      "violet",
+      "fun violet(): Color",
+      "com.tecknobit.brownie.ui.theme.violet"
+    ]
+  },
+  {
+    "name": "fun yellow(): Color",
+    "description": "com.tecknobit.brownie.ui.theme.yellow",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/yellow.html",
+    "searchKeys": [
+      "yellow",
+      "fun yellow(): Color",
+      "com.tecknobit.brownie.ui.theme.yellow"
+    ]
+  },
+  {
+    "name": "interface HostManager",
+    "description": "com.tecknobit.brownie.ui.shared.presentations.HostManager",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-host-manager/index.html",
+    "searchKeys": [
+      "HostManager",
+      "interface HostManager",
+      "com.tecknobit.brownie.ui.shared.presentations.HostManager"
+    ]
+  },
+  {
+    "name": "interface SavedHost",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/index.html",
+    "searchKeys": [
+      "SavedHost",
+      "interface SavedHost",
+      "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost"
+    ]
+  },
+  {
+    "name": "lateinit var address: MutableState<String>",
+    "description": "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.address",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presentation/-upsert-host-screen-view-model/address.html",
+    "searchKeys": [
+      "address",
+      "lateinit var address: MutableState<String>",
+      "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.address"
+    ]
+  },
+  {
+    "name": "lateinit var addressError: MutableState<Boolean>",
+    "description": "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.addressError",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presentation/-upsert-host-screen-view-model/address-error.html",
+    "searchKeys": [
+      "addressError",
+      "lateinit var addressError: MutableState<Boolean>",
+      "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.addressError"
+    ]
+  },
+  {
+    "name": "lateinit var appUpdateManager: AppUpdateManager",
+    "description": "com.tecknobit.brownie.MainActivity.Companion.appUpdateManager",
+    "location": "-brownie/com.tecknobit.brownie/-main-activity/-companion/app-update-manager.html",
+    "searchKeys": [
+      "appUpdateManager",
+      "lateinit var appUpdateManager: AppUpdateManager",
+      "com.tecknobit.brownie.MainActivity.Companion.appUpdateManager"
+    ]
+  },
+  {
+    "name": "lateinit var autoRunAfterHostReboot: MutableState<Boolean>",
+    "description": "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.autoRunAfterHostReboot",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upsertservice.presentation/-upsert-service-screen-view-model/auto-run-after-host-reboot.html",
+    "searchKeys": [
+      "autoRunAfterHostReboot",
+      "lateinit var autoRunAfterHostReboot: MutableState<Boolean>",
+      "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.autoRunAfterHostReboot"
+    ]
+  },
+  {
+    "name": "lateinit var bodyFontFamily: FontFamily",
+    "description": "com.tecknobit.brownie.bodyFontFamily",
+    "location": "-brownie/com.tecknobit.brownie/body-font-family.html",
+    "searchKeys": [
+      "bodyFontFamily",
+      "lateinit var bodyFontFamily: FontFamily",
+      "com.tecknobit.brownie.bodyFontFamily"
+    ]
+  },
+  {
+    "name": "lateinit var connecting: MutableState<Boolean>",
+    "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.connecting",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/connecting.html",
+    "searchKeys": [
+      "connecting",
+      "lateinit var connecting: MutableState<Boolean>",
+      "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.connecting"
+    ]
+  },
+  {
+    "name": "lateinit var displayFontFamily: FontFamily",
+    "description": "com.tecknobit.brownie.displayFontFamily",
+    "location": "-brownie/com.tecknobit.brownie/display-font-family.html",
+    "searchKeys": [
+      "displayFontFamily",
+      "lateinit var displayFontFamily: FontFamily",
+      "com.tecknobit.brownie.displayFontFamily"
+    ]
+  },
+  {
+    "name": "lateinit var host: MutableState<String>",
+    "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.host",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/host.html",
+    "searchKeys": [
+      "host",
+      "lateinit var host: MutableState<String>",
+      "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.host"
+    ]
+  },
+  {
+    "name": "lateinit var hostError: MutableState<Boolean>",
+    "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.hostError",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/host-error.html",
+    "searchKeys": [
+      "hostError",
+      "lateinit var hostError: MutableState<Boolean>",
+      "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.hostError"
+    ]
+  },
+  {
+    "name": "lateinit var inputSearch: MutableState<String>",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.inputSearch",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presentation/-hosts-screen-view-model/input-search.html",
+    "searchKeys": [
+      "inputSearch",
+      "lateinit var inputSearch: MutableState<String>",
+      "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.inputSearch"
+    ]
+  },
+  {
+    "name": "lateinit var joinCode: MutableState<String>",
+    "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.joinCode",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/join-code.html",
+    "searchKeys": [
+      "joinCode",
+      "lateinit var joinCode: MutableState<String>",
+      "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.joinCode"
+    ]
+  },
+  {
+    "name": "lateinit var joinCodeError: MutableState<Boolean>",
+    "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.joinCodeError",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/join-code-error.html",
+    "searchKeys": [
+      "joinCodeError",
+      "lateinit var joinCodeError: MutableState<Boolean>",
+      "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.joinCodeError"
+    ]
+  },
+  {
+    "name": "lateinit var language: MutableState<String>",
+    "description": "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.language",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presentation/-admin-panel-screen-view-model/language.html",
+    "searchKeys": [
+      "language",
+      "lateinit var language: MutableState<String>",
+      "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.language"
+    ]
+  },
+  {
+    "name": "lateinit var launcher: ActivityResultLauncher<IntentSenderRequest>",
+    "description": "com.tecknobit.brownie.MainActivity.Companion.launcher",
+    "location": "-brownie/com.tecknobit.brownie/-main-activity/-companion/launcher.html",
+    "searchKeys": [
+      "launcher",
+      "lateinit var launcher: ActivityResultLauncher<IntentSenderRequest>",
+      "com.tecknobit.brownie.MainActivity.Companion.launcher"
+    ]
+  },
+  {
+    "name": "lateinit var name: MutableState<String>",
+    "description": "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.name",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/name.html",
+    "searchKeys": [
+      "name",
+      "lateinit var name: MutableState<String>",
+      "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.name"
+    ]
+  },
+  {
+    "name": "lateinit var nameError: MutableState<Boolean>",
+    "description": "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.nameError",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/name-error.html",
+    "searchKeys": [
+      "nameError",
+      "lateinit var nameError: MutableState<Boolean>",
+      "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.nameError"
+    ]
+  },
+  {
+    "name": "lateinit var navigator: NavHostController",
+    "description": "com.tecknobit.brownie.helpers.navigator",
+    "location": "-brownie/com.tecknobit.brownie.helpers/navigator.html",
+    "searchKeys": [
+      "navigator",
+      "lateinit var navigator: NavHostController",
+      "com.tecknobit.brownie.helpers.navigator"
+    ]
+  },
+  {
+    "name": "lateinit var password: MutableState<String>",
+    "description": "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.password",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presentation/-admin-panel-screen-view-model/password.html",
+    "searchKeys": [
+      "password",
+      "lateinit var password: MutableState<String>",
+      "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.password"
+    ]
+  },
+  {
+    "name": "lateinit var password: MutableState<String>",
+    "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.password",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/password.html",
+    "searchKeys": [
+      "password",
+      "lateinit var password: MutableState<String>",
+      "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.password"
+    ]
+  },
+  {
+    "name": "lateinit var passwordError: MutableState<Boolean>",
+    "description": "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.passwordError",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presentation/-admin-panel-screen-view-model/password-error.html",
+    "searchKeys": [
+      "passwordError",
+      "lateinit var passwordError: MutableState<Boolean>",
+      "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.passwordError"
+    ]
+  },
+  {
+    "name": "lateinit var passwordError: MutableState<Boolean>",
+    "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.passwordError",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/password-error.html",
+    "searchKeys": [
+      "passwordError",
+      "lateinit var passwordError: MutableState<Boolean>",
+      "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.passwordError"
+    ]
+  },
+  {
+    "name": "lateinit var programArguments: MutableState<String>",
+    "description": "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.programArguments",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upsertservice.presentation/-upsert-service-screen-view-model/program-arguments.html",
+    "searchKeys": [
+      "programArguments",
+      "lateinit var programArguments: MutableState<String>",
+      "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.programArguments"
+    ]
+  },
+  {
+    "name": "lateinit var purgeNohupOutAfterReboot: MutableState<Boolean>",
+    "description": "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.purgeNohupOutAfterReboot",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upsertservice.presentation/-upsert-service-screen-view-model/purge-nohup-out-after-reboot.html",
+    "searchKeys": [
+      "purgeNohupOutAfterReboot",
+      "lateinit var purgeNohupOutAfterReboot: MutableState<Boolean>",
+      "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.purgeNohupOutAfterReboot"
+    ]
+  },
+  {
+    "name": "lateinit var requester: BrownieRequester",
+    "description": "com.tecknobit.brownie.requester",
+    "location": "-brownie/com.tecknobit.brownie/requester.html",
+    "searchKeys": [
+      "requester",
+      "lateinit var requester: BrownieRequester",
+      "com.tecknobit.brownie.requester"
+    ]
+  },
+  {
+    "name": "lateinit var serverSecret: MutableState<String>",
+    "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.serverSecret",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/server-secret.html",
+    "searchKeys": [
+      "serverSecret",
+      "lateinit var serverSecret: MutableState<String>",
+      "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.serverSecret"
+    ]
+  },
+  {
+    "name": "lateinit var serverSecretError: MutableState<Boolean>",
+    "description": "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.serverSecretError",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.connect.presentation/-connect-screen-view-model/server-secret-error.html",
+    "searchKeys": [
+      "serverSecretError",
+      "lateinit var serverSecretError: MutableState<Boolean>",
+      "com.tecknobit.brownie.ui.screens.connect.presentation.ConnectScreenViewModel.serverSecretError"
+    ]
+  },
+  {
+    "name": "lateinit var servicesQuery: MutableState<String>",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.servicesQuery",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/services-query.html",
+    "searchKeys": [
+      "servicesQuery",
+      "lateinit var servicesQuery: MutableState<String>",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.servicesQuery"
+    ]
+  },
+  {
+    "name": "lateinit var sessionFlowState: SessionFlowState",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.sessionFlowState",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/session-flow-state.html",
+    "searchKeys": [
+      "sessionFlowState",
+      "lateinit var sessionFlowState: SessionFlowState",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.sessionFlowState"
+    ]
+  },
+  {
+    "name": "lateinit var sessionFlowState: SessionFlowState",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.sessionFlowState",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presentation/-hosts-screen-view-model/session-flow-state.html",
+    "searchKeys": [
+      "sessionFlowState",
+      "lateinit var sessionFlowState: SessionFlowState",
+      "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.sessionFlowState"
+    ]
+  },
+  {
+    "name": "lateinit var sessionFlowState: SessionFlowState",
+    "description": "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.sessionFlowState",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/session-flow-state.html",
+    "searchKeys": [
+      "sessionFlowState",
+      "lateinit var sessionFlowState: SessionFlowState",
+      "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.sessionFlowState"
+    ]
+  },
+  {
+    "name": "lateinit var sshPassword: MutableState<String>",
+    "description": "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshPassword",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presentation/-upsert-host-screen-view-model/ssh-password.html",
+    "searchKeys": [
+      "sshPassword",
+      "lateinit var sshPassword: MutableState<String>",
+      "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshPassword"
+    ]
+  },
+  {
+    "name": "lateinit var sshPasswordError: MutableState<Boolean>",
+    "description": "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshPasswordError",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presentation/-upsert-host-screen-view-model/ssh-password-error.html",
+    "searchKeys": [
+      "sshPasswordError",
+      "lateinit var sshPasswordError: MutableState<Boolean>",
+      "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshPasswordError"
+    ]
+  },
+  {
+    "name": "lateinit var sshUser: MutableState<String>",
+    "description": "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshUser",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presentation/-upsert-host-screen-view-model/ssh-user.html",
+    "searchKeys": [
+      "sshUser",
+      "lateinit var sshUser: MutableState<String>",
+      "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshUser"
+    ]
+  },
+  {
+    "name": "lateinit var sshUserError: MutableState<Boolean>",
+    "description": "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshUserError",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presentation/-upsert-host-screen-view-model/ssh-user-error.html",
+    "searchKeys": [
+      "sshUserError",
+      "lateinit var sshUserError: MutableState<Boolean>",
+      "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.sshUserError"
+    ]
+  },
+  {
+    "name": "lateinit var theme: MutableState<EquinoxLocalUser.ApplicationTheme>",
+    "description": "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.theme",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.adminpanel.presentation/-admin-panel-screen-view-model/theme.html",
+    "searchKeys": [
+      "theme",
+      "lateinit var theme: MutableState<EquinoxLocalUser.ApplicationTheme>",
+      "com.tecknobit.brownie.ui.screens.adminpanel.presentation.AdminPanelScreenViewModel.theme"
+    ]
+  },
+  {
+    "name": "object Companion",
+    "description": "com.tecknobit.brownie.MainActivity.Companion",
+    "location": "-brownie/com.tecknobit.brownie/-main-activity/-companion/index.html",
+    "searchKeys": [
+      "Companion",
+      "object Companion",
+      "com.tecknobit.brownie.MainActivity.Companion"
+    ]
+  },
+  {
+    "name": "object Companion",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.Companion",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-companion/index.html",
+    "searchKeys": [
+      "Companion",
+      "object Companion",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.Companion"
+    ]
+  },
+  {
+    "name": "object Companion",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.Companion",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/-companion/index.html",
+    "searchKeys": [
+      "Companion",
+      "object Companion",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.Companion"
+    ]
+  },
+  {
+    "name": "object Companion",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.StorageUsage.Companion",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-storage-usage/-companion/index.html",
+    "searchKeys": [
+      "Companion",
+      "object Companion",
+      "com.tecknobit.brownie.ui.screens.host.data.StorageUsage.Companion"
+    ]
+  },
+  {
+    "name": "object Companion",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.Companion",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/-companion/index.html",
+    "searchKeys": [
+      "Companion",
+      "object Companion",
+      "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.Companion"
+    ]
+  },
+  {
+    "name": "open fun handleHostStatus(host: SavedHost, onStatusChange: (HostStatus) -> Unit)",
+    "description": "com.tecknobit.brownie.ui.shared.presentations.HostManager.handleHostStatus",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-host-manager/handle-host-status.html",
+    "searchKeys": [
+      "handleHostStatus",
+      "open fun handleHostStatus(host: SavedHost, onStatusChange: (HostStatus) -> Unit)",
+      "com.tecknobit.brownie.ui.shared.presentations.HostManager.handleHostStatus"
+    ]
+  },
+  {
+    "name": "open fun rebootHost(host: SavedHost, onStatusChange: () -> Unit)",
+    "description": "com.tecknobit.brownie.ui.shared.presentations.HostManager.rebootHost",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-host-manager/reboot-host.html",
+    "searchKeys": [
+      "rebootHost",
+      "open fun rebootHost(host: SavedHost, onStatusChange: () -> Unit)",
+      "com.tecknobit.brownie.ui.shared.presentations.HostManager.rebootHost"
+    ]
+  },
+  {
+    "name": "open fun unregisterHost(host: SavedHost, onSuccess: () -> Unit)",
+    "description": "com.tecknobit.brownie.ui.shared.presentations.HostManager.unregisterHost",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-host-manager/unregister-host.html",
+    "searchKeys": [
+      "unregisterHost",
+      "open fun unregisterHost(host: SavedHost, onSuccess: () -> Unit)",
+      "com.tecknobit.brownie.ui.shared.presentations.HostManager.unregisterHost"
+    ]
+  },
+  {
+    "name": "open override fun changeHost(host: String)",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.changeHost",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/change-host.html",
+    "searchKeys": [
+      "changeHost",
+      "open override fun changeHost(host: String)",
+      "com.tecknobit.brownie.helpers.BrownieRequester.changeHost"
+    ]
+  },
+  {
+    "name": "open override fun retrieveItem()",
+    "description": "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.retrieveItem",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upserthost.presentation/-upsert-host-screen-view-model/retrieve-item.html",
+    "searchKeys": [
+      "retrieveItem",
+      "open override fun retrieveItem()",
+      "com.tecknobit.brownie.ui.screens.upserthost.presentation.UpsertHostScreenViewModel.retrieveItem"
+    ]
+  },
+  {
+    "name": "open override fun retrieveItem()",
+    "description": "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.retrieveItem",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.upsertservice.presentation/-upsert-service-screen-view-model/retrieve-item.html",
+    "searchKeys": [
+      "retrieveItem",
+      "open override fun retrieveItem()",
+      "com.tecknobit.brownie.ui.screens.upsertservice.presentation.UpsertServiceScreenViewModel.retrieveItem"
+    ]
+  },
+  {
+    "name": "open override fun showFailure(error: JsonObject)",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.showFailure",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/show-failure.html",
+    "searchKeys": [
+      "showFailure",
+      "open override fun showFailure(error: JsonObject)",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.showFailure"
+    ]
+  },
+  {
+    "name": "open override fun showFailure(error: JsonObject)",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.showFailure",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presentation/-hosts-screen-view-model/show-failure.html",
+    "searchKeys": [
+      "showFailure",
+      "open override fun showFailure(error: JsonObject)",
+      "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.showFailure"
+    ]
+  },
+  {
+    "name": "open override val hostAddress: String",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.hostAddress",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/host-address.html",
+    "searchKeys": [
+      "hostAddress",
+      "open override val hostAddress: String",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.hostAddress"
+    ]
+  },
+  {
+    "name": "open override val hostAddress: String",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl.hostAddress",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/-saved-host-impl/host-address.html",
+    "searchKeys": [
+      "hostAddress",
+      "open override val hostAddress: String",
+      "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl.hostAddress"
+    ]
+  },
+  {
+    "name": "open override val id: String",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.id",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/id.html",
+    "searchKeys": [
+      "id",
+      "open override val id: String",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.id"
+    ]
+  },
+  {
+    "name": "open override val id: String",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl.id",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/-saved-host-impl/id.html",
+    "searchKeys": [
+      "id",
+      "open override val id: String",
+      "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl.id"
+    ]
+  },
+  {
+    "name": "open override val name: String",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.name",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/name.html",
+    "searchKeys": [
+      "name",
+      "open override val name: String",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.name"
+    ]
+  },
+  {
+    "name": "open override val name: String",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl.name",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/-saved-host-impl/name.html",
+    "searchKeys": [
+      "name",
+      "open override val name: String",
+      "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl.name"
+    ]
+  },
+  {
+    "name": "open override val percentValue: Double",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.CpuUsage.percentValue",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-cpu-usage/percent-value.html",
+    "searchKeys": [
+      "percentValue",
+      "open override val percentValue: Double",
+      "com.tecknobit.brownie.ui.screens.host.data.CpuUsage.percentValue"
+    ]
+  },
+  {
+    "name": "open override val percentValue: Double",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.MemoryUsage.percentValue",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-memory-usage/percent-value.html",
+    "searchKeys": [
+      "percentValue",
+      "open override val percentValue: Double",
+      "com.tecknobit.brownie.ui.screens.host.data.MemoryUsage.percentValue"
+    ]
+  },
+  {
+    "name": "open override val percentValue: Double",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.SavedHostStatsImpl.percentValue",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-stats/-saved-host-stats-impl/percent-value.html",
+    "searchKeys": [
+      "percentValue",
+      "open override val percentValue: Double",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.SavedHostStatsImpl.percentValue"
+    ]
+  },
+  {
+    "name": "open override val percentValue: Double",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.StorageUsage.percentValue",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-storage-usage/percent-value.html",
+    "searchKeys": [
+      "percentValue",
+      "open override val percentValue: Double",
+      "com.tecknobit.brownie.ui.screens.host.data.StorageUsage.percentValue"
+    ]
+  },
+  {
+    "name": "open override val totalValue: Double",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.MemoryUsage.totalValue",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-memory-usage/total-value.html",
+    "searchKeys": [
+      "totalValue",
+      "open override val totalValue: Double",
+      "com.tecknobit.brownie.ui.screens.host.data.MemoryUsage.totalValue"
+    ]
+  },
+  {
+    "name": "open override val totalValue: Double",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.SavedHostStatsImpl.totalValue",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-stats/-saved-host-stats-impl/total-value.html",
+    "searchKeys": [
+      "totalValue",
+      "open override val totalValue: Double",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.SavedHostStatsImpl.totalValue"
+    ]
+  },
+  {
+    "name": "open override val totalValue: Double",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.StorageUsage.totalValue",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-storage-usage/total-value.html",
+    "searchKeys": [
+      "totalValue",
+      "open override val totalValue: Double",
+      "com.tecknobit.brownie.ui.screens.host.data.StorageUsage.totalValue"
+    ]
+  },
+  {
+    "name": "open override val totalValue: Double = 100.0",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.CpuUsage.totalValue",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-cpu-usage/total-value.html",
+    "searchKeys": [
+      "totalValue",
+      "open override val totalValue: Double = 100.0",
+      "com.tecknobit.brownie.ui.screens.host.data.CpuUsage.totalValue"
+    ]
+  },
+  {
+    "name": "open override val usageValue: Double",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.CpuUsage.usageValue",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-cpu-usage/usage-value.html",
+    "searchKeys": [
+      "usageValue",
+      "open override val usageValue: Double",
+      "com.tecknobit.brownie.ui.screens.host.data.CpuUsage.usageValue"
+    ]
+  },
+  {
+    "name": "open override val usageValue: Double",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.MemoryUsage.usageValue",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-memory-usage/usage-value.html",
+    "searchKeys": [
+      "usageValue",
+      "open override val usageValue: Double",
+      "com.tecknobit.brownie.ui.screens.host.data.MemoryUsage.usageValue"
+    ]
+  },
+  {
+    "name": "open override val usageValue: Double",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.SavedHostStatsImpl.usageValue",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-stats/-saved-host-stats-impl/usage-value.html",
+    "searchKeys": [
+      "usageValue",
+      "open override val usageValue: Double",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats.SavedHostStatsImpl.usageValue"
+    ]
+  },
+  {
+    "name": "open override val usageValue: Double",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.StorageUsage.usageValue",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-storage-usage/usage-value.html",
+    "searchKeys": [
+      "usageValue",
+      "open override val usageValue: Double",
+      "com.tecknobit.brownie.ui.screens.host.data.StorageUsage.usageValue"
+    ]
+  },
+  {
+    "name": "open override var requestsScope: CoroutineScope",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.requestsScope",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/requests-scope.html",
+    "searchKeys": [
+      "requestsScope",
+      "open override var requestsScope: CoroutineScope",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.requestsScope"
+    ]
+  },
+  {
+    "name": "open override var requestsScope: CoroutineScope",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.requestsScope",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presentation/-hosts-screen-view-model/requests-scope.html",
+    "searchKeys": [
+      "requestsScope",
+      "open override var requestsScope: CoroutineScope",
+      "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.requestsScope"
+    ]
+  },
+  {
+    "name": "open override var status: HostStatus",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.status",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/status.html",
+    "searchKeys": [
+      "status",
+      "open override var status: HostStatus",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.status"
+    ]
+  },
+  {
+    "name": "open override var status: HostStatus",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl.status",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.data/-saved-host/-saved-host-impl/status.html",
+    "searchKeys": [
+      "status",
+      "open override var status: HostStatus",
+      "com.tecknobit.brownie.ui.screens.hosts.data.SavedHost.SavedHostImpl.status"
+    ]
+  },
+  {
+    "name": "sealed interface SavedHostStats",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-stats/index.html",
+    "searchKeys": [
+      "SavedHostStats",
+      "sealed interface SavedHostStats",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostStats"
+    ]
+  },
+  {
+    "name": "suspend fun addService(hostId: String, serviceName: String, programArguments: String, purgeNohupOutAfterReboot: Boolean, autoRunAfterHostReboot: Boolean): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.addService",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/add-service.html",
+    "searchKeys": [
+      "addService",
+      "suspend fun addService(hostId: String, serviceName: String, programArguments: String, purgeNohupOutAfterReboot: Boolean, autoRunAfterHostReboot: Boolean): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.addService"
+    ]
+  },
+  {
+    "name": "suspend fun connectToSession(serverSecret: String, joinCode: String, password: String): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.connectToSession",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/connect-to-session.html",
+    "searchKeys": [
+      "connectToSession",
+      "suspend fun connectToSession(serverSecret: String, joinCode: String, password: String): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.connectToSession"
+    ]
+  },
+  {
+    "name": "suspend fun createSession(serverSecret: String, password: String): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.createSession",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/create-session.html",
+    "searchKeys": [
+      "createSession",
+      "suspend fun createSession(serverSecret: String, password: String): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.createSession"
+    ]
+  },
+  {
+    "name": "suspend fun deleteService(hostId: String, serviceId: String): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.deleteService",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/delete-service.html",
+    "searchKeys": [
+      "deleteService",
+      "suspend fun deleteService(hostId: String, serviceId: String): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.deleteService"
+    ]
+  },
+  {
+    "name": "suspend fun deleteSession(password: String): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.deleteSession",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/delete-session.html",
+    "searchKeys": [
+      "deleteSession",
+      "suspend fun deleteSession(password: String): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.deleteSession"
+    ]
+  },
+  {
+    "name": "suspend fun editHost(hostId: String, hostName: String, hostAddress: String, sshUser: String, sshPassword: String): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.editHost",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/edit-host.html",
+    "searchKeys": [
+      "editHost",
+      "suspend fun editHost(hostId: String, hostName: String, hostAddress: String, sshUser: String, sshPassword: String): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.editHost"
+    ]
+  },
+  {
+    "name": "suspend fun editService(hostId: String, serviceId: String, serviceName: String, programArguments: String, purgeNohupOutAfterReboot: Boolean, autoRunAfterHostReboot: Boolean): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.editService",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/edit-service.html",
+    "searchKeys": [
+      "editService",
+      "suspend fun editService(hostId: String, serviceId: String, serviceName: String, programArguments: String, purgeNohupOutAfterReboot: Boolean, autoRunAfterHostReboot: Boolean): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.editService"
+    ]
+  },
+  {
+    "name": "suspend fun getHost(hostId: String): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.getHost",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/get-host.html",
+    "searchKeys": [
+      "getHost",
+      "suspend fun getHost(hostId: String): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.getHost"
+    ]
+  },
+  {
+    "name": "suspend fun getHostOverview(hostId: String): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.getHostOverview",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/get-host-overview.html",
+    "searchKeys": [
+      "getHostOverview",
+      "suspend fun getHostOverview(hostId: String): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.getHostOverview"
+    ]
+  },
+  {
+    "name": "suspend fun getHosts(page: Int, keywords: String, statuses: List<HostStatus>): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.getHosts",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/get-hosts.html",
+    "searchKeys": [
+      "getHosts",
+      "suspend fun getHosts(page: Int, keywords: String, statuses: List<HostStatus>): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.getHosts"
+    ]
+  },
+  {
+    "name": "suspend fun getHostsStatus(currentHosts: List<SavedHost.SavedHostImpl>?): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.getHostsStatus",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/get-hosts-status.html",
+    "searchKeys": [
+      "getHostsStatus",
+      "suspend fun getHostsStatus(currentHosts: List<SavedHost.SavedHostImpl>?): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.getHostsStatus"
+    ]
+  },
+  {
+    "name": "suspend fun getService(hostId: String, serviceId: String): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.getService",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/get-service.html",
+    "searchKeys": [
+      "getService",
+      "suspend fun getService(hostId: String, serviceId: String): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.getService"
+    ]
+  },
+  {
+    "name": "suspend fun getServices(hostId: String, page: Int, keywords: String, statuses: List<ServiceStatus>): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.getServices",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/get-services.html",
+    "searchKeys": [
+      "getServices",
+      "suspend fun getServices(hostId: String, page: Int, keywords: String, statuses: List<ServiceStatus>): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.getServices"
+    ]
+  },
+  {
+    "name": "suspend fun getServicesStatus(hostId: String, currentServices: List<HostService>?): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.getServicesStatus",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/get-services-status.html",
+    "searchKeys": [
+      "getServicesStatus",
+      "suspend fun getServicesStatus(hostId: String, currentServices: List<HostService>?): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.getServicesStatus"
+    ]
+  },
+  {
+    "name": "suspend fun handleHostStatus(host: SavedHost, newStatus: HostStatus): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.handleHostStatus",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/handle-host-status.html",
+    "searchKeys": [
+      "handleHostStatus",
+      "suspend fun handleHostStatus(host: SavedHost, newStatus: HostStatus): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.handleHostStatus"
+    ]
+  },
+  {
+    "name": "suspend fun handleServiceStatus(hostId: String, service: HostService, newStatus: ServiceStatus): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.handleServiceStatus",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/handle-service-status.html",
+    "searchKeys": [
+      "handleServiceStatus",
+      "suspend fun handleServiceStatus(hostId: String, service: HostService, newStatus: ServiceStatus): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.handleServiceStatus"
+    ]
+  },
+  {
+    "name": "suspend fun rebootHost(host: SavedHost): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.rebootHost",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/reboot-host.html",
+    "searchKeys": [
+      "rebootHost",
+      "suspend fun rebootHost(host: SavedHost): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.rebootHost"
+    ]
+  },
+  {
+    "name": "suspend fun rebootService(hostId: String, service: HostService): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.rebootService",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/reboot-service.html",
+    "searchKeys": [
+      "rebootService",
+      "suspend fun rebootService(hostId: String, service: HostService): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.rebootService"
+    ]
+  },
+  {
+    "name": "suspend fun registerHost(hostName: String, hostAddress: String, sshUser: String, sshPassword: String): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.registerHost",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/register-host.html",
+    "searchKeys": [
+      "registerHost",
+      "suspend fun registerHost(hostName: String, hostAddress: String, sshUser: String, sshPassword: String): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.registerHost"
+    ]
+  },
+  {
+    "name": "suspend fun removeService(hostId: String, serviceId: String, removeFromTheHost: Boolean = false): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.removeService",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/remove-service.html",
+    "searchKeys": [
+      "removeService",
+      "suspend fun removeService(hostId: String, serviceId: String, removeFromTheHost: Boolean = false): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.removeService"
+    ]
+  },
+  {
+    "name": "suspend fun unregisterHost(host: SavedHost): JsonObject",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.unregisterHost",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/unregister-host.html",
+    "searchKeys": [
+      "unregisterHost",
+      "suspend fun unregisterHost(host: SavedHost): JsonObject",
+      "com.tecknobit.brownie.helpers.BrownieRequester.unregisterHost"
+    ]
+  },
+  {
+    "name": "val AppTypography: Typography",
+    "description": "com.tecknobit.brownie.ui.theme.AppTypography",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/-app-typography.html",
+    "searchKeys": [
+      "AppTypography",
+      "val AppTypography: Typography",
+      "com.tecknobit.brownie.ui.theme.AppTypography"
+    ]
+  },
+  {
+    "name": "val AssignmentAdd: ImageVector",
+    "description": "com.tecknobit.brownie.ui.icons.AssignmentAdd",
+    "location": "-brownie/com.tecknobit.brownie.ui.icons/-assignment-add.html",
+    "searchKeys": [
+      "AssignmentAdd",
+      "val AssignmentAdd: ImageVector",
+      "com.tecknobit.brownie.ui.icons.AssignmentAdd"
+    ]
+  },
+  {
+    "name": "val RuleSettings: ImageVector",
+    "description": "com.tecknobit.brownie.ui.icons.RuleSettings",
+    "location": "-brownie/com.tecknobit.brownie.ui.icons/-rule-settings.html",
+    "searchKeys": [
+      "RuleSettings",
+      "val RuleSettings: ImageVector",
+      "com.tecknobit.brownie.ui.icons.RuleSettings"
+    ]
+  },
+  {
+    "name": "val ServerSpark: ImageVector",
+    "description": "com.tecknobit.brownie.ui.icons.ServerSpark",
+    "location": "-brownie/com.tecknobit.brownie.ui.icons/-server-spark.html",
+    "searchKeys": [
+      "ServerSpark",
+      "val ServerSpark: ImageVector",
+      "com.tecknobit.brownie.ui.icons.ServerSpark"
+    ]
+  },
+  {
+    "name": "val alertTitleStyle: TextStyle",
+    "description": "com.tecknobit.brownie.ui.components.alertTitleStyle",
+    "location": "-brownie/com.tecknobit.brownie.ui.components/alert-title-style.html",
+    "searchKeys": [
+      "alertTitleStyle",
+      "val alertTitleStyle: TextStyle",
+      "com.tecknobit.brownie.ui.components.alertTitleStyle"
+    ]
+  },
+  {
+    "name": "val autoRunAfterHostReboot: Boolean",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceConfiguration.autoRunAfterHostReboot",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-service-configuration/auto-run-after-host-reboot.html",
+    "searchKeys": [
+      "autoRunAfterHostReboot",
+      "val autoRunAfterHostReboot: Boolean",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceConfiguration.autoRunAfterHostReboot"
+    ]
+  },
+  {
+    "name": "val backgroundDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.backgroundDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/background-dark.html",
+    "searchKeys": [
+      "backgroundDark",
+      "val backgroundDark: Color",
+      "com.tecknobit.brownie.ui.theme.backgroundDark"
+    ]
+  },
+  {
+    "name": "val backgroundLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.backgroundLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/background-light.html",
+    "searchKeys": [
+      "backgroundLight",
+      "val backgroundLight: Color",
+      "com.tecknobit.brownie.ui.theme.backgroundLight"
+    ]
+  },
+  {
+    "name": "val baseline: Typography",
+    "description": "com.tecknobit.brownie.ui.theme.baseline",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/baseline.html",
+    "searchKeys": [
+      "baseline",
+      "val baseline: Typography",
+      "com.tecknobit.brownie.ui.theme.baseline"
+    ]
+  },
+  {
+    "name": "val clock: Double",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.CpuUsage.clock",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-cpu-usage/clock.html",
+    "searchKeys": [
+      "clock",
+      "val clock: Double",
+      "com.tecknobit.brownie.ui.screens.host.data.CpuUsage.clock"
+    ]
+  },
+  {
+    "name": "val configuration: HostService.ServiceConfiguration",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.configuration",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/configuration.html",
+    "searchKeys": [
+      "configuration",
+      "val configuration: HostService.ServiceConfiguration",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.configuration"
+    ]
+  },
+  {
+    "name": "val cpuUsage: CpuUsage",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.cpuUsage",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/cpu-usage.html",
+    "searchKeys": [
+      "cpuUsage",
+      "val cpuUsage: CpuUsage",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.cpuUsage"
+    ]
+  },
+  {
+    "name": "val darkGreen: Color",
+    "description": "com.tecknobit.brownie.ui.theme.darkGreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/dark-green.html",
+    "searchKeys": [
+      "darkGreen",
+      "val darkGreen: Color",
+      "com.tecknobit.brownie.ui.theme.darkGreen"
+    ]
+  },
+  {
+    "name": "val darkViolet: Color",
+    "description": "com.tecknobit.brownie.ui.theme.darkViolet",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/dark-violet.html",
+    "searchKeys": [
+      "darkViolet",
+      "val darkViolet: Color",
+      "com.tecknobit.brownie.ui.theme.darkViolet"
+    ]
+  },
+  {
+    "name": "val darkYellow: Color",
+    "description": "com.tecknobit.brownie.ui.theme.darkYellow",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/dark-yellow.html",
+    "searchKeys": [
+      "darkYellow",
+      "val darkYellow: Color",
+      "com.tecknobit.brownie.ui.theme.darkYellow"
+    ]
+  },
+  {
+    "name": "val errorContainerDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.errorContainerDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/error-container-dark.html",
+    "searchKeys": [
+      "errorContainerDark",
+      "val errorContainerDark: Color",
+      "com.tecknobit.brownie.ui.theme.errorContainerDark"
+    ]
+  },
+  {
+    "name": "val errorContainerLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.errorContainerLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/error-container-light.html",
+    "searchKeys": [
+      "errorContainerLight",
+      "val errorContainerLight: Color",
+      "com.tecknobit.brownie.ui.theme.errorContainerLight"
+    ]
+  },
+  {
+    "name": "val errorDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.errorDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/error-dark.html",
+    "searchKeys": [
+      "errorDark",
+      "val errorDark: Color",
+      "com.tecknobit.brownie.ui.theme.errorDark"
+    ]
+  },
+  {
+    "name": "val errorLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.errorLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/error-light.html",
+    "searchKeys": [
+      "errorLight",
+      "val errorLight: Color",
+      "com.tecknobit.brownie.ui.theme.errorLight"
+    ]
+  },
+  {
+    "name": "val eventDate: Long",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceEvent.eventDate",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-service-event/event-date.html",
+    "searchKeys": [
+      "eventDate",
+      "val eventDate: Long",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceEvent.eventDate"
+    ]
+  },
+  {
+    "name": "val eventDate: Long",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.HostHistoryEvent.eventDate",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/-host-history-event/event-date.html",
+    "searchKeys": [
+      "eventDate",
+      "val eventDate: Long",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.HostHistoryEvent.eventDate"
+    ]
+  },
+  {
+    "name": "val events: List<HostService.ServiceEvent>",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.events",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/events.html",
+    "searchKeys": [
+      "events",
+      "val events: List<HostService.ServiceEvent>",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.events"
+    ]
+  },
+  {
+    "name": "val extra: JsonElement?",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceEvent.extra",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-service-event/extra.html",
+    "searchKeys": [
+      "extra",
+      "val extra: JsonElement?",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceEvent.extra"
+    ]
+  },
+  {
+    "name": "val extra: JsonElement?",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.HostHistoryEvent.extra",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/-host-history-event/extra.html",
+    "searchKeys": [
+      "extra",
+      "val extra: JsonElement?",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.HostHistoryEvent.extra"
+    ]
+  },
+  {
+    "name": "val history: List<SavedHostOverview.HostHistoryEvent>",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.history",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/history.html",
+    "searchKeys": [
+      "history",
+      "val history: List<SavedHostOverview.HostHistoryEvent>",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.history"
+    ]
+  },
+  {
+    "name": "val hostOverview: StateFlow<SavedHostOverview?>",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.hostOverview",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/host-overview.html",
+    "searchKeys": [
+      "hostOverview",
+      "val hostOverview: StateFlow<SavedHostOverview?>",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.hostOverview"
+    ]
+  },
+  {
+    "name": "val hostsState: PaginationState<Int, SavedHost.SavedHostImpl>",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.hostsState",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presentation/-hosts-screen-view-model/hosts-state.html",
+    "searchKeys": [
+      "hostsState",
+      "val hostsState: PaginationState<Int, SavedHost.SavedHostImpl>",
+      "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.hostsState"
+    ]
+  },
+  {
+    "name": "val id: String",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceConfiguration.id",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-service-configuration/id.html",
+    "searchKeys": [
+      "id",
+      "val id: String",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceConfiguration.id"
+    ]
+  },
+  {
+    "name": "val id: String",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceEvent.id",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-service-event/id.html",
+    "searchKeys": [
+      "id",
+      "val id: String",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceEvent.id"
+    ]
+  },
+  {
+    "name": "val id: String",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.id",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/id.html",
+    "searchKeys": [
+      "id",
+      "val id: String",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.id"
+    ]
+  },
+  {
+    "name": "val id: String",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.HostHistoryEvent.id",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/-host-history-event/id.html",
+    "searchKeys": [
+      "id",
+      "val id: String",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.HostHistoryEvent.id"
+    ]
+  },
+  {
+    "name": "val insertionDate: Long",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.insertionDate",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/insertion-date.html",
+    "searchKeys": [
+      "insertionDate",
+      "val insertionDate: Long",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.insertionDate"
+    ]
+  },
+  {
+    "name": "val inverseOnSurfaceDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.inverseOnSurfaceDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/inverse-on-surface-dark.html",
+    "searchKeys": [
+      "inverseOnSurfaceDark",
+      "val inverseOnSurfaceDark: Color",
+      "com.tecknobit.brownie.ui.theme.inverseOnSurfaceDark"
+    ]
+  },
+  {
+    "name": "val inverseOnSurfaceLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.inverseOnSurfaceLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/inverse-on-surface-light.html",
+    "searchKeys": [
+      "inverseOnSurfaceLight",
+      "val inverseOnSurfaceLight: Color",
+      "com.tecknobit.brownie.ui.theme.inverseOnSurfaceLight"
+    ]
+  },
+  {
+    "name": "val inversePrimaryDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.inversePrimaryDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/inverse-primary-dark.html",
+    "searchKeys": [
+      "inversePrimaryDark",
+      "val inversePrimaryDark: Color",
+      "com.tecknobit.brownie.ui.theme.inversePrimaryDark"
+    ]
+  },
+  {
+    "name": "val inversePrimaryLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.inversePrimaryLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/inverse-primary-light.html",
+    "searchKeys": [
+      "inversePrimaryLight",
+      "val inversePrimaryLight: Color",
+      "com.tecknobit.brownie.ui.theme.inversePrimaryLight"
+    ]
+  },
+  {
+    "name": "val inverseSurfaceDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.inverseSurfaceDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/inverse-surface-dark.html",
+    "searchKeys": [
+      "inverseSurfaceDark",
+      "val inverseSurfaceDark: Color",
+      "com.tecknobit.brownie.ui.theme.inverseSurfaceDark"
+    ]
+  },
+  {
+    "name": "val inverseSurfaceLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.inverseSurfaceLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/inverse-surface-light.html",
+    "searchKeys": [
+      "inverseSurfaceLight",
+      "val inverseSurfaceLight: Color",
+      "com.tecknobit.brownie.ui.theme.inverseSurfaceLight"
+    ]
+  },
+  {
+    "name": "val item: StateFlow<T?>",
+    "description": "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.item",
+    "location": "-brownie/com.tecknobit.brownie.ui.shared.presentations/-upsert-screen-view-model/item.html",
+    "searchKeys": [
+      "item",
+      "val item: StateFlow<T?>",
+      "com.tecknobit.brownie.ui.shared.presentations.UpsertScreenViewModel.item"
+    ]
+  },
+  {
+    "name": "val lightGreen: Color",
+    "description": "com.tecknobit.brownie.ui.theme.lightGreen",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/light-green.html",
+    "searchKeys": [
+      "lightGreen",
+      "val lightGreen: Color",
+      "com.tecknobit.brownie.ui.theme.lightGreen"
+    ]
+  },
+  {
+    "name": "val lightViolet: Color",
+    "description": "com.tecknobit.brownie.ui.theme.lightViolet",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/light-violet.html",
+    "searchKeys": [
+      "lightViolet",
+      "val lightViolet: Color",
+      "com.tecknobit.brownie.ui.theme.lightViolet"
+    ]
+  },
+  {
+    "name": "val lightYellow: Color",
+    "description": "com.tecknobit.brownie.ui.theme.lightYellow",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/light-yellow.html",
+    "searchKeys": [
+      "lightYellow",
+      "val lightYellow: Color",
+      "com.tecknobit.brownie.ui.theme.lightYellow"
+    ]
+  },
+  {
+    "name": "val localSession: BrownieLocalSession",
+    "description": "com.tecknobit.brownie.localSession",
+    "location": "-brownie/com.tecknobit.brownie/local-session.html",
+    "searchKeys": [
+      "localSession",
+      "val localSession: BrownieLocalSession",
+      "com.tecknobit.brownie.localSession"
+    ]
+  },
+  {
+    "name": "val memoryUsage: MemoryUsage",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.memoryUsage",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/memory-usage.html",
+    "searchKeys": [
+      "memoryUsage",
+      "val memoryUsage: MemoryUsage",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.memoryUsage"
+    ]
+  },
+  {
+    "name": "val name: String",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.name",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/name.html",
+    "searchKeys": [
+      "name",
+      "val name: String",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.name"
+    ]
+  },
+  {
+    "name": "val onBackgroundDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onBackgroundDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-background-dark.html",
+    "searchKeys": [
+      "onBackgroundDark",
+      "val onBackgroundDark: Color",
+      "com.tecknobit.brownie.ui.theme.onBackgroundDark"
+    ]
+  },
+  {
+    "name": "val onBackgroundLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onBackgroundLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-background-light.html",
+    "searchKeys": [
+      "onBackgroundLight",
+      "val onBackgroundLight: Color",
+      "com.tecknobit.brownie.ui.theme.onBackgroundLight"
+    ]
+  },
+  {
+    "name": "val onErrorContainerDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onErrorContainerDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-error-container-dark.html",
+    "searchKeys": [
+      "onErrorContainerDark",
+      "val onErrorContainerDark: Color",
+      "com.tecknobit.brownie.ui.theme.onErrorContainerDark"
+    ]
+  },
+  {
+    "name": "val onErrorContainerLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onErrorContainerLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-error-container-light.html",
+    "searchKeys": [
+      "onErrorContainerLight",
+      "val onErrorContainerLight: Color",
+      "com.tecknobit.brownie.ui.theme.onErrorContainerLight"
+    ]
+  },
+  {
+    "name": "val onErrorDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onErrorDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-error-dark.html",
+    "searchKeys": [
+      "onErrorDark",
+      "val onErrorDark: Color",
+      "com.tecknobit.brownie.ui.theme.onErrorDark"
+    ]
+  },
+  {
+    "name": "val onErrorLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onErrorLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-error-light.html",
+    "searchKeys": [
+      "onErrorLight",
+      "val onErrorLight: Color",
+      "com.tecknobit.brownie.ui.theme.onErrorLight"
+    ]
+  },
+  {
+    "name": "val onPrimaryContainerDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onPrimaryContainerDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-primary-container-dark.html",
+    "searchKeys": [
+      "onPrimaryContainerDark",
+      "val onPrimaryContainerDark: Color",
+      "com.tecknobit.brownie.ui.theme.onPrimaryContainerDark"
+    ]
+  },
+  {
+    "name": "val onPrimaryContainerLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onPrimaryContainerLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-primary-container-light.html",
+    "searchKeys": [
+      "onPrimaryContainerLight",
+      "val onPrimaryContainerLight: Color",
+      "com.tecknobit.brownie.ui.theme.onPrimaryContainerLight"
+    ]
+  },
+  {
+    "name": "val onPrimaryDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onPrimaryDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-primary-dark.html",
+    "searchKeys": [
+      "onPrimaryDark",
+      "val onPrimaryDark: Color",
+      "com.tecknobit.brownie.ui.theme.onPrimaryDark"
+    ]
+  },
+  {
+    "name": "val onPrimaryLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onPrimaryLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-primary-light.html",
+    "searchKeys": [
+      "onPrimaryLight",
+      "val onPrimaryLight: Color",
+      "com.tecknobit.brownie.ui.theme.onPrimaryLight"
+    ]
+  },
+  {
+    "name": "val onSecondaryContainerDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onSecondaryContainerDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-secondary-container-dark.html",
+    "searchKeys": [
+      "onSecondaryContainerDark",
+      "val onSecondaryContainerDark: Color",
+      "com.tecknobit.brownie.ui.theme.onSecondaryContainerDark"
+    ]
+  },
+  {
+    "name": "val onSecondaryContainerLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onSecondaryContainerLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-secondary-container-light.html",
+    "searchKeys": [
+      "onSecondaryContainerLight",
+      "val onSecondaryContainerLight: Color",
+      "com.tecknobit.brownie.ui.theme.onSecondaryContainerLight"
+    ]
+  },
+  {
+    "name": "val onSecondaryDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onSecondaryDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-secondary-dark.html",
+    "searchKeys": [
+      "onSecondaryDark",
+      "val onSecondaryDark: Color",
+      "com.tecknobit.brownie.ui.theme.onSecondaryDark"
+    ]
+  },
+  {
+    "name": "val onSecondaryLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onSecondaryLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-secondary-light.html",
+    "searchKeys": [
+      "onSecondaryLight",
+      "val onSecondaryLight: Color",
+      "com.tecknobit.brownie.ui.theme.onSecondaryLight"
+    ]
+  },
+  {
+    "name": "val onSurfaceDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onSurfaceDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-surface-dark.html",
+    "searchKeys": [
+      "onSurfaceDark",
+      "val onSurfaceDark: Color",
+      "com.tecknobit.brownie.ui.theme.onSurfaceDark"
+    ]
+  },
+  {
+    "name": "val onSurfaceLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onSurfaceLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-surface-light.html",
+    "searchKeys": [
+      "onSurfaceLight",
+      "val onSurfaceLight: Color",
+      "com.tecknobit.brownie.ui.theme.onSurfaceLight"
+    ]
+  },
+  {
+    "name": "val onSurfaceVariantDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onSurfaceVariantDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-surface-variant-dark.html",
+    "searchKeys": [
+      "onSurfaceVariantDark",
+      "val onSurfaceVariantDark: Color",
+      "com.tecknobit.brownie.ui.theme.onSurfaceVariantDark"
+    ]
+  },
+  {
+    "name": "val onSurfaceVariantLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onSurfaceVariantLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-surface-variant-light.html",
+    "searchKeys": [
+      "onSurfaceVariantLight",
+      "val onSurfaceVariantLight: Color",
+      "com.tecknobit.brownie.ui.theme.onSurfaceVariantLight"
+    ]
+  },
+  {
+    "name": "val onTertiaryContainerDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onTertiaryContainerDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-tertiary-container-dark.html",
+    "searchKeys": [
+      "onTertiaryContainerDark",
+      "val onTertiaryContainerDark: Color",
+      "com.tecknobit.brownie.ui.theme.onTertiaryContainerDark"
+    ]
+  },
+  {
+    "name": "val onTertiaryContainerLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onTertiaryContainerLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-tertiary-container-light.html",
+    "searchKeys": [
+      "onTertiaryContainerLight",
+      "val onTertiaryContainerLight: Color",
+      "com.tecknobit.brownie.ui.theme.onTertiaryContainerLight"
+    ]
+  },
+  {
+    "name": "val onTertiaryDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onTertiaryDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-tertiary-dark.html",
+    "searchKeys": [
+      "onTertiaryDark",
+      "val onTertiaryDark: Color",
+      "com.tecknobit.brownie.ui.theme.onTertiaryDark"
+    ]
+  },
+  {
+    "name": "val onTertiaryLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.onTertiaryLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/on-tertiary-light.html",
+    "searchKeys": [
+      "onTertiaryLight",
+      "val onTertiaryLight: Color",
+      "com.tecknobit.brownie.ui.theme.onTertiaryLight"
+    ]
+  },
+  {
+    "name": "val outlineDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.outlineDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/outline-dark.html",
+    "searchKeys": [
+      "outlineDark",
+      "val outlineDark: Color",
+      "com.tecknobit.brownie.ui.theme.outlineDark"
+    ]
+  },
+  {
+    "name": "val outlineLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.outlineLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/outline-light.html",
+    "searchKeys": [
+      "outlineLight",
+      "val outlineLight: Color",
+      "com.tecknobit.brownie.ui.theme.outlineLight"
+    ]
+  },
+  {
+    "name": "val outlineVariantDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.outlineVariantDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/outline-variant-dark.html",
+    "searchKeys": [
+      "outlineVariantDark",
+      "val outlineVariantDark: Color",
+      "com.tecknobit.brownie.ui.theme.outlineVariantDark"
+    ]
+  },
+  {
+    "name": "val outlineVariantLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.outlineVariantLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/outline-variant-light.html",
+    "searchKeys": [
+      "outlineVariantLight",
+      "val outlineVariantLight: Color",
+      "com.tecknobit.brownie.ui.theme.outlineVariantLight"
+    ]
+  },
+  {
+    "name": "val primaryContainerDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.primaryContainerDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/primary-container-dark.html",
+    "searchKeys": [
+      "primaryContainerDark",
+      "val primaryContainerDark: Color",
+      "com.tecknobit.brownie.ui.theme.primaryContainerDark"
+    ]
+  },
+  {
+    "name": "val primaryContainerLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.primaryContainerLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/primary-container-light.html",
+    "searchKeys": [
+      "primaryContainerLight",
+      "val primaryContainerLight: Color",
+      "com.tecknobit.brownie.ui.theme.primaryContainerLight"
+    ]
+  },
+  {
+    "name": "val primaryDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.primaryDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/primary-dark.html",
+    "searchKeys": [
+      "primaryDark",
+      "val primaryDark: Color",
+      "com.tecknobit.brownie.ui.theme.primaryDark"
+    ]
+  },
+  {
+    "name": "val primaryLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.primaryLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/primary-light.html",
+    "searchKeys": [
+      "primaryLight",
+      "val primaryLight: Color",
+      "com.tecknobit.brownie.ui.theme.primaryLight"
+    ]
+  },
+  {
+    "name": "val programArguments: String",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceConfiguration.programArguments",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-service-configuration/program-arguments.html",
+    "searchKeys": [
+      "programArguments",
+      "val programArguments: String",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceConfiguration.programArguments"
+    ]
+  },
+  {
+    "name": "val purgeNohupOutAfterReboot: Boolean",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceConfiguration.purgeNohupOutAfterReboot",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-service-configuration/purge-nohup-out-after-reboot.html",
+    "searchKeys": [
+      "purgeNohupOutAfterReboot",
+      "val purgeNohupOutAfterReboot: Boolean",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceConfiguration.purgeNohupOutAfterReboot"
+    ]
+  },
+  {
+    "name": "val refreshingHosts: SharedFlow<Boolean>",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.refreshingHosts",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presentation/-hosts-screen-view-model/refreshing-hosts.html",
+    "searchKeys": [
+      "refreshingHosts",
+      "val refreshingHosts: SharedFlow<Boolean>",
+      "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.refreshingHosts"
+    ]
+  },
+  {
+    "name": "val refreshingServices: SharedFlow<Boolean>",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.refreshingServices",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/refreshing-services.html",
+    "searchKeys": [
+      "refreshingServices",
+      "val refreshingServices: SharedFlow<Boolean>",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.refreshingServices"
+    ]
+  },
+  {
+    "name": "val scrimDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.scrimDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/scrim-dark.html",
+    "searchKeys": [
+      "scrimDark",
+      "val scrimDark: Color",
+      "com.tecknobit.brownie.ui.theme.scrimDark"
+    ]
+  },
+  {
+    "name": "val scrimLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.scrimLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/scrim-light.html",
+    "searchKeys": [
+      "scrimLight",
+      "val scrimLight: Color",
+      "com.tecknobit.brownie.ui.theme.scrimLight"
+    ]
+  },
+  {
+    "name": "val secondaryContainerDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.secondaryContainerDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/secondary-container-dark.html",
+    "searchKeys": [
+      "secondaryContainerDark",
+      "val secondaryContainerDark: Color",
+      "com.tecknobit.brownie.ui.theme.secondaryContainerDark"
+    ]
+  },
+  {
+    "name": "val secondaryContainerLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.secondaryContainerLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/secondary-container-light.html",
+    "searchKeys": [
+      "secondaryContainerLight",
+      "val secondaryContainerLight: Color",
+      "com.tecknobit.brownie.ui.theme.secondaryContainerLight"
+    ]
+  },
+  {
+    "name": "val secondaryDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.secondaryDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/secondary-dark.html",
+    "searchKeys": [
+      "secondaryDark",
+      "val secondaryDark: Color",
+      "com.tecknobit.brownie.ui.theme.secondaryDark"
+    ]
+  },
+  {
+    "name": "val secondaryLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.secondaryLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/secondary-light.html",
+    "searchKeys": [
+      "secondaryLight",
+      "val secondaryLight: Color",
+      "com.tecknobit.brownie.ui.theme.secondaryLight"
+    ]
+  },
+  {
+    "name": "val serviceAddedDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.serviceAddedDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/service-added-dark.html",
+    "searchKeys": [
+      "serviceAddedDark",
+      "val serviceAddedDark: Color",
+      "com.tecknobit.brownie.ui.theme.serviceAddedDark"
+    ]
+  },
+  {
+    "name": "val serviceAddedLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.serviceAddedLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/service-added-light.html",
+    "searchKeys": [
+      "serviceAddedLight",
+      "val serviceAddedLight: Color",
+      "com.tecknobit.brownie.ui.theme.serviceAddedLight"
+    ]
+  },
+  {
+    "name": "val serviceDeletedDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.serviceDeletedDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/service-deleted-dark.html",
+    "searchKeys": [
+      "serviceDeletedDark",
+      "val serviceDeletedDark: Color",
+      "com.tecknobit.brownie.ui.theme.serviceDeletedDark"
+    ]
+  },
+  {
+    "name": "val serviceDeletedLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.serviceDeletedLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/service-deleted-light.html",
+    "searchKeys": [
+      "serviceDeletedLight",
+      "val serviceDeletedLight: Color",
+      "com.tecknobit.brownie.ui.theme.serviceDeletedLight"
+    ]
+  },
+  {
+    "name": "val serviceRemovedDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.serviceRemovedDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/service-removed-dark.html",
+    "searchKeys": [
+      "serviceRemovedDark",
+      "val serviceRemovedDark: Color",
+      "com.tecknobit.brownie.ui.theme.serviceRemovedDark"
+    ]
+  },
+  {
+    "name": "val serviceRemovedLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.serviceRemovedLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/service-removed-light.html",
+    "searchKeys": [
+      "serviceRemovedLight",
+      "val serviceRemovedLight: Color",
+      "com.tecknobit.brownie.ui.theme.serviceRemovedLight"
+    ]
+  },
+  {
+    "name": "val servicesState: PaginationState<Int, HostService>",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.servicesState",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/services-state.html",
+    "searchKeys": [
+      "servicesState",
+      "val servicesState: PaginationState<Int, HostService>",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.servicesState"
+    ]
+  },
+  {
+    "name": "val statusFilters: SnapshotStateList<HostStatus>",
+    "description": "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.statusFilters",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.hosts.presentation/-hosts-screen-view-model/status-filters.html",
+    "searchKeys": [
+      "statusFilters",
+      "val statusFilters: SnapshotStateList<HostStatus>",
+      "com.tecknobit.brownie.ui.screens.hosts.presentation.HostsScreenViewModel.statusFilters"
+    ]
+  },
+  {
+    "name": "val statusFilters: SnapshotStateList<ServiceStatus>",
+    "description": "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.statusFilters",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.presentation/-host-screen-view-model/status-filters.html",
+    "searchKeys": [
+      "statusFilters",
+      "val statusFilters: SnapshotStateList<ServiceStatus>",
+      "com.tecknobit.brownie.ui.screens.host.presentation.HostScreenViewModel.statusFilters"
+    ]
+  },
+  {
+    "name": "val storageUsage: StorageUsage",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.storageUsage",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/storage-usage.html",
+    "searchKeys": [
+      "storageUsage",
+      "val storageUsage: StorageUsage",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.storageUsage"
+    ]
+  },
+  {
+    "name": "val surfaceBrightDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceBrightDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-bright-dark.html",
+    "searchKeys": [
+      "surfaceBrightDark",
+      "val surfaceBrightDark: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceBrightDark"
+    ]
+  },
+  {
+    "name": "val surfaceBrightLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceBrightLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-bright-light.html",
+    "searchKeys": [
+      "surfaceBrightLight",
+      "val surfaceBrightLight: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceBrightLight"
+    ]
+  },
+  {
+    "name": "val surfaceContainerDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceContainerDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-container-dark.html",
+    "searchKeys": [
+      "surfaceContainerDark",
+      "val surfaceContainerDark: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceContainerDark"
+    ]
+  },
+  {
+    "name": "val surfaceContainerHighDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceContainerHighDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-container-high-dark.html",
+    "searchKeys": [
+      "surfaceContainerHighDark",
+      "val surfaceContainerHighDark: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceContainerHighDark"
+    ]
+  },
+  {
+    "name": "val surfaceContainerHighLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceContainerHighLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-container-high-light.html",
+    "searchKeys": [
+      "surfaceContainerHighLight",
+      "val surfaceContainerHighLight: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceContainerHighLight"
+    ]
+  },
+  {
+    "name": "val surfaceContainerHighestDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceContainerHighestDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-container-highest-dark.html",
+    "searchKeys": [
+      "surfaceContainerHighestDark",
+      "val surfaceContainerHighestDark: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceContainerHighestDark"
+    ]
+  },
+  {
+    "name": "val surfaceContainerHighestLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceContainerHighestLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-container-highest-light.html",
+    "searchKeys": [
+      "surfaceContainerHighestLight",
+      "val surfaceContainerHighestLight: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceContainerHighestLight"
+    ]
+  },
+  {
+    "name": "val surfaceContainerLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceContainerLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-container-light.html",
+    "searchKeys": [
+      "surfaceContainerLight",
+      "val surfaceContainerLight: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceContainerLight"
+    ]
+  },
+  {
+    "name": "val surfaceContainerLowDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceContainerLowDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-container-low-dark.html",
+    "searchKeys": [
+      "surfaceContainerLowDark",
+      "val surfaceContainerLowDark: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceContainerLowDark"
+    ]
+  },
+  {
+    "name": "val surfaceContainerLowLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceContainerLowLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-container-low-light.html",
+    "searchKeys": [
+      "surfaceContainerLowLight",
+      "val surfaceContainerLowLight: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceContainerLowLight"
+    ]
+  },
+  {
+    "name": "val surfaceContainerLowestDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceContainerLowestDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-container-lowest-dark.html",
+    "searchKeys": [
+      "surfaceContainerLowestDark",
+      "val surfaceContainerLowestDark: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceContainerLowestDark"
+    ]
+  },
+  {
+    "name": "val surfaceContainerLowestLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceContainerLowestLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-container-lowest-light.html",
+    "searchKeys": [
+      "surfaceContainerLowestLight",
+      "val surfaceContainerLowestLight: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceContainerLowestLight"
+    ]
+  },
+  {
+    "name": "val surfaceDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-dark.html",
+    "searchKeys": [
+      "surfaceDark",
+      "val surfaceDark: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceDark"
+    ]
+  },
+  {
+    "name": "val surfaceDimDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceDimDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-dim-dark.html",
+    "searchKeys": [
+      "surfaceDimDark",
+      "val surfaceDimDark: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceDimDark"
+    ]
+  },
+  {
+    "name": "val surfaceDimLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceDimLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-dim-light.html",
+    "searchKeys": [
+      "surfaceDimLight",
+      "val surfaceDimLight: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceDimLight"
+    ]
+  },
+  {
+    "name": "val surfaceLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-light.html",
+    "searchKeys": [
+      "surfaceLight",
+      "val surfaceLight: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceLight"
+    ]
+  },
+  {
+    "name": "val surfaceVariantDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceVariantDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-variant-dark.html",
+    "searchKeys": [
+      "surfaceVariantDark",
+      "val surfaceVariantDark: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceVariantDark"
+    ]
+  },
+  {
+    "name": "val surfaceVariantLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.surfaceVariantLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/surface-variant-light.html",
+    "searchKeys": [
+      "surfaceVariantLight",
+      "val surfaceVariantLight: Color",
+      "com.tecknobit.brownie.ui.theme.surfaceVariantLight"
+    ]
+  },
+  {
+    "name": "val tertiaryContainerDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.tertiaryContainerDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/tertiary-container-dark.html",
+    "searchKeys": [
+      "tertiaryContainerDark",
+      "val tertiaryContainerDark: Color",
+      "com.tecknobit.brownie.ui.theme.tertiaryContainerDark"
+    ]
+  },
+  {
+    "name": "val tertiaryContainerLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.tertiaryContainerLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/tertiary-container-light.html",
+    "searchKeys": [
+      "tertiaryContainerLight",
+      "val tertiaryContainerLight: Color",
+      "com.tecknobit.brownie.ui.theme.tertiaryContainerLight"
+    ]
+  },
+  {
+    "name": "val tertiaryDark: Color",
+    "description": "com.tecknobit.brownie.ui.theme.tertiaryDark",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/tertiary-dark.html",
+    "searchKeys": [
+      "tertiaryDark",
+      "val tertiaryDark: Color",
+      "com.tecknobit.brownie.ui.theme.tertiaryDark"
+    ]
+  },
+  {
+    "name": "val tertiaryLight: Color",
+    "description": "com.tecknobit.brownie.ui.theme.tertiaryLight",
+    "location": "-brownie/com.tecknobit.brownie.ui.theme/tertiary-light.html",
+    "searchKeys": [
+      "tertiaryLight",
+      "val tertiaryLight: Color",
+      "com.tecknobit.brownie.ui.theme.tertiaryLight"
+    ]
+  },
+  {
+    "name": "val type: HostEventType",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.HostHistoryEvent.type",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-saved-host-overview/-host-history-event/type.html",
+    "searchKeys": [
+      "type",
+      "val type: HostEventType",
+      "com.tecknobit.brownie.ui.screens.host.data.SavedHostOverview.HostHistoryEvent.type"
+    ]
+  },
+  {
+    "name": "val type: ServiceEventType",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceEvent.type",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/-service-event/type.html",
+    "searchKeys": [
+      "type",
+      "val type: ServiceEventType",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.ServiceEvent.type"
+    ]
+  },
+  {
+    "name": "val type: StorageType",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.StorageUsage.type",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-storage-usage/type.html",
+    "searchKeys": [
+      "type",
+      "val type: StorageType",
+      "com.tecknobit.brownie.ui.screens.host.data.StorageUsage.type"
+    ]
+  },
+  {
+    "name": "var hostAddress: String",
+    "description": "com.tecknobit.brownie.helpers.BrownieLocalSession.hostAddress",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/host-address.html",
+    "searchKeys": [
+      "hostAddress",
+      "var hostAddress: String",
+      "com.tecknobit.brownie.helpers.BrownieLocalSession.hostAddress"
+    ]
+  },
+  {
+    "name": "var joinCode: String",
+    "description": "com.tecknobit.brownie.helpers.BrownieLocalSession.joinCode",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/join-code.html",
+    "searchKeys": [
+      "joinCode",
+      "var joinCode: String",
+      "com.tecknobit.brownie.helpers.BrownieLocalSession.joinCode"
+    ]
+  },
+  {
+    "name": "var language: String",
+    "description": "com.tecknobit.brownie.helpers.BrownieLocalSession.language",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/language.html",
+    "searchKeys": [
+      "language",
+      "var language: String",
+      "com.tecknobit.brownie.helpers.BrownieLocalSession.language"
+    ]
+  },
+  {
+    "name": "var pid: Long",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.pid",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/pid.html",
+    "searchKeys": [
+      "pid",
+      "var pid: Long",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.pid"
+    ]
+  },
+  {
+    "name": "var sessionId: String?",
+    "description": "com.tecknobit.brownie.helpers.BrownieLocalSession.sessionId",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/session-id.html",
+    "searchKeys": [
+      "sessionId",
+      "var sessionId: String?",
+      "com.tecknobit.brownie.helpers.BrownieLocalSession.sessionId"
+    ]
+  },
+  {
+    "name": "var sessionId: String?",
+    "description": "com.tecknobit.brownie.helpers.BrownieRequester.sessionId",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-requester/session-id.html",
+    "searchKeys": [
+      "sessionId",
+      "var sessionId: String?",
+      "com.tecknobit.brownie.helpers.BrownieRequester.sessionId"
+    ]
+  },
+  {
+    "name": "var status: ServiceStatus",
+    "description": "com.tecknobit.brownie.ui.screens.host.data.HostService.status",
+    "location": "-brownie/com.tecknobit.brownie.ui.screens.host.data/-host-service/status.html",
+    "searchKeys": [
+      "status",
+      "var status: ServiceStatus",
+      "com.tecknobit.brownie.ui.screens.host.data.HostService.status"
+    ]
+  },
+  {
+    "name": "var theme: EquinoxLocalUser.ApplicationTheme",
+    "description": "com.tecknobit.brownie.helpers.BrownieLocalSession.theme",
+    "location": "-brownie/com.tecknobit.brownie.helpers/-brownie-local-session/theme.html",
+    "searchKeys": [
+      "theme",
+      "var theme: EquinoxLocalUser.ApplicationTheme",
+      "com.tecknobit.brownie.helpers.BrownieLocalSession.theme"
+    ]
+  }
+]

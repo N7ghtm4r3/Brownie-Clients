@@ -1,14 +1,10 @@
-@file:OptIn(
-    ExperimentalLayoutApi::class, ExperimentalComposeApi::class,
-    ExperimentalMaterial3Api::class, ExperimentalMultiplatform::class
-)
+@file:OptIn(ExperimentalMaterial3Api::class)
 
 package com.tecknobit.brownie.ui.screens.adminpanel.presenter
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -37,7 +33,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -86,7 +81,7 @@ import org.jetbrains.compose.resources.stringResource
  * allows to customize the preferences of the user
  *
  * @author N7ghtm4r3 - Tecknobit
- * @see com.tecknobit.equinoxcompose.session.EquinoxScreen
+ * @see com.tecknobit.equinoxcompose.session.screens.EquinoxScreen
  */
 class AdminPanelScreen : EquinoxScreen<AdminPanelScreenViewModel>(
     viewModel = AdminPanelScreenViewModel()
